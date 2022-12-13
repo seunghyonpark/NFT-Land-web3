@@ -6,11 +6,11 @@ function Footer() {
 			Made by{" "}
 			<a
 				className=" font-semibold text-blue-900"
-				href="https://github.com/hoomantalakian"
+				href="https://ggdgame.saltmarble.io/"
 				target="_blank"
 				rel="noreferrer"
 			>
-				Hooman Talakian
+				Nuk Labs
 			</a>
 		</footer>
 	);
