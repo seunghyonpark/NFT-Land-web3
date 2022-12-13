@@ -17,7 +17,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 					className="w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 				/>
 				{/* for test */}
-				<p className="mt-2">for test: 0x3f516a35564c309a4baa12183db70df8e95a763d</p>
+				<p className="mt-2">for test: 0x73d4dbc43b95cf2290b6f90c4d7a4bac22658e24</p>
 				<button
 					onClick={fetchNFTs}
 					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
