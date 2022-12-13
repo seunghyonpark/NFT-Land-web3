@@ -5,7 +5,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./">NFT Land </a>
+				<a href="./">GDX Staking Service</a>
 			</h1>
 			{/* find NFT's form */}
 			<form className="mt-5 flex flex-col">
