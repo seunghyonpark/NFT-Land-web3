@@ -23,10 +23,10 @@ export default function Home({
 		>
 			<Script src={scriptAddress} />
 			<Head>
-				<title>NFT Land</title>
+				<title>GDX Staking Service</title>
 				<meta
-					name="NFT Land"
-					content="A simple web-app for Eplore NFT"
+					name="GDX Staking Service"
+					content="A simple web-app for Staking NFT"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
