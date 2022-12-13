@@ -10,7 +10,7 @@ function Footer() {
 				target="_blank"
 				rel="noreferrer"
 			>
-				Nuk Labs
+				© 2022 SML. All rights reserved.
 			</a>
 		</footer>
 	);
