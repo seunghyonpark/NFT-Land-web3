@@ -26,7 +26,19 @@ export default function Home({
 				<title>GDX Staking Service</title>
 				<meta
 					name="GDX Staking Service"
-					content="A simple web-app for Staking NFT"
+					content="A simple dApp for Staking NFT"
+				/>
+				<meta
+					property="og:title"
+					content="GDX Staking Service"
+				/>
+				<meta
+					property="og:image"
+					content="https://gdx.nuklabs.xyz/gdx.jpeg"
+				/>
+				<meta
+					property="og:description"
+					content="A simple dApp for Staking NFT"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
