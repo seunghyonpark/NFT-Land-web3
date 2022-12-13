@@ -28,6 +28,8 @@ export default function Home({
 					name="GDX Staking Service"
 					content="A simple dApp for Staking NFT"
 				/>
+				<link rel="icon" href="/favicon.ico" />
+
 				<meta
 					property="og:title"
 					content="GDX Staking Service"
@@ -40,7 +42,6 @@ export default function Home({
 					property="og:description"
 					content="A simple dApp for Staking NFT"
 				/>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header {...{ address, setAddress, fetchNFTs }} />
 			<Main
