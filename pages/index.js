@@ -30,6 +30,15 @@ export default function Home({
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
+				{/* Open Graph / Facebook */}
+				<meta
+					property="og:type"
+					content="website"
+				/>
+				<meta
+					property="og:url"
+					content="https://gdx.nuklabs.xyz/"
+				/>
 				<meta
 					property="og:title"
 					content="GDX Staking Service"
