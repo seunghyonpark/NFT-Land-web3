@@ -1,4 +1,5 @@
 import React from "react";
+import router from "next/router";
 
 function StakingHeader({ address, setAddress, fetchNFTs }) {
 
@@ -31,6 +32,14 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 				>
 					Find NFTs !
 				</button>
+
+				<button
+					onClick={() => router.push("/")}
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+					Home
+				</button>
+
 			</form>
 		</header>
 	);

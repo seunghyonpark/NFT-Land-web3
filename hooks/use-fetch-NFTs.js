@@ -8,7 +8,7 @@ function useFetchNFTs(address) {
 	const fetchNFTs = async (e) => {
 		
 		// this error
-		//e.preventDefault();
+		e.preventDefault();
 
 		if (address === "") {
 			alert("Please provide Wallet Address!");
