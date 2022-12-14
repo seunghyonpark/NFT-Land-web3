@@ -1,18 +1,18 @@
 import Head from "next/head";
 import { useState } from "react";
 import Script from "next/script";
-import Header from "../components/Header.jsx";
-import Main from "../components/Main.jsx";
+import StakingHeader from "../components/StakingHeader.jsx";
+import StakingMain from "../components/StakingMain.jsx";
 import Footer from "../components/Footer.jsx";
 import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
 //-----------------------------
-export default function Home({
+export default function Staking({
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
 }) {
-	const [address, setAddress] = useState("");
+	const [address, setAddress] = useState("0x6ee920d88e04ce17565e4dbcdd60befa8a29337c");
 	// fetch data handler
 	const { data, isInHome, isLoading, fetchNFTs } = useFetchNFTs(address);
 	//
@@ -53,9 +53,9 @@ export default function Home({
 					content="A simple dApp for Staking NFT"
 				/>
 			</Head>
-			
-			<Header {...{ address, setAddress, fetchNFTs }} />
-			<Main
+
+			<StakingHeader {...{ address, setAddress, fetchNFTs }} />
+			<StakingMain
 				{...{
 					data,
 					isInHome,
@@ -79,7 +79,7 @@ export function getStaticProps() {
 	let cryptoTowerAddress =
 		//"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
 		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
-
+		
 	let loadingCubesAddress =
 		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
 

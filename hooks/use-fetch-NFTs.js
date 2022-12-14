@@ -6,7 +6,10 @@ function useFetchNFTs(address) {
 	const [isInHome, setIsInHome] = useState(true);
 
 	const fetchNFTs = async (e) => {
-		e.preventDefault();
+		
+		// this error
+		//e.preventDefault();
+
 		if (address === "") {
 			alert("Please provide Wallet Address!");
 			return;
@@ -16,15 +19,26 @@ function useFetchNFTs(address) {
 		setIsInHome(false);
 
 		try {
+
+			console.log("cccccc");
+
 			const response = await fetch(`/api/get-nfts?wallet=${address}`);
+
+
+			console.log("aaa");
+
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
 				setIsLoading(false);
 				setIsInHome(true);
 				return;
 			}
+
+			console.log("bbb");
+
 			const data = await response.json();
 
+			console.log(data);
 
 			if (data.data.totalCount == 0) {
 				setIsInHome(true);
@@ -46,10 +60,12 @@ function useFetchNFTs(address) {
 			return;
 
 		} catch (err) {
-			alert("There was an error fetching NFTs!");
+			console.log(err);
+			alert("There was an error fetching NFTs!----");
 			return;
 		}
 	};
+
 	return { fetchNFTs, data, isInHome, isLoading };
 }
 

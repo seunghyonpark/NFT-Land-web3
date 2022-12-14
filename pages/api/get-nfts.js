@@ -60,21 +60,22 @@ export default async function handler(req, res) {
 
 		const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df';
 		const  contractName = 'GOGODINO Official';
-		const ownerAddress = '0x73d4dbc43b95cf2290b6f90c4d7a4bac22658e24';
+
 		const query = {
-			size: 1000,
+			size: 10,
 			cursor: 'PdOALgqNme5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
 		//console.log(query);
 
-		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, ownerAddress, query);
+		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, query);
+		//const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet);
 		//const data = await caver.kas.tokenHistory.getNFTList(contractAddress, query);
 		
 		// error !!!!!!
-		//const data = await caver.kas.kip17.getTokenListByOwner(contractAddress, ownerAddress); 
+		//const data = await caver.kas.kip17.getTokenListByOwner(contractAddress, wallet); 
 	
-		console.log(data);
+		//console.log(data);
 
 
 
@@ -84,7 +85,7 @@ export default async function handler(req, res) {
 		for(let idx=0; idx < data.items.length; idx++){
 		
 
-			console.log(data.items[idx]);
+			//console.log(data.items[idx]);
 
 			const nft = new Object();
 
@@ -93,8 +94,8 @@ export default async function handler(req, res) {
 			try {
 
 				//nft.owner = data.itmes[idx].owner;  error
-				
-				nft.owner = ownerAddress;
+
+				nft.owner = wallet;
 
 				const response = await fetch(data.items[idx].tokenUri);
 
@@ -106,8 +107,8 @@ export default async function handler(req, res) {
 
 					const jsonTokenUri = await response.json();
 
-					console.log(jsonTokenUri.name);
-					console.log(jsonTokenUri.image);
+					//console.log(jsonTokenUri.name);
+					//console.log(jsonTokenUri.image);
 
 
 					const media = new Array() ;
@@ -154,7 +155,7 @@ export default async function handler(req, res) {
 
 		aaa.ownedNfts = ownedNfts;
 
-		//console.log(JSON.stringify(aaa));
+		console.log(aaa);
 
 		/*
 
@@ -200,6 +201,9 @@ balance: 1
 		*/
 
 		res.json({ message: "Fetch successful!", data:  aaa});
+
+		console.log("kkkkk");
+
 
 	} catch (err) {
 		res.status(500).json({ message: "Internal Server Error!" });
