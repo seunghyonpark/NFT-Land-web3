@@ -19,6 +19,7 @@ function Main({
 					<NFTCard key={uuidv4()} data={nft}></NFTCard>
 				))}
 			</cards>
+			
 
 			{/* home page animation */}
 			{isInHome && (
