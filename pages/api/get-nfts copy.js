@@ -59,17 +59,16 @@ export default async function handler(req, res) {
 
 
 		const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df';
-		const  contractName = 'GOGODINO Official';
 		const ownerAddress = '0x73d4dbc43b95cf2290b6f90c4d7a4bac22658e24';
 		const query = {
 			size: 1000,
 			cursor: 'PdOALgqNme5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
-		//console.log(query);
+		console.log(query);
 
-		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, ownerAddress, query);
-		//const data = await caver.kas.tokenHistory.getNFTList(contractAddress, query);
+		//const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, ownerAddress, query);
+		const data = await caver.kas.tokenHistory.getNFTList(contractAddress, query);
 		
 		// error !!!!!!
 		//const data = await caver.kas.kip17.getTokenListByOwner(contractAddress, ownerAddress); 
@@ -88,14 +87,7 @@ export default async function handler(req, res) {
 
 			const nft = new Object();
 
-			
-
 			try {
-
-				//nft.owner = data.itmes[idx].owner;  error
-				
-				nft.owner = ownerAddress;
-
 				const response = await fetch(data.items[idx].tokenUri);
 
 				//console.log(response);
@@ -104,10 +96,10 @@ export default async function handler(req, res) {
 
 				if (response.ok) {
 
-					const jsonTokenUri = await response.json();
+					const data = await response.json();
 
-					console.log(jsonTokenUri.name);
-					console.log(jsonTokenUri.image);
+					console.log(data.name);
+					console.log(data.image);
 
 
 					const media = new Array() ;
@@ -116,22 +108,20 @@ export default async function handler(req, res) {
 					// 객체 생성
 					const mediadata = new Object() ;
 					
-					mediadata.gateway = jsonTokenUri.image;
+					mediadata.gateway = data.image;
 					
 					// 리스트에 생성된 객체 삽입
 					media.push(mediadata);
 
 
-					
-
-					nft.title = jsonTokenUri.name;
-					nft.tokenId = jsonTokenUri.tokenId;
+					nft.title = data.name;
+					nft.tokenId = data.tokenId;
 
 					nft.media = media;
 
 					const contract = new Object();
-					contract.address = contractAddress;
-					contract.name = contractName;
+					contract.address = "0x06c3afb91acd3e383795441f30ca39780fab65a6";
+					contract.name = "Skell Yeah";
 
 
 					nft.contract = contract;
@@ -194,10 +184,9 @@ balance: 1
 
 		//res.json({ message: "Fetch successful!", data: results });
 
-		/*
 		const fs = require('fs');
-		fs.writeFileSync('./' + contractAddress + '.json', JSON.stringify(aaa));
-		*/
+		fs.writeFileSync('./' + contractAddress + '.json', JSON.stringify(data));
+		
 
 		res.json({ message: "Fetch successful!", data:  aaa});
 

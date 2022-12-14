@@ -5,6 +5,7 @@ import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
 import Footer from "../components/Footer.jsx";
 import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
+
 //-----------------------------
 export default function Home({
 	scriptAddress,
@@ -67,19 +68,19 @@ export default function Home({
 		</wholepage>
 	);
 }
+
 //  --------------------------------
 export function getStaticProps() {
 	// async/await testing!
 	let scriptAddress =
 		"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+
 	let cryptoTowerAddress =
 		//"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
 		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+		
 	let loadingCubesAddress =
 		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
-
-
-
 
 	return {
 		props: {

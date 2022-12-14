@@ -22,13 +22,16 @@ function NFTCard({ data }) {
 					<i>&lt; no title &gt;</i>
 				)}
 			</div>
+
 			{/* contract info */}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
-					{data.contract.address}
+					Contract: {data.contract.address}
 				</div>
+
 				<button
 					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
+
 					onClick={() =>
 						navigator.clipboard.writeText(data.contract.address)
 					}
@@ -36,6 +39,26 @@ function NFTCard({ data }) {
 					<p className="font-medium">Copy</p>
 				</button>
 			</div>
+
+			{/* staking info */}
+			<div className="mt-2 flex table-fixed flex-row justify-center">
+				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
+					{/*data.contract.address*/}
+
+					Holder: {data.owner}
+				</div>
+
+				<button
+					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
+
+					//onClick={() =>
+					//	navigator.clipboard.writeText(data.contract.address)
+					//}
+				>
+					<p className="font-medium">Staking</p>
+				</button>
+			</div>
+
 		</div>
 	);
 }
