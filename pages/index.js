@@ -55,8 +55,8 @@ export function getStaticProps() {
 		"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
 
 	let cryptoTowerAddress =
-		//"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
-		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+		"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
+		//"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
 
 	let loadingCubesAddress =
 		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";

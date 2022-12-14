@@ -43,7 +43,7 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 				*/}
 
 				<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-					<a href="./">Home</a>
+					<a href="./">go Home</a>
 				</h3>
 
 			</form>

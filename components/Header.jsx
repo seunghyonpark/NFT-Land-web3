@@ -46,7 +46,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 			</button>
 		*/}
 				<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-					<a href="./staking">Staking</a>
+					<a href="./staking">go Staking</a>
 				</h3>
 
 		</header>
