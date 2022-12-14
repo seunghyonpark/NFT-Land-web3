@@ -30,28 +30,6 @@ export default function Staking({
 					content="A simple dApp for Staking NFT"
 				/>
 				<link rel="icon" href="/favicon.ico" />
-
-				{/* Open Graph / Facebook */}
-				<meta
-					property="og:type"
-					content="website"
-				/>
-				<meta
-					property="og:url"
-					content="https://gdx.nuklabs.xyz/"
-				/>
-				<meta
-					property="og:title"
-					content="GDX Staking Service"
-				/>
-				<meta
-					property="og:image"
-					content="https://gdx.nuklabs.xyz/gdx.jpeg"
-				/>
-				<meta
-					property="og:description"
-					content="A simple dApp for Staking NFT"
-				/>
 			</Head>
 
 			<StakingHeader {...{ address, setAddress, fetchNFTs }} />

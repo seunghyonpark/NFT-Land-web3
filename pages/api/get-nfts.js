@@ -137,6 +137,8 @@ export default async function handler(req, res) {
 
 					nft.contract = contract;
 
+					nft.description = "";
+
 					ownedNfts.push(nft);
 
 			
@@ -155,7 +157,7 @@ export default async function handler(req, res) {
 
 		aaa.ownedNfts = ownedNfts;
 
-		console.log(aaa);
+		//console.log(aaa);
 
 		/*
 

@@ -37,12 +37,17 @@ function Header({ address, setAddress, fetchNFTs }) {
 			</button>
 		*/}
 
+		{/*
 			<button
 				onClick={() => router.push("/staking")}
 				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 			>
 				Stake my NFT
 			</button>
+		*/}
+				<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
+					<a href="./staking">Staking</a>
+				</h3>
 
 		</header>
 	);

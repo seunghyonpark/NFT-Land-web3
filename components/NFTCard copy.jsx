@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 // --------------------------
-function NFTCard({ data }) {
+function NFTCardBBB({ data }) {
 	return (
 		<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3  sm:m-0 sm:max-w-lg ">
 			<Image
@@ -39,4 +39,4 @@ function NFTCard({ data }) {
 	);
 }
 
-export default NFTCard;
+export default NFTCardBBB;
