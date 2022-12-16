@@ -1002,6 +1002,11 @@
   resolved "https://registry.npmjs.org/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
+"@vercel/edge-config@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@vercel/edge-config/-/edge-config-0.1.0.tgz#f966360686e31e47eb3cffc3b36fb26e862fe325"
+  integrity sha512-1kN/09w5gjjWquXZGdVAavoB+VwF0RukdcIIuuTFtPPPQsl7IXa9KM3d04YLxKbp+VDQLVOaNmvLfkmVbMEW8A==
+
 "@web3-js/scrypt-shim@0.1.0":
   version "0.1.0"
   resolved "https://registry.npmjs.org/@web3-js/scrypt-shim/-/scrypt-shim-0.1.0.tgz"
