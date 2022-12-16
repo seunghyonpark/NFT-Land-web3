@@ -65,7 +65,7 @@ export default async function handler(req, res) {
 		const  contractName = 'GOGODINO Official';
 
 		const query = {
-			size: 10,
+			size: 100,
 			cursor: 'PdOALgqNme5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
