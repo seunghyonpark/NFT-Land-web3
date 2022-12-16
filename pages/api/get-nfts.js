@@ -14,7 +14,8 @@ const alchemy = new Alchemy({
 });
 
 
-const chainId = "8217";
+//const chainId = "8217"; // cypress
+const chainId = "1001"; // baobab
 const accessKeyId = "KASK7LN9R0ADR0L3SP4GVN79";
 const secretAccessKey = "pam2QVYUTV1iqL77sxBbTSKsBHc2ZPw6mFUHScFm";
 // Set an authorization through 'caver.initKASAPI' function
@@ -58,7 +59,9 @@ export default async function handler(req, res) {
 		console.log(wallet);
 
 
-		const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df';
+		//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
+		const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
+		
 		const  contractName = 'GOGODINO Official';
 
 		const query = {
