@@ -78,7 +78,7 @@ export default async function handler(req, res) {
 		// error !!!!!!
 		//const data = await caver.kas.kip17.getTokenListByOwner(contractAddress, wallet); 
 	
-		//console.log(data);
+		console.log(data);
 
 
 

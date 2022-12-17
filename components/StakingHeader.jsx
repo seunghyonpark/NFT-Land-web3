@@ -25,7 +25,7 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 					className="w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 				/>
 				{/* for test */}
-				<p className="mt-2">for test: 0x6ee920d88e04ce17565e4dbcdd60befa8a29337c</p>
+				<p className="mt-2">for test: 0xad87a8a48e59b1448dc2317fd7886f2d89132b71</p>
 				<button
 					onClick={fetchNFTs}
 					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
