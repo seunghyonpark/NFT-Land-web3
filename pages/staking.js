@@ -12,7 +12,7 @@ export default function Staking({
 	cryptoTowerAddress,
 	loadingCubesAddress,
 }) {
-	const [address, setAddress] = useState("0x6ee920d88e04ce17565e4dbcdd60befa8a29337c");
+	const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
 	// fetch data handler
 	const { data, isInHome, isLoading, fetchNFTs } = useFetchNFTs(address);
 	//
