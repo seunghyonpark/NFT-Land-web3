@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.11.0",
     "@vercel/edge-config": "^0.1.0",
     "alchemy-sdk": "^2.2.1",
     "caver-js": "^1.9.0",

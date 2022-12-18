@@ -5,7 +5,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 	return (
 		<header className="mt-10">
 			{/* logotype */}
-			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
+			<h1 className="text-center text-6xl font-extrabold text-amber-400/50 drop-shadow-xl ">
 				<a href="./">GDX Staking Service</a>
 			</h1>
 			{/* find NFT's form */}
@@ -15,7 +15,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 					onChange={(e) => setAddress(e.target.value)}
 					type="text"
 					placeholder="Paste Wallet Address Here"
-					className="w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
+					className="w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem]"
 				/>
 				{/* for test */}
 				{/* cypress
@@ -52,9 +52,10 @@ function Header({ address, setAddress, fetchNFTs }) {
 				Stake my NFT
 			</button>
 		*/}
-				<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-					<a href="./staking">go Staking</a>
-				</h3>
+
+			<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./staking">go Staking</a>
+			</h3>
 
 		</header>
 	);

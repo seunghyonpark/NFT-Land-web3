@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Script from "next/script";
 import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
 import Footer from "../components/Footer.jsx";
 import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
+
 
 //-----------------------------
 export default function Home({
@@ -13,14 +14,70 @@ export default function Home({
 	loadingCubesAddress,
 }) {
 	const [address, setAddress] = useState("");
+
 	// fetch data handler
-	const { data, isInHome, isLoading, fetchNFTs } = useFetchNFTs(address);
+	const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
+
+
+
+	const setAccountInfo = async () => {
+		console.log("setAccountInfo");
+
+		const { klaytn } = window;
+		if (klaytn === undefined) return;
+	
+		const account = klaytn.selectedAddress;
+		//const balance = await caver.klay.getBalance(account);
+		/*
+		this.setState({
+		  account,
+		  balance: caver.utils.fromPeb(balance, 'KLAY'),
+		})
+		*/
+
+		setAddress(account);
+	}
+
+
+	const loadAccountInfo = async () => {
+
+		console.log("loadAccountInfo");
+
+		const { klaytn } = window;
+	
+		if (klaytn) {
+			try {
+				await klaytn.enable();
+
+				setAccountInfo();
+
+				//klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn));
+			} catch (error) {
+				console.log('User denied account access');
+			}
+		} else {
+			console.log('Non-Kaikas browser detected. You should consider trying Kaikas!');
+		}
+	}
+
+	/*
+	componentDidMount() {
+		this.loadAccountInfo();
+		//this.setNetworkInfo()
+	}
+	*/
+
+	useEffect(function () {
+		loadAccountInfo();
+	}, []);
+	
+
 	//
 	return (
 		<wholepage
-			className={`container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20 ${
-				data !== [] ? "justify-evenly" : "justify-between"
-			} `}
+			className={`container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20
+				${data !== [] ? "justify-evenly" : "justify-between"}
+			`}
 		>
 			<Script src={scriptAddress} />
 			<Head>
@@ -33,6 +90,7 @@ export default function Home({
 			</Head>
 			
 			<Header {...{ address, setAddress, fetchNFTs }} />
+			
 			<Main
 				{...{
 					data,
@@ -44,6 +102,7 @@ export default function Home({
 				}}
 			/>
 			<Footer />
+
 		</wholepage>
 	);
 }
