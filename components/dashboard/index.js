@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 
 import classes from "./index.module.css";
 
-function DashboardHeader({ address, setAddress, fetchNFTs }) {
+
+export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 
 	if (address) {
 		console.log("DashboardHeader address==="+address);
@@ -292,4 +293,4 @@ function DashboardHeader({ address, setAddress, fetchNFTs }) {
 	);
 }
 
-export default DashboardHeader;
+
