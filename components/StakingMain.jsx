@@ -9,6 +9,7 @@ function StakingMain({
 	cryptoTowerAddress,
 	loadingCubesAddress,
 }) {
+	
 	return (
 		<main>
 

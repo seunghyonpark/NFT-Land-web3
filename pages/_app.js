@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 
+//import '../styles/dashboard.css'
+
 import lightTheme from "../theme/light";
 import darkTheme from "../theme/dark";
 
@@ -8,12 +10,17 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 
+//import { NextIntlProvider } from "next-intl";
+
 // 
 function MyApp({ Component, pageProps }) {
 
-  console.log("MyApp");
+  //console.log("MyApp"); 
 
-  const [themeConfig, setThemeConfig] = useState(lightTheme);
+  
+  //const [themeConfig, setThemeConfig] = useState(lightTheme);
+
+  /*
   const router = useRouter();
 
   const changeTheme = (dark) => {
@@ -27,13 +34,18 @@ function MyApp({ Component, pageProps }) {
     );
     changeTheme(localStorageDarkMode ? localStorageDarkMode === "dark" : false);
   }, []);
-
+  */
 
 
   return (
-    <ThemeProvider theme={themeConfig}>
-      <Component {...pageProps} changeTheme={changeTheme} />
-    </ThemeProvider>
+
+   
+
+        <Component {...pageProps} />
+
+
+
+
   )
 
 }

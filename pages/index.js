@@ -13,32 +13,14 @@ export default function Home({
 	cryptoTowerAddress,
 	loadingCubesAddress,
 }) {
-	const [address, setAddress] = useState("");
+	
+	//const [address, setAddress] = useState("");
 
 	// fetch data handler
-	const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
+	//const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
 
 
-
-	const setAccountInfo = async () => {
-		console.log("setAccountInfo");
-
-		const { klaytn } = window;
-		if (klaytn === undefined) return;
-	
-		const account = klaytn.selectedAddress;
-		//const balance = await caver.klay.getBalance(account);
-		/*
-		this.setState({
-		  account,
-		  balance: caver.utils.fromPeb(balance, 'KLAY'),
-		})
-		*/
-
-		setAddress(account);
-	}
-
-
+	/*
 	const loadAccountInfo = async () => {
 
 		console.log("loadAccountInfo");
@@ -59,6 +41,7 @@ export default function Home({
 			console.log('Non-Kaikas browser detected. You should consider trying Kaikas!');
 		}
 	}
+	*/
 
 	/*
 	componentDidMount() {
@@ -67,9 +50,11 @@ export default function Home({
 	}
 	*/
 
+	/*
 	useEffect(function () {
-		loadAccountInfo();
+		//loadAccountInfo();
 	}, []);
+	*/
 	
 
 	//
@@ -80,6 +65,7 @@ export default function Home({
 			`}
 		>
 			<Script src={scriptAddress} />
+
 			<Head>
 				<title>GDX Staking Service</title>
 				<meta
@@ -89,8 +75,10 @@ export default function Home({
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			
+			{/*
 			<Header {...{ address, setAddress, fetchNFTs }} />
-			
+	*/}
+
 			<Main
 				{...{
 					data,
@@ -101,6 +89,7 @@ export default function Home({
 					loadingCubesAddress,
 				}}
 			/>
+
 			<Footer />
 
 		</wholepage>

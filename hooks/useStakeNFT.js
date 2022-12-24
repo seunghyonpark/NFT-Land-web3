@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function useFetchNFTs(address) {
+function useStakeNFT(address) {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isInHome, setIsInHome] = useState(true);
@@ -110,4 +110,4 @@ function useFetchNFTs(address) {
 	return { fetchNFTs, data, isInHome, isLoading };
 }
 
-export default useFetchNFTs;
+export default useStakeNFT;
