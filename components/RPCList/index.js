@@ -123,7 +123,7 @@ export default function RPCList({ chain }) {
           >
             this
           </a>{" "}
-          guide to change RPC endpoint's of Ethereum Mainnet
+          guide to change RPC endpoint&apos;s of Ethereum Mainnet
         </p>
       )}
     </Paper>
