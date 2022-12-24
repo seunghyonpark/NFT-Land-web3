@@ -14,10 +14,10 @@ export default function Home({
 	loadingCubesAddress,
 }) {
 	
-	//const [address, setAddress] = useState("");
+	const [address, setAddress] = useState("");
 
 	// fetch data handler
-	//const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
+	const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
 
 
 	/*
