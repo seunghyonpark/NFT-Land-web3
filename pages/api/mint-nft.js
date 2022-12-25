@@ -10,6 +10,9 @@ import { consoleLog } from "mocha/lib/reporters/base";
 
 import contractABI from "../../constants/contractABI.json";
 
+import { readFileSync, writeFileSync } from 'fs';
+import path from 'path';
+
 // ----------------------------
 /*
 const alchemy = new Alchemy({
@@ -28,6 +31,8 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
+//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
+const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
 
 
 /*
@@ -55,6 +60,7 @@ export default async function handler(req, res) {
 
 
 export default async function handler(req, res) {
+
 	try {
 		if (req.method !== "GET") {
 			return res.status(400).json({
@@ -68,8 +74,7 @@ export default async function handler(req, res) {
 
 
 
-		//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-		const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
+
 
 
 		//-------- mint -------------------
@@ -95,48 +100,50 @@ export default async function handler(req, res) {
 
 		
 
-		const privateKey = process.env.OWNER_PRIVATE_KEY;
-		const senderKeyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
-		//console.log("senderKeyring", senderKeyring);
+		const ownerPrivateKey = process.env.OWNER_PRIVATE_KEY;
 
-		//caver.wallet.add(senderKeyring);
+		const keyring = caver.wallet.keyring.createFromPrivateKey(ownerPrivateKey);
+		const address = keyring.address;
+		const key = keyring.key.privateKey;
 
-		/*
-		caver.klay.accounts.wallet.add({
-            privateKey: privateKey,
-            address: wallet
-          });
-		*/
-		/*
-		const keyring = caver.keyringContainer.keyring.generate();
-const address = keyring.address;
-const key = keyring.key.privateKey;
-		  */
-
-		const ret = await caver.kas.wallet.migrateAccounts([{ wallet, privateKey }]);
-
-		console.log("ret", ret);
+		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 
 
+		const ownerPublicKey = address;
+
+		
 		const gas = 150000000;
-
-		const ownerAddress = '0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71';
-
 
 		const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
 
 
+		const file = path.join(process.cwd(), 'posts', 'tokenId.json');
+		const jsonString = readFileSync(file, 'utf8');
+
+		let tokenId = JSON.parse(jsonString);
+
+		tokenId.current = tokenId.current + 1;
+		
+
+		console.log("tokenId.current", tokenId.current);
+
 		const receipt = await deployed.send(
-			{from: ownerAddress, gas},
+			{from: ownerPublicKey, gas},
 			'mintWithTokenURI',
 			wallet,
-			100,
-			`${baseURI}/100.json`
+			tokenId.current,
+			`${baseURI}/${tokenId.current}.json`
 		);
 
 		console.log("receipt", receipt);
+
+
+		console.log("senderTxHash", receipt.senderTxHash);
+
+		
+		writeFileSync(file, JSON.stringify(tokenId));
 
 		/*
 		
@@ -157,13 +164,27 @@ const key = keyring.key.privateKey;
 
 
 
+	} catch (err) {
+		console.log("err",err);
+		//res.status(500).json({ message: "Internal Server Error!" });
+	}
+
+
+
+
+
+	try {
+
+		const { wallet } = req.query;
+
+		console.log("wallet",wallet);
 		
 		const  contractName = 'GOGODINO Official';
 
 		
 		const query = {
 			size: 100,
-			cursor: 'PdOALgqNme5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
+			cursor: 'PdOALgqNme5a9vJ6aKDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 		
 
@@ -183,12 +204,10 @@ const key = keyring.key.privateKey;
 
 		const ownedNfts = new Array();
 
-		const stakingWallet = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db";
-
 
 		const nftQuery = {
 			size: 100,
-			cursor: 'PdOALgqNme5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
+			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
 		//console.log(query);
