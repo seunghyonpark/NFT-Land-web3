@@ -90,7 +90,6 @@ export function getStaticProps() {
 	const file = path.join(process.cwd(), 'posts', 'test.json');
 	const testData = readFileSync(file, 'utf8');
 
-
 	return {
 		props: {
 			scriptAddress,

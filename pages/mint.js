@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Script from "next/script";
-import DashboardHeader from "../components/dashboard/index.js";
-import StakingMain from "../components/StakingMain.jsx";
+import MintHeader from "../components/MintHeader/index.js";
+import MintMain from "../components/MintMain.jsx";
 import Footer from "../components/Footer.jsx";
-import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
+import useMintNFT from "../hooks/useMintNFT.js";
+//import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
 
 import { readFileSync } from 'fs';
@@ -15,7 +16,7 @@ import path from 'path';
 
 
 //-----------------------------
-export default function Dashboard({
+export default function Mint({
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -26,7 +27,9 @@ export default function Dashboard({
 	const [address, setAddress] = useState("");
 
 	// fetch data handler
-	const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
+	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
+
+	const { mintNFT, data, isInHome, isLoading } = useMintNFT(address);
 
 
 	
@@ -56,9 +59,9 @@ export default function Dashboard({
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<DashboardHeader {...{ address, setAddress, fetchNFTs }} />
+			<MintHeader {...{ address, setAddress, mintNFT }} />
 
-			<StakingMain
+			<MintMain
 				{...{
 					data,
 					isInHome,

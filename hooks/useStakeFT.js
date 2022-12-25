@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import contractABI from "../constants/contractABI.json";
-
-export default function useStakeNFT(tokenId) {
+export default function useStakeFT(tokenAmount) {
 	const [data, setData] = useState([]);
 	const [isInHome, setIsInHome] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
@@ -48,29 +46,21 @@ export default function useStakeNFT(tokenId) {
 
 
 
-	const depositNFT = async (e) => {
+	const depositFT = async (e) => {
 
 		e.preventDefault();
-
-		console.log("stakeNFT tokenId", tokenId);
-
-		if (tokenId === "") {
-			alert("Please provide tokenId!");
-			return;
-		}
 
 
 		setData([]);
 		setIsLoading(true);
 		setIsInHome(false);
 
-		/*
 		window.caver.klay
 			.sendTransaction({
 				type: 'VALUE_TRANSFER',
 				from: window.klaytn.selectedAddress,
 				to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
-				value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
+				value: window.caver.utils.toPeb(tokenAmount, 'KLAY'), // 1 클레이 전송
 				gas: 8000000
 			})
 			.once('transactionHash', transactionHash => {
@@ -81,7 +71,7 @@ export default function useStakeNFT(tokenId) {
 
 				//setData(receipt);
 
-				fetchNFTs();
+				//fetchNFTs();
 
 
 				setIsLoading(false);
@@ -94,41 +84,14 @@ export default function useStakeNFT(tokenId) {
 				setIsInHome(true);
 			})
 
-			*/
-			
 
 
-			// https://baobab.scope.klaytn.com/nft/0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b
-			const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
+		console.log("stakeNFT tokenId", tokenId);
 
-
-			const to = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db"; // Staking Wallet Address
-			const amount = 1000000000000000000n; // 토큰 1개
-			
-			const contract = new window.caver.klay.Contract(contractABI, contractAddress);
-			
-			console.log("contract", contract); // 컨트랙트 객체가 만들어졌다.
-			
-			// 토큰을 전송하는 매서드를 실행한다.
-			/*
-			const transfer = await contract.methods.transfer(to, amount).send({
-				from : window.klaytn.selectedAddress, 
-				gas: 8000000
-			}); 
-			*/
-
-			const from = window.klaytn.selectedAddress;
-
-
-			const transfer = await contract.methods.transferFrom(from, to, tokenId).send({
-				from : from, 
-				gas: 8000000
-			}); 
-
-			console.log("transfer", transfer);
-			
-
-
+		if (tokenId === "") {
+			alert("Please provide tokenId!");
+			return;
+		}
 
 
 
@@ -185,7 +148,7 @@ export default function useStakeNFT(tokenId) {
 	};
 
 
-	const withdrawNFT = async (e) => {
+	const withdrawFT = async (e) => {
 
 		e.preventDefault();
 
@@ -200,7 +163,7 @@ export default function useStakeNFT(tokenId) {
 				type: 'VALUE_TRANSFER',
 				from: window.klaytn.selectedAddress,
 				to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
-				value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
+				value: window.caver.utils.toPeb(tokenAmount, 'KLAY'), // 1 클레이 전송
 				gas: 8000000
 			})
 			.once('transactionHash', transactionHash => {
@@ -213,13 +176,6 @@ export default function useStakeNFT(tokenId) {
 				console.log('error', error);
 				alert("지불에 실패하셨습니다.");
 			})
-
-		console.log("stakeNFT tokenId", tokenId);
-
-		if (tokenId === "") {
-			alert("Please provide tokenId!");
-			return;
-		}
 
 
 
@@ -273,7 +229,7 @@ export default function useStakeNFT(tokenId) {
 
 	};
 
-	return { depositNFT, withdrawNFT, data, isInHome, isLoading };
+	return { depositFT, withdrawFT, data, isInHome, isLoading };
 }
 
 
