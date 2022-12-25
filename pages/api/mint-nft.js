@@ -96,6 +96,33 @@ export default async function handler(req, res) {
       'mintWithTokenURI', toAddress, 1, `${baseURI}/1`)
 		*/
 
+
+		/*
+		const keyringContainer = new caver.keyringContainer()
+const keyring = keyringContainer.add(keyringContainer.keyring.createFromPrivateKey(senderPrivateKey))
+
+const contractAddress ='0x...'
+const abi = [ {...}, {...}, ... ]
+
+const contract = caver.contract.create(abi, contractAddress)
+contract.setWallet(keyringContainer)
+contract.events.callevent(
+    {
+        fromBlock: 61517244,
+        toBlock: 'latest',
+    },
+    (error, data) => {
+        console.log(`callevent: ${data}`)
+    }
+)
+
+const options = {
+    from: keyring.address,
+    gas: 30000,
+}
+await contract.methods.say().send(options)
+*/
+
 		
 
 
@@ -116,6 +143,15 @@ export default async function handler(req, res) {
 		const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
+
+		/*
+		deployed.events
+		.allEvents()
+		.on('data', event => {
+			console.log("event", event);
+		})
+		.on('error', console.error)
+		*/
 
 
 
@@ -138,9 +174,28 @@ export default async function handler(req, res) {
 		console.log("receipt", receipt);
 
 
-		console.log("senderTxHash", receipt.senderTxHash);
+		console.log("blockNumber", receipt.blockNumber);
 
 		
+		deployed.events
+		.allEvents()
+		.on('data', event => {
+			console.log("event", event);
+		})
+		.on('error', console.error)
+
+			/*
+		deployed.events.callevent(
+			{
+				fromBlock: receipt.blockNumber,
+				toBlock: 'latest',
+			},
+			(error, data) => {
+				console.log(`callevent: ${data}`);
+			}
+		)
+			*/
+
 
 		/*
 		
@@ -226,22 +281,15 @@ export default async function handler(req, res) {
 
 		for(let idx=0; idx < data.items.length; idx++){
 		
-
 			//console.log(data.items[idx]);
+
 
 			const nft = new Object();
 
-			
-
 			try {
-
 				//nft.owner = data.itmes[idx].owner;  error
 
 				nft.owner = wallet;
-
-				const response = await fetch(data.items[idx].tokenUri);
-
-				//console.log(response);
 
 				const contract = new Object();
 				contract.address = contractAddress;
@@ -250,6 +298,9 @@ export default async function handler(req, res) {
 
 				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
 
+
+				const response = await fetch(data.items[idx].tokenUri);
+
 				if (response.ok) {
 
 					const jsonTokenUri = await response.json();
@@ -257,10 +308,8 @@ export default async function handler(req, res) {
 					//console.log(jsonTokenUri.name);
 					//console.log(jsonTokenUri.image);
 
-
 					const media = new Array() ;
 			
-						
 					// 객체 생성
 					const mediadata = new Object() ;
 					
@@ -280,7 +329,7 @@ export default async function handler(req, res) {
 
 
 					nft.staking = "false";
-					ownedNfts.push(nft);
+					
 
 			
 				} else {
@@ -292,8 +341,8 @@ export default async function handler(req, res) {
 				//return;
 				console.log("err",err);
 			}
-
-
+			
+			ownedNfts.push(nft);
 		}
 
 		const aaa = new Object();
