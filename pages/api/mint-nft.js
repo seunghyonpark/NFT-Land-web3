@@ -10,8 +10,6 @@ import { consoleLog } from "mocha/lib/reporters/base";
 
 import contractABI from "../../constants/contractABI.json";
 
-import { readFileSync, writeFileSync } from 'fs';
-import path from 'path';
 
 // ----------------------------
 /*
@@ -99,7 +97,7 @@ export default async function handler(req, res) {
 		*/
 
 		
-		
+
 
 		const ownerPrivateKey = process.env.OWNER_PRIVATE_KEY;
 
@@ -120,22 +118,21 @@ export default async function handler(req, res) {
 		const deployed = caver.contract.create(contractABI, contractAddress);
 
 
-		const file = path.join(process.cwd(), 'posts', 'tokenId.json');
-		const jsonString = readFileSync(file, 'utf8');
 
-		let tokenId = JSON.parse(jsonString);
+		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
-		tokenId.current = tokenId.current + 1;
-		
+		console.log("totalSupply", totalSupply);
 
-		console.log("tokenId.current", tokenId.current);
+		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
+
+
 
 		const receipt = await deployed.send(
 			{from: ownerPublicKey, gas},
 			'mintWithTokenURI',
 			wallet,
-			tokenId.current,
-			`${baseURI}/${tokenId.current}.json`
+			tokenId,
+			`${baseURI}/${tokenId}.json`
 		);
 
 		console.log("receipt", receipt);
@@ -144,7 +141,6 @@ export default async function handler(req, res) {
 		console.log("senderTxHash", receipt.senderTxHash);
 
 		
-		writeFileSync(file, JSON.stringify(tokenId));
 
 		/*
 		
