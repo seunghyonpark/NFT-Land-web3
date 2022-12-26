@@ -126,7 +126,7 @@ export default function useMintNFT(address) {
 		
 
 		if (address === "") {
-			alert("Please provide Wallet Address!");
+			//alert("Please provide Wallet Address!");
 			return;
 		}
 
