@@ -181,7 +181,7 @@ export default function MintHeaderHeader({
 
 		ref.current.click();
 
-
+		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
 		if (isMinting === false) {
 			//ref.current.click();
@@ -190,6 +190,7 @@ export default function MintHeaderHeader({
 				ref.current.click();
 			}, 5000); //miliseconds
 		}
+		*/
 
 		/*
 		setTimeout(() => {
@@ -205,16 +206,16 @@ export default function MintHeaderHeader({
 		  ref.current.click();
 		}
 		
-		//const interval = setInterval(pollDOM, 10000);
-		//return () => clearInterval(interval);
+		const interval = setInterval(pollDOM, 100000);
+		return () => clearInterval(interval);
 
 
-	}, [address, isMinting]);
+	}, [address]);
 
 
 
-	
-	
+
+	//const container = document.querySelector('..fireworks-example');
 
 
 	return (
@@ -273,6 +274,7 @@ export default function MintHeaderHeader({
 			</form>
 
 		</header>
+
 	)
 
 }

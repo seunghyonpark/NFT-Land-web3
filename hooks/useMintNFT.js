@@ -64,69 +64,53 @@ export default function useMintNFT(address) {
 
 			const response = await fetch(`/api/mint-nft?wallet=${address}`);
 
-			console.log("response=", response);
+			////console.log("response=", response);
 
 			if (!response.ok) {
+				setIsMinting(false);
+				
 				alert("Something went wrong! Check your Input or Connection");
 				//setIsLoading(false);
 				//setIsInHome(true);
+
+				
 				return;
 			}
 
 
 
-			const data = await response.json();
+			const nft = await response.json();
 
-			console.log("data.tokenId",data.data.tokenId);
+			console.log("nft.data",nft.data);
 
-			setTokenId(data.data.tokenId);
-
-			/*
-			if (data.data.totalCount == 0) {
-				//setIsInHome(true);
-				//setIsLoading(false);
-				alert("This Wallet has no NFTs");
-			}
-
-			// alchemy
-			setData(data.data.ownedNfts);
-			*/
-
-			//console.log(data.data.ownedNfts);
-
-			//console.log(data.data.items);
+			//setTokenId(nft.data.tokenId);
 
 
-			// caver
-			///setData(data.data.items);
+			//data.push(nft);
+
+			let updateData = data;
+			updateData.unshift(nft.data);
 
 
-			/*
-			setTimeout(() => {
-				console.log("minting timeout");
-				setIsLoading(false);
-			  }, 5000); //miliseconds
-			  */
+			//console.log("updateData", updateData);
 
+			setData(updateData);
 
-			//setIsLoading(false);
-
-			////setIsMinting(false);
-
-
-
-
-
-
+			setIsMinting(false);
 
 			return;
 
 		} catch (err) {
 			console.log("err="+err);
-			alert("There was an error fetching NFTs!----");
+
+			setIsMinting(false);
+
+			alert("There was an error minting NFT!----");
+
 			return;
 		}
 
+		
 
 	};
 
@@ -151,7 +135,7 @@ export default function useMintNFT(address) {
 
 			const response = await fetch(`/api/check-nft?tokenid=${tokenId}`);
 
-			console.log("checkNFT response=", response);
+			/////console.log("checkNFT response=", response);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
@@ -160,15 +144,13 @@ export default function useMintNFT(address) {
 				return;
 			}
 
+			const nft = await response.json();
 
-
-			const data = await response.json();
-
-			console.log("checkNFT data.tokenId",data.data.tokenId);
+			console.log("useMintNFT checkNFT nft", nft.data.tokenId);
 
 			//setTokenId(data.data.tokenId);
 
-			if (data.data.tokenId) {
+			if (nft.data.tokenId) {
 				setIsMinting(false);
 			}
 
@@ -226,18 +208,18 @@ export default function useMintNFT(address) {
 
 
 
-			const data = await response.json();
+			const fetchData = await response.json();
 
 			//console.log("data="+data);
 
-			if (data.data.totalCount == 0) {
+			if (fetchData.data.totalCount == 0) {
 				//setIsInHome(true);
 				//setIsLoading(false);
 				alert("This Wallet has no NFTs");
 			}
 
 			// alchemy
-			setData(data.data.ownedNfts);
+			setData(fetchData.data.ownedNfts);
 
 			//console.log(data.data.ownedNfts);
 

@@ -65,7 +65,69 @@ export default async function handler(req, res) {
 
 		const { tokenid } = req.query;
 
-		const nft = await caver.kas.tokenHistory.getNFT(contractAddress, tokenid);
+		const data = await caver.kas.tokenHistory.getNFT(contractAddress, tokenid);
+
+		console.log("data", data);
+		/*
+		Nft {
+			owner: '0x6045c976d3ea130b2782029a8faf38236f7d1022',
+			previousOwner: '0x0000000000000000000000000000000000000000',
+			tokenId: '0x13d',
+			tokenUri: 'https://gogodino.saltmarble.io/metaexplorers/json/317.json',
+			transactionHash: '0xa7d2dc7c29367aa60680d6ed998f1f1aea0621c2f2798291c01cbc64ebe131b1',
+			createdAt: 1672056872,
+			updatedAt: 1672056872
+		}
+		*/
+
+		const  contractName = 'GOGODINO Official';
+		const nft = new Object();
+
+		try {
+			//nft.owner = data.itmes[idx].owner;  error
+
+			nft.owner = data.owner;
+
+			const contract = new Object();
+			contract.address = contractAddress;
+			contract.name = contractName;
+			nft.contract = contract;
+
+			nft.tokenId = caver.utils.hexToNumber(data.tokenId);
+
+
+			const media = new Array() ;
+			nft.media = media;
+
+			const response = await fetch(data.tokenUri);
+
+			if (response.ok) {
+
+				const jsonTokenUri = await response.json();
+		
+				// 객체 생성
+				const mediadata = new Object() ;
+				
+				mediadata.gateway = jsonTokenUri.image;
+				
+				// 리스트에 생성된 객체 삽입
+				media.push(mediadata);
+
+				nft.title = jsonTokenUri.name;
+				
+				nft.description = jsonTokenUri.description;
+
+				nft.staking = "false";
+		
+			} else {
+				console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+			}
+		
+		} catch (err) {
+			//alert("There was an error fetching NFTs!");
+			//return;
+			console.log("err",err);
+		}
 
 		res.json({ message: "Fetch successful!", data: nft});
 

@@ -25,6 +25,7 @@ export default function MintingDashboard({
 		}, 200); //miliseconds
 		*/
 
+		/*
 		let i = 0;
 
 		function pollDOM() {
@@ -36,6 +37,8 @@ export default function MintingDashboard({
 		const interval = setInterval(pollDOM, 1000);
 		
 		return () => clearInterval(interval);
+		*/
+		
 
 	}, [isMinting]);
 

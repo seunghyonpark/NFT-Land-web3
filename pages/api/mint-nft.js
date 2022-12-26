@@ -171,7 +171,7 @@ await contract.methods.say().send(options)
 			`${baseURI}/${tokenId}.json`
 		);
 
-		//console.log("receipt", receipt);
+		console.log("receipt", receipt);
 
 
 		console.log("blockNumber", receipt.blockNumber);
@@ -214,20 +214,72 @@ await contract.methods.say().send(options)
 		const result = await caver.kas.wallet.requestSmartContractExecution(tx)
 		*/
 
+		/*
+		const nft = new Object();
+		nft.tokenId = tokenId;
+		res.json({ message: "Mint successful!", data:  nft});
+		*/
 
+
+
+		const  contractName = 'GOGODINO Official';
 		const nft = new Object();
 
-		nft.tokenId = tokenId;
+		try {
+			//nft.owner = data.itmes[idx].owner;  error
+
+			nft.owner = ownerPublicKey;
+
+			const contract = new Object();
+			contract.address = contractAddress;
+			contract.name = contractName;
+			nft.contract = contract;
+
+			nft.tokenId = tokenId;
 
 
-		res.json({ message: "Mint successful!", data:  nft});
+			const media = new Array() ;
+			nft.media = media;
 
+			const response = await fetch(`${baseURI}/${tokenId}.json`);
+
+			if (response.ok) {
+
+				const jsonTokenUri = await response.json();
+		
+				// 객체 생성
+				const mediadata = new Object() ;
+				
+				mediadata.gateway = jsonTokenUri.image;
+				
+				// 리스트에 생성된 객체 삽입
+				media.push(mediadata);
+
+				nft.title = jsonTokenUri.name;
+				
+				nft.description = jsonTokenUri.description;
+
+				nft.staking = "false";
+		
+			} else {
+				console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+			}
+		
+		} catch (err) {
+			//alert("There was an error fetching NFTs!");
+			//return;
+			console.log("err",err);
+		}
+
+		res.json({ message: "Mint successful!", data: nft});
 
 	} catch (err) {
 
 		console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
+
+
 }
 
 

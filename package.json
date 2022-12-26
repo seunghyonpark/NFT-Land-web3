@@ -21,6 +21,7 @@
     "caver-js-ext-kas": "^1.12.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "fireworks-js": "^2.10.0",
     "flux": "^4.0.3",
     "material-ui-icons": "^1.0.0-beta.36",
     "next": "13.0.3",
@@ -28,6 +29,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-query": "^3.39.2",
+    "react-tsparticles": "^2.7.1",
+    "tsparticles": "^2.7.1",
     "uuid": "^9.0.0",
     "web3": "^1.8.1",
     "zustand": "^4.1.5"
