@@ -48,6 +48,7 @@ export default function NFTCard({
 			</div>
 
 			{/* contract info */}
+			{/*
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
 					Contract: {cardData.contract.address}
@@ -63,6 +64,7 @@ export default function NFTCard({
 					<p className="font-medium">Copy</p>
 				</button>
 			</div>
+				*/}
 
 			{/* staking info */}
 			<div className="mt-2 flex table-fixed flex-row justify-center">

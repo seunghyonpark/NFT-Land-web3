@@ -4,25 +4,27 @@ export default function useMintNFT(address) {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isInHome, setIsInHome] = useState(true);
+	const [isConnectWallet, setConnectWallet] = useState(false);
 
 	const mintNFT = async (e) => {
 	
 		// this error
 		e.preventDefault();
 
-		console.log("mintNFT address",address);
-
-
-
 		if (address === "") {
-			alert("Please provide Wallet Address!");
+			//alert("Please provide Wallet Address!");
+
 			return;
 		}
 
 
-		setData([]);
+
+		//setData([]);
+
+
 		setIsLoading(true);
 		setIsInHome(false);
+		setConnectWallet(true);
 
 
 		try {
@@ -94,6 +96,14 @@ export default function useMintNFT(address) {
 			///setData(data.data.items);
 
 
+			/*
+			setTimeout(() => {
+				console.log("minting timeout");
+				setIsLoading(false);
+			  }, 5000); //miliseconds
+			  */
+
+
 			setIsLoading(false);
 			return;
 
@@ -104,5 +114,78 @@ export default function useMintNFT(address) {
 		}
 	};
 
-	return { mintNFT, data, isInHome, isLoading };
+
+
+
+	const fetchNFTs = async (e) => {
+
+		e.preventDefault();
+
+		console.log("fetchNFT address",address);
+
+		
+
+		if (address === "") {
+			alert("Please provide Wallet Address!");
+			return;
+		}
+
+
+		//setData([]);
+
+
+		setIsLoading(true);
+		setIsInHome(false);
+
+
+		try {
+
+			const response = await fetch(`/api/fetch-nfts?wallet=${address}`);
+
+			console.log("response=", response);
+
+			if (!response.ok) {
+				alert("Something went wrong! Check your Input or Connection");
+				setIsLoading(false);
+				setIsInHome(true);
+				return;
+			}
+
+
+
+			const data = await response.json();
+
+			//console.log("data="+data);
+
+			if (data.data.totalCount == 0) {
+				setIsInHome(true);
+				setIsLoading(false);
+				alert("This Wallet has no NFTs");
+			}
+
+			// alchemy
+			setData(data.data.ownedNfts);
+
+			//console.log(data.data.ownedNfts);
+
+			//console.log(data.data.items);
+
+
+			// caver
+			///setData(data.data.items);
+
+
+			setIsLoading(false);
+			return;
+
+		} catch (err) {
+			console.log("err="+err);
+			alert("There was an error fetching NFTs!----");
+			return;
+		}
+	};
+
+
+
+	return { mintNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet };
 }

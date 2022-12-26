@@ -64,8 +64,6 @@ export default async function handler(req, res) {
 		console.log("wallet="+wallet);
 
 
-
-
 		//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
 		const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
 		

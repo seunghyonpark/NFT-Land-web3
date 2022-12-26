@@ -6,14 +6,23 @@ export default function MintMain({
 	data,
 	isInHome,
 	isLoading,
+	isConnectWallet,
 	cryptoTowerAddress,
 	loadingCubesAddress,
+	goldFishAddress,
 }) {
 	
+
+	console.log("data.length", data.length);
+
+	//return data.lenghth > 0 && (
 	return (
+
 		<main>
 
 			{/* cards container */}
+
+
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
 				{data.map((nft) => (
 					// uuid!
@@ -25,10 +34,25 @@ export default function MintMain({
 					</NFTCard>
 				))}
 			</cards>
-			
+
+
+			{
+			(data.length === 0) && (isInHome === false) && (isLoading === false) &&
+				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+				<lottie-player
+					id="crypto-tower"
+					src={goldFishAddress}
+					speed="1"
+					loop
+					autoplay
+				></lottie-player>
+			</div>			
+			}
+		
 
 			{/* home page animation */}
-			{isInHome && (
+			{/*isInHome && (
+				
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 					<lottie-player
 						id="crypto-tower"
@@ -37,6 +61,13 @@ export default function MintMain({
 						loop
 						autoplay
 					></lottie-player>
+				</div>
+			
+			)*/}
+
+			{isInHome && (
+				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+
 				</div>
 			)}
 
@@ -54,5 +85,6 @@ export default function MintMain({
 			)}
 			
 		</main>
+
 	);
 }

@@ -1,18 +1,70 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import classes from "./index.module.css";
+import React from "react"
+import { useState, useEffect, useRef } from "react"
+import classes from "./index.module.css"
+import { consoleLog } from "mocha/lib/reporters/base"
 
-export default function MintHeaderHeader({ address, setAddress, mintNFT }) {
+import { useRouter } from 'next/router'
+
+
+export default function MintHeaderHeader({ address, setAddress, data, mintNFT, fetchNFTs }) {
 
 	if (address) {
 		console.log("MintHeaderHeader address",address);
+		/////fetchNFTs();
+		
 	}
+
 
 	const onChange = (event) => {
 
         console.log(event.target);
 
     }
+
+	const connectWallet = async() => {
+
+		if (address) {
+
+			return;
+		}
+
+		console.log("connectWallet");
+
+
+		const {klaytn} = window;
+		if (klaytn) {
+			try {
+				const accounts = await klaytn.enable();
+				if (accounts) {
+					//fetchNFTs();
+					setAddress(accounts);
+
+					//fetchNFTs();
+				}
+				/*
+				const balance = await caver.klay.getBalance(address);
+				this.setState({
+					address,
+				balance: caver.utils.fromPeb(balance, 'KLAY'),
+				})
+				*/
+				//klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn));
+			} catch (error) {
+				console.log('User denied account access');
+				alert("User denied account access");
+				return;
+			}
+
+		} else {
+			console.log('Non-Kaikas browser detected. You should consider trying Kaikas!');
+			alert("Non-Kaikas browser detected. You should consider trying Kaikas!");
+			return;
+		}
+
+	}
+
+	
+	connectWallet();
 
 
 	const loadAccountInfo = async (e) => {
@@ -24,19 +76,12 @@ export default function MintHeaderHeader({ address, setAddress, mintNFT }) {
 		if (klaytn) {
 
 			try {
-				console.log("before klaytn.enable");
-
-				
-
 				const accounts = await klaytn.enable();
-
-				console.log("after klaytn.enable");
 
 				if (accounts) {
 
 					//fetchNFTs();
 
-					console.log("accounts="+accounts);
 					setAddress(accounts);
 
 					if (address) {
@@ -97,42 +142,53 @@ export default function MintHeaderHeader({ address, setAddress, mintNFT }) {
 	}
 
 
+	/*
+	const router = useRouter();
+
+	const [loading, setLoading] = useState(false);
 	
+
 	useEffect(() => {
+
+		const handleStart = (url) => (url !== router.asPath) && setLoading(true);
+		const handleComplete = (url) => (url === router.asPath) && setTimeout(() => {setLoading(false)},2000);
+  
+		router.events.on('routeChangeStart', handleStart)
+		router.events.on('routeChangeComplete', handleComplete)
+		router.events.on('routeChangeError',  handleComplete)	
 		
-		console.log("StakingHeader useEffect1 Start");
-
-
-		/*
-		if (klaytn.selectedAddress) {
-			console.log("klaytn.selectedAddress="+klaytn.selectedAddress);
-
-			//setAddress(klaytn.selectedAddress);
-		}
-		*/
-		
-
-		
-		if (address === "") {
-
-			
-		} else {
-			console.log("StakingHeader useEffect address="+address);
-			//fetchNFTs();
-		}
-		
-
-		
-
 		return () => {
-			
+			router.events.off('routeChangeStart', handleStart)
+			router.events.off('routeChangeComplete', handleComplete)
+			router.events.off('routeChangeError', handleComplete)			
+		}
+
+	});
+	*/
+
+	const ref = useRef(null);
+
+
+	useEffect(() => {
+		/*
+		setTimeout(() => {
+		  ref.current.click();
+		}, 200); //miliseconds
+		*/
+
+		let i = 0;
+
+		function pollDOM() {
+		  console.log(i);
+		  i++;
+		  ref.current.click();
 		}
 		
+		const interval = setInterval(pollDOM, 4000);
+		
+		return () => clearInterval(interval);
 
-	}, [address]);
-
-
-	//fetchNFTs(address);  // 반복된다.
+	}, []);
 
 
 	return (
@@ -168,6 +224,14 @@ export default function MintHeaderHeader({ address, setAddress, mintNFT }) {
 				>
 					Mint NFT
 				</button>
+
+				<button
+					ref={ref}
+					onClick={fetchNFTs}
+					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+					Fetch NFTs
+				</button>
 				
 
 				{/*
@@ -179,14 +243,9 @@ export default function MintHeaderHeader({ address, setAddress, mintNFT }) {
 				</button>
 				*/}
 
-				<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-					<a href="./">go Home</a>
-				</h3>
-
 			</form>
 
 		</header>
-	);
+	)
+
 }
-
-
