@@ -5,6 +5,10 @@ export default function useMintNFT(address) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isInHome, setIsInHome] = useState(true);
 	const [isConnectWallet, setConnectWallet] = useState(false);
+	const [isMinting, setIsMinting] = useState(false);
+	const [tokenId, setTokenId] = useState("");
+
+
 
 	const mintNFT = async (e) => {
 	
@@ -22,10 +26,7 @@ export default function useMintNFT(address) {
 		//setData([]);
 
 
-		setIsLoading(true);
-		setIsInHome(false);
-		setConnectWallet(true);
-
+		setIsMinting(true);
 
 		try {
 
@@ -67,8 +68,8 @@ export default function useMintNFT(address) {
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
-				setIsLoading(false);
-				setIsInHome(true);
+				//setIsLoading(false);
+				//setIsInHome(true);
 				return;
 			}
 
@@ -76,16 +77,20 @@ export default function useMintNFT(address) {
 
 			const data = await response.json();
 
-			//console.log("data="+data);
+			console.log("data.tokenId",data.data.tokenId);
 
+			setTokenId(data.data.tokenId);
+
+			/*
 			if (data.data.totalCount == 0) {
-				setIsInHome(true);
-				setIsLoading(false);
+				//setIsInHome(true);
+				//setIsLoading(false);
 				alert("This Wallet has no NFTs");
 			}
 
 			// alchemy
 			setData(data.data.ownedNfts);
+			*/
 
 			//console.log(data.data.ownedNfts);
 
@@ -104,7 +109,16 @@ export default function useMintNFT(address) {
 			  */
 
 
-			setIsLoading(false);
+			//setIsLoading(false);
+
+			////setIsMinting(false);
+
+
+
+
+
+
+
 			return;
 
 		} catch (err) {
@@ -112,6 +126,64 @@ export default function useMintNFT(address) {
 			alert("There was an error fetching NFTs!----");
 			return;
 		}
+
+
+	};
+
+
+
+	const checkNFT = async (e) => {
+	
+		// this error
+		e.preventDefault();
+
+		console.log("checkNFT tokenId", tokenId);
+
+		if (tokenId === "") {
+			//alert("Please provide Wallet Address!");
+
+			return;
+		}
+
+
+		try {
+
+
+			const response = await fetch(`/api/check-nft?tokenid=${tokenId}`);
+
+			console.log("checkNFT response=", response);
+
+			if (!response.ok) {
+				alert("Something went wrong! Check your Input or Connection");
+				//setIsLoading(false);
+				//setIsInHome(true);
+				return;
+			}
+
+
+
+			const data = await response.json();
+
+			console.log("checkNFT data.tokenId",data.data.tokenId);
+
+			//setTokenId(data.data.tokenId);
+
+			if (data.data.tokenId) {
+				setIsMinting(false);
+			}
+
+			return;
+
+		} catch (err) {
+			console.log("err="+err);
+			/////alert("There was an error fetching NFTs!----");
+
+			setIsMinting(false);
+
+			return;
+		}
+
+
 	};
 
 
@@ -121,7 +193,7 @@ export default function useMintNFT(address) {
 
 		e.preventDefault();
 
-		console.log("fetchNFT address",address);
+		//console.log("fetchNFT address",address);
 
 		
 
@@ -134,7 +206,7 @@ export default function useMintNFT(address) {
 		//setData([]);
 
 
-		setIsLoading(true);
+		//setIsLoading(true);
 		setIsInHome(false);
 
 
@@ -142,12 +214,13 @@ export default function useMintNFT(address) {
 
 			const response = await fetch(`/api/fetch-nfts?wallet=${address}`);
 
-			console.log("response=", response);
+			//console.log("response=", response);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
-				setIsLoading(false);
-				setIsInHome(true);
+
+				//setIsLoading(false);
+				//setIsInHome(true);
 				return;
 			}
 
@@ -158,8 +231,8 @@ export default function useMintNFT(address) {
 			//console.log("data="+data);
 
 			if (data.data.totalCount == 0) {
-				setIsInHome(true);
-				setIsLoading(false);
+				//setIsInHome(true);
+				//setIsLoading(false);
 				alert("This Wallet has no NFTs");
 			}
 
@@ -175,7 +248,7 @@ export default function useMintNFT(address) {
 			///setData(data.data.items);
 
 
-			setIsLoading(false);
+			//setIsLoading(false);
 			return;
 
 		} catch (err) {
@@ -187,5 +260,5 @@ export default function useMintNFT(address) {
 
 
 
-	return { mintNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet };
+	return { mintNFT, checkNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId };
 }

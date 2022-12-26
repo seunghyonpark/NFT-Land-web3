@@ -81,6 +81,8 @@ export default async function handler(req, res) {
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 
 		
+		//console.log("fetch-nfts data",data);
+
 		for(let idx=0; idx < data.items.length; idx++){
 		
 			const nft = new Object();
@@ -98,6 +100,9 @@ export default async function handler(req, res) {
 				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
 
 
+				const media = new Array() ;
+				nft.media = media;
+
 				const response = await fetch(data.items[idx].tokenUri);
 
 				if (response.ok) {
@@ -107,7 +112,7 @@ export default async function handler(req, res) {
 					//console.log(jsonTokenUri.name);
 					//console.log(jsonTokenUri.image);
 
-					const media = new Array() ;
+					
 			
 					// 객체 생성
 					const mediadata = new Object() ;
@@ -117,7 +122,7 @@ export default async function handler(req, res) {
 					// 리스트에 생성된 객체 삽입
 					media.push(mediadata);
 
-					nft.media = media;
+					
 
 					nft.title = jsonTokenUri.name;
 					

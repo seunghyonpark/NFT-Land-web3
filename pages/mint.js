@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import Script from "next/script";
 import MintHeader from "../components/MintHeader/index.js";
+import MintingDashboard from "../components/MintingDashboard.jsx";
 import MintMain from "../components/MintMain.jsx";
 import Footer from "../components/Footer.jsx";
 import useMintNFT from "../hooks/useMintNFT.js";
@@ -21,6 +22,7 @@ export default function Mint({
 	cryptoTowerAddress,
 	loadingCubesAddress,
 	goldFishAddress,
+	dataProcessingAddress,
 	testData,
 }) {
 	//const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
@@ -31,7 +33,7 @@ export default function Mint({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId } = useMintNFT(address);
 
 
 	
@@ -61,7 +63,24 @@ export default function Mint({
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<MintHeader {...{ address, setAddress, data, mintNFT, fetchNFTs }} />
+			<MintHeader
+				{...{
+					address,
+					setAddress,
+					data,
+					mintNFT,
+					fetchNFTs,
+					isMinting,
+				}}
+			/>
+
+			<MintingDashboard
+				{...{
+					isMinting,
+					dataProcessingAddress,
+					checkNFT,
+				}}
+			/>
 
 			<MintMain
 				{...{
@@ -101,6 +120,9 @@ export async function getStaticProps() {
 	let goldFishAddress =
 		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
 
+	let dataProcessingAddress =
+		"https://assets10.lottiefiles.com/private_files/lf30_x4ubhxsy.json";
+
 
 	const file = path.join(process.cwd(), 'posts', 'test.json');
 	const testData = readFileSync(file, 'utf8');
@@ -128,6 +150,7 @@ export async function getStaticProps() {
 			cryptoTowerAddress,
 			loadingCubesAddress,
 			goldFishAddress,
+			dataProcessingAddress,
 			testData,
 		},
 	};

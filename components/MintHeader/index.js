@@ -6,14 +6,22 @@ import { consoleLog } from "mocha/lib/reporters/base"
 import { useRouter } from 'next/router'
 
 
-export default function MintHeaderHeader({ address, setAddress, data, mintNFT, fetchNFTs }) {
+export default function MintHeaderHeader({
+	address,
+	setAddress,
+	data,
+	mintNFT,
+	fetchNFTs,
+	isMinting,
+}) {
 
 	if (address) {
-		console.log("MintHeaderHeader address",address);
+		//console.log("MintHeaderHeader address",address);
 		/////fetchNFTs();
 		
 	}
 
+	const ref = useRef(null);
 
 	const onChange = (event) => {
 
@@ -166,10 +174,24 @@ export default function MintHeaderHeader({ address, setAddress, data, mintNFT, f
 	});
 	*/
 
-	const ref = useRef(null);
+	
 
 
 	useEffect(() => {
+
+
+		ref.current.click();
+
+
+		console.log("MintingHeader useEffect isMinting", isMinting);
+		if (isMinting === false) {
+			//ref.current.click();
+
+			setTimeout(() => {
+				ref.current.click();
+			}, 5000); //miliseconds
+		}
+
 		/*
 		setTimeout(() => {
 		  ref.current.click();
@@ -179,16 +201,15 @@ export default function MintHeaderHeader({ address, setAddress, data, mintNFT, f
 		let i = 0;
 
 		function pollDOM() {
-		  console.log(i);
+		  //console.log(i);
 		  i++;
 		  ref.current.click();
 		}
 		
-		const interval = setInterval(pollDOM, 4000);
-		
-		return () => clearInterval(interval);
+		//const interval = setInterval(pollDOM, 10000);
+		//return () => clearInterval(interval);
 
-	}, []);
+	}, [address, isMinting]);
 
 
 	return (

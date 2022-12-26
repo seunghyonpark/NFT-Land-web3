@@ -171,7 +171,7 @@ await contract.methods.say().send(options)
 			`${baseURI}/${tokenId}.json`
 		);
 
-		console.log("receipt", receipt);
+		//console.log("receipt", receipt);
 
 
 		console.log("blockNumber", receipt.blockNumber);
@@ -215,186 +215,12 @@ await contract.methods.say().send(options)
 		*/
 
 
+		const nft = new Object();
 
-	} catch (err) {
-		console.log("err",err);
-		//res.status(500).json({ message: "Internal Server Error!" });
-	}
+		nft.tokenId = tokenId;
 
 
-
-
-
-	try {
-
-		const { wallet } = req.query;
-
-		console.log("wallet",wallet);
-		
-		const  contractName = 'GOGODINO Official';
-
-		
-		const query = {
-			size: 100,
-			cursor: 'PdOALgqNme5a9vJ6aKDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
-		};
-		
-
-		/*
-		const queryOptions = {
-			kind: [caver.kas.tokenHistory.queryOptions.kind.NFT],
-			size: 100
-		}
-		*/
-
-		const queryOptions = {
-			kind: [caver.kas.tokenHistory.queryOptions.kind.NFT],
-			size: 100,
-			caFilter: contractAddress,
-		}
-
-
-		const ownedNfts = new Array();
-
-
-		const nftQuery = {
-			size: 100,
-			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
-		};
-
-		//console.log(query);
-
-		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
-		//const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet);
-		//const data = await caver.kas.tokenHistory.getNFTList(contractAddress, query);
-		
-		// error !!!!!!
-		//const data = await caver.kas.kip17.getTokenListByOwner(contractAddress, wallet); 
-	
-		//console.log(data);
-
-
-		console.log("data.items.length="+data.items.length);
-
-
-		
-
-		for(let idx=0; idx < data.items.length; idx++){
-		
-			//console.log(data.items[idx]);
-
-
-			const nft = new Object();
-
-			try {
-				//nft.owner = data.itmes[idx].owner;  error
-
-				nft.owner = wallet;
-
-				const contract = new Object();
-				contract.address = contractAddress;
-				contract.name = contractName;
-				nft.contract = contract;
-
-				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
-
-
-				const response = await fetch(data.items[idx].tokenUri);
-
-				if (response.ok) {
-
-					const jsonTokenUri = await response.json();
-
-					//console.log(jsonTokenUri.name);
-					//console.log(jsonTokenUri.image);
-
-					const media = new Array() ;
-			
-					// 객체 생성
-					const mediadata = new Object() ;
-					
-					mediadata.gateway = jsonTokenUri.image;
-					
-					// 리스트에 생성된 객체 삽입
-					media.push(mediadata);
-					
-
-					nft.title = jsonTokenUri.name;
-
-					//console.log("nft.title="+nft.title);
-
-
-					nft.media = media;
-					nft.description = jsonTokenUri.description;
-
-
-					nft.staking = "false";
-					
-
-			
-				} else {
-					console.log("fetch tokenUri error="+data.items[idx].tokenUri);
-				}
-			
-			} catch (err) {
-				//alert("There was an error fetching NFTs!");
-				//return;
-				console.log("err",err);
-			}
-			
-			ownedNfts.push(nft);
-		}
-
-		const aaa = new Object();
-
-		aaa.ownedNfts = ownedNfts;
-
-		//console.log(aaa);
-
-		/*
-
-		const results = ownedNfts;
-
-
-		console.log(JSON.stringify(results));
-		*/
-
-
-
-		/*
-		{
-contract: [Object],
-tokenId: '1845',
-tokenType: 'ERC721',
-title: 'Skell Yeah #1845',
-description: "They're rowdy little punks, got no respect! Try to shut 'em down, you're gonna get decked! They do what they want, get out of their way! Skell Yeah is here and they're here to stay!",
-timeLastUpdated: '2022-07-03T21:13:06.035Z',
-metadataError: undefined,
-rawMetadata: [Object],
-tokenUri: [Object],
-media: [Array],
-spamInfo: undefined,
-balance: 1
-}
-		*/
-
-
-
-	
-		
-		//const results = await alchemy.nft.getNftsForOwner(wallet);
-		//console.log(JSON.stringify(results));
-		
-
-
-		//res.json({ message: "Fetch successful!", data: results });
-
-		/*
-		const fs = require('fs');
-		fs.writeFileSync('./' + contractAddress + '.json', JSON.stringify(aaa));
-		*/
-
-		res.json({ message: "Fetch successful!", data:  aaa});
+		res.json({ message: "Mint successful!", data:  nft});
 
 
 	} catch (err) {

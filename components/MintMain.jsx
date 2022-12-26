@@ -51,7 +51,7 @@ export default function MintMain({
 		
 
 			{/* home page animation */}
-			{/*isInHome && (
+			{isInHome && (
 				
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 					<lottie-player
@@ -63,13 +63,8 @@ export default function MintMain({
 					></lottie-player>
 				</div>
 			
-			)*/}
-
-			{isInHome && (
-				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-
-				</div>
 			)}
+
 
 			{/* data fetching animation */}
 			{isLoading && (

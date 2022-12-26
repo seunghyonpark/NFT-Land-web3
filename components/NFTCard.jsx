@@ -18,8 +18,8 @@ export default function NFTCard({
 
 	const { depositNFT, withdrawNFT, data, isInHome, isLoading } = useStakeNFT(cardData.tokenId);
 
-	console.log("cardData.tokenId", cardData.tokenId);
-	console.log("isInHome", isInHome);
+	//console.log("cardData.tokenId", cardData.tokenId);
+	//console.log("isInHome", isInHome);
 
 	return (
 
