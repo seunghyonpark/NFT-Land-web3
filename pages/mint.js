@@ -74,6 +74,8 @@ export default function Mint({
 				}}
 			/>
 
+
+
 			<MintingDashboard
 				{...{
 					isMinting,

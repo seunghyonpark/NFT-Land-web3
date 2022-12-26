@@ -5,7 +5,6 @@ import { consoleLog } from "mocha/lib/reporters/base"
 
 import { useRouter } from 'next/router'
 
-
 export default function MintHeaderHeader({
 	address,
 	setAddress,
@@ -174,7 +173,7 @@ export default function MintHeaderHeader({
 	});
 	*/
 
-	
+
 
 
 	useEffect(() => {
@@ -209,7 +208,13 @@ export default function MintHeaderHeader({
 		//const interval = setInterval(pollDOM, 10000);
 		//return () => clearInterval(interval);
 
+
 	}, [address, isMinting]);
+
+
+
+	
+	
 
 
 	return (
@@ -219,6 +224,7 @@ export default function MintHeaderHeader({
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">GDX Mint Service</a>
 			</h1>
+
 
 			{/* find NFT's form */}
 			<form className="mt-5 flex flex-col">
