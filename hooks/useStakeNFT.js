@@ -3,20 +3,29 @@ import React, { useState } from "react";
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 
-export default function useStakeNFT(tokenId) {
-	const [data, setData] = useState([]);
+export default function useStakeNFT(tokenId, data, setData) {
+	
+	//const [data, setData] = useState([]);
 	const [isInHome, setIsInHome] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 
 
 	const address = "0x3db3Fb2E3d2A51C71BcAd2A4fC022828B835d005"; // staking wallet
 
+	/*
+	const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS;
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+	*/
+
+	const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
+	const stakingWalletAddress = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db";
+
 
 	const depositNFT = async (e) => {
 
 		e.preventDefault();
 
-		console.log("stakeNFT tokenId", tokenId);
+		console.log("depositNFT tokenId", tokenId);
 
 		if (tokenId === "") {
 			alert("Please provide tokenId!");
@@ -24,9 +33,9 @@ export default function useStakeNFT(tokenId) {
 		}
 
 
-		setData([]);
-		setIsLoading(true);
-		setIsInHome(false);
+		//setData([]);
+		//setIsLoading(true);
+		//setIsInHome(false);
 
 		/*
 		window.caver.klay
@@ -61,7 +70,7 @@ export default function useStakeNFT(tokenId) {
 			*/
 			
 
-
+			/*
 			// staking contract
 			// https://baobab.scope.klaytn.com/nft/0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5
 			const contractAddress = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
@@ -74,6 +83,8 @@ export default function useStakeNFT(tokenId) {
 			
 			console.log("contract", contract); // 컨트랙트 객체가 만들어졌다.
 			
+			*/
+
 			// 토큰을 전송하는 매서드를 실행한다.
 			/*
 			const transfer = await contract.methods.transfer(to, amount).send({
@@ -82,19 +93,103 @@ export default function useStakeNFT(tokenId) {
 			}); 
 			*/
 
+
 			/*
+			window.caver.klay
+				.sendTransaction({
+					type: 'VALUE_TRANSFER',
+					from: window.klaytn.selectedAddress,
+					to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
+					value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
+					gas: 8000000
+				})
+				.once('transactionHash', transactionHash => {
+					console.log('txHash', transactionHash);
+				})
+				.once('receipt', receipt => {
+					console.log('receipt', receipt);
+
+					//setData(receipt);
+
+					fetchNFTs();
+
+
+					setIsLoading(false);
+				})
+				.once('error', error => {
+					console.log('error', error);
+					//alert("지불에 실패하셨습니다.");
+
+					setIsLoading(false);
+					setIsInHome(true);
+				})
+			*/
+
+			
+
+			const contract = new window.caver.klay.Contract(contractABI, contractAddress);
+
+			console.log("contract", contract);
+			
 			const from = window.klaytn.selectedAddress;
+			const to = stakingWalletAddress;
+			
+			console.log("contractAddress", contractAddress);
+			console.log("tokenId", tokenId);
+			console.log("from", from);
+			console.log("to", to);
 
 
 			const transfer = await contract.methods.transferFrom(from, to, tokenId).send({
 				from : from, 
 				gas: 8000000,
-			}); 
+			})
+			/*
+			.once('error', error => {
+				console.log('error', error);
+				//alert("지불에 실패하셨습니다.");
 
-			console.log("transfer", transfer);
+			})
 			*/
 
-			const from = window.klaytn.selectedAddress;
+
+
+			
+
+
+			if (transfer) {
+				console.log("transfer", transfer);
+
+
+				let updateData = data;
+
+				console.log("data.length", data.length);
+				console.log("updateData.length", updateData.length);
+
+				let idx;
+				for(idx=0; idx < updateData.length; idx++){
+
+					if (updateData[idx].tokenId === tokenId) {
+						break;
+					}
+				}
+				console.log("idx", idx);
+
+				updateData.splice(idx, 1);
+
+				console.log("updateData.length", updateData.length);
+
+				setData(updateData);
+
+				//setIsMinting(false);
+
+			}
+
+
+
+			
+
+			//const from = window.klaytn.selectedAddress;
 
 			//const tokenIds = new Array();
 			//tokenIds.push(tokenId);
@@ -111,20 +206,14 @@ export default function useStakeNFT(tokenId) {
 
 
 			
-
+			/*
 			const stake = await contract.methods.stake(1).send({
 				from : from, 
 				gas: 8000000
 			});
 
 			console.log("stake", stake);
-
-
-
-
-
-
-		
+			*/
 
 	};
 
@@ -217,7 +306,7 @@ export default function useStakeNFT(tokenId) {
 
 	};
 
-	return { depositNFT, withdrawNFT, data, isInHome, isLoading };
+	return { depositNFT, withdrawNFT, isInHome, isLoading };
 }
 
 

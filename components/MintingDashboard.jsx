@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react"
 export default function MintingDashboard({
 	isMinting,
 	dataProcessingAddress,
+	mintNFT,
 	checkNFT,
 }) {
 
@@ -65,6 +66,19 @@ export default function MintingDashboard({
 			</cards>
 				*/}
 
+			{isMinting === false && (
+
+				<button
+					onClick={mintNFT}
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+					Mint NFT
+				</button>	
+
+			)}
+
+
+
 			{isMinting && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
@@ -88,6 +102,8 @@ export default function MintingDashboard({
 					Check NFT
 				</button>
 			)}
+
+
 
 		
 		</main>

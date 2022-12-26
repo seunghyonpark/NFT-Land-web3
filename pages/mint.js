@@ -42,7 +42,7 @@ export default function Mint({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, setData, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId } = useMintNFT(address);
 
 
 	const ref = useRef();
@@ -53,11 +53,11 @@ export default function Mint({
 		
 		console.log("Minting useEffect address="+address);
 
-		console.log(ref.current);
+		//console.log(ref.current);
 
-		console.log(document.getElementById('container'));
+		//console.log(document.getElementById('container'));
 
-		const container = ref.current;
+		//const container = ref.current;
 
 		/*
 		const fireworks = new Fireworks(container, {
@@ -200,6 +200,7 @@ export default function Mint({
 				{...{
 					isMinting,
 					dataProcessingAddress,
+					mintNFT,
 					checkNFT,
 				}}
 			/>
@@ -207,6 +208,7 @@ export default function Mint({
 			<MintMain
 				{...{
 					data,
+					setData,
 					isInHome,
 					isLoading,
 					isConnectWallet,

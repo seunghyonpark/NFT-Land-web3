@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function MintMain({
 	data,
+	setData,
 	isInHome,
 	isLoading,
 	isConnectWallet,
@@ -29,11 +30,18 @@ export default function MintMain({
 					<NFTCard
 						key={uuidv4()}
 						cardData={nft}
+						cryptoTowerAddress={cryptoTowerAddress}
+						loadingCubesAddress={loadingCubesAddress}
+						data={data}
+						setData={setData}
 					>
 
 					</NFTCard>
 				))}
 			</cards>
+
+
+
 
 
 			{

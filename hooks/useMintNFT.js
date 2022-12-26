@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import contractABI from "../constants/contractABI.json";
+import stakingABI from "../constants/stakingABI.json";
+
 export default function useMintNFT(address) {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -9,6 +12,8 @@ export default function useMintNFT(address) {
 	const [tokenId, setTokenId] = useState("");
 
 
+	const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
+	const stakingWalletAddress = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db";
 
 	const mintNFT = async (e) => {
 	
@@ -241,6 +246,5 @@ export default function useMintNFT(address) {
 	};
 
 
-
-	return { mintNFT, checkNFT, fetchNFTs, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId };
+	return { mintNFT, checkNFT, fetchNFTs, setData, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId };
 }

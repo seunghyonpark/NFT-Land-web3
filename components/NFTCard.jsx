@@ -6,20 +6,27 @@ import Script from "next/script";
 import CardMain from "../components/CardMain.jsx";
 
 import useStakeNFT from "../hooks/useStakeNFT.js";
+import useMintNFT from "../hooks/useMintNFT.js";
 
 
 // --------------------------
 export default function NFTCard({
 	cardData,
-	//scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
+	data,
+	setData,
 }) {
 
-	const { depositNFT, withdrawNFT, data, isInHome, isLoading } = useStakeNFT(cardData.tokenId);
+	const { depositNFT, withdrawNFT, isInHome, isLoading } = useStakeNFT(cardData.tokenId, data, setData);
 
 	//console.log("cardData.tokenId", cardData.tokenId);
 	//console.log("isInHome", isInHome);
+
+
+	/*
+	https://testnets.opensea.io/assets/baobab/0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b/340
+	*/
 
 	return (
 
@@ -68,6 +75,7 @@ export default function NFTCard({
 
 			{/* staking info */}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
+
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
 					{/*cardData.contract.address*/}
 
@@ -82,6 +90,8 @@ export default function NFTCard({
 					}
 
 				</div>
+
+
 
 				<button
 					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
@@ -102,15 +112,19 @@ export default function NFTCard({
 
 					</p>
 				</button>
+
 			</div>
 
+			{/*
 			<CardMain
 				{...{
 					data,
 				}}
 			/>
+			*/}
 
 			{/* home page animation */}
+			{/*
 			{isInHome && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 					<lottie-player
@@ -122,6 +136,7 @@ export default function NFTCard({
 					></lottie-player>
 				</div>
 			)}
+			*/}
 
 			{/* data fetching animation */}
 			{isLoading && (

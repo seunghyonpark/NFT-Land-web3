@@ -84,6 +84,8 @@ export default async function handler(req, res) {
 		//console.log("fetch-nfts data",data);
 
 		for(let idx=0; idx < data.items.length; idx++){
+
+
 		
 			const nft = new Object();
 
@@ -98,6 +100,7 @@ export default async function handler(req, res) {
 				nft.contract = contract;
 
 				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
+				nft.tokenUri = data.items[idx].tokenUri;
 
 
 				const media = new Array() ;

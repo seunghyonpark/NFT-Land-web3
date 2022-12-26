@@ -20,6 +20,9 @@ function StakingMain({
 					<NFTCard
 						key={uuidv4()}
 						cardData={nft}
+						cryptoTowerAddress={cryptoTowerAddress}
+						loadingCubesAddress={loadingCubesAddress}
+						data={data}
 					>
 
 					</NFTCard>
