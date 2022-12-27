@@ -225,7 +225,7 @@ await contract.methods.say().send(options)
 		const  contractName = 'GOGODINO Official';
 		const nft = new Object();
 
-		try {
+
 			//nft.owner = data.itmes[idx].owner;  error
 
 			nft.owner = ownerPublicKey;
@@ -265,18 +265,14 @@ await contract.methods.say().send(options)
 				console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 			}
 		
-		} catch (err) {
-			//alert("There was an error fetching NFTs!");
-			//return;
-			console.log("err",err);
-		}
+
 
 		res.json({ message: "Mint successful!", data: nft});
 
 	} catch (err) {
 
 		console.log("err",err);
-		res.status(500).json({ message: "Internal Server Error!" });
+		res.status(500).json({ message: err });
 	}
 
 
