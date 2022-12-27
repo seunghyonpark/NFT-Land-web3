@@ -262,7 +262,7 @@ await contract.methods.say().send(options)
 				nft.staking = "false";
 		
 			} else {
-				console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+				console.log("fetch tokenUri error", response);
 			}
 		
 
