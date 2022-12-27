@@ -178,69 +178,31 @@ await contract.methods.say().send(options)
 		console.log("withdraw-nft receipt", receipt);
 
 
-		//console.log("blockNumber", receipt.blockNumber);
-
-		
 
 
-			/*
-		deployed.events.callevent(
-			{
-				fromBlock: receipt.blockNumber,
-				toBlock: 'latest',
-			},
-			(error, data) => {
-				console.log(`callevent: ${data}`);
-			}
-		)
-			*/
 
+		const data = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
 
-		/*
-		
-
-		const mintTokenId = '100';
-		const mintTokenUri = 'https://gogodino.saltmarble.io/metaexplorers/json/100.json';
-
-		const tx = {
-			from: ownerAddress,
-			to: contractAddress,
-			value: 0,
-			input: '0xe942b5160000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000036b65790000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000576616c7565000000000000000000000000000000000000000000000000000000',
-			gas: 500000,
-			submit: true
-		}
-		const result = await caver.kas.wallet.requestSmartContractExecution(tx)
-		*/
-
-		/*
-		const nft = new Object();
-		nft.tokenId = tokenId;
-		res.json({ message: "Mint successful!", data:  nft});
-		*/
-
-
-		/*
 		const  contractName = 'GOGODINO Official';
 		const nft = new Object();
 
 		try {
 			//nft.owner = data.itmes[idx].owner;  error
 
-			nft.owner = ownerPublicKey;
+			nft.owner = data.owner;
 
 			const contract = new Object();
 			contract.address = contractAddress;
 			contract.name = contractName;
 			nft.contract = contract;
 
-			nft.tokenId = tokenId;
+			nft.tokenId = caver.utils.hexToNumber(data.tokenId);
 
 
 			const media = new Array() ;
 			nft.media = media;
 
-			const response = await fetch(`${baseURI}/${tokenId}.json`);
+			const response = await fetch(data.tokenUri);
 
 			if (response.ok) {
 
@@ -261,7 +223,7 @@ await contract.methods.say().send(options)
 				nft.staking = "false";
 		
 			} else {
-				console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+				//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 			}
 		
 		} catch (err) {
@@ -269,9 +231,10 @@ await contract.methods.say().send(options)
 			//return;
 			console.log("err",err);
 		}
-		*/
 
-		res.json({ message: "Mint successful!", data: tokenId});
+
+
+		res.json({ message: "Mint successful!", data: nft});
 
 	/*
 	} catch (err) {

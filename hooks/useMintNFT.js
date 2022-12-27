@@ -99,8 +99,6 @@ export default function useMintNFT(address) {
 			//data.push(nft);
 
 			let updateData = data;
-
-
 			updateData.unshift(nft.data);
 			setData(updateData);
 
@@ -656,7 +654,16 @@ export default function useMintNFT(address) {
 					console.log("withdrawNFT stakeData.length", stakeData.length);
 					console.log("withdrawNFT updateData.length", updateData.length);
 	
-					//setIsMinting(false);
+				
+
+					
+					///////////////////////
+					updateData = data;
+					updateData.unshift(result.data);
+					setData(updateData);
+					//////////////////////
+					
+
 	
 				}
 	
