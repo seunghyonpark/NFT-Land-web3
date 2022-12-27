@@ -14,7 +14,7 @@ export default function StakingMain({
 }) {
 	
 
-	console.log("stakeData.length", stakeData.length);
+	console.log("stakeData.length", stakeData?.length);
 
 	//return data.lenghth > 0 && (
 	return (
