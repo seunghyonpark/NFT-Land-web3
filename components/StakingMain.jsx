@@ -8,8 +8,8 @@ export default function StakingMain({
 	isLoading,
 	isConnectWallet,
 	cryptoTowerAddress,
-	loadingCubesAddress,
 	goldFishAddress,
+	loadingCubesAddress,
 	withdrawNFT,
 }) {
 	
@@ -44,7 +44,7 @@ export default function StakingMain({
 
 
 			{
-			(stakeData.length === 0) && (isInHome === false) && (isLoading === false) &&
+			(stakeData?.length === 0) && (isInHome === false) && (isLoading === false) &&
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
 					id="crypto-tower"
