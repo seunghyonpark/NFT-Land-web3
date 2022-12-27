@@ -6,7 +6,11 @@ import { useEffect, useRef } from "react"
 
 export default function MintingDashboard({
 	isMinting,
+	isDepositing,
+	isWithdrawing,
 	dataProcessingAddress,
+	depositingNFTAddress,
+	withdrawingNFTAddress,
 	mintNFT,
 	checkNFT,
 }) {
@@ -92,6 +96,7 @@ export default function MintingDashboard({
 			)}
 
 
+
 			{/* check minted NFT's form */}
 			{isMinting && (
 				<button
@@ -101,6 +106,20 @@ export default function MintingDashboard({
 				>
 					Check NFT
 				</button>
+			)}
+
+
+
+			{isDepositing && (
+				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+				<lottie-player
+					id="crypto-tower"
+					src={depositingNFTAddress}
+					speed="1"
+					loop
+					autoplay
+				></lottie-player>
+			</div>	
 			)}
 
 

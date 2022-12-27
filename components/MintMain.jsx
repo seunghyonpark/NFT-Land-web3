@@ -4,13 +4,14 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function MintMain({
 	data,
-	setData,
 	isInHome,
 	isLoading,
 	isConnectWallet,
 	cryptoTowerAddress,
 	loadingCubesAddress,
 	goldFishAddress,
+	depositNFT,
+	withdrawNFT,
 }) {
 	
 
@@ -33,7 +34,8 @@ export default function MintMain({
 						cryptoTowerAddress={cryptoTowerAddress}
 						loadingCubesAddress={loadingCubesAddress}
 						data={data}
-						setData={setData}
+						depositNFT={depositNFT}
+						withdrawNFT={withdrawNFT}
 					>
 
 					</NFTCard>

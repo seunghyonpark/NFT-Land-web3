@@ -6,7 +6,6 @@ import Script from "next/script";
 import CardMain from "../components/CardMain.jsx";
 
 import useStakeNFT from "../hooks/useStakeNFT.js";
-import useMintNFT from "../hooks/useMintNFT.js";
 
 
 // --------------------------
@@ -14,22 +13,58 @@ export default function NFTCard({
 	cardData,
 	cryptoTowerAddress,
 	loadingCubesAddress,
-	data,
-	setData,
+	depositNFT,
+	withdrawNFT,
 }) {
 
-	const { depositNFT, withdrawNFT, isInHome, isLoading } = useStakeNFT(cardData.tokenId, data, setData);
+	//const [isLoading, setIsLoading] = useState(false);
+
+	const { isLoading } = useStakeNFT(cardData.tokenId);
+
+	// 이렇게 하면 안된다.
+	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(cardData.owner);
+
+
+
+
+	//console.log("depositNFT", depositNFT);
+
+
 
 	//console.log("cardData.tokenId", cardData.tokenId);
 	//console.log("isInHome", isInHome);
+
+
+	//setTokenId(cardData.tokenId);
+	/* error 발생한다.
+	Unhandled Runtime Error
+Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
+	*/
 
 
 	/*
 	https://testnets.opensea.io/assets/baobab/0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b/340
 	*/
 
-	return (
 
+	const sayHello = (tokenId) => {
+		//alert(`Hello, ${name}!`);
+
+		console.log(`Hello, ${tokenId}!`);
+
+		//setTokenId(tokenId);
+
+		if (cardData.staking === "true") {
+			withdrawNFT(tokenId);
+
+		} else {
+			depositNFT(tokenId);
+		}
+	};
+
+
+
+	return (
 		<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3  sm:m-0 sm:max-w-lg ">
 
 			{/*
@@ -100,7 +135,9 @@ export default function NFTCard({
 					//	navigator.clipboard.writeText(data.contract.address)
 					//}
 
-					onClick={depositNFT}
+					onClick={() => sayHello(cardData.tokenId)}
+
+					//onClick={depositNFT}
 				>
 					<p className="font-medium">
 
@@ -159,6 +196,7 @@ export default function NFTCard({
 
 
 //  --------------------------------
+/*
 export function getStaticProps() {
 	// async/await testing!
 	//let scriptAddress =
@@ -179,3 +217,4 @@ export function getStaticProps() {
 		},
 	};
 }
+*/

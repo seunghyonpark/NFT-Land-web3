@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import MintHeader from "../components/MintHeader/index.js";
+import StakingMain from "../components/StakingMain.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import MintMain from "../components/MintMain.jsx";
 import Footer from "../components/Footer.jsx";
@@ -32,6 +33,8 @@ export default function Mint({
 	loadingCubesAddress,
 	goldFishAddress,
 	dataProcessingAddress,
+	depositingNFTAddress,
+	withdrawingNFTAddress,
 	testData,
 }) {
 	//const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
@@ -42,7 +45,7 @@ export default function Mint({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, setData, data, isInHome, isLoading, isConnectWallet, isMinting, tokenId } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
 
 
 	const ref = useRef();
@@ -190,16 +193,35 @@ export default function Mint({
 					data,
 					mintNFT,
 					fetchNFTs,
+					fetchStakeNFTs,
 					isMinting,
 				}}
 			/>
 
 
+			<StakingMain
+				{...{
+					stakeData,
+					isInHome,
+					isLoading,
+					isConnectWallet,
+					scriptAddress,
+					cryptoTowerAddress,
+					goldFishAddress,
+					loadingCubesAddress,
+					withdrawNFT,
+				}}
+			/>
+
 
 			<MintingDashboard
 				{...{
 					isMinting,
+					isDepositing,
+					isWithdrawing,
 					dataProcessingAddress,
+					depositingNFTAddress,
+					withdrawingNFTAddress,
 					mintNFT,
 					checkNFT,
 				}}
@@ -208,7 +230,6 @@ export default function Mint({
 			<MintMain
 				{...{
 					data,
-					setData,
 					isInHome,
 					isLoading,
 					isConnectWallet,
@@ -216,6 +237,8 @@ export default function Mint({
 					cryptoTowerAddress,
 					goldFishAddress,
 					loadingCubesAddress,
+					depositNFT,
+					withdrawNFT,
 				}}
 			/>
 
@@ -247,6 +270,14 @@ export async function getStaticProps() {
 	let dataProcessingAddress =
 		"https://assets10.lottiefiles.com/private_files/lf30_x4ubhxsy.json";
 
+	let depositingNFTAddress =
+		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+
+	
+	let withdrawingNFTAddress =
+		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+
+
 
 	const file = path.join(process.cwd(), 'posts', 'test.json');
 	const testData = readFileSync(file, 'utf8');
@@ -275,6 +306,8 @@ export async function getStaticProps() {
 			loadingCubesAddress,
 			goldFishAddress,
 			dataProcessingAddress,
+			depositingNFTAddress,
+			withdrawingNFTAddress,
 			testData,
 		},
 	};

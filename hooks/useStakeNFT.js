@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 
-export default function useStakeNFT(tokenId, data, setData) {
+export default function useStakeNFT(tokenId) {
 	
 	//const [data, setData] = useState([]);
 	const [isInHome, setIsInHome] = useState(true);
@@ -306,7 +306,7 @@ export default function useStakeNFT(tokenId, data, setData) {
 
 	};
 
-	return { depositNFT, withdrawNFT, isInHome, isLoading };
+	return { isLoading };
 }
 
 

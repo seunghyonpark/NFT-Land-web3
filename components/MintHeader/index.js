@@ -11,6 +11,7 @@ export default function MintHeaderHeader({
 	data,
 	mintNFT,
 	fetchNFTs,
+	fetchStakeNFTs,
 	isMinting,
 }) {
 
@@ -20,7 +21,8 @@ export default function MintHeaderHeader({
 		
 	}
 
-	const ref = useRef(null);
+	const refNFT = useRef(null);
+	const refStakeNFT = useRef(null);
 
 	const onChange = (event) => {
 
@@ -179,7 +181,9 @@ export default function MintHeaderHeader({
 	useEffect(() => {
 
 
-		ref.current.click();
+		refNFT.current.click();
+
+		refStakeNFT.current.click();
 
 		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
@@ -203,7 +207,8 @@ export default function MintHeaderHeader({
 		function pollDOM() {
 		  //console.log(i);
 		  i++;
-		  ref.current.click();
+		  refNFT.current.click();
+		  refStakeNFT.current.click();
 		}
 		
 		const interval = setInterval(pollDOM, 100000);
@@ -223,7 +228,7 @@ export default function MintHeaderHeader({
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./mint">GDX Mint Service</a>
+				<a href="./mint">GDX Mint & Stake Service</a>
 			</h1>
 
 
@@ -255,11 +260,19 @@ export default function MintHeaderHeader({
 				*/}
 
 				<button
-					ref={ref}
+					ref={refNFT}
 					onClick={fetchNFTs}
 					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch NFTs
+				</button>
+
+				<button
+					ref={refStakeNFT}
+					onClick={fetchStakeNFTs}
+					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+					Fetch Stake NFTs
 				</button>
 				
 
