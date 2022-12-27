@@ -74,7 +74,7 @@ export default function useMintNFT(address) {
 
 			const response = await fetch(`/api/mint-nft?wallet=${address}`);
 
-			////console.log("response=", response);
+			console.log("response=", response);
 
 			if (!response.ok) {
 				setIsMinting(false);
@@ -110,7 +110,7 @@ export default function useMintNFT(address) {
 			return;
 
 		} catch (err) {
-			console.log("err="+err);
+			console.log("err=",err);
 
 			setIsMinting(false);
 
