@@ -27,8 +27,10 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
 
+const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
+
+const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 
 /*
 export default async function handler(req, res) {
@@ -78,12 +80,19 @@ export default async function handler(req, res) {
 			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
-		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
+		////const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 
+		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingWalletAddress, nftQuery);
 		
+		
+
+
 		//console.log("fetch-nfts data",data);
 
-		for(let idx=0; idx < data.items.length; idx++){
+		///////for(let idx=0; idx < data.items.length; idx++){
+
+		/////// for test ///////
+		for(let idx=0; idx < 2; idx++){
 
 
 		

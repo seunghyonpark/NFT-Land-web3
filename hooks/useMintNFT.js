@@ -499,15 +499,31 @@ export default function useMintNFT(address) {
 				}
 				console.log("idx", idx);
 
-				updateData.splice(idx, 1);
 
+				///////////////////////
+				updateData[idx].staking = "true";
+				
+				let updateStakeData = stakeData;
+				updateStakeData.push(updateData[idx]);
+				setStakeData(updateStakeData);
+				//////////////////////
+
+
+
+				updateData.splice(idx, 1);
 
 				setData(updateData);
 
 				console.log("depositNFT data.length", data.length);
 				console.log("depositNFT updateData.length", updateData.length);
 
-				//setIsMinting(false);
+				
+
+
+
+
+
+				
 
 			}
 

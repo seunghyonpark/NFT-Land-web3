@@ -34,7 +34,6 @@ export default function StakingMain({
 						loadingCubesAddress={loadingCubesAddress}
 						withdrawNFT={withdrawNFT}
 					>
-
 					</NFTCard>
 				))}
 			</cards>

@@ -202,6 +202,7 @@ export default function MintHeaderHeader({
 		}, 200); //miliseconds
 		*/
 
+		/*
 		let i = 0;
 
 		function pollDOM() {
@@ -213,7 +214,7 @@ export default function MintHeaderHeader({
 		
 		const interval = setInterval(pollDOM, 100000);
 		return () => clearInterval(interval);
-
+		*/
 
 	}, [address]);
 

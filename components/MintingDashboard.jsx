@@ -110,7 +110,8 @@ export default function MintingDashboard({
 
 
 
-			{isDepositing && (
+			{/*
+			isDepositing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
 					id="crypto-tower"
@@ -120,7 +121,10 @@ export default function MintingDashboard({
 					autoplay
 				></lottie-player>
 			</div>	
-			)}
+			)
+			*/}
+
+
 
 
 

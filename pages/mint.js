@@ -198,6 +198,30 @@ export default function Mint({
 				}}
 			/>
 
+			{isWithdrawing && (
+				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+				<lottie-player
+					id="crypto-tower"
+					src={withdrawingNFTAddress}
+					speed="1"
+					loop
+					autoplay
+				></lottie-player>
+				</div>	
+			)}
+
+			{isDepositing && (
+				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+				<lottie-player
+					id="crypto-tower"
+					src={depositingNFTAddress}
+					speed="1"
+					loop
+					autoplay
+				></lottie-player>
+			</div>	
+			)}
+
 
 			<StakingMain
 				{...{
