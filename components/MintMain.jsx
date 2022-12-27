@@ -15,7 +15,7 @@ export default function MintMain({
 }) {
 	
 
-	console.log("data.length", data.length);
+	console.log("data.length", data?.length);
 
 	//return data.lenghth > 0 && (
 	return (
@@ -26,7 +26,7 @@ export default function MintMain({
 
 
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
-				{data.map((nft) => (
+				{data?.map((nft) => (
 					// uuid!
 					<NFTCard
 						key={uuidv4()}

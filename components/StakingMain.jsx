@@ -25,7 +25,7 @@ export default function StakingMain({
 
 
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
-				{stakeData.map((nft) => (
+				{stakeData?.map((nft) => (
 					// uuid!
 					<NFTCard
 						key={uuidv4()}
