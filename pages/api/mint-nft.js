@@ -280,8 +280,14 @@ await contract.methods.say().send(options)
 	} catch (err) {
 
 		console.log("err",err);
-		console.err;
-		res.status(500).json({ message: err});
+		//console.err;
+		
+		
+		//res.status(500).json({ message: err});
+
+		res.status(500).json({ error: err });
+
+		
 	}
 
 
