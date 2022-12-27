@@ -155,11 +155,16 @@ await contract.methods.say().send(options)
 
 
 
+
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
 		console.log("totalSupply", totalSupply);
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
+
+
+
+	
 
 
 
@@ -176,13 +181,16 @@ await contract.methods.say().send(options)
 
 		//console.log("blockNumber", receipt.blockNumber);
 
-		
+		/***********************************************************
 		deployed.events
 		.allEvents()
 		.on('data', event => {
 			console.log("event", event);
 		})
 		.on('error', console.error)
+		*/
+
+
 
 			/*
 		deployed.events.callevent(
