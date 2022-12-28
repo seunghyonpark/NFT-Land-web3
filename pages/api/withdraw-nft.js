@@ -21,8 +21,8 @@ const alchemy = new Alchemy({
 
 //const chainId = "8217"; // cypress
 const chainId = "1001"; // baobab
-const accessKeyId = "KASK7LN9R0ADR0L3SP4GVN79";
-const secretAccessKey = "pam2QVYUTV1iqL77sxBbTSKsBHc2ZPw6mFUHScFm";
+const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
+const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 // Set an authorization through 'caver.initKASAPI' function
 const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
