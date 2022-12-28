@@ -89,7 +89,7 @@ export default async function handler(req, res) {
 		///////for(let idx=0; idx < data.items.length; idx++){
 
 		/////// for test ///////
-		for(let idx=0; idx < 2; idx++){
+		for(let idx=0; idx < 1; idx++){
 	
 			const nft = new Object();
 

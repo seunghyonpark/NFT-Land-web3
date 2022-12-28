@@ -95,28 +95,39 @@ export default function MintingDashboard({
 
 			{isMinting && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<lottie-player
+						id="data-processing"
+						src={dataProcessingAddress}
+						speed="1"
+						loop
+						autoplay
+					></lottie-player>
+				</div>	
+			)}
+
+			<div className="m-auto h-[8rem] w-[8rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
-					id="crypto-tower"
+					id="data-processing"
 					src={dataProcessingAddress}
 					speed="1"
 					loop
 					autoplay
+					stop
 				></lottie-player>
 			</div>	
-			)}
 
 
 
 			{/* check minted NFT's form */}
-			{isMinting && (
-				<button
-					ref={ref}
-					onClick={checkNFT}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Check NFT
-				</button>
-			)}
+			
+			<button
+				ref={ref}
+				onClick={checkNFT}
+				className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+			>
+				Check NFT
+			</button>
+			
 
 
 

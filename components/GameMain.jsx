@@ -1,10 +1,10 @@
 import React from "react";
-import NFTCard from "./NFTCard";
+import GameCard from "./GameCard";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState, useEffect, useRef } from "react";
 
-export default function MintMain({
+export default function GameMain({
 	data,
 	isInHome,
 	isLoading,
@@ -25,7 +25,7 @@ export default function MintMain({
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
 				{data?.map((nft) => (
 					// uuid!
-					<NFTCard
+					<GameCard
 						key={uuidv4()}
 						cardData={nft}
 						cryptoTowerAddress={cryptoTowerAddress}
@@ -34,7 +34,7 @@ export default function MintMain({
 						depositNFT={depositNFT}
 						withdrawNFT={withdrawNFT}
 					>
-					</NFTCard>
+					</GameCard>
 				))}
 			</cards>
 

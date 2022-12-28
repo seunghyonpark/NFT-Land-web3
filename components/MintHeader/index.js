@@ -13,6 +13,7 @@ export default function MintHeaderHeader({
 	fetchNFTs,
 	fetchStakeNFTs,
 	isMinting,
+	depositingNFTAddress,
 }) {
 
 	if (address) {
@@ -239,10 +240,11 @@ export default function MintHeaderHeader({
 
 		<header className="mt-10">
 			{/* logotype */}
+			{/*
 			<h1 className="text-center text-5xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">GOGO DINO Meta Explorers<br></br>NFT Staking </a>
 			</h1>
-
+	*/}
 
 			{/* find NFT's form */}
 			<form className="mt-5 flex flex-col">
@@ -305,6 +307,55 @@ export default function MintHeaderHeader({
 
 			</form>
 
+
+
+
+			<h1 className="text-left text-3xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./mint">My Staked M.E. NFT</a>
+			</h1>
+
+
+			<ul role="list" class="p-6 divide-y divide-slate-200">
+				<li class="flex py-4 first:pt-0 last:pb-0">
+					<img class="h-12 w-12 rounded-full" src="./img_card1.png" alt="" />
+					<div class="ml-3 overflow-hidden text-left">
+						<p class="text-xs font-medium text-slate-900">
+							Staking Count
+						</p>
+						<p class="text-3xl text-amber-400 truncate">2</p>
+					</div>
+				</li>
+				<li class="flex py-4 first:pt-0 last:pb-0">
+					
+					
+					
+
+
+					<div className="mt-3 h-10 w-10  -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="crypto-tower"
+							src={depositingNFTAddress}
+							speed="1"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+
+
+					<div class="ml-3 overflow-hidden text-left">
+						<p class="text-xs font-medium text-slate-900">
+						Current earned Total ($SML)
+						</p>
+						<p class="text-3xl text-amber-400 truncate">43.1342632545223444355</p>
+					</div>
+
+
+					<img class="h-12 w-12 rounded-full" src="./sml.png" alt="" />
+
+				</li>
+
+			</ul>
 
 
 

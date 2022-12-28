@@ -1,10 +1,10 @@
 import React from "react"
 //import NFTCardStaked from "./NFTCardStaked"
-import NFTCardStaked from "./NFTCardStaked/index.jsx"
+import GameCardStaked from "./GameCardStaked/index.jsx"
 import { v4 as uuidv4 } from "uuid"
 
 
-export default function StakingMain({
+export default function StakingPage({
 	stakeData,
 	isInHome,
 	isLoading,
@@ -57,7 +57,7 @@ export default function StakingMain({
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-1 lg:grid-cols-1 ">
 				{stakeData?.map((nft) => (
 					// uuid!
-					<NFTCardStaked
+					<GameCardStaked
 						key={uuidv4()}
 						cardData={nft}
 						cryptoTowerAddress={cryptoTowerAddress}
@@ -67,7 +67,7 @@ export default function StakingMain({
 						setTokenId={setTokenId}
 						withdrawNFT={withdrawNFT}
 					>
-					</NFTCardStaked>
+					</GameCardStaked>
 				))}
 			</cards>
 
