@@ -180,10 +180,10 @@ export default function Mint({
 			*/}
 
 			<Head>
-				<title>M.E. NFT Minting Service</title>
+				<title>GOGO DINO META EXPLORERS</title>
 				<meta
-					name="M.E. NFT Minting Service"
-					content="A simple dApp for Minting NFT"
+					name="GOGO DINO META EXPLORERS"
+					content="GOGO DINO META EXPLORERS"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
