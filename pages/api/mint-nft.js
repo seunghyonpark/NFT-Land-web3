@@ -176,6 +176,15 @@ await contract.methods.say().send(options)
 			`${baseURI}/${tokenId}.json`
 		);
 
+		/// for vercel test
+		res.json({ message: "Mint successful!", data: receipt}); 
+
+		return;
+
+		
+
+
+
 		//console.log("mint-nft receipt", receipt);
 
 
