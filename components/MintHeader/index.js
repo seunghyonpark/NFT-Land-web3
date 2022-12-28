@@ -182,7 +182,7 @@ export default function MintHeaderHeader({
 
 		connectWallet();
 
-		refNFT.current.click();
+		//refNFT.current.click();
 
 		refStakeNFT.current.click();
 

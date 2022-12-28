@@ -144,7 +144,7 @@ export default async function handler(req, res) {
 					nft.staking = "true";
 			
 				} else {
-					console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
 			
 			} catch (err) {
@@ -168,6 +168,7 @@ export default async function handler(req, res) {
 		//console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
+	
 }
 
 
