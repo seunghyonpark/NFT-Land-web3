@@ -3,9 +3,12 @@
 
 //import Caver from "caver-js";
 import CaverExtKAS from "caver-js-ext-kas";
+import { json } from "mocha/lib/reporters";
+import { consoleLog } from "mocha/lib/reporters/base";
+//import { calculateOverrideValues } from "next/dist/server/font-utils";
+
 
 import contractABI from "../../constants/contractABI.json";
-
 
 
 // ----------------------------
@@ -18,12 +21,13 @@ const alchemy = new Alchemy({
 
 //const chainId = "8217"; // cypress
 const chainId = "1001"; // baobab
-const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
+const accessKeyId = "KASK7LN9R0ADR0L3SP4GVN79";
+const secretAccessKey = "pam2QVYUTV1iqL77sxBbTSKsBHc2ZPw6mFUHScFm";
 // Set an authorization through 'caver.initKASAPI' function
 const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
+
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
 const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
@@ -153,6 +157,8 @@ await contract.methods.say().send(options)
 
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
+
+		console.log("totalSupply", totalSupply);
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
 
@@ -285,6 +291,8 @@ await contract.methods.say().send(options)
 		//res.status(500).json({ message: err});
 
 		res.status(500).json({ error: err });
+
+		
 	}
 
 
