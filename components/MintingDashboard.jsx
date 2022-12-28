@@ -61,7 +61,7 @@ export default function MintingDashboard({
 <br></br>
 			{/* logotype */}
 			<h1 className=" text-left text-3xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./mint">My Minted M.E. NFT</a>
+				<a href="./mint">Select your M.E. NFT and start staking</a>
 			</h1>
 
 			{/* cards container */}
