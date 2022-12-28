@@ -192,7 +192,7 @@ export default function MintHeaderHeader({
 
 		setTimeout(() => {
 			refNFT.current.click();
-		  }, 70000); //miliseconds
+		  }, 7000); //miliseconds
 
 		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
