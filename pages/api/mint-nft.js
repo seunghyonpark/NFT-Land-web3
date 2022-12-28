@@ -66,7 +66,7 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
-		console.log("wallet",wallet);
+		//console.log("wallet",wallet);
 
 
 
@@ -225,6 +225,8 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
+		//console.log("tokenId", tokenId);
+
 
 		const receipt = await deployed.send(
 			{from: ownerPublicKey, gas},
@@ -345,7 +347,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 	} catch (err) {
 
-		console.log("err",err);
+		//console.log("err",err);
 		//console.err;
 		
 		
