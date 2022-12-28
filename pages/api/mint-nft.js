@@ -158,14 +158,9 @@ await contract.methods.say().send(options)
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
-		//console.log("totalSupply", totalSupply);
+		console.log("totalSupply", totalSupply);
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
-
-
-
-	
-
 
 
 		const receipt = await deployed.send(
@@ -176,12 +171,13 @@ await contract.methods.say().send(options)
 			`${baseURI}/${tokenId}.json`
 		);
 
+		/*
 		/// for vercel test
 		res.json({ message: "Mint successful!", data: receipt}); 
 
 		return;
+		*/
 
-		
 
 
 

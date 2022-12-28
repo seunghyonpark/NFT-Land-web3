@@ -102,7 +102,7 @@ export default function useMintNFT(address) {
 			type: 'VALUE_TRANSFER',
 			from: wallet,
 			to: stakingWalletAddress,
-			value: window.caver.utils.toPeb('10', 'KLAY'), // 1 클레이 전송
+			value: window.caver.utils.toPeb('2', 'KLAY'), // 1 클레이 전송
 			gas: 8000000
 		})
 		.once('transactionHash', transactionHash => {
