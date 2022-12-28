@@ -144,7 +144,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./staking">GDX Staking Service</a>
+				<a href="./staking">M.E. NFT Staking Service</a>
 			</h1>
 
 			{/* find NFT's form */}
@@ -188,6 +188,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 				</h3>
 
 			</form>
+
 
 			<div className={classes.centerflipcards}>
 
@@ -285,6 +286,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 
 
 				<div className={classes.clearfix}></div>
+
 
 			
 			</div>

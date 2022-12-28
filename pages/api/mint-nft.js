@@ -68,7 +68,7 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
-		console.log("wallet",wallet);
+		//console.log("wallet",wallet);
 
 
 
@@ -158,7 +158,7 @@ await contract.methods.say().send(options)
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
-		console.log("totalSupply", totalSupply);
+		//console.log("totalSupply", totalSupply);
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
 
@@ -176,7 +176,7 @@ await contract.methods.say().send(options)
 			`${baseURI}/${tokenId}.json`
 		);
 
-		console.log("mint-nft receipt", receipt);
+		//console.log("mint-nft receipt", receipt);
 
 
 		//console.log("blockNumber", receipt.blockNumber);
@@ -270,7 +270,7 @@ await contract.methods.say().send(options)
 				nft.staking = "false";
 		
 			} else {
-				console.log("fetch tokenUri error", response);
+				//console.log("fetch tokenUri error", response);
 			}
 		
 
@@ -279,7 +279,7 @@ await contract.methods.say().send(options)
 
 	} catch (err) {
 
-		console.log("err",err);
+		//console.log("err",err);
 		//console.err;
 		
 		

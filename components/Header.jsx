@@ -101,7 +101,7 @@ function Header({ address, setAddress, fetchNFTs }) {
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400/50 drop-shadow-xl ">
-				<a href="./">GDX Staking Service</a>
+				<a href="./">M.E. NFT Staking Service</a>
 			</h1>
 
 			<button

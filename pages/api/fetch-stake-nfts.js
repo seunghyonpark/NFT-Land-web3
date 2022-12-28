@@ -67,9 +67,6 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
-		console.log("wallet",wallet);
-
-		
 		const  contractName = 'GOGODINO Official';
 
 
@@ -87,15 +84,14 @@ export default async function handler(req, res) {
 		
 
 
+
 		//console.log("fetch-nfts data",data);
 
 		///////for(let idx=0; idx < data.items.length; idx++){
 
 		/////// for test ///////
 		for(let idx=0; idx < 2; idx++){
-
-
-		
+	
 			const nft = new Object();
 
 			try {
@@ -117,14 +113,19 @@ export default async function handler(req, res) {
 
 				const response = await fetch(data.items[idx].tokenUri);
 
+			
+
 				if (response.ok) {
 
 					const jsonTokenUri = await response.json();
+
+					//console.log("jsonTokenUri", jsonTokenUri);
 
 					//console.log(jsonTokenUri.name);
 					//console.log(jsonTokenUri.image);
 
 					
+
 			
 					// 객체 생성
 					const mediadata = new Object() ;
@@ -134,7 +135,8 @@ export default async function handler(req, res) {
 					// 리스트에 생성된 객체 삽입
 					media.push(mediadata);
 
-					
+
+					nft.jsonTokenUri = jsonTokenUri;
 
 					nft.title = jsonTokenUri.name;
 					
@@ -149,7 +151,7 @@ export default async function handler(req, res) {
 			} catch (err) {
 				//alert("There was an error fetching NFTs!");
 				//return;
-				console.log("err",err);
+				//console.log("err",err);
 			}
 			
 			ownedNfts.push(nft);
@@ -164,7 +166,7 @@ export default async function handler(req, res) {
 
 	} catch (err) {
 
-		console.log("err",err);
+		//console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
 }

@@ -40,7 +40,7 @@ export default function MintHeaderHeader({
 		console.log("connectWallet");
 
 
-		const {klaytn} = window;
+		//const {klaytn} = window;
 		if (klaytn) {
 			try {
 				const accounts = await klaytn.enable();
@@ -73,7 +73,7 @@ export default function MintHeaderHeader({
 	}
 
 	
-	connectWallet();
+	//connectWallet();
 
 
 	const loadAccountInfo = async (e) => {
@@ -180,6 +180,7 @@ export default function MintHeaderHeader({
 
 	useEffect(() => {
 
+		connectWallet();
 
 		refNFT.current.click();
 
@@ -213,6 +214,8 @@ export default function MintHeaderHeader({
 		}
 		
 		const interval = setInterval(pollDOM, 100000);
+
+
 		return () => clearInterval(interval);
 		*/
 
@@ -228,8 +231,8 @@ export default function MintHeaderHeader({
 
 		<header className="mt-10">
 			{/* logotype */}
-			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./mint">GDX Mint & Stake Service</a>
+			<h1 className="text-center text-5xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./mint">GOGO DINO Meta Explorers<br></br>NFT Staking </a>
 			</h1>
 
 
@@ -241,7 +244,7 @@ export default function MintHeaderHeader({
 					onChange={(e) => setAddress(e.target.value)}
 					type="text"
 					placeholder="Your Wallet Address"
-					className=" w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
+					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 				/>
 
 				<button
@@ -250,6 +253,11 @@ export default function MintHeaderHeader({
 				>
 					Connect Kaikas
 				</button>
+
+				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
+					{address}
+				</h1>
+
 
 				{/*
 				<button
@@ -268,6 +276,7 @@ export default function MintHeaderHeader({
 					Fetch NFTs
 				</button>
 
+				
 				<button
 					ref={refStakeNFT}
 					onClick={fetchStakeNFTs}
@@ -287,6 +296,9 @@ export default function MintHeaderHeader({
 				*/}
 
 			</form>
+
+
+
 
 		</header>
 

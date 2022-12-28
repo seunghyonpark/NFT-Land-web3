@@ -45,7 +45,7 @@ export default function Mint({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
 
 
 	const ref = useRef();
@@ -175,12 +175,14 @@ export default function Mint({
 			<Script src={scriptAddress} />
 			
 
+			{/*
 			<div ref={ref} id="container" class="fireworks-example"></div>
+			*/}
 
 			<Head>
-				<title>GDX Minting Service</title>
+				<title>M.E. NFT Minting Service</title>
 				<meta
-					name="GDX Minting Service"
+					name="M.E. NFT Minting Service"
 					content="A simple dApp for Minting NFT"
 				/>
 				<link rel="icon" href="/favicon.ico" />
@@ -198,7 +200,7 @@ export default function Mint({
 				}}
 			/>
 
-			{isWithdrawing && (
+			{/*isWithdrawing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
 					id="crypto-tower"
@@ -208,9 +210,9 @@ export default function Mint({
 					autoplay
 				></lottie-player>
 				</div>	
-			)}
+			)*/}
 
-			{isDepositing && (
+			{/*isDepositing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
 					id="crypto-tower"
@@ -220,7 +222,7 @@ export default function Mint({
 					autoplay
 				></lottie-player>
 			</div>	
-			)}
+			)*/}
 
 
 			<StakingMain
@@ -233,9 +235,14 @@ export default function Mint({
 					cryptoTowerAddress,
 					goldFishAddress,
 					loadingCubesAddress,
+					depositingNFTAddress,
+					dataProcessingAddress,
+					setTokenId,
 					withdrawNFT,
 				}}
 			/>
+
+
 
 
 			<MintingDashboard
@@ -295,11 +302,12 @@ export async function getStaticProps() {
 		"https://assets10.lottiefiles.com/private_files/lf30_x4ubhxsy.json";
 
 	let depositingNFTAddress =
-		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
-
+		//"https://assets4.lottiefiles.com/packages/lf20_HnQwluAHJd.json";
+		"https://assets4.lottiefiles.com/packages/lf20_moQNlY.json";
 	
 	let withdrawingNFTAddress =
 		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+
 
 
 

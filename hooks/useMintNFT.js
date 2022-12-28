@@ -37,6 +37,7 @@ export default function useMintNFT(address) {
 
 
 		setIsMinting(true);
+		setIsInHome(false);
 
 		try {
 
@@ -291,12 +292,12 @@ export default function useMintNFT(address) {
 
 			const fetchData = await response.json();
 
-			//console.log("data="+data);
+			//console.log("data=",fetchData);
 
 			if (fetchData.data.totalCount == 0) {
 				//setIsInHome(true);
 				//setIsLoading(false);
-				alert("This Wallet has no NFTs");
+				//alert("This Wallet has no NFTs");
 			}
 
 			// alchemy
@@ -445,6 +446,8 @@ export default function useMintNFT(address) {
 				})
 			*/
 
+
+
 		try {	
 
 			const contract = new window.caver.klay.Contract(contractABI, contractAddress);
@@ -472,11 +475,6 @@ export default function useMintNFT(address) {
 			})
 			*/
 
-
-
-			
-
-
 			if (transfer) {
 				console.log("transfer", transfer);
 
@@ -502,7 +500,7 @@ export default function useMintNFT(address) {
 
 				///////////////////////
 				updateData[idx].staking = "true";
-				
+
 				let updateStakeData = stakeData;
 				updateStakeData.push(updateData[idx]);
 				setStakeData(updateStakeData);
@@ -518,13 +516,6 @@ export default function useMintNFT(address) {
 				console.log("depositNFT updateData.length", updateData.length);
 
 				
-
-
-
-
-
-				
-
 			}
 
 
@@ -573,6 +564,87 @@ export default function useMintNFT(address) {
 
 
 
+
+	const processWithdrawNFT = async (tokenId) => {
+
+		setIsWithdrawing(true);
+
+		try {
+
+			const wallet = window.klaytn.selectedAddress;
+
+			const response = await fetch(`/api/withdraw-nft?wallet=${wallet}&tokenid=${tokenId}`);
+
+			if (!response.ok) {
+				setIsWithdrawing(false);
+				
+				alert("Something went wrong! Check your Input or Connection");
+
+				return;
+			}
+
+			const result = await response.json();
+
+			if (result) {
+
+				console.log("result", result);
+
+				let updateData = stakeData;
+
+				console.log("withdrawNFT stakeData.length", stakeData.length);
+				console.log("withdrawNFT updateData.length", updateData.length);
+
+
+				let idx;
+				for(idx=0; idx < updateData.length; idx++){
+
+					console.log("updateData idx tokenId", updateData[idx].tokenId);
+					console.log("tokenId", tokenId);
+
+					if (updateData[idx].tokenId.toString() === tokenId.toString()) {
+						break;
+					}
+				}
+				console.log("idx", idx);
+
+				updateData.splice(idx, 1);
+
+
+				setStakeData(updateData);
+
+				console.log("withdrawNFT stakeData.length", stakeData.length);
+				console.log("withdrawNFT updateData.length", updateData.length);
+
+				
+				///////////////////////
+				updateData = data;
+				updateData.unshift(result.data);
+				setData(updateData);
+				//////////////////////
+
+			}
+
+
+			setIsWithdrawing(false);
+
+			return;
+
+		} catch (err) {
+			console.log("err="+err);
+
+			setIsWithdrawing(false);
+
+			alert("There was an error minting NFT!----");
+
+			return;
+		}
+
+	}
+
+
+
+
+
 	const withdrawNFT = async (tokenId) => {
 
 		//e.preventDefault();
@@ -586,120 +658,64 @@ export default function useMintNFT(address) {
 
 		const wallet = window.klaytn.selectedAddress;
 
-		//setData([]);
-		//setIsLoading(true);
-		//setIsInHome(false);
+		setIsWithdrawing(true);
 
-		/*
+
+
+		
+		//let isPayed = false;
+
 		window.caver.klay
-			.sendTransaction({
-				type: 'VALUE_TRANSFER',
-				from: window.klaytn.selectedAddress,
-				to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
-				value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
-				gas: 8000000
-			})
-			.once('transactionHash', transactionHash => {
-				console.log('txHash', transactionHash);
-			})
-			.once('receipt', receipt => {
-				console.log('receipt', receipt);
-			})
-			.once('error', error => {
-				console.log('error', error);
-				alert("지불에 실패하셨습니다.");
-			})
-			*/
+		.sendTransaction({
+			type: 'VALUE_TRANSFER',
+			from: wallet,
+			to: stakingWalletAddress,
+			value: window.caver.utils.toPeb('3', 'KLAY'), // 1 클레이 전송
+			gas: 8000000
+		})
+		.once('transactionHash', transactionHash => {
+			console.log('txHash', transactionHash);
+		})
+		.once('receipt', receipt => {
+			console.log('receipt', receipt);
 
+			//setData(receipt);
 
+			//fetchNFTs();
+			//setIsLoading(false);
 
+			//isPayed = true;
 
 			setIsWithdrawing(true);
 
-			try {
-	
-				const response = await fetch(`/api/withdraw-nft?wallet=${wallet}&tokenid=${tokenId}`);
-	
-				////console.log("response=", response);
-	
-				if (!response.ok) {
-					setIsWithdrawing(false);
-					
-					alert("Something went wrong! Check your Input or Connection");
-					//setIsLoading(false);
-					//setIsInHome(true);
-	
-					
-					return;
-				}
-	
-	
-	
-				const result = await response.json();
-	
-				console.log("result.data",result.data);
-	
+			console.log("isWithdrawing", isWithdrawing);
 
-				if (result) {
-					console.log("result", result);
-	
-	
-					let updateData = stakeData;
-	
-					console.log("withdrawNFT stakeData.length", stakeData.length);
-					console.log("withdrawNFT updateData.length", updateData.length);
-	
-	
-					let idx;
-					for(idx=0; idx < updateData.length; idx++){
-	
-						console.log("updateData idx tokenId", updateData[idx].tokenId);
-						console.log("tokenId", tokenId);
-	
-						if (updateData[idx].tokenId.toString() === tokenId.toString()) {
-							break;
-						}
-					}
-					console.log("idx", idx);
-	
-					updateData.splice(idx, 1);
-	
-	
-					setStakeData(updateData);
-	
-					console.log("withdrawNFT stakeData.length", stakeData.length);
-					console.log("withdrawNFT updateData.length", updateData.length);
-	
-				
+			processWithdrawNFT(tokenId);
+			
+		})
+		.once('error', error => {
+			console.log('error', error);
+			//alert("지불에 실패하셨습니다.");
 
-					
-					///////////////////////
-					updateData = data;
-					updateData.unshift(result.data);
-					setData(updateData);
-					//////////////////////
-					
+			//setIsLoading(false);
+			//setIsInHome(true);
+		})
 
-	
-				}
-	
-	
-				setIsWithdrawing(false);
-	
-				return;
-	
-			} catch (err) {
-				console.log("err="+err);
-	
-				setIsDepositing(false);
-	
-				alert("There was an error minting NFT!----");
-	
-				return;
-			}
-	
+		/*
+		console.log("isPayed", isPayed);
 
-	};
+		if (isPayed) {
+
+
+
+
+		}
+		*/
+
+	}; // end of withdraw
+
+
+
 
 
 

@@ -65,9 +65,6 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
-		console.log("wallet",wallet);
-
-		
 		const  contractName = 'GOGODINO Official';
 
 
@@ -84,9 +81,7 @@ export default async function handler(req, res) {
 		//console.log("fetch-nfts data",data);
 
 		for(let idx=0; idx < data.items.length; idx++){
-
-
-		
+	
 			const nft = new Object();
 
 			try {
@@ -134,13 +129,13 @@ export default async function handler(req, res) {
 					nft.staking = "false";
 			
 				} else {
-					console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
 			
 			} catch (err) {
 				//alert("There was an error fetching NFTs!");
 				//return;
-				console.log("err",err);
+				//console.log("err",err);
 			}
 			
 			ownedNfts.push(nft);
@@ -155,7 +150,7 @@ export default async function handler(req, res) {
 
 	} catch (err) {
 
-		console.log("err",err);
+		//console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
 }

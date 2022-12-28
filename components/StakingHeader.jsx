@@ -140,7 +140,7 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./staking">GDX Staking Service</a>
+				<a href="./mint">M.E. NFT Staking Service</a>
 			</h1>
 			{/* find NFT's form */}
 			<form className="mt-5 flex flex-col">

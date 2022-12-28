@@ -54,6 +54,16 @@ export default function MintingDashboard({
 
 		<main>
 
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+			{/* logotype */}
+			<h1 className=" text-left text-3xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./mint">My Minted M.E. NFT</a>
+			</h1>
+
 			{/* cards container */}
 
 			{/*
@@ -76,7 +86,7 @@ export default function MintingDashboard({
 					onClick={mintNFT}
 					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
-					Mint NFT
+					Mint
 				</button>	
 
 			)}

@@ -2,6 +2,8 @@ import React from "react";
 import NFTCard from "./NFTCard";
 import { v4 as uuidv4 } from "uuid";
 
+import { useState, useEffect, useRef } from "react";
+
 export default function MintMain({
 	data,
 	isInHome,
@@ -13,14 +15,14 @@ export default function MintMain({
 	depositNFT,
 	withdrawNFT,
 }) {
-	
 
-	console.log("data.length", data?.length);
 
 	//return data.lenghth > 0 && (
 	return (
 
 		<main>
+
+
 
 			{/* cards container */}
 
@@ -37,7 +39,6 @@ export default function MintMain({
 						depositNFT={depositNFT}
 						withdrawNFT={withdrawNFT}
 					>
-
 					</NFTCard>
 				))}
 			</cards>
@@ -51,7 +52,7 @@ export default function MintMain({
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 				<lottie-player
 					id="crypto-tower"
-					src={goldFishAddress}
+					src={cryptoTowerAddress}
 					speed="1"
 					loop
 					autoplay
@@ -77,7 +78,8 @@ export default function MintMain({
 
 
 			{/* data fetching animation */}
-			{isLoading && (
+			{/*
+			isLoading && (
 				<div className="m-auto h-[18rem] w-[18rem] -translate-y-5 opacity-80 drop-shadow-xl">
 					<lottie-player
 						id="loading-cubes"
@@ -87,7 +89,8 @@ export default function MintMain({
 						autoplay
 					></lottie-player>
 				</div>
-			)}
+			)
+			*/}
 			
 		</main>
 

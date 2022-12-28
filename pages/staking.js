@@ -47,9 +47,9 @@ export default function Staking({
 			<Script src={scriptAddress} />
 			
 			<Head>
-				<title>GDX Staking Service</title>
+				<title>M.E. NFT Staking Service</title>
 				<meta
-					name="GDX Staking Service"
+					name="M.E. NFT Staking Service"
 					content="A simple dApp for Staking NFT"
 				/>
 				<link rel="icon" href="/favicon.ico" />
