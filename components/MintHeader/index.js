@@ -183,11 +183,16 @@ export default function MintHeaderHeader({
 		connectWallet();
 
 
-		refStakeNFT.current.click();
+		
+
+		setTimeout(() => {
+			refStakeNFT.current.click();
+		  }, 5000); //miliseconds
+
 
 		setTimeout(() => {
 			refNFT.current.click();
-		  }, 200); //miliseconds
+		  }, 70000); //miliseconds
 
 		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
