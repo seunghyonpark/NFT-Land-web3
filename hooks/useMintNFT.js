@@ -20,7 +20,130 @@ export default function useMintNFT(address) {
 
 	
 
+	const processMintNFT = async () => {
+
+		try {
+
+
+			const response = await fetch(`/api/mint-nft?wallet=${address}`);
+
+			//console.log("response=", response);
+
+			if (!response.ok) {
+				setIsMinting(false);
+				
+				alert("Something went wrong! Check your Input or Connection");
+				//setIsLoading(false);
+				//setIsInHome(true);
+
+				return;
+			}
+
+
+
+			const nft = await response.json();
+
+			console.log("nft.data",nft.data);
+
+			//setTokenId(nft.data.tokenId);
+
+
+			//data.push(nft);
+
+			let updateData = data;
+			updateData.unshift(nft.data);
+			setData(updateData);
+
+			setIsMinting(false);
+
+			return;
+
+		} catch (err) {
+			console.log("err="+err);
+
+			setIsMinting(false);
+
+			alert("There was an error minting NFT!----");
+
+			return;
+		}
+
+	}
+
+
+
 	const mintNFT = async (e) => {
+
+		e.preventDefault();
+
+		console.log("mintNFT address", address);
+
+		if (address === "") {
+			alert("Please provide address!");
+			return;
+		}
+
+		const wallet = window.klaytn.selectedAddress;
+
+		setIsMinting(true);
+
+
+
+		
+		//let isPayed = false;
+
+		window.caver.klay
+		.sendTransaction({
+			type: 'VALUE_TRANSFER',
+			from: wallet,
+			to: stakingWalletAddress,
+			value: window.caver.utils.toPeb('10', 'KLAY'), // 1 클레이 전송
+			gas: 8000000
+		})
+		.once('transactionHash', transactionHash => {
+			console.log('txHash', transactionHash);
+		})
+		.once('receipt', receipt => {
+			console.log('receipt', receipt);
+
+			//setData(receipt);
+
+			//fetchNFTs();
+			//setIsLoading(false);
+
+			//isPayed = true;
+
+
+			console.log("isWithdrawing", isWithdrawing);
+
+			processMintNFT();
+			
+		})
+		.once('error', error => {
+			console.log('error', error);
+			//alert("지불에 실패하셨습니다.");
+
+			//setIsLoading(false);
+			//setIsInHome(true);
+		})
+
+		/*
+		console.log("isPayed", isPayed);
+
+		if (isPayed) {
+
+
+
+
+		}
+		*/
+
+	}; // end of mint
+
+
+
+
+	const mintNFTOld = async (e) => {
 	
 		// this error
 		e.preventDefault();
@@ -75,7 +198,7 @@ export default function useMintNFT(address) {
 
 			const response = await fetch(`/api/mint-nft?wallet=${address}`);
 
-			console.log("response=", response);
+			//console.log("response=", response);
 
 			if (!response.ok) {
 				setIsMinting(false);
