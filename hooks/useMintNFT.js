@@ -28,6 +28,11 @@ export default function useMintNFT(address) {
 			const response = await fetch(`/api/mint-nft?wallet=${address}`);
 
 
+			/// for vercel test
+
+			console.log("mint-nft api result", response);
+
+
 
 			if (!response.ok) {
 				setIsMinting(false);
