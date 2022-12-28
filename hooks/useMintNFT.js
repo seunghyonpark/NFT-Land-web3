@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
+import walletAddress from "../constants/walletAddress.json";
 
 export default function useMintNFT(address) {
 	const [data, setData] = useState([]);
@@ -15,8 +16,8 @@ export default function useMintNFT(address) {
 	const [tokenId, setTokenId] = useState("");
 
 
-	const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
-	const stakingWalletAddress = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db";
+	const contractAddress = walletAddress.baobabNftContractAddress;
+	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	
 

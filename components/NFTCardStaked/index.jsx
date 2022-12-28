@@ -229,13 +229,17 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 						<div class="ml-3 overflow-hidden text-left">
-							<p class="text-xs font-medium font-semibold text-slate-900">
+							
 							{cardData.title ? (
-							<p className="font-semibold">M.E. NFT</p>
+								<p class="text-xs font-medium font-semibold text-slate-900">
+									M.E. NFT
+								</p>
 							) : (
-							<i>&lt; no title &gt;</i>
+								<p class="text-xs font-medium font-semibold text-slate-900">	
+									<i>&lt; no title &gt;</i>
+								</p>
 							)}
-							</p>
+							
 							<p class="text-xm text-slate-900 truncate">#{cardData.tokenId}</p>
 						</div>
 					</li>

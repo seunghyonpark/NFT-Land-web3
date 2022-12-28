@@ -6,6 +6,7 @@ import CaverExtKAS from "caver-js-ext-kas";
 
 import contractABI from "../../constants/contractABI.json";
 
+import walletAddress from "../../constants/walletAddress.json";
 
 
 // ----------------------------
@@ -26,7 +27,8 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
+const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
+
 
 
 /*
@@ -64,7 +66,7 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
-		//console.log("wallet",wallet);
+		console.log("wallet",wallet);
 
 
 
@@ -119,26 +121,93 @@ const options = {
 await contract.methods.say().send(options)
 */
 
+
+/*
+const account = await caver.kas.wallet.createAccount();
+
+*/
+
+
 		
-
-
-		const ownerPrivateKey = process.env.OWNER_PRIVATE_KEY;
-
-		const keyring = caver.wallet.keyring.createFromPrivateKey(ownerPrivateKey);
+		/*
+		const keyring = caver.wallet.keyring.createFromPrivateKey("process.env.OWNER_PRIVATE_KEY");
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
-
-
-		const ownerPublicKey = address;
+		
+		console.log("migrateAccounts ret", ret);
+		*/
+		
+		/*
+		const keyring = caver.keyringContainer.keyring.generate();
+		const address = keyring.address;
+		const key = keyring.key.privateKey;
+		const nonce = 0;
+		
+		const ret = await caver.kas.wallet.migrateAccounts([{ address, key, nonce }]);
+		*/
 
 		
+		//const senderKeyring = caver.wallet.keyring.create(process.env.OWNER_PUBLIC_KEY, process.env.OWNER_PRIVATE_KEY);
+
+		/*
+		try {
+			const senderKeyring = caver.wallet.keyring.createWithSingleKey(process.env.OWNER_PUBLIC_KEY, process.env.OWNER_PRIVATE_KEY);
+			console.log("senderKeyring",senderKeyring);
+	
+		} catch (err) {
+
+			
+			console.log("err",err);
+
+		}
+		
+
+		//caver.wallet.add(senderKeyring);
+
+		//caver.wallet.updateKeyring(senderKeyring);
+
+		
+		//const keyringContainer = new caver.keyringContainer();		
+
+
+		  // KAS: Create a Klaytn account.
+		  const result = await caver.kas.wallet.createAccount();
+		  //user.address = result.address;
+		  console.log("res", result);
+
+		  caver.klay.accounts.wallet.add(process.env.OWNER_PRIVATE_KEY);
+
+		*/
+
+
+
+	
+
 		const gas = 150000000;
 
 		const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
+
+		
+		
+		//deployed.setWallet(keyringContainer); Error: Invalid JSON RPC response: {"code":1034210,"message":"Unsupported method
+
+
+
+		const ownerPublicKey = process.env.OWNER_PUBLIC_KEY;
+		
+
+	
+/*
+Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check that the corresponding account or keyring exists.
+*/
+
+
+
+
 
 		/*
 		deployed.events
@@ -154,7 +223,7 @@ await contract.methods.say().send(options)
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
-		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
+		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
 
 		const receipt = await deployed.send(
@@ -171,8 +240,6 @@ await contract.methods.say().send(options)
 
 		return;
 		*/
-
-
 
 
 		//console.log("mint-nft receipt", receipt);
@@ -278,7 +345,7 @@ await contract.methods.say().send(options)
 
 	} catch (err) {
 
-		//console.log("err",err);
+		console.log("err",err);
 		//console.err;
 		
 		

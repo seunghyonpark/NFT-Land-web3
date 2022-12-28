@@ -6,7 +6,7 @@ import CaverExtKAS from "caver-js-ext-kas";
 import { json } from "mocha/lib/reporters";
 import { consoleLog } from "mocha/lib/reporters/base";
 //import { calculateOverrideValues } from "next/dist/server/font-utils";
-
+import walletAddress from "../../constants/walletAddress.json";
 
 // ----------------------------
 /*
@@ -27,8 +27,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = '0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b'; // baobab contract
-
+const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
 
 /*
 export default async function handler(req, res) {

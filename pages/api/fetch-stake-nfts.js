@@ -6,6 +6,7 @@ import CaverExtKAS from "caver-js-ext-kas";
 import { json } from "mocha/lib/reporters";
 import { consoleLog } from "mocha/lib/reporters/base";
 //import { calculateOverrideValues } from "next/dist/server/font-utils";
+import walletAddress from "../../constants/walletAddress.json";
 
 
 // ----------------------------
@@ -27,10 +28,8 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-
-const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
-
-const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
+const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*
 export default async function handler(req, res) {
