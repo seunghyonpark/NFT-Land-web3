@@ -269,7 +269,7 @@ export default function GameHeader({
 
 				
 
-				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
 					{address} 
 				</h1>
 

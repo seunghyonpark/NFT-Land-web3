@@ -99,34 +99,7 @@ export default function StakingPage({
 				></lottie-player>
 			</div>			
 				*/}
-		
 
-			{/* home page animation */}
-			{isInHome && (	
-				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-					<lottie-player
-						id="crypto-tower"
-						src={cryptoTowerAddress}
-						speed="1"
-						loop
-						autoplay
-					></lottie-player>
-				</div>
-			)}
-
-
-			{/* data fetching animation */}
-			{isLoading && (
-				<div className="m-auto h-[18rem] w-[18rem] -translate-y-5 opacity-80 drop-shadow-xl">
-					<lottie-player
-						id="loading-cubes"
-						src={loadingCubesAddress}
-						speed="1"
-						loop
-						autoplay
-					></lottie-player>
-				</div>
-			)}
 			
 
 			</cards>
