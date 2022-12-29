@@ -46,7 +46,9 @@ export default function Game({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useGameNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId 
+	} = useGameNFT(address);
 
 
 	const ref = useRef();
@@ -170,7 +172,8 @@ export default function Game({
 
 
 		
-<div class="bg-[url('/milkyway.jpeg')] ">
+<div class="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
+
 <div class="bg-gradient-to-bl from-black">
 
 		<wholepage
@@ -271,6 +274,7 @@ export default function Game({
 						depositingNFTAddress,
 						depositNFT,
 						withdrawNFT,
+						selectNFT,
 					}}
 				/>
 

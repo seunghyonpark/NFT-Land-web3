@@ -69,7 +69,7 @@ export default function GameCardStaked({
 	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(cardData.owner);
 
 
-	const ref = useRef(null);
+	const refNFTImage = useRef(null);
 	
 	const router = useRouter();
 
@@ -87,6 +87,7 @@ export default function GameCardStaked({
 		router.events.on('routeChangeError',  handleComplete)	
 		*/
 
+		/*
 		let i = 0;
 
 		function pollDOM() {
@@ -96,12 +97,14 @@ export default function GameCardStaked({
 		//const interval = setInterval(pollDOM, 5000);
 
 		const interval = setInterval(genNumber, 5000);
+		*/
 
-
+		console.log("NFTCardStaked useEffect cardData.tokenId", cardData.tokenId);
 
 
 		return () => {
-			clearInterval(interval);
+
+			//clearInterval(interval);
 			/*
 			router.events.off('routeChangeStart', handleStart)
 			router.events.off('routeChangeComplete', handleComplete)
@@ -109,7 +112,7 @@ export default function GameCardStaked({
 			*/			
 		}
 
-	}, []);
+	}, [cardData]);
 
 
 	const genNumber = () => {
@@ -138,16 +141,19 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 	
-	const sayHello = (tokenId) => {
+	const sayHello = async (e) => {
 		//alert(`Hello, ${name}!`);
 
-		console.log(`Hello, ${tokenId}!`);
+		console.log(`Hello, ${cardData.tokenId}!`);
+
+
+		console.log("cardData", cardData);
 
 		//setTokenId(tokenId);
 
 		/////setIsWithdrawing(true);
 
-		withdrawNFT(tokenId);
+		//withdrawNFT(tokenId);
 
 		///ref.current.src = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
 	};
@@ -212,7 +218,7 @@ rounded-lg border border-gray-300
 			<button
 					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
 
-					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
+					onClick={() => (sayHello(), console.log("click") )}
 				>
 					{
 						cardData.staking === 'true'
@@ -221,6 +227,23 @@ rounded-lg border border-gray-300
 					}
 			</button>
 
+			<button
+					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
+
+					onClick={() => (
+						console.log("hello"),
+						console.log("click"),
+						console.log("aaaa"),
+						sayHello()
+						
+					)}
+				>
+					{
+						cardData.staking === 'true'
+						? <p className="font-medium">Stop Staking</p>
+						: <p className="font-medium">Start Staking</p>
+					}
+			</button>
 
 
 
@@ -241,7 +264,6 @@ rounded-lg border border-gray-300
 				*/}
 			
 			<Image
-				//ref={ref}
 				src={
 					cardData?.media[0]?.gateway ||
 					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -291,8 +313,8 @@ rounded-lg border border-gray-300
 							<li class="flex py-4 first:pt-0 last:pb-0">
 							<img class="h-5 w-5 rounded-full" src="./staking.png" alt="" />
 							<div class="ml-3 overflow-hidden text-left">
-								<p class="text-sm font-medium text-slate-900">Start</p>
-								<p class="text-sm text-slate-900 truncate">2023.01.03&nbsp;&nbsp;14:03:13</p>
+								<p class="text-sm font-medium text-slate-900">Token ID</p>
+								<p class="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
 							</div>
 							</li>
 

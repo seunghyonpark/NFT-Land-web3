@@ -15,6 +15,7 @@ export default function GameCard({
 	loadingCubesAddress,
 	depositNFT,
 	withdrawNFT,
+	selectNFT,
 }) {
 
 	//const [isLoading, setIsLoading] = useState(false);
@@ -47,18 +48,19 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	*/
 
 
-	const sayHello = (tokenId) => {
+	const sayHello = async (e) => {
 		//alert(`Hello, ${name}!`);
 
-		console.log(`Hello, ${tokenId}!`);
+		console.log(`Hello, ${cardData.tokenId}!`);
+
 
 		//setTokenId(tokenId);
 
 		if (cardData.staking === "true") {
-			withdrawNFT(tokenId);
+			withdrawNFT(cardData.tokenId);
 
 		} else {
-			depositNFT(tokenId);
+			depositNFT(cardData.tokenId);
 		}
 	};
 
@@ -112,29 +114,20 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			</div>
  			*/}
 
-			{/* contract info */}
-			{/*
+			{/* token info */}
+			
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
-					Contract: {cardData.contract.address}
+					# {cardData.tokenId}
 				</div>
-
-				<button
-					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
-
-					onClick={() =>
-						navigator.clipboard.writeText(cardData.contract.address)
-					}
-				>
-					<p className="font-medium">Copy</p>
-				</button>
+				<div className=" truncate rounded-r-md bg-teal-200 px-2 py-1">
+					
+				</div>
 			</div>
-				*/}
+				
 
 			{/* staking info */}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
-
-
 
 				<button
 					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
@@ -143,9 +136,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					//	navigator.clipboard.writeText(data.contract.address)
 					//}
 
-					onClick={() => sayHello(cardData.tokenId)}
+					onClick={() => sayHello()}
 
-					//onClick={depositNFT}
+					//onClick={() => selectNFT(cardData)}
+					
 				>
 					{
 						cardData.staking === 'true'

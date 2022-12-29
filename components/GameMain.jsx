@@ -15,22 +15,16 @@ export default function GameMain({
 	depositingNFTAddress,
 	depositNFT,
 	withdrawNFT,
+	selectNFT,
 }) {
 
 
 	//return data.lenghth > 0 && (
 	return (
-
 		<main>
-
-			
-			
-
 			<h1 className="text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">My NFT</a>
 			</h1>
-
-
 
 			<div class="bg-gradient-to-bl from-blue-900">
 
@@ -103,6 +97,7 @@ export default function GameMain({
 						data={data}
 						depositNFT={depositNFT}
 						withdrawNFT={withdrawNFT}
+						selectNFT={selectNFT}
 					>
 					</GameCard>
 				))}

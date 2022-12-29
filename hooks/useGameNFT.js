@@ -21,6 +21,42 @@ export default function useGameNFT(address) {
 
 	
 
+
+	const selectNFT = async (nft) => {
+		
+		try {
+
+			console.log("selectNFT before stakeData[0]", stakeData[0]);
+
+			// 오류일듯
+			//let updateData = stakeData;
+			////updateData.splice(0, 1);
+
+			/*
+			let updateData = new Array();
+			updateData = stakeData;
+			updateData.unshift(nft);
+			*/
+
+			let updateData = stakeData;
+
+			updateData.splice(0, 1);
+			updateData.unshift(nft);
+
+			setStakeData(updateData);
+
+			console.log("selectNFT after stakeData[0]", stakeData[0]);
+
+
+		} catch (err) {
+
+			console.log("err", err);
+		}
+	};
+
+
+
+
 	const processMintNFT = async () => {
 
 		try {
@@ -56,7 +92,12 @@ export default function useGameNFT(address) {
 
 			//data.push(nft);
 
-			let updateData = data;
+
+	
+			// 오류일듯
+			//let updateData = data;
+			let updateData = new Array();
+			updateData = data;
 			updateData.unshift(nft.data);
 			setData(updateData);
 
@@ -228,7 +269,11 @@ export default function useGameNFT(address) {
 
 			//data.push(nft);
 
-			let updateData = data;
+			// 오류일듯
+			//let updateData = data;
+
+			let updataData = new Array();
+			updataData = data;
 			updateData.unshift(nft.data);
 			setData(updateData);
 
@@ -618,8 +663,10 @@ export default function useGameNFT(address) {
 			if (transfer) {
 				console.log("transfer", transfer);
 
-
-				let updateData = data;
+				// 오류일듯
+				//let updateData = data;
+				let updateData = new Array();
+				updateData = data;
 
 				console.log("depositNFT data.length", data.length);
 				console.log("depositNFT updateData.length", updateData.length);
@@ -734,7 +781,10 @@ export default function useGameNFT(address) {
 
 				console.log("result", result);
 
-				let updateData = stakeData;
+				// 오류일듯
+				///////let updateData = stakeData;
+				let updateData = new Array();
+				updateData = stakeData;
 
 				console.log("withdrawNFT stakeData.length", stakeData.length);
 				console.log("withdrawNFT updateData.length", updateData.length);
@@ -753,8 +803,6 @@ export default function useGameNFT(address) {
 				console.log("idx", idx);
 
 				updateData.splice(idx, 1);
-
-
 				setStakeData(updateData);
 
 				console.log("withdrawNFT stakeData.length", stakeData.length);
@@ -864,5 +912,6 @@ export default function useGameNFT(address) {
 
 
 
-	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
+	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
 }

@@ -87,6 +87,8 @@ export default function NFTCardStaked({
 		router.events.on('routeChangeError',  handleComplete)	
 		*/
 
+		/*
+
 		let i = 0;
 
 		function pollDOM() {
@@ -97,11 +99,14 @@ export default function NFTCardStaked({
 
 		const interval = setInterval(genNumber, 5000);
 
+		*/
+
+		console.log("NFTCardStaked useEffect cardData.tokenId", cardData.tokenId);
 
 
 
 		return () => {
-			clearInterval(interval);
+			//clearInterval(interval);
 			/*
 			router.events.off('routeChangeStart', handleStart)
 			router.events.off('routeChangeComplete', handleComplete)
@@ -109,7 +114,7 @@ export default function NFTCardStaked({
 			*/			
 		}
 
-	}, []);
+	}, [cardData]);
 
 
 	const genNumber = () => {

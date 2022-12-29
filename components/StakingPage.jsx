@@ -3,6 +3,8 @@ import React from "react"
 import GameCardStaked from "./GameCardStaked/index.jsx"
 import { v4 as uuidv4 } from "uuid"
 
+import { useState, useEffect, useRef } from "react";
+
 
 export default function StakingPage({
 	stakeData,
@@ -18,6 +20,28 @@ export default function StakingPage({
 	withdrawNFT,
 }) {
 	
+
+
+
+	useEffect(() => {
+
+		console.log("StakingPage useEffect stakeData", stakeData);
+
+
+		return () => {
+			//clearInterval(interval);
+			/*
+			router.events.off('routeChangeStart', handleStart)
+			router.events.off('routeChangeComplete', handleComplete)
+			router.events.off('routeChangeError', handleComplete)
+			*/			
+		}
+
+	}, [stakeData]);
+
+
+
+
 
 	//return data.lenghth > 0 && (
 	return (
