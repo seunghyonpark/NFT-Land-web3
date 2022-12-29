@@ -16,6 +16,7 @@ export default function GameMain({
 	depositNFT,
 	withdrawNFT,
 	selectNFT,
+	mintNFT,
 }) {
 
 
@@ -103,6 +104,12 @@ export default function GameMain({
 				))}
 			</cards>
 
+			<button
+				onClick={mintNFT}
+				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+			>
+					Mint NFT
+			</button>
 
 			{
 			(data.length === 0) && (isInHome === false) && (isLoading === false) &&

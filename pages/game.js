@@ -275,6 +275,7 @@ export default function Game({
 						depositNFT,
 						withdrawNFT,
 						selectNFT,
+						mintNFT,
 					}}
 				/>
 
