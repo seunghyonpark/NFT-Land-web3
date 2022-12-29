@@ -196,7 +196,7 @@ rounded-lg border border-gray-300
 
 		<div className="m-auto flex  max-w-[70%] flex-col 
 		
-		p-12
+		p-20
 		sm:m-0 sm:max-w-lg 
 		bg-cover bg-center bg-[url('/img_tomo.png')]
 		
@@ -210,7 +210,7 @@ rounded-lg border border-gray-300
 			{/* title */}
 			
 			<button
-					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
 
 					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
 				>
@@ -240,7 +240,7 @@ rounded-lg border border-gray-300
 				</button>
 				*/}
 			
-			<Image class=""
+			<Image
 				//ref={ref}
 				src={
 					cardData?.media[0]?.gateway ||
