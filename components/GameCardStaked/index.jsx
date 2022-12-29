@@ -215,28 +215,11 @@ rounded-lg border border-gray-300
 
 			{/* title */}
 			
+			
 			<button
 					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
 
 					onClick={() => (sayHello(), console.log("click") )}
-				>
-					{
-						cardData.staking === 'true'
-						? <p className="font-medium">Stop Staking</p>
-						: <p className="font-medium">Start Staking</p>
-					}
-			</button>
-
-			<button
-					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
-
-					onClick={() => (
-						console.log("hello"),
-						console.log("click"),
-						console.log("aaaa"),
-						sayHello()
-						
-					)}
 				>
 					{
 						cardData.staking === 'true'
