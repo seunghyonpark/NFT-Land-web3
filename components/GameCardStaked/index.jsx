@@ -196,7 +196,7 @@ rounded-lg border border-gray-300
 
 		<div className="m-auto flex  max-w-[70%] flex-col 
 		
-		p-20
+		sm:p-5 md:p-5 lg:p-20 xl:20
 		sm:m-0 sm:max-w-lg 
 		bg-cover bg-center bg-[url('/img_tomo.png')]
 		
@@ -276,11 +276,12 @@ rounded-lg border border-gray-300
 
 
 
-			<div className="mt-2 flex table-fixed flex-row justify-center ">
+			<div className="mt-2 flex table-fixed flex-row justify-center">
 
 
 				<div 
-					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1 mix-blend-hard-light">
+					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
+					mix-blend-hard-light hover:mix-blend-normal">
 
 						<ul role="list" class="p-4 divide-y divide-slate-200">
 						{/*#each people as person
@@ -316,7 +317,9 @@ rounded-lg border border-gray-300
 						</ul>
 				</div>
 
+
 			</div>
+			
 
 			<button
 				className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-3 py-10 hover:mix-blend-hard-light"
