@@ -44,7 +44,7 @@ export default function StakingMain({
 					<img class="h-12 w-12 rounded-full" src="./sml.png" alt="" />
 					<div class="ml-3 overflow-hidden text-left">
 						<p class="text-xs font-medium text-slate-900">
-						Current earned Total ($SML)
+						Current Earned Total ($SML)
 						</p>
 						<p class="text-3xl text-amber-400 truncate">43.1342632545223444355</p>
 					</div>

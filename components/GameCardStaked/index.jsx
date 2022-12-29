@@ -183,17 +183,23 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 {/*
 <div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3  sm:m-0 sm:max-w-lg ">
+
+sm:px-10 md:px-200 lg:px-200 xl:px-300
+
+rounded-lg border border-gray-300
 */}
+
 
 
 	return (
 
 
-
-
-		<div className="m-auto flex  max-w-[70%] flex-col sm:m-0 sm:max-w-lg 
+		<div className="m-auto flex  max-w-[70%] flex-col 
+		
+		p-12
+		sm:m-0 sm:max-w-lg 
 		bg-cover bg-center bg-[url('/img_tomo.png')]
-		sm:px-10 md:px-200 lg:px-200 xl:px-300
+		
 		">
 
 			{/*
@@ -203,6 +209,20 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 			{/* title */}
 			
+			<button
+					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+
+					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
+				>
+					{
+						cardData.staking === 'true'
+						? <p className="font-medium">Stop Staking</p>
+						: <p className="font-medium">Start Staking</p>
+					}
+			</button>
+
+
+
 
 
 			{/* action */}
@@ -220,7 +240,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 				</button>
 				*/}
 			
-			<Image
+			<Image class=""
 				//ref={ref}
 				src={
 					cardData?.media[0]?.gateway ||
@@ -298,7 +318,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 			</div>
 
-
+			<button
+				className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-10 hover:mix-blend-hard-light"
+			>
+			</button>
 
 
 			{/* action 

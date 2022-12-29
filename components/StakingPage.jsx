@@ -23,10 +23,18 @@ export default function StakingPage({
 	return (
 
 		<main >
-			
+
 
 			{/* logotype */}
-			<h1 className="text-left text-1xl font-extrabold text-amber-400 drop-shadow-xl ">
+			<h1 className="text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./mint">Ready to Staking</a>
+			</h1>
+
+
+			<cards className="mt-4 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 ">	
+
+
+			<h1 className="invisible text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">Ready to Staking</a>
 			</h1>
 
@@ -49,6 +57,8 @@ export default function StakingPage({
 				))}
 			</cards>
 
+
+			
 
 
 
@@ -95,6 +105,7 @@ export default function StakingPage({
 			)}
 			
 
+			</cards>
 			
 
 		</main>

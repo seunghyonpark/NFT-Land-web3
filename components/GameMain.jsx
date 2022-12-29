@@ -24,7 +24,7 @@ export default function GameMain({
 		<main>
 
 
-			<h1 className="text-left text-1xl font-extrabold text-amber-400 drop-shadow-xl ">
+			<h1 className="text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">My NFT</a>
 			</h1>
 
@@ -44,7 +44,7 @@ export default function GameMain({
 
 					<div class="ml-3 overflow-hidden text-right">
 						<p class="text-xs font-medium text-slate-200">
-							Staking Count (GDX)
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
 						</p>
 						<p class="text-3xl text-amber-400 truncate">5</p>
 					</div>
@@ -64,7 +64,7 @@ export default function GameMain({
 
 					<div class="ml-3 overflow-hidden text-right">
 						<p class="text-xs font-medium text-slate-200">
-						Current earned Total ($SML)
+						Current Earned Total ($SML)
 						</p>
 						<p class="text-3xl text-amber-400 truncate">3243.13</p>
 					</div>

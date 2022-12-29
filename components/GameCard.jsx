@@ -73,7 +73,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 			{cardData.staking === 'false' && (
-				<Image
+				<Image class="h-500 w-500"
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -85,17 +85,16 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			)}
 
 			{cardData.staking === 'true' && (
-				<Image
-					src=
+				<Image class="h-500 w-500 rounded-full"
+					src={
+						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-					
+					}
 					alt={cardData?.description}
 					width={500}
 					height={500}
 				/>
 			)}
-
-
 
 
 								{/*

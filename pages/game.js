@@ -35,6 +35,7 @@ export default function Game({
 	dataProcessingAddress,
 	depositingNFTAddress,
 	withdrawingNFTAddress,
+	nftWalletAddress,
 	testData,
 }) {
 	//const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
@@ -199,8 +200,10 @@ export default function Game({
 					mintNFT,
 					fetchNFTs,
 					fetchStakeNFTs,
+					isLoading,
 					isMinting,
 					depositingNFTAddress,
+					nftWalletAddress,
 				}}
 			/>
 			
@@ -319,7 +322,8 @@ export async function getStaticProps() {
 	let withdrawingNFTAddress =
 		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
 
-
+	let nftWalletAddress =
+		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
 	const file = path.join(process.cwd(), 'posts', 'test.json');

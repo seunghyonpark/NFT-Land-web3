@@ -320,6 +320,9 @@ export default function useGameNFT(address) {
 
 		if (address === "") {
 			//alert("Please provide Wallet Address!");
+
+			setIsLoading(false);
+
 			return;
 		}
 
@@ -340,7 +343,7 @@ export default function useGameNFT(address) {
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
 
-				//setIsLoading(false);
+				setIsLoading(false);
 				//setIsInHome(true);
 				return;
 			}
@@ -371,10 +374,12 @@ export default function useGameNFT(address) {
 			///setData(data.data.items);
 
 
-			//setIsLoading(false);
+			setIsLoading(false);
 			return;
 
 		} catch (err) {
+			setIsLoading(false);
+
 			console.log("err="+err);
 			alert("There was an error fetching NFTs!----");
 			return;

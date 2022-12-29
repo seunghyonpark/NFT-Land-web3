@@ -12,8 +12,10 @@ export default function GameHeader({
 	mintNFT,
 	fetchNFTs,
 	fetchStakeNFTs,
+	isLoading,
 	isMinting,
 	depositingNFTAddress,
+	nftWalletAddress,
 }) {
 
 	if (address) {
@@ -265,10 +267,10 @@ export default function GameHeader({
 				</button>
 
 
-				<div className="">
+				
 
 				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-					{address}
+					{address} 
 				</h1>
 
 
@@ -280,6 +282,8 @@ export default function GameHeader({
 					Mint NFT
 				</button>
 				*/}
+
+				
 
 				
 				<button
@@ -298,8 +302,11 @@ export default function GameHeader({
 				>
 					Fetch Stake NFTs
 				</button>
+
 				
-				</div>
+				
+				
+				
 
 
 				{/*
