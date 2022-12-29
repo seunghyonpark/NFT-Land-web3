@@ -12,6 +12,7 @@ export default function GameMain({
 	cryptoTowerAddress,
 	loadingCubesAddress,
 	goldFishAddress,
+	depositingNFTAddress,
 	depositNFT,
 	withdrawNFT,
 }) {
@@ -21,6 +22,61 @@ export default function GameMain({
 	return (
 
 		<main>
+
+
+			<h1 className="text-left text-1xl font-extrabold text-amber-400 drop-shadow-xl ">
+				<a href="./mint">My NFT</a>
+			</h1>
+
+
+			<ul role="list" class="p-6 divide-y divide-slate-200">
+				<li class="flex py-4 first:pt-0 last:pb-0">
+					
+					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="gold-fish"
+							src={goldFishAddress}
+							speed="1"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+					<div class="ml-3 overflow-hidden text-right">
+						<p class="text-xs font-medium text-slate-200">
+							Staking Count (GDX)
+						</p>
+						<p class="text-3xl text-amber-400 truncate">5</p>
+					</div>
+				</li>
+
+				<li class="flex py-4 first:pt-0 last:pb-0">
+					
+					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="crypto-tower"
+							src={depositingNFTAddress}
+							speed="1"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+					<div class="ml-3 overflow-hidden text-right">
+						<p class="text-xs font-medium text-slate-200">
+						Current earned Total ($SML)
+						</p>
+						<p class="text-3xl text-amber-400 truncate">3243.13</p>
+					</div>
+
+					{/*
+					<img class="h-5 w-5 rounded-full" src="./sml.png" alt="" />
+					*/}
+
+				</li>
+
+			</ul>
+
 			{/* cards container */}
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
 				{data?.map((nft) => (

@@ -77,7 +77,7 @@ export default async function handler(req, res) {
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 
 		
-		//console.log("fetch-nfts data",data);
+		//console.log("gaem-fetch-nfts data",data);
 
 		for(let idx=0; idx < data.items.length; idx++){
 	
@@ -125,7 +125,12 @@ export default async function handler(req, res) {
 					
 					nft.description = jsonTokenUri.description;
 
-					nft.staking = "false";
+
+					if (idx === 1 || idx === 3 || idx === 4 || idx === 8 ) {
+						nft.staking = "true";
+					} else {
+						nft.staking = "false";
+					}
 			
 				} else {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);

@@ -4,7 +4,7 @@ import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 import walletAddress from "../constants/walletAddress.json";
 
-export default function useMintNFT(address) {
+export default function useGameNFT(address) {
 	const [data, setData] = useState([]);
 	const [stakeData, setStakeData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -333,9 +333,9 @@ export default function useMintNFT(address) {
 
 		try {
 
-			const response = await fetch(`/api/fetch-nfts?wallet=${address}`);
+			const response = await fetch(`/api/game-fetch-nfts?wallet=${address}`);
 
-			//console.log("response=", response);
+			
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
@@ -349,7 +349,9 @@ export default function useMintNFT(address) {
 
 			const fetchData = await response.json();
 
-			//console.log("data="+data);
+
+
+			console.log("fetchNFTs fetchData=", fetchData);
 
 			if (fetchData.data.totalCount == 0) {
 				//setIsInHome(true);
@@ -638,13 +640,15 @@ export default function useMintNFT(address) {
 
 				let updateStakeData = new Array();
 
+
 				updateStakeData.push(updateData[idx]);
 				setStakeData(updateStakeData);
 				//////////////////////
 
 
 
-				updateData.splice(idx, 1);
+				// 삭제하지않고 상태만변경
+				//////////updateData.splice(idx, 1);
 
 				setData(updateData);
 

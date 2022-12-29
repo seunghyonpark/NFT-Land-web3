@@ -5,7 +5,7 @@ import { consoleLog } from "mocha/lib/reporters/base"
 
 import { useRouter } from 'next/router'
 
-export default function MintHeader({
+export default function GameHeader({
 	address,
 	setAddress,
 	data,
@@ -188,12 +188,12 @@ export default function MintHeader({
 
 		setTimeout(() => {
 			refStakeNFT.current.click();
-		  }, 5000); //miliseconds
+		  }, 10); //miliseconds
 
 
 		setTimeout(() => {
 			refNFT.current.click();
-		  }, 7000); //miliseconds
+		  }, 3000); //miliseconds
 
 		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
@@ -238,7 +238,7 @@ export default function MintHeader({
 
 	return (
 
-		<header className="mt-10">
+		<header className="mt-1">
 			{/* logotype */}
 			{/*
 			<h1 className="text-center text-5xl font-extrabold text-amber-400 drop-shadow-xl ">
@@ -247,7 +247,7 @@ export default function MintHeader({
 	*/}
 
 			{/* find NFT's form */}
-			<form className="mt-5 flex flex-col">
+			<form className="mt-1 flex flex-col">
 
 				<input
 					value={address}
@@ -264,6 +264,9 @@ export default function MintHeader({
 					Connect Kaikas
 				</button>
 
+
+				<div className="">
+
 				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 					{address}
 				</h1>
@@ -278,6 +281,7 @@ export default function MintHeader({
 				</button>
 				*/}
 
+				
 				<button
 					ref={refNFT}
 					onClick={fetchNFTs}
@@ -295,6 +299,8 @@ export default function MintHeader({
 					Fetch Stake NFTs
 				</button>
 				
+				</div>
+
 
 				{/*
 				<button

@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
-import MintHeader from "../components/MintHeader/index.js";
+import GameHeader from "../components/GameHeader/index.js";
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import GameMain from "../components/GameMain.jsx";
 import Footer from "../components/Footer.jsx";
-import useMintNFT from "../hooks/useMintNFT.js";
+import useGameNFT from "../hooks/useGameNFT.js";
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
 
@@ -45,7 +45,7 @@ export default function Game({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useGameNFT(address);
 
 
 	const ref = useRef();
@@ -191,7 +191,7 @@ export default function Game({
 			</Head>
 
 
-			<MintHeader
+			<GameHeader
 				{...{
 					address,
 					setAddress,
@@ -256,6 +256,7 @@ export default function Game({
 						cryptoTowerAddress,
 						goldFishAddress,
 						loadingCubesAddress,
+						depositingNFTAddress,
 						depositNFT,
 						withdrawNFT,
 					}}
@@ -306,7 +307,7 @@ export async function getStaticProps() {
 		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
 
 	let goldFishAddress =
-		"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
+		"https://assets8.lottiefiles.com/packages/lf20_bmbkcawq.json";
 
 	let dataProcessingAddress =
 		"https://assets10.lottiefiles.com/private_files/lf30_x4ubhxsy.json";

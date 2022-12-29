@@ -71,15 +71,32 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			<Script src={scriptAddress} />
 			*/}
 
-			<Image
-				src={
-					cardData?.media[0]?.gateway ||
-					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-				}
-				alt={cardData?.description}
-				width={500}
-				height={500}
-			/>
+
+			{cardData.staking === 'false' && (
+				<Image
+					src={
+						cardData?.media[0]?.gateway ||
+						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+					}
+					alt={cardData?.description}
+					width={500}
+					height={500}
+				/>
+			)}
+
+			{cardData.staking === 'true' && (
+				<Image
+					src=
+						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+					
+					alt={cardData?.description}
+					width={500}
+					height={500}
+				/>
+			)}
+
+
+
 
 								{/*
 					<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
@@ -130,8 +147,6 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					onClick={() => sayHello(cardData.tokenId)}
 
 					//onClick={depositNFT}
-
-					
 				>
 					{
 						cardData.staking === 'true'

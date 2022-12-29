@@ -193,7 +193,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 		<div className="m-auto flex  max-w-[70%] flex-col sm:m-0 sm:max-w-lg 
 		bg-cover bg-center bg-[url('/img_tomo.png')]
-		p-3
+		sm:px-10 md:px-200 lg:px-200 xl:px-300
 		">
 
 			{/*
@@ -203,54 +203,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 			{/* title */}
 			
-			<div className="bg-inherit mb-2 rounded-md bg-teal-500 px-2">
 
-				<ul role="list" class="p-6 divide-y divide-slate-200">
-							{/*#each people as person
-								<!-- Remove top/bottom padding when first/last child -->*/}
-
-					<li class="flex py-4 first:pt-0 last:pb-0">
-						
-						{/*
-						<img class="h-10 w-10 rounded-full" src="./incubation.png" alt="" />
-							*/}
-
-						<div className="mt-3 h-10 w-10  -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-							<lottie-player
-								id="crypto-tower"
-								src={depositingNFTAddress}
-								speed="1"
-								loop
-								autoplay
-							></lottie-player>
-						</div>
-
-
-						<div class="ml-3 overflow-hidden text-left">
-							
-							{cardData.title ? (
-								<p class="text-xs font-medium font-semibold text-slate-900">
-									M.E. NFT
-								</p>
-							) : (
-								<p class="text-xs font-medium font-semibold text-slate-900">	
-									<i>&lt; no title &gt;</i>
-								</p>
-							)}
-							
-							<p class="text-xm text-slate-900 truncate">#{cardData.tokenId}</p>
-						</div>
-					</li>
-
-
-				{/*/each*/}
-				</ul>
-
-			</div>
 
 			{/* action */}
-			
-
+			{/*
 				<button
 					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -262,8 +218,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						: <p className="font-medium">Start Staking</p>
 					}
 				</button>
-
-			
+				*/}
 			
 			<Image
 				//ref={ref}
@@ -272,8 +227,8 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
 				}
 				alt={cardData?.description}
-				width={500}
-				height={500}
+				width={300}
+				height={300}
 			/>
 			
 
