@@ -9,6 +9,7 @@ import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
+import walletAddress from "../constants/walletAddress.json";
 
 import { readFileSync } from 'fs';
 import path from 'path';
@@ -40,7 +41,7 @@ export default function Game({
 }) {
 	//const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
 
-	const [address, setAddress] = useState("");
+	const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
 
 
 	// fetch data handler
