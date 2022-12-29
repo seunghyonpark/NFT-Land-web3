@@ -282,7 +282,7 @@ rounded-lg border border-gray-300
 				<div 
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1 mix-blend-hard-light">
 
-						<ul role="list" class="p-3 divide-y divide-slate-200">
+						<ul role="list" class="p-4 divide-y divide-slate-200">
 						{/*#each people as person
 							<!-- Remove top/bottom padding when first/last child -->*/}
 
@@ -296,7 +296,7 @@ rounded-lg border border-gray-300
 							</li>
 
 							<li class="flex py-4 first:pt-0 last:pb-0">
-							<img class="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
+							<img class="h-5 w-5 rounded-full" src="./staking.png" alt="" />
 							<div class="ml-3 overflow-hidden text-left">
 								<p class="text-sm font-medium text-slate-900">Time Left</p>
 								<p class="text-sm text-slate-900 truncate">4 years 11 month 354 days</p>
@@ -319,7 +319,7 @@ rounded-lg border border-gray-300
 			</div>
 
 			<button
-				className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-10 hover:mix-blend-hard-light"
+				className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-3 py-10 hover:mix-blend-hard-light"
 			>
 			</button>
 
@@ -383,15 +383,8 @@ rounded-lg border border-gray-300
 
 		
 
-			{/*
-			<button
-				ref={ref}
-				onClick={checkNFT}
-				className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-			>
-				Check NFT
-			</button>
-			*/}
+
+
 
 
 

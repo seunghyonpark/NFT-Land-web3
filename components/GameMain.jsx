@@ -23,10 +23,19 @@ export default function GameMain({
 
 		<main>
 
+			
+			
 
 			<h1 className="text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">My NFT</a>
 			</h1>
+
+
+
+			<div class="bg-gradient-to-bl from-blue-900">
+
+
+			<div class="bg-gradient-to-l from-blue-500">
 
 
 			<ul role="list" class="p-6 divide-y divide-slate-200">
@@ -36,7 +45,7 @@ export default function GameMain({
 						<lottie-player
 							id="gold-fish"
 							src={goldFishAddress}
-							speed="1"
+							speed="5"
 							loop
 							autoplay
 						></lottie-player>
@@ -77,8 +86,13 @@ export default function GameMain({
 
 			</ul>
 
+			</div>
+
+
+			
+
 			{/* cards container */}
-			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
+			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 p-5">
 				{data?.map((nft) => (
 					// uuid!
 					<GameCard
@@ -93,9 +107,6 @@ export default function GameMain({
 					</GameCard>
 				))}
 			</cards>
-
-
-
 
 
 			{
@@ -142,6 +153,10 @@ export default function GameMain({
 				</div>
 			)
 			*/}
+
+
+
+			</div>
 			
 		</main>
 

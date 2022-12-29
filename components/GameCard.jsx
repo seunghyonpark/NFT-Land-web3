@@ -137,7 +137,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 				<button
-					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
 					//onClick={() =>
 					//	navigator.clipboard.writeText(data.contract.address)

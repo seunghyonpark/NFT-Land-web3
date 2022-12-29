@@ -168,13 +168,22 @@ export default function Game({
 	//
 	return (
 
+
+		
+<div class="bg-[url('/milkyway.jpeg')] ">
+<div class="bg-gradient-to-bl from-black">
+
 		<wholepage
 			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
 				data !== [] ? "justify-evenly" : "justify-between"
+				
 			} 
 			`}
 		>
 			<Script src={scriptAddress} />
+			
+
+			
 			
 
 			{/*
@@ -200,9 +209,9 @@ export default function Game({
 					mintNFT,
 					fetchNFTs,
 					fetchStakeNFTs,
-					isLoading,
 					isMinting,
 					depositingNFTAddress,
+					withdrawingNFTAddress,
 					nftWalletAddress,
 				}}
 			/>
@@ -286,7 +295,17 @@ export default function Game({
 
 
 			<Footer />
+
+
+			
+
+
 		</wholepage>
+
+
+		</div>
+		</div>
+		
 
 	);
 }
