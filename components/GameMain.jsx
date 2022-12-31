@@ -20,6 +20,8 @@ export default function GameMain({
 }) {
 
 
+
+
 	//return data.lenghth > 0 && (
 	return (
 		<main>
@@ -27,14 +29,21 @@ export default function GameMain({
 				<a href="./mint">My NFT</a>
 			</h1>
 
-			<div class="bg-gradient-to-bl from-blue-900">
 
 
-			<div class="bg-gradient-to-l from-blue-500">
+			{/*
+			<div className="bg-auto bg-no-repeat bg-center bg-[url('/img_rex.png')]">
+	*/}
+			
+
+			<div className="bg-gradient-to-bl from-blue-900">
 
 
-			<ul role="list" class="p-6 divide-y divide-slate-200">
-				<li class="flex py-4 first:pt-0 last:pb-0">
+			<div className="bg-gradient-to-l from-blue-500">
+
+
+			<ul role="list" className="p-6 divide-y divide-slate-200">
+				<li className="flex py-4 first:pt-0 last:pb-0">
 					
 					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
@@ -46,15 +55,15 @@ export default function GameMain({
 						></lottie-player>
 					</div>
 
-					<div class="ml-3 overflow-hidden text-right">
-						<p class="text-xs font-medium text-slate-200">
+					<div className="ml-3 overflow-hidden text-right">
+						<p className="text-xs font-medium text-slate-200">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
 						</p>
-						<p class="text-3xl text-amber-400 truncate">5</p>
+						<p className="text-3xl text-amber-400 truncate">5</p>
 					</div>
 				</li>
 
-				<li class="flex py-4 first:pt-0 last:pb-0">
+				<li className="flex py-4 first:pt-0 last:pb-0">
 					
 					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
@@ -66,11 +75,11 @@ export default function GameMain({
 						></lottie-player>
 					</div>
 
-					<div class="ml-3 overflow-hidden text-right">
-						<p class="text-xs font-medium text-slate-200">
+					<div className="ml-3 overflow-hidden text-right">
+						<p className="text-xs font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
-						<p class="text-3xl text-amber-400 truncate">3243.13</p>
+						<p className="text-3xl text-amber-400 truncate">3243.13</p>
 					</div>
 
 					{/*
@@ -87,7 +96,8 @@ export default function GameMain({
 			
 
 			{/* cards container */}
-			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 p-5">
+			<div className="mt-4 grid justify-center gap-5 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-5
+				">
 				{data?.map((nft) => (
 					// uuid!
 					<GameCard
@@ -102,7 +112,7 @@ export default function GameMain({
 					>
 					</GameCard>
 				))}
-			</cards>
+			</div>
 
 			<button
 				onClick={mintNFT}
@@ -159,8 +169,40 @@ export default function GameMain({
 
 
 			</div>
+
+
+			{/*
+			</div>
+		*/}
 			
 		</main>
 
 	);
 }
+
+
+
+
+
+
+/*
+export async function getStaticProps({ locale }) {
+	const chains = await fetcher("https://chainid.network/chains.json");
+	const chainTvls = await fetcher("https://api.llama.fi/chains");
+  
+	const sortedChains = chains
+	  .filter((c) => c.name !== "420coin") // same chainId as ronin
+	  .map((chain) => populateChain(chain, chainTvls))
+	  .sort((a, b) => {
+		return (b.tvl ?? 0) - (a.tvl ?? 0);
+	  });
+  
+	return {
+	  props: {
+		sortedChains,
+		messages: (await import(`../translations/${locale}.json`)).default,
+	  },
+	  revalidate: 3600,
+	};
+}
+*/

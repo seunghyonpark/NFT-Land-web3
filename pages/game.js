@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
-import GameHeader from "../components/GameHeader/index.js";
+import GameHeader from "../components/GameHeader/index.jsx";
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import GameMain from "../components/GameMain.jsx";
@@ -173,9 +173,9 @@ export default function Game({
 
 
 		
-<div class="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
+<div className="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
 
-<div class="bg-gradient-to-bl from-black">
+<div className="bg-gradient-to-bl from-black">
 
 		<wholepage
 			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
@@ -303,9 +303,6 @@ export default function Game({
 			<Footer />
 
 
-			
-
-
 		</wholepage>
 
 
@@ -316,10 +313,12 @@ export default function Game({
 	);
 }
 
+
+
 //  --------------------------------
 export async function getStaticProps() {
 
-	console.log("mint getStaticProps");
+	console.log("getStaticProps===============");
 
 
 	// async/await testing!
@@ -368,8 +367,15 @@ export async function getStaticProps() {
 	};
 	*/
 
+/*
+	//const defaultWalletAddress = "0xfD18f01C8c87DA4aa6F543a46d6AaFf912098868";
 
+	const response = await fetch(`/api/game-fetch-nfts?wallet=0xfD18f01C8c87DA4aa6F543a46d6AaFf912098868`);
 
+	const posts = await response.json();
+
+	console.log("posts", posts);
+*/
 
 	return {
 		props: {
@@ -381,6 +387,32 @@ export async function getStaticProps() {
 			depositingNFTAddress,
 			withdrawingNFTAddress,
 			testData,
+			//posts,
 		},
+		revalidate: 10,
 	};
 }
+
+
+
+/*
+export async function getStaticProps({ locale }) {
+	const chains = await fetcher("https://chainid.network/chains.json");
+	const chainTvls = await fetcher("https://api.llama.fi/chains");
+  
+	const sortedChains = chains
+	  .filter((c) => c.name !== "420coin") // same chainId as ronin
+	  .map((chain) => populateChain(chain, chainTvls))
+	  .sort((a, b) => {
+		return (b.tvl ?? 0) - (a.tvl ?? 0);
+	  });
+  
+	return {
+	  props: {
+		sortedChains,
+		messages: (await import(`../translations/${locale}.json`)).default,
+	  },
+	  revalidate: 3600,
+	};
+}
+*/

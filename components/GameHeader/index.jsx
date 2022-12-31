@@ -27,6 +27,7 @@ export default function GameHeader({
 	const refNFT = useRef(null);
 	const refStakeNFT = useRef(null);
 
+
 	const onChange = (event) => {
 
         console.log(event.target);
@@ -82,6 +83,7 @@ export default function GameHeader({
 	const loadAccountInfo = async (e) => {
 
 		e.preventDefault();
+
 
 		const {klaytn} = window;
 		
@@ -183,19 +185,20 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		connectWallet();
-
+		///connectWallet();
 
 		
-
 		setTimeout(() => {
 			refStakeNFT.current.click();
 		  }, 10); //miliseconds
 
+		
 
 		setTimeout(() => {
 			refNFT.current.click();
 		  }, 3000); //miliseconds
+
+		
 
 		/*
 		console.log("MintingHeader useEffect isMinting", isMinting);
@@ -230,6 +233,8 @@ export default function GameHeader({
 		return () => clearInterval(interval);
 		*/
 
+		console.log("address", address);
+
 	}, [address]);
 
 
@@ -251,12 +256,14 @@ export default function GameHeader({
 			{/* find NFT's form */}
 			<form className="mt-1 flex flex-col">
 
+			<div>
 				<input
+					className=" w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 					value={address}
 					onChange={(e) => setAddress(e.target.value)}
 					type="text"
 					placeholder="Your Wallet Address"
-					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
+					
 				/>
 
 				<button
@@ -266,14 +273,6 @@ export default function GameHeader({
 					Connect Kaikas
 				</button>
 
-
-				
-
-				<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
-					{address} 
-				</h1>
-
-
 				{/*
 				<button
 					onClick={mintNFT}
@@ -282,14 +281,11 @@ export default function GameHeader({
 					Mint NFT
 				</button>
 				*/}
-
-				
-
 				
 				<button
 					ref={refNFT}
 					onClick={fetchNFTs}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch NFTs
 				</button>
@@ -298,15 +294,10 @@ export default function GameHeader({
 				<button
 					ref={refStakeNFT}
 					onClick={fetchStakeNFTs}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch Stake NFTs
 				</button>
-
-				
-				
-				
-				
 
 
 				{/*
@@ -318,7 +309,14 @@ export default function GameHeader({
 				</button>
 				*/}
 
+				</div>
+
 			</form>
+
+
+			<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
+				{address} 
+			</h1>
 
 
 

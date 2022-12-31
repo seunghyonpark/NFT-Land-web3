@@ -288,32 +288,32 @@ rounded-lg border border-gray-300
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
 					mix-blend-hard-light hover:mix-blend-normal">
 
-						<ul role="list" class="p-4 divide-y divide-slate-200">
+						<ul role="list" className="p-4 divide-y divide-slate-200">
 						{/*#each people as person
 							<!-- Remove top/bottom padding when first/last child -->*/}
 
 
-							<li class="flex py-4 first:pt-0 last:pb-0">
-							<img class="h-5 w-5 rounded-full" src="./staking.png" alt="" />
-							<div class="ml-3 overflow-hidden text-left">
-								<p class="text-sm font-medium text-slate-900">Token ID</p>
-								<p class="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
+							<li className="flex py-4 first:pt-0 last:pb-0">
+							<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+							<div className="ml-3 overflow-hidden text-left">
+								<p className="text-sm font-medium text-slate-900">Token ID</p>
+								<p className="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
 							</div>
 							</li>
 
-							<li class="flex py-4 first:pt-0 last:pb-0">
-							<img class="h-5 w-5 rounded-full" src="./staking.png" alt="" />
-							<div class="ml-3 overflow-hidden text-left">
-								<p class="text-sm font-medium text-slate-900">Time Left</p>
-								<p class="text-sm text-slate-900 truncate">4 years 11 month 354 days</p>
+							<li className="flex py-4 first:pt-0 last:pb-0">
+							<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+							<div className="ml-3 overflow-hidden text-left">
+								<p className="text-sm font-medium text-slate-900">Time Left</p>
+								<p className="text-sm text-slate-900 truncate">4 years 11 month 354 days</p>
 							</div>
 							</li>
 
-							<li class="flex py-4 first:pt-0 last:pb-0">
-							<img class="h-5 w-5 rounded-full" src="sml.png" alt="" />
-							<div class="ml-3 overflow-hidden text-left">
-								<p class="text-xs  font-medium text-slate-900" >Current earned ($SML)</p>
-								<p class="text-sm text-slate-900 truncate">0.00230424432</p>
+							<li className="flex py-4 first:pt-0 last:pb-0">
+							<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
+							<div className="ml-3 overflow-hidden text-left">
+								<p className="text-xs  font-medium text-slate-900" >Current earned ($SML)</p>
+								<p className="text-sm text-slate-900 truncate">0.00230424432</p>
 							</div>
 							</li>
 
@@ -401,27 +401,3 @@ rounded-lg border border-gray-300
 	);
 }
 
-
-//  --------------------------------
-/*
-export function getStaticProps() {
-	// async/await testing!
-	//let scriptAddress =
-	//	"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
-
-	let cryptoTowerAddress =
-		"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
-		//"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
-		
-	let loadingCubesAddress =
-		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
-
-	return {
-		props: {
-			//scriptAddress,
-			cryptoTowerAddress,
-			loadingCubesAddress,
-		},
-	};
-}
-*/

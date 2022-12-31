@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 import walletAddress from "../constants/walletAddress.json";
+
 
 export default function useGameNFT(address) {
 	const [data, setData] = useState([]);
@@ -20,6 +21,11 @@ export default function useGameNFT(address) {
 	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	
+
+
+
+
+
 
 
 	const selectNFT = async (nft) => {
@@ -93,13 +99,51 @@ export default function useGameNFT(address) {
 			//data.push(nft);
 
 
-	
+			/*
 			// 오류일듯
 			//let updateData = data;
 			let updateData = new Array();
 			updateData = data;
 			updateData.unshift(nft.data);
 			setData(updateData);
+			*/
+
+
+			/*
+			useInterval(async () => {
+				console.log('Checking if reports are ready to download');
+
+				const response = await fetch(`/api/check-nft?tokenid=${nft.data.tokenId}`);
+				if (!response.ok) {
+					//alert("Something went wrong! Check your Input or Connection");
+					//setIsLoading(false);
+					//setIsInHome(true);
+					return;
+				}
+	
+				const nft = await response.json();
+	
+				console.log("useMintNFT checkNFT nft", nft.data.tokenId);
+	
+				//setTokenId(data.data.tokenId);
+	
+				if (nft.data.tokenId) {
+					setIsMinting(false);
+				}
+	
+
+			}, 1000);
+			*/
+
+
+			if (data.length == 9) {
+				data.splice(data.length-1, 1);
+			}
+			data.unshift(nft.data);
+
+
+			
+
 
 			setIsMinting(false);
 
@@ -123,6 +167,7 @@ export default function useGameNFT(address) {
 
 		e.preventDefault();
 
+		
 		console.log("mintNFT address", address);
 
 		if (address === "") {
@@ -131,6 +176,9 @@ export default function useGameNFT(address) {
 		}
 
 		const wallet = window.klaytn.selectedAddress;
+		
+
+
 
 		setIsMinting(true);
 
@@ -172,6 +220,8 @@ export default function useGameNFT(address) {
 
 			//setIsLoading(false);
 			//setIsInHome(true);
+
+			setIsMinting(false);
 		})
 
 		/*
@@ -429,6 +479,8 @@ export default function useGameNFT(address) {
 			alert("There was an error fetching NFTs!----");
 			return;
 		}
+
+
 	};
 
 
@@ -914,4 +966,22 @@ export default function useGameNFT(address) {
 
 	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
+}
+
+
+
+export function useInterval(callback, delay) {
+	const savedCallback = useRef();
+	// Remember the latest callback;
+	useEffect(() => {
+		function tick() {
+			savedCallback.current();
+		}
+		if (delay !== null) {
+			const id = setInterval(tick, delay);
+			return () => {
+				clearInterval(id);
+			};
+		}
+	}, [callback, delay]);
 }

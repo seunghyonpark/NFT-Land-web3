@@ -49,6 +49,8 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 	const sayHello = async (e) => {
+		e.preventDefault();
+
 		//alert(`Hello, ${name}!`);
 
 		console.log(`Hello, ${cardData.tokenId}!`);
@@ -65,9 +67,19 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	};
 
 
+	const selectCard = async (e) => {
+
+		console.log(`selectCard, ${cardData.tokenId}!`);
+
+
+	};
+
+
 
 	return (
-		<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3  sm:m-0 sm:max-w-lg ">
+
+		<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3 sm:m-0 sm:max-w-lg
+			hover:mix-blend-hard-light">
 
 			{/*
 			<Script src={scriptAddress} />
@@ -75,7 +87,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 			{cardData.staking === 'false' && (
-				<Image class="h-500 w-500"
+				<Image className="h-500 w-500"
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -87,7 +99,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			)}
 
 			{cardData.staking === 'true' && (
-				<Image class="h-500 w-500 rounded-full"
+				<Image className="h-500 w-500 rounded-full"
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -136,7 +148,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					//	navigator.clipboard.writeText(data.contract.address)
 					//}
 
-					onClick={() => sayHello()}
+					onClick={(e) => sayHello(e)}
 
 					//onClick={() => selectNFT(cardData)}
 					
@@ -145,6 +157,20 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						cardData.staking === 'true'
 						? <p className="font-medium">Stop Staking</p>
 						: <p className="font-medium">Start Staking</p>
+					}
+				</button>
+
+				<button
+					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+
+					//onClick={() =>
+					//	navigator.clipboard.writeText(data.contract.address)
+					//}
+
+					onClick={ (e) => selectCard(e) }
+				>
+					{
+						<p className="font-medium">Select</p>
 					}
 				</button>
 
@@ -193,26 +219,3 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 }
 
 
-//  --------------------------------
-/*
-export function getStaticProps() {
-	// async/await testing!
-	//let scriptAddress =
-	//	"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
-
-	let cryptoTowerAddress =
-		"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
-		//"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
-		
-	let loadingCubesAddress =
-		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
-
-	return {
-		props: {
-			//scriptAddress,
-			cryptoTowerAddress,
-			loadingCubesAddress,
-		},
-	};
-}
-*/

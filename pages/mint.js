@@ -282,7 +282,7 @@ export default function Mint({
 //  --------------------------------
 export async function getStaticProps() {
 
-	console.log("mint getStaticProps");
+	console.log("getStaticProps");
 
 
 	// async/await testing!

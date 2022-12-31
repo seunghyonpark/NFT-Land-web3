@@ -211,27 +211,3 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	);
 }
 
-
-//  --------------------------------
-/*
-export function getStaticProps() {
-	// async/await testing!
-	//let scriptAddress =
-	//	"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
-
-	let cryptoTowerAddress =
-		"https://assets3.lottiefiles.com/packages/lf20_2omr5gpu.json";
-		//"https://assets3.lottiefiles.com/packages/lf20_4HwMFcslUL.json";
-		
-	let loadingCubesAddress =
-		"https://assets4.lottiefiles.com/private_files/lf30_c52paxfj.json";
-
-	return {
-		props: {
-			//scriptAddress,
-			cryptoTowerAddress,
-			loadingCubesAddress,
-		},
-	};
-}
-*/
