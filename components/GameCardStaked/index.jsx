@@ -140,6 +140,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	*/
 
 
+	/*
 	
 	const sayHello = async (e) => {
 		//alert(`Hello, ${name}!`);
@@ -157,8 +158,25 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 		///ref.current.src = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
 	};
+	*/
 	
+	const sayHello = async (e) => {
+		e.preventDefault();
 
+		//alert(`Hello, ${name}!`);
+
+		console.log(`Hello, ${cardData.tokenId}!`);
+
+
+		//setTokenId(tokenId);
+
+		if (cardData.staking === "true") {
+			withdrawNFT(cardData.tokenId);
+
+		} else {
+			depositNFT(cardData.tokenId);
+		}
+	};
 
 	  
 
@@ -198,7 +216,6 @@ rounded-lg border border-gray-300
 
 
 	return (
-
 
 		<div className="m-auto flex  max-w-[70%] flex-col 
 		
@@ -283,7 +300,6 @@ rounded-lg border border-gray-300
 
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
-
 				<div 
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
 					mix-blend-hard-light hover:mix-blend-normal">
@@ -327,8 +343,22 @@ rounded-lg border border-gray-300
 			
 
 			<button
-				className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-3 py-10 hover:mix-blend-hard-light"
+				className="mt-2 w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+
+				//onClick={() =>
+				//	navigator.clipboard.writeText(data.contract.address)
+				//}
+
+				onClick={(e) => sayHello(e)}
+
+				//onClick={() => selectNFT(cardData)}
+				
 			>
+				{
+					cardData.staking === 'true'
+					? <p className="font-medium">Stop Staking</p>
+					: <p className="font-medium">Start Staking</p>
+				}
 			</button>
 
 
@@ -387,12 +417,6 @@ rounded-lg border border-gray-300
 				</div>
 			)}
 			*/}
-
-
-		
-
-
-
 
 
 

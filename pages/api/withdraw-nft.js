@@ -9,6 +9,7 @@ import { consoleLog } from "mocha/lib/reporters/base";
 
 
 import contractABI from "../../constants/contractABI.json";
+import walletAddress from "../../constants/walletAddress.json";
 
 
 // ----------------------------
@@ -29,10 +30,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
-
-const contractOwnerAddress = walletAddress.contractOwnerAddress;
+const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
 const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*
@@ -61,7 +59,7 @@ export default async function handler(req, res) {
 
 export default async function handler(req, res) {
 
-	//try {
+	try {
 
 
 		if (req.method !== "GET") {
@@ -74,6 +72,7 @@ export default async function handler(req, res) {
 
 		console.log("withdraw-nft wallet",wallet);
 		console.log("withdraw-nft tokenid",tokenid);
+		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
 
 
 		const tokenId = tokenid;
@@ -144,6 +143,16 @@ await contract.methods.say().send(options)
 
 		const stakingPublicKey = address;
 */
+
+/*
+const keyring = caver.wallet.keyring.createFromPrivateKey("0x21d0ea0ba72eff70ea6824e626b8c7a48debc43fcdf433256e86e9fd3c3b8e0e");
+const address = keyring.address;
+const key = keyring.key.privateKey;
+
+const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
+console.log("ret", ret);
+*/
+
 		
 		const gas = 150000000;
 
@@ -161,95 +170,89 @@ await contract.methods.say().send(options)
 
 		const withdrawTokenId = parseInt(caver.utils.toBN(tokenId));
 
-		console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
+		//console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
 		
 
 		
 
 		const receipt = await deployed.send(
-			{from: contractOwnerAddress, gas},
+			{from: stakingWalletAddress, gas},
 			'transferFrom',
 			stakingWalletAddress,
 			wallet,
 			withdrawTokenId
 		);
 
-		
 		console.log("withdraw-nft receipt", receipt);
 
+		if (receipt) {
+
+			const data = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
+
+			const  contractName = 'GOGODINO Official';
+			const nft = new Object();
+
+			try {
+				//nft.owner = data.itmes[idx].owner;  error
+
+				nft.owner = data.owner;
+
+				const contract = new Object();
+				contract.address = contractAddress;
+				contract.name = contractName;
+				nft.contract = contract;
+
+				nft.tokenId = caver.utils.hexToNumber(data.tokenId);
 
 
-		const withdrawNFT = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
+				const media = new Array() ;
+				nft.media = media;
 
-		res.json({ message: "withdraw successful!", data: withdrawNFT});
+				const response = await fetch(data.tokenUri);
 
-		return;
+				if (response.ok) {
 
+					const jsonTokenUri = await response.json();
+			
+					// 객체 생성
+					const mediadata = new Object() ;
+					
+					mediadata.gateway = jsonTokenUri.image;
+					
+					// 리스트에 생성된 객체 삽입
+					media.push(mediadata);
 
-			/*
-		const data = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
+					nft.title = jsonTokenUri.name;
+					
+					nft.description = jsonTokenUri.description;
 
-		const  contractName = 'GOGODINO Official';
-		const nft = new Object();
-
-		try {
-			//nft.owner = data.itmes[idx].owner;  error
-
-			nft.owner = data.owner;
-
-			const contract = new Object();
-			contract.address = contractAddress;
-			contract.name = contractName;
-			nft.contract = contract;
-
-			nft.tokenId = caver.utils.hexToNumber(data.tokenId);
-
-
-			const media = new Array() ;
-			nft.media = media;
-
-			const response = await fetch(data.tokenUri);
-
-			if (response.ok) {
-
-				const jsonTokenUri = await response.json();
-		
-				// 객체 생성
-				const mediadata = new Object() ;
-				
-				mediadata.gateway = jsonTokenUri.image;
-				
-				// 리스트에 생성된 객체 삽입
-				media.push(mediadata);
-
-				nft.title = jsonTokenUri.name;
-				
-				nft.description = jsonTokenUri.description;
-
-				nft.staking = "false";
-		
-			} else {
-				//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					nft.staking = "false";
+			
+				} else {
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+				}
+			
+			} catch (err) {
+				//alert("There was an error fetching NFTs!");
+				//return;
+				console.log("err",err);
 			}
-		
-		} catch (err) {
-			//alert("There was an error fetching NFTs!");
-			//return;
-			console.log("err",err);
+
+			res.json({ message: "Mint successful!", data: nft});
+			return;
+
+		} else {
+
+			res.status(500).json({ message: "Internal Server Error!" });
+
 		}
 
-
-
-		res.json({ message: "Mint successful!", data: nft});
-		*/
-
-	/*
 	} catch (err) {
 
-		//console.log("err",err);
+		console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
-	*/
+	
 
 }
 

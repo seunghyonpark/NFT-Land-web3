@@ -96,7 +96,7 @@ export default function GameMain({
 			
 
 			{/* cards container */}
-			<div className="mt-4 grid justify-center gap-5 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-5
+			<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
 				">
 				{data?.map((nft) => (
 					// uuid!

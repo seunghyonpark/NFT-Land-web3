@@ -807,8 +807,6 @@ export default function useGameNFT(address) {
 
 	const processWithdrawNFT = async (tokenId) => {
 
-		setIsWithdrawing(true);
-
 		try {
 
 			const wallet = window.klaytn.selectedAddress;
