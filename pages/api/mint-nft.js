@@ -28,7 +28,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
 const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
-
+const contractOwnerAddress = walletAddress.contractOwnerAddress;
 
 
 /*
@@ -197,7 +197,7 @@ const account = await caver.kas.wallet.createAccount();
 
 
 
-		const ownerPublicKey = process.env.OWNER_PUBLIC_KEY;
+		//const ownerPublicKey = process.env.OWNER_PUBLIC_KEY;
 		
 
 	
@@ -229,7 +229,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 
 		const receipt = await deployed.send(
-			{from: ownerPublicKey, gas},
+			{from: contractOwnerAddress, gas},
 			'mintWithTokenURI',
 			wallet,
 			tokenId,
@@ -304,7 +304,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 			//nft.owner = data.itmes[idx].owner;  error
 
-			nft.owner = ownerPublicKey;
+			nft.owner = wallet;
 
 			const contract = new Object();
 			contract.address = contractAddress;

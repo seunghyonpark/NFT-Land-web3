@@ -32,6 +32,8 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
 const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS; // baobab contract
 
+const contractOwnerAddress = walletAddress.contractOwnerAddress;
+const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*
 export default async function handler(req, res) {
@@ -70,8 +72,8 @@ export default async function handler(req, res) {
 
 		const { wallet, tokenid } = req.query;
 
-		console.log("wallet",wallet);
-		console.log("tokenid",tokenid);
+		console.log("withdraw-nft wallet",wallet);
+		console.log("withdraw-nft tokenid",tokenid);
 
 
 		const tokenId = tokenid;
@@ -127,6 +129,7 @@ const options = {
 await contract.methods.say().send(options)
 */
 
+/*
 		////const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY;
 
@@ -140,24 +143,21 @@ await contract.methods.say().send(options)
 
 
 		const stakingPublicKey = address;
-
+*/
 		
 		const gas = 150000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
 
-		
+		/*
 		deployed.events
 		.allEvents()
 		.on('data', event => {
 			console.log("event", event);
 		})
 		.on('error', console.error)
-		
+		*/
 
-	
-
-		
 
 		const withdrawTokenId = parseInt(caver.utils.toBN(tokenId));
 
@@ -167,9 +167,9 @@ await contract.methods.say().send(options)
 		
 
 		const receipt = await deployed.send(
-			{from: stakingPublicKey, gas},
+			{from: contractOwnerAddress, gas},
 			'transferFrom',
-			stakingPublicKey,
+			stakingWalletAddress,
 			wallet,
 			withdrawTokenId
 		);
@@ -179,8 +179,14 @@ await contract.methods.say().send(options)
 
 
 
+		const withdrawNFT = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
+
+		res.json({ message: "withdraw successful!", data: withdrawNFT});
+
+		return;
 
 
+			/*
 		const data = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
 
 		const  contractName = 'GOGODINO Official';
@@ -235,6 +241,7 @@ await contract.methods.say().send(options)
 
 
 		res.json({ message: "Mint successful!", data: nft});
+		*/
 
 	/*
 	} catch (err) {

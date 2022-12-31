@@ -141,10 +141,6 @@ export default function useGameNFT(address) {
 			}
 			data.unshift(nft.data);
 
-
-			
-
-
 			setIsMinting(false);
 
 			return;

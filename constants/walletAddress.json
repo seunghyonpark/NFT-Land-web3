@@ -1,5 +1,6 @@
 {
-    "stakingWalletAddress": "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db",
+    "contractOwnerAddress": "0xbddf88ce3263d1097ca03873fb53933e4fe2a3c1",
     "baobabNftContractAddress": "0x3b92b8c9765d77c1ce6ee928e679aacbbcbed3c1",
+    "stakingWalletAddress": "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db",
     "defaultWalletAddress": "0xfD18f01C8c87DA4aa6F543a46d6AaFf912098868"   
 }
