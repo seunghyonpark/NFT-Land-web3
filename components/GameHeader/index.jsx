@@ -190,7 +190,7 @@ export default function GameHeader({
 		
 		setTimeout(() => {
 			refStakeNFT.current.click();
-		  }, 10); //miliseconds
+		  }, 1000); //miliseconds
 
 		
 

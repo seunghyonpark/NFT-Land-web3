@@ -507,7 +507,7 @@ export default function useGameNFT(address) {
 
 			const response = await fetch(`/api/fetch-stake-nfts?wallet=${address}`);
 
-			//console.log("response=", response);
+			console.log("fetchStakeNFTs response=", response);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");

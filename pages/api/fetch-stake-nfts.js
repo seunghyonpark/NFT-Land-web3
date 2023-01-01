@@ -82,6 +82,13 @@ export default async function handler(req, res) {
 		
 		
 
+		if (data.items.length === 0) {
+			const aaa = new Object();
+
+			aaa.ownedNfts = ownedNfts;
+	
+			res.json({ message: "Fetch successful!", data:  aaa});
+		}
 
 
 		//console.log("fetch-nfts data",data);

@@ -145,7 +145,7 @@ await contract.methods.say().send(options)
 */
 
 /*
-const keyring = caver.wallet.keyring.createFromPrivateKey("0x21d0ea0ba72eff70ea6824e626b8c7a48debc43fcdf433256e86e9fd3c3b8e0e");
+const keyring = caver.wallet.keyring.createFromPrivateKey("privagekey");
 const address = keyring.address;
 const key = keyring.key.privateKey;
 
@@ -183,7 +183,7 @@ console.log("ret", ret);
 			withdrawTokenId
 		);
 
-		console.log("withdraw-nft receipt", receipt);
+		//console.log("withdraw-nft receipt", receipt);
 
 		if (receipt) {
 
