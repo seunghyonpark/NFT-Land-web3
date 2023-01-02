@@ -23,6 +23,13 @@ export default function StakingPage({
 }) {
 	
 
+	let displayAddress = "";
+	
+	if (address !== undefined && address !== "") {
+		displayAddress = String(address).substring(0,6) + "...."; // + String(address).substring(address.length - 4);
+
+		console.log("displayAddress", displayAddress);
+	}
 
 
 	useEffect(() => {
@@ -58,8 +65,8 @@ export default function StakingPage({
 
 			{/* logotype */}
 
-			<h1 className="text-center text-1xl font-extrabold text-amber-400 drop-shadow-xl truncate">
-				{address} 
+			<h1 className=" text-right text-1xl font-extrabold text-amber-400 drop-shadow-xl truncate">
+				{displayAddress} 
 			</h1>
 
 

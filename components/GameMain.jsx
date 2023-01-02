@@ -3,6 +3,7 @@ import GameCard from "./GameCard/GameCard";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState, useEffect, useRef, forwardRef } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function GameMain({
 	selectedCard,
@@ -25,6 +26,18 @@ export default function GameMain({
 	//const itemEls = forwardRef(new Array());
 	
 	const [cardStyles, setcardStyles] = useState([]);
+
+
+	const [posts, setPosts] = useState(data);
+	const [hasMore, setHasMore] = useState(true);
+
+	const getMorePost = async () => {
+		const res = await fetch(
+		  `https://jsonplaceholder.typicode.com/todos?_start=${posts.length}&_limit=10`
+		);
+		const newPosts = await res.json();
+		setPosts((post) => [...post, ...newPosts]);
+	};
 
 
 	useEffect(() => {
@@ -55,10 +68,12 @@ export default function GameMain({
 
 		setSelectedCard(nft);
 
+
+
 		let idx;
 		for(idx=0; idx < data.length; idx++) {
 			if (data[idx].tokenId === nft.tokenId) {
-				itemEls.current[idx].style.cssText = "border-color: #EA3385; border-width: 7px;";
+				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
 				data[idx].cssText = "border-color: yellow; border-width: 7px;";
 			} else {
@@ -165,49 +180,61 @@ export default function GameMain({
 
 
 			
+			<InfiniteScroll
+				dataLength={data.length}
+				next={() => console.log("fetching more data")}
+				hasMore={true}
+				loader={<h4>Loading...</h4>}
+			>
 
-			{/* cards container */}
-			<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
-				">
-				{data?.map((nft) => (
+				{/* cards container */}
+				<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
+					">
 
 
-				<div className="rounded-lg p-1"
-					key={nft.tokenId}
-					//onClick={(e) => handleClick(e)}
-					onClick={(e) => {
-						e.preventDefault(); 
-						handleClick(nft);
-					}}
-					ref={(element) => itemEls.current.push(element)}
-				>
 
-					
-					<GameCard
-						//key={uuidv4()}
 
-						//key={nft.tokenId}
-						
-						//ref={(element) => itemEls.current.push(element)}
-						
-						cardData={nft}
-						cryptoTowerAddress={cryptoTowerAddress}
-						loadingCubesAddress={loadingCubesAddress}
-						data={data}
-						depositNFT={depositNFT}
-						withdrawNFT={withdrawNFT}
-						selectNFT={selectNFT}
+					{data?.map((nft) => (
 
-						
+					<div className="rounded-lg p-1"
+						key={nft.tokenId}
+						//onClick={(e) => handleClick(e)}
+						onClick={(e) => {
+							e.preventDefault(); 
+							handleClick(nft);
+						}}
+						ref={(element) => itemEls.current.push(element)}
 					>
-						
-					</GameCard>
+						<GameCard
+							//key={uuidv4()}
+
+							//key={nft.tokenId}
+							
+							//ref={(element) => itemEls.current.push(element)}
+							
+							cardData={nft}
+							cryptoTowerAddress={cryptoTowerAddress}
+							loadingCubesAddress={loadingCubesAddress}
+							data={data}
+							depositNFT={depositNFT}
+							withdrawNFT={withdrawNFT}
+							selectNFT={selectNFT}
+
+							
+						>
+							
+						</GameCard>
+					</div>
+					))}
+
+
+
 
 				</div>
 
+				</InfiniteScroll>
 
-				))}
-			</div>
+			
 
 
 
@@ -215,7 +242,7 @@ export default function GameMain({
 			<div className="">
 				<button
 					
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
 						disabled:opacity-25"
 					onClick={(e) => {
 						e.preventDefault(); 
@@ -226,7 +253,7 @@ export default function GameMain({
 						Stake
 				</button>&nbsp;&nbsp;
 				<button
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
 					"
 					onClick={(e) => {
 						e.preventDefault();
