@@ -30,13 +30,18 @@ export default function GameMain({
 	useEffect(() => {
 
 
-		//console.log("data tokenid", data[0].tokenId);
+		console.log("selectedCard", selectedCard);
+
+		/*
+		if (data.length > 0) {
+			if (selectedCard === "") {
+				itemEls.current[0].style.cssText = "border-color: yellow; border-width: 7px;";
+			}
+		}
+		*/
 
 
-		
-
-
-	}, [data]);
+	}, [selectedCard]);
 	
 
 
@@ -53,7 +58,7 @@ export default function GameMain({
 		let idx;
 		for(idx=0; idx < data.length; idx++) {
 			if (data[idx].tokenId === nft.tokenId) {
-				itemEls.current[idx].style.cssText = "border-color: yellow; border-width: 7px;";
+				itemEls.current[idx].style.cssText = "border-color: #EA3385; border-width: 7px;";
 
 				data[idx].cssText = "border-color: yellow; border-width: 7px;";
 			} else {
