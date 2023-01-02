@@ -2,7 +2,9 @@ import React, { useMemo } from "react";
 
 import { useState, useEffect, useRef } from "react";
 
-import Router from 'next/router';
+
+import { useRouter } from 'next/router';
+
 
 
 //import Layout from "../components/Layout";
@@ -41,6 +43,9 @@ export async function getStaticProps({ locale }) {
 export default function Header({ address, setAddress }) {
 
 
+	//const router = useRouter();
+
+
 
 	useEffect(() => {
 
@@ -55,7 +60,7 @@ export default function Header({ address, setAddress }) {
 			if (address === "") {
 
 			} else {
-				Router.push('/game');
+				//router.push('/game');
 			}
 		/*
 		}
@@ -93,13 +98,26 @@ export default function Header({ address, setAddress }) {
 			*/			
 		}
 	
-	}, [address, setAddress]);
+	}, [address]);
 
 
 
 
 	const setAccountInfo = async () => {
 		console.log("setAccountInfo");
+
+		/*
+		if (address === undefined) {
+
+		} else {
+			if (address === "") {
+
+			} else {
+				router.push('/game');
+			}
+			
+		}
+		*/
 
 		const { klaytn } = window;
 
@@ -125,13 +143,15 @@ export default function Header({ address, setAddress }) {
 		
 				setAddress(account);
 
-				Router.push('/game');
+				//Router.push('/game');
+				//router.push('/game');
 
 				//klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn));
 
 			} catch (error) {
 				console.log('User denied account access');
 			}
+
 		} else {
 			console.log('Non-Kaikas browser detected. You should consider trying Kaikas!');
 		}
@@ -164,6 +184,8 @@ export default function Header({ address, setAddress }) {
 
 	*/
 
+
+	
 
 	return (
 

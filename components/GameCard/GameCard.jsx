@@ -8,6 +8,8 @@ import CardMain from "../CardMain.jsx";
 
 import useStakeNFT from "../../hooks/useStakeNFT.js";
 
+import { useState, useEffect, useRef } from "react";
+
 
 // --------------------------
 export default function GameCard({
@@ -19,9 +21,15 @@ export default function GameCard({
 	selectNFT,
 }) {
 
+	//const [isSelect, setIsSelect] = useState(false);
+
+	const ref = useRef(null);
+
+	cardData.selected = false;
+
 	//const [isLoading, setIsLoading] = useState(false);
 
-	const { isLoading } = useStakeNFT(cardData.tokenId);
+	//const { isLoading } = useStakeNFT(cardData.tokenId);
 
 	// 이렇게 하면 안된다.
 	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(cardData.owner);
@@ -75,12 +83,62 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 	};
 
+	const handleClick = (e) =>  {
+		e.preventDefault();
+		
+		console.log(e);
 
+		cardData.selected = true;
+
+		console.log('cardData.selected', cardData.selected);
+
+		ref.current.style.backgroundColor = "yellow";
+
+		//ref.current.style.border-width = 6;
+
+		//border-width: 8px;
+
+		//ref.current.style.display = "none";
+
+		//ref.current.style.className = "m-auto flex  max-w-[70%] flex-col rounded-lg  border-8 border-gray-300 p-3 sm:m-0 sm:max-w-lg hover:mix-blend-hard-light";
+
+	}
+
+	/*
+	className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
+				data !== [] ? "justify-evenly" : "justify-between"} 
+			`}
+	*/
+
+	useEffect(() => {
+
+		//console.log("cardData", cardData);
+
+		//ref.current.style = cardData.cssText;
+
+	}, [cardData]);
+
+
+	//${cardData.selected !== true ? "border" : "border-8"}
 
 	return (
 
-		<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3 sm:m-0 sm:max-w-lg
-			hover:mix-blend-hard-light">
+
+
+
+
+		<div ref={ref}
+			className={`
+			m-auto flex  max-w-[70%] flex-col rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
+			hover:mix-blend-hard-light
+			border ${cardData.cssText}
+
+			border
+			`}
+			>
+
+
+
 
 			{/*
 			<Script src={scriptAddress} />
@@ -150,6 +208,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			{/* staking info */}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
+{/*
 				<button
 					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -168,6 +227,8 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						: <p className="font-medium">Start Staking</p>
 					}
 				</button>
+				*/}
+
 
 				{/*
 				<button
@@ -211,6 +272,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			*/}
 
 			{/* data fetching animation */}
+			{/*
 			{isLoading && (
 				<div className="m-auto h-[18rem] w-[18rem] -translate-y-5 opacity-80 drop-shadow-xl">
 					<lottie-player
@@ -222,9 +284,12 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					></lottie-player>
 				</div>
 			)}
-
+			*/}
 
 		</div>
+
+
+
 
 	);
 }

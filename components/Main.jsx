@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import NFTCard from "./NFTCard";
-import { v4 as uuidv4 } from "uuid";
+//import NFTCard from "./NFTCard";
+//import { v4 as uuidv4 } from "uuid";
 
 function Main({
 	data,
-	isInHome,
-	isLoading,
+	//isInHome,
+	//isLoading,
 	cryptoTowerAddress,
 	loadingCubesAddress,
 }) {
@@ -23,13 +23,14 @@ function Main({
 
 
 			{/* cards container */}
+			{/*
 			<cards className="mt-4 grid justify-center gap-5 md:grid-cols-2 lg:grid-cols-3 ">
 				{data.map((nft) => (
 					// uuid!
 					<NFTCard key={uuidv4()} data={nft}></NFTCard>
 				))}
 			</cards>
-
+				*/}
 
 			
 

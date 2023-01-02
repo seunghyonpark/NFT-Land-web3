@@ -11,6 +11,9 @@ import useGameNFT from "../hooks/useGameNFT.js";
 
 import walletAddress from "../constants/walletAddress.json";
 
+
+import { useRouter } from 'next/router';
+
 import { readFileSync } from 'fs';
 import path from 'path';
 
@@ -21,6 +24,11 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 
+import RouteGuard from "../components/RouteGuard.jsx";
+
+import { useSession, signIn, signOut } from 'next-auth/react';
+
+import { GetServerSideProps } from 'next';
 
 const options = {
     //options
@@ -39,10 +47,19 @@ export default function Game({
 	nftWalletAddress,
 	testData,
 }) {
+
+
+	//const { data: session, status } = useSession();
+
 	//const [address, setAddress] = useState("0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71");
 
-	const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
+	//const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
+	//const [address, setAddress] = useState(session?.user);
+	const [address, setAddress] = useState("");
 
+	const [selectedCard, setSelectedCard] = useState("");
+
+	//const router = useRouter();
 
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
@@ -55,10 +72,32 @@ export default function Game({
 	const ref = useRef();
 
 	
+
+	//setAddress(session?.user);
+
+
 	useEffect(() => {
 
+		/*
+		console.log("session?.user", session?.user);
+
+		if (session?.user === undefined) {
+			router.push('/');
+			
+		}
+		*/
+
+		/*
+		if (address === undefined) {
+			//Router.push('/');
+	
+			router.push('/');
+	
+			//return;
+		}
+		*/
 		
-		console.log("Minting useEffect address="+address);
+		//console.log("Minting useEffect address="+address);
 
 		//console.log(ref.current);
 
@@ -168,6 +207,8 @@ export default function Game({
 	*/
 
 
+
+
 	//
 	return (
 
@@ -179,9 +220,7 @@ export default function Game({
 
 		<wholepage
 			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
-				data !== [] ? "justify-evenly" : "justify-between"
-				
-			} 
+				data !== [] ? "justify-evenly" : "justify-between"} 
 			`}
 		>
 			<Script src={scriptAddress} />
@@ -264,6 +303,8 @@ export default function Game({
 
 				<GameMain
 					{...{
+						selectedCard,
+						setSelectedCard,
 						data,
 						isInHome,
 						isLoading,
@@ -282,6 +323,8 @@ export default function Game({
 
 				<StakingPage
 					{...{
+						selectedCard,
+						address,
 						stakeData,
 						isInHome,
 						isLoading,
@@ -416,3 +459,37 @@ export async function getStaticProps({ locale }) {
 	};
 }
 */
+
+
+/*
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+	const session = await getSession({ req });
+	if (!session) {
+	  return {
+		redirect: {
+		  permanent: false,
+		  destination: '/'
+		}
+	  };
+	}
+  
+	const results = await getAllUsers();
+	const totalUsers = await getUserCount();
+  
+	const user = await getUser(session.username as string);
+  
+	const meta = {
+	  ...defaultMetaProps,
+	  title: `Settings | MongoDB Starter Kit`
+	};
+  
+	return {
+	  props: {
+		meta,
+		results,
+		totalUsers,
+		user
+	  }
+	};
+  };
+  */

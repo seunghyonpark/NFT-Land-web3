@@ -2,9 +2,11 @@ import React from "react";
 import GameCard from "./GameCard/GameCard";
 import { v4 as uuidv4 } from "uuid";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 
 export default function GameMain({
+	selectedCard,
+	setSelectedCard,
 	data,
 	isInHome,
 	isLoading,
@@ -19,17 +21,81 @@ export default function GameMain({
 	mintNFT,
 }) {
 
+	const itemEls = useRef(new Array());
+	//const itemEls = forwardRef(new Array());
+	
+	const [cardStyles, setcardStyles] = useState([]);
+
+
+	useEffect(() => {
+
+
+		//console.log("data tokenid", data[0].tokenId);
+
+
+		
+
+
+	}, [data]);
+	
+
+
+	const handleClick = (nft) =>  {
+
+		//cardData.selected = true;
+
+		//console.log('cardData.selected', cardData.selected);
+
+		//console.log("itemEls", itemEls.current[0]);
+
+		setSelectedCard(nft);
+
+		let idx;
+		for(idx=0; idx < data.length; idx++) {
+			if (data[idx].tokenId === nft.tokenId) {
+				itemEls.current[idx].style.cssText = "border-color: yellow; border-width: 7px;";
+
+				data[idx].cssText = "border-color: yellow; border-width: 7px;";
+			} else {
+				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
+
+				data[idx].cssText = "border-color: transparent; border-width: 0px;";
+			}
+		}
+
+
+
+		//itemEls.current[0].GameCard.cardData.selected = true;
+		//itemEls.current[0].style.backgroundColor = "yellow";
+
+		
+
+
+		//console.log("aaaaaa",itemEls[0].current);
+
+
+		//ref.current.style.backgroundColor = "yellow";
+
+		//ref.current.style.border-width = 6;
+
+		//border-width: 8px;
+
+		//ref.current.style.display = "none";
+
+		//ref.current.style.className = "m-auto flex  max-w-[70%] flex-col rounded-lg  border-8 border-gray-300 p-3 sm:m-0 sm:max-w-lg hover:mix-blend-hard-light";
+
+	}
+
 
 
 
 	//return data.lenghth > 0 && (
 	return (
+
+
+
+
 		<main>
-			<h1 className="text-left text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./mint">My NFT</a>
-			</h1>
-
-
 
 			{/*
 			<div className="bg-auto bg-no-repeat bg-center bg-[url('/img_rex.png')]">
@@ -99,9 +165,26 @@ export default function GameMain({
 			<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
 				">
 				{data?.map((nft) => (
-					// uuid!
+
+
+				<div className="rounded-lg p-1"
+					key={nft.tokenId}
+					//onClick={(e) => handleClick(e)}
+					onClick={(e) => {
+						e.preventDefault(); 
+						handleClick(nft);
+					}}
+					ref={(element) => itemEls.current.push(element)}
+				>
+
+					
 					<GameCard
-						key={uuidv4()}
+						//key={uuidv4()}
+
+						//key={nft.tokenId}
+						
+						//ref={(element) => itemEls.current.push(element)}
+						
 						cardData={nft}
 						cryptoTowerAddress={cryptoTowerAddress}
 						loadingCubesAddress={loadingCubesAddress}
@@ -109,10 +192,42 @@ export default function GameMain({
 						depositNFT={depositNFT}
 						withdrawNFT={withdrawNFT}
 						selectNFT={selectNFT}
+
+						
 					>
+						
 					</GameCard>
+
+				</div>
+
+
 				))}
 			</div>
+
+
+
+
+			<div className="">
+				<button
+					onClick={(e) => {
+						e.preventDefault(); 
+						depositNFT(selectedCard.tokenId);
+					}}
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+						Stake
+				</button>&nbsp;&nbsp;
+				<button
+					onClick={(e) => {
+						e.preventDefault();
+						withdrawNFT(selectedCard.tokenId);
+					}}
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+						Unstake
+				</button>
+			</div>
+
 
 			<button
 				onClick={mintNFT}

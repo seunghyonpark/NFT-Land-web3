@@ -211,6 +211,9 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 sm:px-10 md:px-200 lg:px-200 xl:px-300
 
 rounded-lg border border-gray-300
+
+
+bg-cover bg-center bg-[url('/img_tomo.png')]
 */}
 
 
@@ -219,9 +222,9 @@ rounded-lg border border-gray-300
 
 		<div className="m-auto flex  max-w-[70%] flex-col 
 		
-		sm:p-5 md:p-5 lg:p-20 xl:20
+		sm:p-5 md:p-5 lg:p-16 xl:p-20
 		sm:m-0 sm:max-w-lg 
-		bg-cover bg-center bg-[url('/img_tomo.png')]
+		
 		
 		">
 
@@ -234,7 +237,7 @@ rounded-lg border border-gray-300
 			
 			
 			<button
-					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-3 hover:mix-blend-hard-light"
+					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
 					onClick={() => (sayHello(), console.log("click") )}
 				>
@@ -304,7 +307,7 @@ rounded-lg border border-gray-300
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
 					mix-blend-hard-light hover:mix-blend-normal">
 
-						<ul role="list" className="p-4 divide-y divide-slate-200">
+						<ul role="list" className="p-3 divide-y divide-slate-200">
 						{/*#each people as person
 							<!-- Remove top/bottom padding when first/last child -->*/}
 
@@ -342,6 +345,7 @@ rounded-lg border border-gray-300
 			</div>
 			
 
+{/*
 			<button
 				className="mt-2 w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -361,7 +365,9 @@ rounded-lg border border-gray-300
 				}
 			</button>
 
+			*/}
 
+			
 			{/* action 
 			<div className="mt-2 flex table-fixed flex-row justify-center ">
 

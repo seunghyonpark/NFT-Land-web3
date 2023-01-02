@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import classes from "./index.module.css"
 import { consoleLog } from "mocha/lib/reporters/base"
 
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 
 export default function GameHeader({
@@ -24,6 +24,8 @@ export default function GameHeader({
 		/////fetchNFTs();
 		
 	}
+
+	//const router = useRouter();
 
 	const refNFT = useRef(null);
 	const refStakeNFT = useRef(null);
@@ -203,18 +205,40 @@ export default function GameHeader({
 
 		//setAddress(window.klaytn.selectedAddress);
 
+
+
 		console.log("useEffect address", address);
+		
 
-		if (address === "") {
-			Router.push('/');
+		
+		if (address === undefined) {
+
+			//router.push('/');
+
 		} else {
-			
+
+			if (address === "") {
+				//Router.push('/');
+
+				//router.push('/');
+			} else {
+
+
+				refNFT.current.click();
+
+				refStakeNFT.current.click();
+
+			}
+
 		}
+		
+		
+
+			
+	
 
 
-		refNFT.current.click();
 
-		refStakeNFT.current.click();
 
 		/*
 		setTimeout(() => {
@@ -262,7 +286,6 @@ export default function GameHeader({
 		return () => clearInterval(interval);
 		*/
 
-		console.log("useEffect address", address);
 
 	}, [address]);
 
@@ -285,7 +308,8 @@ export default function GameHeader({
 			{/* find NFT's form */}
 			<form className="mt-1 flex flex-col">
 
-			<div className="mt-1">
+				<div className="mt-1">
+				{/*
 				<input
 					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 					value={address}
@@ -294,13 +318,9 @@ export default function GameHeader({
 					placeholder="Your Wallet Address"
 					
 				/>
+*/}
 
-				<button
-					onClick={loadAccountInfo}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Connect Kaikas
-				</button>
+
 
 				{/*
 				<button
@@ -310,6 +330,7 @@ export default function GameHeader({
 					Mint NFT
 				</button>
 				*/}
+				
 				
 				<button
 					ref={refNFT}
@@ -327,7 +348,14 @@ export default function GameHeader({
 				>
 					Fetch Stake NFTs
 				</button>
+			
 
+				<button
+					onClick={loadAccountInfo}
+					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				>
+					Connect Kaikas
+				</button>
 
 				{/*
 				<button
@@ -341,11 +369,6 @@ export default function GameHeader({
 				</div>
 
 			</form>
-
-
-			<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
-				{address} 
-			</h1>
 
 
 

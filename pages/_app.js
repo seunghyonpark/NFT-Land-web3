@@ -12,8 +12,15 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 //import { NextIntlProvider } from "next-intl";
 
+import { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
+
 // 
-function MyApp({ Component, pageProps }) {
+function MyApp({
+  Component,
+  /////pageProps: { session, ...pageProps }
+  pageProps: { ...pageProps }
+}) {
 
   //console.log("MyApp"); 
 
@@ -39,7 +46,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
 
-        <Component {...pageProps} />
+    //<SessionProvider session={session}>
+      <Component {...pageProps} />
+    //</SessionProvider>
 
   )
 

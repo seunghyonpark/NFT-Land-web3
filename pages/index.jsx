@@ -8,6 +8,8 @@ import Footer from "../components/Footer.jsx";
 import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 import Link from 'next/link';
 
+import { useSession, signIn, signOut } from 'next-auth/react';
+
 
 //-----------------------------
 export default function Home({
@@ -17,9 +19,10 @@ export default function Home({
 }) {
 	
 	const [address, setAddress] = useState("");
+	const [data, setData] = useState([]);
 
 	// fetch data handler
-	const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
+	//const {fetchNFTs, data, isInHome, isLoading} = useFetchNFTs(address);
 
 
 	/*
@@ -99,7 +102,13 @@ export default function Home({
 					name="GOGO DINO META EXPLORERS"
 					content="GOGO DINO META EXPLORERS"
 				/>
+
+				<meta property="og:description" content="GOGO DINO META EXPLORERS" />
+
+				<meta property="og:image" content="char_group.png" />
 				<link rel="icon" href="/favicon.ico" />
+				<link href="https://fonts.googleapis.com" />
+
 			</Head>
 
 
@@ -116,8 +125,8 @@ export default function Home({
 			<Main
 				{...{
 					data,
-					isInHome,
-					isLoading,
+					//isInHome,
+					//isLoading,
 					scriptAddress,
 					cryptoTowerAddress,
 					loadingCubesAddress,
