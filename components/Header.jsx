@@ -44,11 +44,12 @@ export default function Header({ address, setAddress }) {
 
 	useEffect(() => {
 
+		/*
 		if (window.klaytn.selectedAddress === undefined) {
 
 		} else {
 			setAddress(window.klaytn.selectedAddress);
-
+		*/
 			console.log("useEffect address", address);
 
 			if (address === "") {
@@ -56,7 +57,9 @@ export default function Header({ address, setAddress }) {
 			} else {
 				Router.push('/game');
 			}
+		/*
 		}
+		*/
 
 		/*
 		const handleStart = (url) => (url !== router.asPath) && setLoading(true);

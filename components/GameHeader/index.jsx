@@ -201,7 +201,7 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		setAddress(window.klaytn.selectedAddress);
+		//setAddress(window.klaytn.selectedAddress);
 
 		console.log("useEffect address", address);
 
