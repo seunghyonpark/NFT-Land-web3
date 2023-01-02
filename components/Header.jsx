@@ -1,11 +1,16 @@
 import React, { useMemo } from "react";
 
+import { useState, useEffect, useRef } from "react";
+
+import Router from 'next/router';
+
+
 //import Layout from "../components/Layout";
 //import classes from "../components/Layout/index.module.css";
-import Chain from "../components/chain";
+//import Chain from "../components/chain";
 
-import { fetcher, populateChain } from "../utils";
-import { useSearch, useTestnets } from "../stores";
+//import { fetcher, populateChain } from "../utils";
+//import { useSearch, useTestnets } from "../stores";
 
 
 /*
@@ -31,7 +36,54 @@ export async function getStaticProps({ locale }) {
 */
 
 
-function Header({ address, setAddress, fetchNFTs }) {
+
+
+export default function Header({ address, setAddress }) {
+
+
+	useEffect(() => {
+
+		if (address === "") {
+
+		} else {
+			Router.push('/game');
+		}
+
+		/*
+		const handleStart = (url) => (url !== router.asPath) && setLoading(true);
+		const handleComplete = (url) => (url === router.asPath) && setTimeout(() => {setLoading(false)},2000);
+	
+		router.events.on('routeChangeStart', handleStart)
+		router.events.on('routeChangeComplete', handleComplete)
+		router.events.on('routeChangeError',  handleComplete)	
+		*/
+	
+		/*
+		let i = 0;
+	
+		function pollDOM() {
+		  console.log(i);
+		  i++;
+		}
+		//const interval = setInterval(pollDOM, 5000);
+	
+		const interval = setInterval(genNumber, 5000);
+		*/
+	
+	
+		return () => {
+	
+			//clearInterval(interval);
+			/*
+			router.events.off('routeChangeStart', handleStart)
+			router.events.off('routeChangeComplete', handleComplete)
+			router.events.off('routeChangeError', handleComplete)
+			*/			
+		}
+	
+	}, [address]);
+
+
 
 
 	const setAccountInfo = async () => {
@@ -94,14 +146,16 @@ function Header({ address, setAddress, fetchNFTs }) {
 
 	  }, [testnets, sortedChains]
 	);
+
 	*/
 
 
 	return (
+
 		<header className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400/50 drop-shadow-xl ">
-				<a href="./">M.E. NFT Staking Service</a>
+				<a href="./">GOGO DINO META EXPLORERS</a>
 			</h1>
 
 			<button
@@ -109,98 +163,13 @@ function Header({ address, setAddress, fetchNFTs }) {
 					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 
-					Connect Kaikas {address}
-			</button><br></br>
-
-
-			
-
-				{
-				/*
-				(search === ""
-					? chains
-					: chains.filter((chain) => {
-						//filter
-						return (
-							chain.chain.toLowerCase().includes(search.toLowerCase()) ||
-							chain.chainId
-								.toString()
-								.toLowerCase()
-								.includes(search.toLowerCase()) ||
-							chain.name.toLowerCase().includes(search.toLowerCase()) ||
-							(chain.nativeCurrency ? chain.nativeCurrency.symbol : "")
-								.toLowerCase()
-								.includes(search.toLowerCase())
-						);
-					})
-				).map((chain, idx) => {
-					return <Chain chain={chain} key={idx} />;
-				})
-				*/
-				}
-
-			
-
-
-
-			<button
-					onClick={fetchNFTs}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Find NFTs !
+					Connect Kaikas
 			</button>
-
-			{/* find NFT's form */}
-			{/*
-			<form className="mt-5 flex flex-col">
-				<input
-					value={address}
-					onChange={(e) => setAddress(e.target.value)}
-					type="text"
-					placeholder="Paste Wallet Address Here"
-					className="w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem]"
-				/>
-
-
-				<p className="mt-2">for test: 0x73d4dbc43b95cf2290b6f90c4d7a4bac22658e24</p>
-
-				<p className="mt-2">for test: 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71</p>
-
-				
-				<button
-					onClick={fetchNFTs}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Find NFTs !
-				</button>
-			</form>
-			*/}
-
-		{/*
-			<h1>hello</h1>
-			<button
-				onClick={(e) => handleClick(e, "/staking")}
-				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-			>
-				Staking
-			</button>
-		*/}
-
-		{/*
-			<button
-				onClick={() => router.push("/staking")}
-				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-			>
-				Stake my NFT
-			</button>
-		*/}
-
-			<h3 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./staking">go Staking</a>
-			</h3>
+		
 
 		</header>
+
 	);
 }
 
-export default Header;
+

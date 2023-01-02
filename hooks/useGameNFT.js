@@ -624,15 +624,16 @@ export default function useGameNFT(address) {
 			*/
 			
 
-			/*
+			
 			// staking contract
 			// https://baobab.scope.klaytn.com/nft/0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5
-			const contractAddress = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
+			//const contractAddress = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
 
 
 			//const to = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db"; // Staking Wallet Address
 			//const amount = 1000000000000000000n; // 토큰 1개
 			
+			/*
 			const contract = new window.caver.klay.Contract(stakingABI, contractAddress);
 			
 			console.log("contract", contract); // 컨트랙트 객체가 만들어졌다.
@@ -688,7 +689,12 @@ export default function useGameNFT(address) {
 			console.log("contract", contract);
 			
 			const from = window.klaytn.selectedAddress;
+
+
 			const to = stakingWalletAddress;
+
+			//const to = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
+
 			
 			console.log("contractAddress", contractAddress);
 			console.log("tokenId", tokenId);

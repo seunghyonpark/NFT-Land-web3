@@ -1,11 +1,12 @@
 import Image from "next/image";
 import React from "react";
+import classes from "./index.module.css";
 
 import Script from "next/script";
 
-import CardMain from "../components/CardMain.jsx";
+import CardMain from "../CardMain.jsx";
 
-import useStakeNFT from "../hooks/useStakeNFT.js";
+import useStakeNFT from "../../hooks/useStakeNFT.js";
 
 
 // --------------------------
@@ -85,9 +86,12 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			<Script src={scriptAddress} />
 			*/}
 
+			
+
 
 			{cardData.staking === 'false' && (
-				<Image className="h-500 w-500"
+				<Image className="h-500 w-500
+					bg-cover bg-center bg-[url('/iphone-spinner.gif')]" 
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -99,7 +103,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			)}
 
 			{cardData.staking === 'true' && (
-				<Image className="h-500 w-500 rounded-full"
+
+				<div className={classes.load}>
+				<Image className="h-500 w-500 rounded-full
+					bg-cover bg-center bg-[url('/iphone-spinner.gif')]"
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -108,8 +115,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					width={500}
 					height={500}
 				/>
+				</div>
 			)}
 
+			
 
 								{/*
 					<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
@@ -160,6 +169,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					}
 				</button>
 
+				{/*
 				<button
 					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -173,6 +183,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						<p className="font-medium">Select</p>
 					}
 				</button>
+				*/}
 
 			</div>
 

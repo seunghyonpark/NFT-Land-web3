@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Script from "next/script";
+import GameHeader from "../components/GameHeader/index.jsx";
 import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
 import Footer from "../components/Footer.jsx";
 import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
+import Link from 'next/link';
 
 
 //-----------------------------
@@ -56,29 +58,61 @@ export default function Home({
 	}, []);
 	*/
 	
-
-	//
-	return (
-		<wholepage
+				/*
 			className={`container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20
 				${data !== [] ? "justify-evenly" : "justify-between"}
 			`}
+
+
+						className="container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20
+			 justify-evenly
+			"
+
+			<Script src={scriptAddress} />
+	*/
+
+
+
+	//
+	return (
+
+		<div className="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
+
+		<div className="bg-gradient-to-bl from-black">
+
+
+		<wholepage
+			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
+				data !== [] ? "justify-evenly" : "justify-between"
+				
+			} 
+			`}
 		>
 			<Script src={scriptAddress} />
+			
 
+			
+			
 			<Head>
-				<title>M.E. NFT Staking Service</title>
+				<title>GOGO DINO META EXPLORERS</title>
 				<meta
-					name="M.E. NFT Staking Service"
-					content="A simple dApp for Staking NFT"
+					name="GOGO DINO META EXPLORERS"
+					content="GOGO DINO META EXPLORERS"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			
-			{/*
-			<Header {...{ address, setAddress, fetchNFTs }} />
-	*/}
 
+
+			<Header
+				{...{
+					address,
+					setAddress,
+				}}
+			/>
+
+
+
+			
 			<Main
 				{...{
 					data,
@@ -89,12 +123,21 @@ export default function Home({
 					loadingCubesAddress,
 				}}
 			/>
+		
 
+			
 			<Footer />
+		
 
 		</wholepage>
+
+		</div>
+		</div>
 	);
 }
+
+
+
 
 //  --------------------------------
 export function getStaticProps() {

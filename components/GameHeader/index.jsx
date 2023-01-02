@@ -187,7 +187,12 @@ export default function GameHeader({
 
 		///connectWallet();
 
-		
+
+		refNFT.current.click();
+
+		refStakeNFT.current.click();
+
+		/*
 		setTimeout(() => {
 			refStakeNFT.current.click();
 		  }, 1000); //miliseconds
@@ -197,7 +202,7 @@ export default function GameHeader({
 		setTimeout(() => {
 			refNFT.current.click();
 		  }, 3000); //miliseconds
-
+		*/
 		
 
 		/*
@@ -233,7 +238,7 @@ export default function GameHeader({
 		return () => clearInterval(interval);
 		*/
 
-		console.log("address", address);
+		console.log("useEffect address", address);
 
 	}, [address]);
 

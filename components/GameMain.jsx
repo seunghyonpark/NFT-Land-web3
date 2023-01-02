@@ -1,5 +1,5 @@
 import React from "react";
-import GameCard from "./GameCard";
+import GameCard from "./GameCard/GameCard";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState, useEffect, useRef } from "react";
