@@ -41,12 +41,21 @@ export async function getStaticProps({ locale }) {
 export default function Header({ address, setAddress }) {
 
 
+
 	useEffect(() => {
 
-		if (address === "") {
+		if (window.klaytn.selectedAddress === undefined) {
 
 		} else {
-			Router.push('/game');
+			setAddress(window.klaytn.selectedAddress);
+
+			console.log("useEffect address", address);
+
+			if (address === "") {
+
+			} else {
+				Router.push('/game');
+			}
 		}
 
 		/*
@@ -81,7 +90,7 @@ export default function Header({ address, setAddress }) {
 			*/			
 		}
 	
-	}, [address]);
+	}, [address, setAddress]);
 
 
 
@@ -113,7 +122,10 @@ export default function Header({ address, setAddress }) {
 		
 				setAddress(account);
 
+				Router.push('/game');
+
 				//klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn));
+
 			} catch (error) {
 				console.log('User denied account access');
 			}

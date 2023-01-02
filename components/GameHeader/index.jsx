@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react"
 import classes from "./index.module.css"
 import { consoleLog } from "mocha/lib/reporters/base"
 
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
+
 
 export default function GameHeader({
 	address,
@@ -84,6 +85,13 @@ export default function GameHeader({
 
 		e.preventDefault();
 
+		//window.klaytn.selectedAddress
+		//const selectedId = await window.klaytn.selectedAddress;
+		/*
+		klaytn.on('accountsChanged', function(accounts) {
+			// Your code
+		  })
+		*/
 
 		const {klaytn} = window;
 		
@@ -180,12 +188,28 @@ export default function GameHeader({
 	});
 	*/
 
+	/*
+	setAddress(window.klaytn.selectedAddress);
+
+	window.klaytn.on('accountsChanged', function(accounts) {
+		// Your code
+		console.log("accountsChanged accounts", accounts);
+	});
+	*/
 
 
 
 	useEffect(() => {
 
-		///connectWallet();
+		setAddress(window.klaytn.selectedAddress);
+
+		console.log("useEffect address", address);
+
+		if (address === "") {
+			Router.push('/');
+		} else {
+			
+		}
 
 
 		refNFT.current.click();
@@ -261,9 +285,9 @@ export default function GameHeader({
 			{/* find NFT's form */}
 			<form className="mt-1 flex flex-col">
 
-			<div>
+			<div className="mt-1">
 				<input
-					className=" w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
+					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
 					value={address}
 					onChange={(e) => setAddress(e.target.value)}
 					type="text"
@@ -273,7 +297,7 @@ export default function GameHeader({
 
 				<button
 					onClick={loadAccountInfo}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Connect Kaikas
 				</button>
@@ -290,7 +314,7 @@ export default function GameHeader({
 				<button
 					ref={refNFT}
 					onClick={fetchNFTs}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch NFTs
 				</button>
@@ -299,7 +323,7 @@ export default function GameHeader({
 				<button
 					ref={refStakeNFT}
 					onClick={fetchStakeNFTs}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch Stake NFTs
 				</button>
