@@ -16,6 +16,7 @@ export default function useGameNFT(address) {
 	const [isWithdrawing, setIsWithdrawing] = useState(false);
 	const [tokenId, setTokenId] = useState("");
 	const [stakingCount, setStakingCount] = useState("0");
+	const [selectedCard, setSelectedCard] = useState("");
 
 
 	const contractAddress = walletAddress.baobabNftContractAddress;
@@ -446,12 +447,18 @@ export default function useGameNFT(address) {
 
 
 
-			console.log("fetchNFTs fetchData=", fetchData);
+			console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
 
-			if (fetchData.data.ownedNfts.length == 0) {
+			if (fetchData.data.ownedNfts.length === 0) {
 				//setIsInHome(true);
 				//setIsLoading(false);
 				//alert("This Wallet has no NFTs");
+			} else {
+
+				
+				console.log("fetchData.data.ownedNfts[0]", fetchData.data.ownedNfts[0]);
+
+				setSelectedCard(fetchData.data.ownedNfts[0]);
 			}
 
 			// alchemy
@@ -475,9 +482,9 @@ export default function useGameNFT(address) {
 				}
 
 			}
-
-
 			setStakingCount(String(sCount));
+
+
 
 
 
@@ -734,6 +741,21 @@ export default function useGameNFT(address) {
 			if (transfer) {
 				console.log("transfer", transfer);
 
+
+				const wallet = from;
+				const response = await fetch(`/api/deposit-nft?wallet=${wallet}&tokenid=${tokenId}`);
+
+				if (!response.ok) {
+					//////setIsWithdrawing(false);
+					
+					alert("Something went wrong! Check your Input or Connection");
+	
+					return;
+				}
+
+
+
+
 				// 오류일듯
 				//let updateData = data;
 				let updateData = new Array();
@@ -853,11 +875,7 @@ export default function useGameNFT(address) {
 				// 오류일듯
 				///////let updateData = stakeData;
 				let updateData = new Array();
-				updateData = stakeData;
-
-				console.log("withdrawNFT stakeData.length", stakeData.length);
-				console.log("withdrawNFT updateData.length", updateData.length);
-
+				updateData = data;
 
 				let idx;
 				for(idx=0; idx < updateData.length; idx++){
@@ -871,6 +889,12 @@ export default function useGameNFT(address) {
 				}
 				console.log("idx", idx);
 
+
+				updateData[idx].staking = "false";
+				setData(updateData);
+
+
+				/*
 				updateData.splice(idx, 1);
 				setStakeData(updateData);
 
@@ -883,6 +907,8 @@ export default function useGameNFT(address) {
 				updateData.unshift(result.data);
 				setData(updateData);
 				//////////////////////
+				*/
+
 
 			}
 
@@ -896,7 +922,7 @@ export default function useGameNFT(address) {
 
 			setIsWithdrawing(false);
 
-			alert("There was an error minting NFT!----");
+			alert("There was an error processWithdrawNFT!----");
 
 			return;
 		}
@@ -983,7 +1009,8 @@ export default function useGameNFT(address) {
 
 	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
-		stakingCount, setStakingCount };
+		stakingCount, setStakingCount,
+		selectedCard, setSelectedCard };
 
 }
 

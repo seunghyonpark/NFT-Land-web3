@@ -73,14 +73,26 @@ export default async function handler(req, res) {
 		const ownedNfts = new Array();
 
 		const nftQuery = {
-			size: 20,
+			size: 100,
 			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
+		//console.log("game-fetch-nfts data="+JSON.stringify(data));
 
-		
-		//console.log("game-fetch-nfts data",data);
+		//const response = await fetch("http://wallet.treasureverse.io/gogo");
+		//if (response.ok) {
+
+			//const data = await response.json();
+
+			//console.log("game-fetch-nfts json="+JSON.stringify(json));
+		//}
+
+
+
+
+
+
 
 		for(let idx=0; idx < data.items.length; idx++){
 	
@@ -112,8 +124,6 @@ export default async function handler(req, res) {
 					//console.log(jsonTokenUri.name);
 					//console.log(jsonTokenUri.image);
 
-					
-			
 					// 객체 생성
 					const mediadata = new Object() ;
 					
@@ -122,8 +132,7 @@ export default async function handler(req, res) {
 					// 리스트에 생성된 객체 삽입
 					media.push(mediadata);
 
-					
-
+			
 					nft.title = jsonTokenUri.name;
 					
 					nft.description = jsonTokenUri.description;
@@ -147,34 +156,8 @@ export default async function handler(req, res) {
 						nft.selected = false;
 					}
 
-					if (idx === 1) {
-						nft.staking = "true";
-						nft.timeLeft = "4 years 9 month 154 days";
-						nft.maturityLevel = "Level 2";
-						nft.miningAmount = "2.88254436";
+					nft.staking = "false";
 
-					} else if (idx === 3) {
-						nft.staking = "true";
-						nft.timeLeft = "4 years 1 month 43 days";
-						nft.maturityLevel = "Level 2";
-						nft.miningAmount = "56.3493722";
-
-					} else if (idx === 4) {
-						nft.staking = "true";
-						nft.timeLeft = "4 years 9 month 42 days";
-						nft.maturityLevel = "Level 2";
-						nft.miningAmount = "65.88254436";
-						
-					} else if (idx === 8 ) {
-						nft.staking = "true";
-						nft.timeLeft = "4 years 2 month 53 days";
-						nft.maturityLevel = "Level 3";
-						nft.miningAmount = "132.88254436";
-
-
-					} else {
-						nft.staking = "false";
-					}
 			
 				} else {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
@@ -188,6 +171,103 @@ export default async function handler(req, res) {
 			
 			ownedNfts.push(nft);
 		}
+
+
+
+
+		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?wallet=${wallet}`);
+
+		if (response.ok) {
+
+			const json = await response.json();
+
+			for(let idx=0; idx < json.items.length; idx++){
+
+				console.log("item tokenId", json.items[idx].tokenId);
+				console.log("item regDatetime", json.items[idx].regDatetime);
+
+
+				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
+
+				console.log("item", item);
+
+
+
+				const nft = new Object();
+
+				try {
+					nft.owner = wallet;
+	
+					const contract = new Object();
+					contract.address = contractAddress;
+					contract.name = contractName;
+					nft.contract = contract;
+	
+					nft.tokenId = json.items[idx].tokenId;
+					nft.tokenUri = item.tokenUri;
+	
+	
+					const media = new Array() ;
+					nft.media = media;
+	
+					const response = await fetch(item.tokenUri);
+	
+					if (response.ok) {
+	
+						const jsonTokenUri = await response.json();
+	
+						//console.log(jsonTokenUri.name);
+						//console.log(jsonTokenUri.image);
+	
+						
+				
+						// 객체 생성
+						const mediadata = new Object() ;
+						
+						mediadata.gateway = jsonTokenUri.image;
+						
+						// 리스트에 생성된 객체 삽입
+						media.push(mediadata);
+	
+						
+	
+						nft.title = jsonTokenUri.name;
+						
+						nft.description = jsonTokenUri.description;
+	
+	
+						nft.timeLeft = json.items[idx].regDatetime;
+						nft.maturityLevel = "Level 0";
+						nft.miningAmount = "0.00000000";
+	
+	
+						nft.selected = false;
+
+						nft.staking = "true";
+						
+				
+					} else {
+						//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					}
+				
+				} catch (err) {
+					//alert("There was an error fetching NFTs!");
+					//return;
+					//console.log("err",err);
+				}
+				
+				ownedNfts.unshift(nft);
+
+			}
+
+		}
+
+
+
+
+
+
+
 
 		const aaa = new Object();
 

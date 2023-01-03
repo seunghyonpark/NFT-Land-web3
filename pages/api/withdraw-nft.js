@@ -238,7 +238,22 @@ console.log("ret", ret);
 				console.log("err",err);
 			}
 
-			res.json({ message: "Mint successful!", data: nft});
+			res.json({ message: "Withdraw successful!", data: nft});
+
+
+
+
+			const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?wallet=${wallet}&tokenid=${tokenId}`);
+
+			if (response.ok) {
+
+			}
+
+
+
+
+
+
 			return;
 
 		} else {

@@ -21,6 +21,16 @@ export default function GameCard({
 	selectNFT,
 }) {
 
+	let cssText = "";
+
+
+	if (cardData.staking === "true") {
+		//cssText = "mix-blend-color-burn";
+		cssText = "mix-blend-saturation";
+	}
+
+
+
 	//const [isSelect, setIsSelect] = useState(false);
 
 	const ref = useRef(null);
@@ -126,10 +136,9 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 
-
 		<div ref={ref}
 			className={`
-			m-auto flex  max-w-[70%] flex-col rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
+			m-auto flex  max-w-[70%] flex-col rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg 
 			hover:mix-blend-hard-light
 			border ${cardData.cssText}
 			`}
@@ -146,8 +155,14 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 
 			{cardData.staking === 'false' && (
-				<Image className="h-500 w-500
-					bg-cover bg-center bg-[url('/iphone-spinner.gif')]" 
+				<Image className={`
+					drop-shadow-2xl
+					h-500 w-500
+					bg-cover bg-center bg-[url('/iphone-spinner.gif')]
+					
+					`}
+
+
 					src={
 						cardData?.media[0]?.gateway ||
 						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
@@ -160,18 +175,37 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 			{cardData.staking === 'true' && (
 
-				<div className={classes.load}>
-				<Image className="h-500 w-500 rounded-full
-					bg-cover bg-center bg-[url('/iphone-spinner.gif')]"
-					src={
-						cardData?.media[0]?.gateway ||
-						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-					}
-					alt={cardData?.description}
-					width={500}
-					height={500}
-				/>
+				//<div className={classes.load}
+
+				<div className="relative">
+				
+					<Image className="
+						drop-shadow-2xl
+						h-500 w-500
+						bg-cover bg-center bg-[url('/iphone-spinner.gif')]
+						grayscale "
+
+						src={
+							cardData?.media[0]?.gateway ||
+							"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+						}
+						alt={cardData?.description}
+						width={500}
+						height={500}
+					/>
+
+					<div className="absolute bottom-0 left-0 right-0 top-0 bg-regal-red bg-opacity-30 " >
+						
+					</div>
+
+					<h1 className="absolute text-normal text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+						Staking...
+					</h1>
+					
+
+					
 				</div>
+
 			)}
 
 			
