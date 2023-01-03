@@ -26,7 +26,7 @@ export default function StakingPage({
 	let displayAddress = "";
 	
 	if (address !== undefined && address !== "") {
-		displayAddress = String(address).substring(0,6) + "...."; // + String(address).substring(address.length - 4);
+		displayAddress = String(address).substring(0,4) + "...." + String(address).slice(-4);
 
 		console.log("displayAddress", displayAddress);
 	}

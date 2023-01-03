@@ -20,6 +20,8 @@ export default function GameMain({
 	withdrawNFT,
 	selectNFT,
 	mintNFT,
+	stakingCount,
+	setStakingCount,
 }) {
 
 	const itemEls = useRef(new Array());
@@ -145,7 +147,7 @@ export default function GameMain({
 						<p className="text-xs font-medium text-slate-200">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
 						</p>
-						<p className="text-3xl text-amber-400 truncate">5</p>
+						<p className="text-3xl text-amber-400 truncate">{stakingCount}</p>
 					</div>
 				</li>
 
@@ -194,12 +196,21 @@ export default function GameMain({
 			>
 			*/}
 
+			<div className="mt-1"></div>
 
-			<div className=" overflow-y-scroll box-content h-96  p-0 border border-gray-800 ">
+
+
+			<div className="bg-gradient-to-l from-blue-500 ">
+
+
+			<div className=" overflow-y-scroll box-content h-96 ">
+
+				<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
 
 				{/* cards container */}
-				<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
+				<div className="mt-1 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
 					">
+
 
 					{data?.map((nft) => (
 
@@ -237,8 +248,7 @@ export default function GameMain({
 					{data.length === 0 &&
 						
 						<div>
-						
-							
+							<h3 className="text-xl text-amber-400">No exist...</h3>
 						</div>
 						
 						
@@ -252,7 +262,6 @@ export default function GameMain({
 					*/}
 			
 			</div>
-
 
 
 			<div className="">
@@ -288,6 +297,10 @@ export default function GameMain({
 			>
 					Mint NFT
 			</button>
+
+
+			</div>
+
 
 
 

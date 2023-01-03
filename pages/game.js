@@ -65,7 +65,8 @@ export default function Game({
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
 	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
-		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId 
+		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
+		stakingCount, setStakingCount 
 	} = useGameNFT(address);
 
 
@@ -318,6 +319,8 @@ export default function Game({
 						withdrawNFT,
 						selectNFT,
 						mintNFT,
+						stakingCount,
+						setStakingCount,
 					}}
 				/>
 

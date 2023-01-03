@@ -129,8 +129,44 @@ export default async function handler(req, res) {
 					nft.description = jsonTokenUri.description;
 
 
-					if (idx === 1 || idx === 3 || idx === 4 || idx === 8 ) {
+
+					/*
+					const [timeLeft, setTimeLeft] = useState("0 years 0 month 0 days"); //4 years 11 month 354 days
+					const [maturityLevel, setMaturityLevel] = useState("Level 0");
+					const [miningAmount, setMiningAmount] = useState("0.00000000");
+					*/
+
+					nft.timeLeft = "0 years 0 month 0 days";
+					nft.maturityLevel = "Level 0";
+					nft.miningAmount = "0.00000000";
+
+
+
+					if (idx === 1) {
 						nft.staking = "true";
+						nft.timeLeft = "4 years 9 month 154 days";
+						nft.maturityLevel = "Level 2";
+						nft.miningAmount = "2.88254436";
+
+					} else if (idx === 3) {
+						nft.staking = "true";
+						nft.timeLeft = "4 years 1 month 43 days";
+						nft.maturityLevel = "Level 2";
+						nft.miningAmount = "56.3493722";
+
+					} else if (idx === 4) {
+						nft.staking = "true";
+						nft.timeLeft = "4 years 9 month 42 days";
+						nft.maturityLevel = "Level 2";
+						nft.miningAmount = "65.88254436";
+						
+					} else if (idx === 8 ) {
+						nft.staking = "true";
+						nft.timeLeft = "4 years 2 month 53 days";
+						nft.maturityLevel = "Level 3";
+						nft.miningAmount = "132.88254436";
+
+
 					} else {
 						nft.staking = "false";
 					}

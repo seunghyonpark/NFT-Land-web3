@@ -15,6 +15,7 @@ export default function useGameNFT(address) {
 	const [isDepositing, setIsDepositing] = useState(false);
 	const [isWithdrawing, setIsWithdrawing] = useState(false);
 	const [tokenId, setTokenId] = useState("");
+	const [stakingCount, setStakingCount] = useState("0");
 
 
 	const contractAddress = walletAddress.baobabNftContractAddress;
@@ -447,10 +448,10 @@ export default function useGameNFT(address) {
 
 			console.log("fetchNFTs fetchData=", fetchData);
 
-			if (fetchData.data.totalCount == 0) {
+			if (fetchData.data.ownedNfts.length == 0) {
 				//setIsInHome(true);
 				//setIsLoading(false);
-				alert("This Wallet has no NFTs");
+				//alert("This Wallet has no NFTs");
 			}
 
 			// alchemy
@@ -463,6 +464,21 @@ export default function useGameNFT(address) {
 
 			// caver
 			///setData(data.data.items);
+
+			console.log("length", fetchData.data.ownedNfts.length);
+
+			let sCount = 0;
+			for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
+
+				if (fetchData.data.ownedNfts[idx].staking === "true") {
+					sCount = sCount + 1;
+				}
+			}
+
+
+			setStakingCount(String(sCount));
+
+
 
 
 			setIsLoading(false);
@@ -965,7 +981,9 @@ export default function useGameNFT(address) {
 
 
 	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
-		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
+		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
+		stakingCount, setStakingCount };
+
 }
 
 

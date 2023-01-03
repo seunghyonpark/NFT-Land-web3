@@ -28,6 +28,8 @@ export default function GameCardStaked({
 
 
 
+
+
 	/*
 	import { CountUp } from 'https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.js'
 
@@ -63,6 +65,7 @@ export default function GameCardStaked({
 
 	const [isWithdrawing, setIsWithdrawing] = useState(false);
 
+
 	//const { isLoading } = useStakeNFT(cardData.tokenId);
 
 	// 이렇게 하면 안된다.
@@ -74,7 +77,7 @@ export default function GameCardStaked({
 	const router = useRouter();
 
 	const [loading, setLoading] = useState(false);
-	
+
 
 	useEffect(() => {
 
@@ -100,6 +103,7 @@ export default function GameCardStaked({
 		*/
 
 		console.log("NFTCardStaked useEffect cardData.tokenId", cardData.tokenId);
+		console.log("NFTCardStaked useEffect cardData.timeLeft", cardData.timeLeft);
 
 
 		return () => {
@@ -249,13 +253,16 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</button>
 				*/}
 
+
+			<button className="m-5 invisible"></button>
+
 			
 			{
 				(cardData.length === 0) &&
 
 			<Image
 				src="/nft_01.png"
-				alt={cardData?.description}
+				alt=""
 				width={300}
 				height={300}
 			/>
@@ -315,7 +322,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 							<li className="flex py-4 first:pt-0 last:pb-0">
-							<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+							<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
 							<div className="ml-3 overflow-hidden text-left">
 								<p className="text-sm font-medium text-slate-900">Token ID</p>
 								<p className="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
@@ -326,15 +333,15 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
 							<div className="ml-3 overflow-hidden text-left">
 								<p className="text-sm font-medium text-slate-900">Time Left</p>
-								<p className="text-sm text-slate-900 truncate">4 years 11 month 354 days</p>
+								<p className="text-sm text-slate-900 truncate">{cardData.timeLeft}</p>
 							</div>
 							</li>
 
 							<li className="flex py-4 first:pt-0 last:pb-0">
-							<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
+							<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
 							<div className="ml-3 overflow-hidden text-left">
 								<p className="text-xs  font-medium text-slate-900" >NFT Maturity</p>
-								<p className="text-sm text-slate-900 truncate">Level 1</p>
+								<p className="text-sm text-slate-900 truncate">{cardData.maturityLevel}</p>
 							</div>
 							</li>
 
@@ -342,7 +349,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
 							<div className="ml-3 overflow-hidden text-left">
 								<p className="text-xs  font-medium text-slate-900" >Mining Amount ($SML)</p>
-								<p className="text-sm text-slate-900 truncate">0.00230424432</p>
+								<p className="text-sm text-slate-900 truncate">{cardData.miningAmount}</p>
 							</div>
 							</li>
 
