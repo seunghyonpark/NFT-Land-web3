@@ -57,7 +57,7 @@ export default function Game({
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
 
-	const [selectedCard, setSelectedCard] = useState("");
+	//const [selectedCard, setSelectedCard] = useState("");
 
 	//const router = useRouter();
 
@@ -66,7 +66,8 @@ export default function Game({
 
 	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
-		stakingCount, setStakingCount 
+		stakingCount, setStakingCount,
+		selectedCard, setSelectedCard
 	} = useGameNFT(address);
 
 

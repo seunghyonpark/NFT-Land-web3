@@ -52,8 +52,6 @@ export default function GameMain({
 	useEffect(() => {
 
 
-		console.log("selectedCard", selectedCard);
-
 		let miningAmountTotal = "0";
 		for(let idx=0; idx < data.length; idx++){
 			if (data[idx].staking === "true") {
@@ -83,8 +81,36 @@ export default function GameMain({
 			handleClick(data[0]);
 		}
 		*/
+
+
+		console.log("GameMain useEffect selectedCard", selectedCard);
+
+
+		let idx;
+		for(idx=0; idx < data.length; idx++) {
+			if (data[idx].tokenId === selectedCard.tokenId) {
+				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
+
+				data[idx].cssText = "border-color: yellow; border-width: 7px;";
+			} else {
+				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
+
+				data[idx].cssText = "border-color: transparent; border-width: 0px;";
+			}
+		}
+
+		if (selectedCard.staking === "true") {
+			refStake.current.style.display = "none";
+			refUnstake.current.style.display = "";
+		} else {
+			refStake.current.style.display = "";
+			refUnstake.current.style.display = "none";
+		}
+
+
+
  
-	}, [data, selectedCard, setSelectedCard, setMiningAmountTotal]);
+	}, [data, selectedCard, setMiningAmountTotal]);
 	
 
 
@@ -100,26 +126,7 @@ export default function GameMain({
 
 
 
-		let idx;
-		for(idx=0; idx < data.length; idx++) {
-			if (data[idx].tokenId === nft.tokenId) {
-				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
-				data[idx].cssText = "border-color: yellow; border-width: 7px;";
-			} else {
-				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
-
-				data[idx].cssText = "border-color: transparent; border-width: 0px;";
-			}
-		}
-
-		if (nft.staking === "true") {
-			refStake.current.style.display = "none";
-			refUnstake.current.style.display = "";
-		} else {
-			refStake.current.style.display = "";
-			refUnstake.current.style.display = "none";
-		}
 
 
 		//itemEls.current[0].GameCard.cardData.selected = true;
