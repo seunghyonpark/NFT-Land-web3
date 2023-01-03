@@ -30,7 +30,14 @@ export default function GameMain({
 	const [cardStyles, setcardStyles] = useState([]);
 
 
+	const refStake = useRef(null);
+	const refUnstake = useRef(null);
+
+
 	const [posts, setPosts] = useState(data);
+	const [miningAmountTotal, setMiningAmountTotal] = useState("0");
+
+
 	const [hasMore, setHasMore] = useState(true);
 
 	const getMorePost = async () => {
@@ -47,6 +54,22 @@ export default function GameMain({
 
 		console.log("selectedCard", selectedCard);
 
+		let miningAmountTotal = "0";
+		for(let idx=0; idx < data.length; idx++){
+			if (data[idx].staking === "true") {
+				miningAmountTotal = String(Number(miningAmountTotal) + Number(data[idx].miningAmount));
+
+				console.log("miningAmount", data[idx].miningAmount);
+			}
+		}
+
+
+		setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
+
+		console.log("miningAmountTotal", miningAmountTotal);
+
+		
+
 		/*
 		if (data.length > 0) {
 			if (selectedCard === "") {
@@ -54,9 +77,14 @@ export default function GameMain({
 			}
 		}
 		*/
-
-
-	}, [selectedCard]);
+		/*
+		if (data.length > 0) {
+			//setSelectedCard(data[0]);
+			handleClick(data[0]);
+		}
+		*/
+ 
+	}, [data, selectedCard, setSelectedCard, setMiningAmountTotal]);
 	
 
 
@@ -85,6 +113,13 @@ export default function GameMain({
 			}
 		}
 
+		if (nft.staking === "true") {
+			refStake.current.style.display = "none";
+			refUnstake.current.style.display = "";
+		} else {
+			refStake.current.style.display = "";
+			refUnstake.current.style.display = "none";
+		}
 
 
 		//itemEls.current[0].GameCard.cardData.selected = true;
@@ -167,7 +202,7 @@ export default function GameMain({
 						<p className="text-xs font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
-						<p className="text-3xl text-amber-400 truncate">3243.13</p>
+						<p className="text-3xl text-amber-400 truncate">{miningAmountTotal}</p>
 					</div>
 
 					{/*
@@ -266,7 +301,7 @@ export default function GameMain({
 
 			<div className="">
 				<button
-					
+					ref={refStake}
 					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
 						disabled:opacity-25"
 					onClick={(e) => {
@@ -278,6 +313,7 @@ export default function GameMain({
 						Stake
 				</button>&nbsp;&nbsp;
 				<button
+					ref={refUnstake}
 					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
 					"
 					onClick={(e) => {
