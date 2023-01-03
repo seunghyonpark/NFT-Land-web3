@@ -128,8 +128,8 @@ export default function GameMain({
 			<div className="bg-gradient-to-l from-blue-500">
 
 
-			<ul role="list" className="p-6 divide-y divide-slate-200">
-				<li className="flex py-4 first:pt-0 last:pb-0">
+			<ul role="list" className="p-3 divide-y divide-slate-200">
+				<li className="flex py-1 first:pt-0 last:pb-0">
 					
 					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
@@ -234,6 +234,16 @@ export default function GameMain({
 					</div>
 					))}
 
+					{data.length === 0 &&
+						
+						<div>
+						
+							
+						</div>
+						
+						
+					}
+
 				</div>
 
 
@@ -279,34 +289,6 @@ export default function GameMain({
 					Mint NFT
 			</button>
 
-			{
-			(data.length === 0) && (isInHome === false) && (isLoading === false) &&
-				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-				<lottie-player
-					id="crypto-tower"
-					src={cryptoTowerAddress}
-					speed="1"
-					loop
-					autoplay
-				></lottie-player>
-			</div>			
-			}
-		
-
-			{/* home page animation */}
-			{isInHome && (
-				
-				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-					<lottie-player
-						id="crypto-tower"
-						src={cryptoTowerAddress}
-						speed="1"
-						loop
-						autoplay
-					></lottie-player>
-				</div>
-			
-			)}
 
 
 			{/* data fetching animation */}

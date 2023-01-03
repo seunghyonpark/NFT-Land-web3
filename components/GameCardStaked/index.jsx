@@ -234,8 +234,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 			{/* title */}
-			
-			
+
+			{/*
 			<button
 					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -247,25 +247,25 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 						: <p className="font-medium">Start Staking</p>
 					}
 			</button>
-
-
-
-
-			{/* action */}
-			{/*
-				<button
-					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
-
-					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
-				>
-					{
-						cardData.staking === 'true'
-						? <p className="font-medium">Stop Staking</p>
-						: <p className="font-medium">Start Staking</p>
-					}
-				</button>
 				*/}
+
 			
+			{
+				(cardData.length === 0) &&
+
+			<Image
+				src="/nft_01.png"
+				alt={cardData?.description}
+				width={300}
+				height={300}
+			/>
+			
+			}
+
+			
+			{
+				(cardData.length !== 0) &&
+
 			<Image
 				src={
 					cardData?.media[0]?.gateway ||
@@ -276,7 +276,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				height={300}
 			/>
 			
-
+			}
 
 
 
@@ -300,7 +300,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				*/}
 
 
-
+			{/*
+			(cardData.length !== 0) &&
+			*/}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
 				<div 
@@ -344,16 +346,14 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							</div>
 							</li>
 
-
-
-
-
 						{/*/each*/}
 						</ul>
 				</div>
 
-
 			</div>
+			{/*
+			}
+		*/}
 			
 
 {/*

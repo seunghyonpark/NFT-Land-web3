@@ -108,8 +108,10 @@ export default function StakingPage({
 				*/}
 
 
+				{/*
 				{
 				(selectedCard !== "") &&
+				*/}
 					
 					<GameCardStaked
 						key={uuidv4()}
@@ -122,7 +124,9 @@ export default function StakingPage({
 						withdrawNFT={withdrawNFT}
 					>
 					</GameCardStaked>
+				{/*
 				}
+			*/}
 				
 			
 
