@@ -180,19 +180,26 @@ export default function GameMain({
 
 
 			
+					{/*
 			<InfiniteScroll
 				dataLength={data.length}
 				next={() => console.log("fetching more data")}
 				hasMore={true}
-				loader={<h4>Loading...</h4>}
+				loader={
+					<h3 className="text-3xl text-amber-400">Loading...</h3>
+				}
+				endMessage={
+					<h4 className="text-3xl text-amber-400">Nothing more to show</h4>
+				}
 			>
+			*/}
+
+
+			<div className=" overflow-y-scroll box-content h-96  p-0 border border-gray-800 ">
 
 				{/* cards container */}
 				<div className="mt-4 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
 					">
-
-
-
 
 					{data?.map((nft) => (
 
@@ -227,15 +234,14 @@ export default function GameMain({
 					</div>
 					))}
 
-
-
-
 				</div>
 
+
+				{/*
 				</InfiniteScroll>
-
+					*/}
 			
-
+			</div>
 
 
 

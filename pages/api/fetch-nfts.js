@@ -70,7 +70,7 @@ export default async function handler(req, res) {
 		const ownedNfts = new Array();
 
 		const nftQuery = {
-			size: 9,
+			size: 100,
 			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 

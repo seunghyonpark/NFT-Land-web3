@@ -55,7 +55,10 @@ export default async function handler(req, res) {
 
 export default async function handler(req, res) {
 
+	//console.log("game-fetch-nfts req",req);
+
 	try {
+
 		if (req.method !== "GET") {
 			return res.status(400).json({
 				message: "Invalid method",
@@ -70,14 +73,14 @@ export default async function handler(req, res) {
 		const ownedNfts = new Array();
 
 		const nftQuery = {
-			size: 9,
+			size: 20,
 			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 
 		
-		console.log("game-fetch-nfts data",data);
+		//console.log("game-fetch-nfts data",data);
 
 		for(let idx=0; idx < data.items.length; idx++){
 	

@@ -132,8 +132,6 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			m-auto flex  max-w-[70%] flex-col rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
 			hover:mix-blend-hard-light
 			border ${cardData.cssText}
-
-			border
 			`}
 			>
 
@@ -185,16 +183,24 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 				*/}
 
 
-			{/* title
+			{/* title */}
+			{/*
 			<div className="mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
 				<p>Background: BG_02</p>
 				<p>Body: hood_jacket_05</p>
     			<p>Head: viki_yellow_02</p>
 			</div>
- 			*/}
+			*/}
+
+			<div className="mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
+				<p># {cardData.tokenId}</p>
+			</div>
+ 			
+			
+
 
 			{/* token info */}
-			
+	{/*		
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
 					# {cardData.tokenId}
@@ -203,12 +209,17 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					
 				</div>
 			</div>
-				
+
+*/}
+
+		
 
 			{/* staking info */}
+
+			{/*	
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
-{/*
+
 				<button
 					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
@@ -244,9 +255,11 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						<p className="font-medium">Select</p>
 					}
 				</button>
-				*/}
+				
 
 			</div>
+
+			*/}
 
 			{/*
 			<CardMain

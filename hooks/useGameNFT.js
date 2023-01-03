@@ -405,7 +405,7 @@ export default function useGameNFT(address) {
 
 		e.preventDefault();
 
-		//console.log("fetchNFT address",address);
+		console.log("fetchNFT address",address);
 
 		
 

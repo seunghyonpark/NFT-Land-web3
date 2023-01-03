@@ -226,7 +226,7 @@ export default function GameHeader({
 
 				refNFT.current.click();
 
-				refStakeNFT.current.click();
+				//refStakeNFT.current.click();
 
 			}
 
