@@ -141,6 +141,11 @@ export default async function handler(req, res) {
 					nft.miningAmount = "0.00000000";
 
 
+					if (idx === 0) {
+						nft.selected = true;
+					} else {
+						nft.selected = false;
+					}
 
 					if (idx === 1) {
 						nft.staking = "true";

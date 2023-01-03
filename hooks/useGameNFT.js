@@ -473,6 +473,7 @@ export default function useGameNFT(address) {
 				if (fetchData.data.ownedNfts[idx].staking === "true") {
 					sCount = sCount + 1;
 				}
+
 			}
 
 

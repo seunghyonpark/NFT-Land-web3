@@ -238,7 +238,7 @@ export default function GameMain({
 			<div className="bg-gradient-to-l from-blue-500 ">
 
 
-			<div className=" overflow-y-scroll box-content h-96 ">
+			<div className=" overflow-y-scroll box-content max-h-96 ">
 
 				<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
 
