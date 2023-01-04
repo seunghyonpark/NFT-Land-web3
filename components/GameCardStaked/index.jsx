@@ -65,6 +65,10 @@ export default function GameCardStaked({
 
 	const [isWithdrawing, setIsWithdrawing] = useState(false);
 
+	const [miningAmount, setMiningAmount] = useState("0.00000000");
+
+
+
 
 	//const { isLoading } = useStakeNFT(cardData.tokenId);
 
@@ -79,44 +83,81 @@ export default function GameCardStaked({
 	const [loading, setLoading] = useState(false);
 
 
+
+
+	/*
+						const today = new Date();
+						console.log(today);
+						console.log("today fullyear", today.getFullYear());
+
+						console.log(json.items[idx].regDatetime);
+
+						const startday = new Date(json.items[idx].regDatetime);
+						console.log("startTime", startday);
+
+						console.log("today fullyear", today.getFullYear());
+						console.log("startday fullyear", startday.getFullYear());
+
+						const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
+						
+
+						console.log("inDays", inDays);
+
+						const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+
+						console.log("inSeconds", inSeconds);
+
+	*/
+
+
+
+/*
 	useEffect(() => {
+		
+		//console.log("GameCardStaked useEffect");
 
-		/*
-		const handleStart = (url) => (url !== router.asPath) && setLoading(true);
-		const handleComplete = (url) => (url === router.asPath) && setTimeout(() => {setLoading(false)},2000);
-  
-		router.events.on('routeChangeStart', handleStart)
-		router.events.on('routeChangeComplete', handleComplete)
-		router.events.on('routeChangeError',  handleComplete)	
-		*/
+		//console.log("GameCardStaked useEffect cardData", cardData);
 
-		/*
+		//if (cardData === "") return;
+
+
+
+		
 		let i = 0;
-
 		function pollDOM() {
-		  console.log(i);
+		  //console.log(i);
 		  i++;
+
+		  const today = new Date();
+		  const startday = new Date(cardData.timeStart);
+		  //console.log("startday", startday);
+
+		  const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
+		  //console.log("inDays", inDays);
+
+		  const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+		  //console.log("inSeconds", inSeconds);
+
+		  setMiningAmount(Number(inSeconds/100000000).toFixed(8));
+
+		  ////////setMiningAmount(String(Number(miningAmount).toFixed(2)));
 		}
-		//const interval = setInterval(pollDOM, 5000);
-
-		const interval = setInterval(genNumber, 5000);
-		*/
-
-		console.log("NFTCardStaked useEffect cardData.tokenId", cardData.tokenId);
-		console.log("NFTCardStaked useEffect cardData.timeLeft", cardData.timeLeft);
-
+		
+		const interval = setInterval(pollDOM, 1000);
 
 		return () => {
+			
+			clearInterval(interval);
 
-			//clearInterval(interval);
-			/*
-			router.events.off('routeChangeStart', handleStart)
-			router.events.off('routeChangeComplete', handleComplete)
-			router.events.off('routeChangeError', handleComplete)
-			*/			
 		}
 
-	}, [cardData]);
+		
+
+
+	//}, [cardData, setMiningAmount]);
+	}, []);
+
+	*/
 
 
 	const genNumber = () => {
@@ -226,6 +267,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 		sm:m-0 sm:max-w-lg 
 */}
+
+
+
+
 
 
 
@@ -356,7 +401,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
 							<div className="ml-3 overflow-hidden text-left">
 								<p className="text-xs  font-medium text-slate-900" >Mining Amount ($SML)</p>
-								<p className="text-sm text-slate-900 truncate">{cardData.miningAmount}</p>
+								<p className="text-sm text-slate-900 truncate">{miningAmount}</p>
 							</div>
 							</li>
 

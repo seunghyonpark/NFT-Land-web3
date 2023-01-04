@@ -202,11 +202,12 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 						Staking...
 					</h1>
 					
-
-					
 				</div>
 
 			)}
+
+
+			
 
 			
 

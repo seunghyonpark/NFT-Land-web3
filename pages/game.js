@@ -64,7 +64,7 @@ export default function Game({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
@@ -251,6 +251,7 @@ export default function Game({
 
 			<GameHeader
 				{...{
+					walletDisconnected,
 					address,
 					setAddress,
 					data,

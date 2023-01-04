@@ -24,7 +24,7 @@ export default function GameMain({
 	mintNFT,
 	stakingCount,
 	setStakingCount,
-	miningAmountTotal,
+	miningAmountTotal
 }) {
 
 	const itemEls = useRef(new Array());
@@ -54,32 +54,11 @@ export default function GameMain({
 	};
 
 
+	
 	useEffect(() => {
 
-		console.log("miningAmountTotal", miningAmountTotal);
+		console.log("GameMain useEffect=========");
 
-		
-
-		/*
-		if (data.length > 0) {
-			if (selectedCard === "") {
-				itemEls.current[0].style.cssText = "border-color: yellow; border-width: 7px;";
-			}
-		}
-		*/
-		/*
-		if (data.length > 0) {
-			//setSelectedCard(data[0]);
-			handleClick(data[0]);
-		}
-		*/
-
-
-		console.log("GameMain useEffect selectedCard", selectedCard);
-
-		
-
-		
 
 		if (address === "") {
 
@@ -89,7 +68,6 @@ export default function GameMain({
 			refStake.current.style.display = "none";
 			refUnstake.current.style.display = "none";
 			refMint.current.style.display = "none";
-
 
 		} else {
 			refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
@@ -127,8 +105,7 @@ export default function GameMain({
 		}
 
 
- 
-	}, [address, data, selectedCard, miningAmountTotal]);
+	}, [address, data, selectedCard]);
 	
 
 

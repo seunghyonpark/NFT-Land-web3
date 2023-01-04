@@ -121,7 +121,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 
 			
 		} else {
-			console.log("StakingHeader useEffect address="+address);
+			console.log("DashboardHeader useEffect address="+address);
 			//fetchNFTs();
 		}
 		

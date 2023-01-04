@@ -24,12 +24,12 @@ export default function useGameNFT(address) {
 	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	
-
+	/*
 	useEffect(() => {
 
 		//setAddress(window.klaytn.selectedAddress);
 
-		console.log("useGameNFT useEffect address", address);
+		//console.log("useGameNFT useEffect address", address);
 
 
 		if (address === "") {
@@ -39,12 +39,148 @@ export default function useGameNFT(address) {
 			setSelectedCard("");
 			setIsInHome(true);
 			setMiningAmountTotal("0");
+
+			return;
+		} else {
+
 		}
 
+		/*
+		let i = 0;
+		function pollDOM() {
+			//console.log(i);
+			i++;
 
-	}, [address]);
+			if (address !== "") {
+
+			console.log("data.length", data.length);
+
+			let inSecondsTotal = 0;
+		  	for(let idx=0; idx < data.length; idx++){
+
+				if (data[idx].staking === "true") {
+					const today = new Date();
+					const startday = new Date(data[idx].timeStart);
+
+					const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+
+					inSecondsTotal = inSecondsTotal + inSeconds;
+				}
+
+			}
+
+			setMiningAmountTotal(Number(inSecondsTotal/100000000).toFixed(8));
+
+			}
+
+		}
+
+		const interval = setInterval(pollDOM, 1000);
+		
 
 
+		return () => {
+			
+			//clearInterval(interval);
+
+		}
+
+	}, [address, data, setMiningAmountTotal]);
+	*/
+
+
+
+	
+
+
+
+	useEffect(() => {
+
+		console.log("useGameNFT useEffect===========");
+		console.log("useGameNFT useEffect address", address);
+
+		
+		if (address === "") {
+			//setData([]);
+			//setStakeData([]);
+			//setStakingCount("0");
+			//setSelectedCard("");
+			//setIsInHome(true);
+			//setMiningAmountTotal("0");
+		}
+		
+
+
+		
+		let i = 0;
+		function pollDOM() {
+			console.log("useGameNFT useEffect i", i);
+			i++;
+
+
+
+			console.log("data.length", data.length);
+
+			let inSecondsTotal = 0;
+			for(let idx=0; idx < data.length; idx++){
+
+				if (data[idx].staking === "true") {
+					const today = new Date();
+					const startday = new Date(data[idx].timeStart);
+
+					const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+
+					inSecondsTotal = inSecondsTotal + inSeconds;
+				}
+
+			}
+
+			setMiningAmountTotal(Number(inSecondsTotal/100000000).toFixed(8));
+		}
+
+		const interval = setInterval(pollDOM, 1000);
+		
+		
+		if (address === "") {
+			clearInterval(interval);
+		}
+
+		return () => {
+			
+			clearInterval(interval);
+
+		}
+
+	}, [address, data, setMiningAmountTotal]);
+
+
+
+
+
+
+
+
+	const walletConnected = async () => {
+
+
+
+
+	}
+
+
+	const walletDisconnected = async () => {
+
+			setData([]);
+			setStakeData([]);
+			setStakingCount("0");
+			setSelectedCard("");
+			setIsInHome(true);
+			setMiningAmountTotal("0");
+		
+	}
+
+
+	
 
 
 
@@ -948,7 +1084,7 @@ export default function useGameNFT(address) {
 
 
 
-	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	return { walletConnected, walletDisconnected, mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,

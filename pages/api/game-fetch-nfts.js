@@ -183,13 +183,13 @@ export default async function handler(req, res) {
 
 			for(let idx=0; idx < json.items.length; idx++){
 
-				console.log("item tokenId", json.items[idx].tokenId);
-				console.log("item regDatetime", json.items[idx].regDatetime);
+				//console.log("item tokenId", json.items[idx].tokenId);
+				//console.log("item regDatetime", json.items[idx].regDatetime);
 
 
 				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
 
-				console.log("item", item);
+				///console.log("item", item);
 
 
 
@@ -239,8 +239,42 @@ export default async function handler(req, res) {
 						nft.description = jsonTokenUri.description;
 	
 	
-						nft.timeLeft = json.items[idx].regDatetime;
-						nft.maturityLevel = "Level 0";
+						nft.timeLeft = "4 years 11 month 354 days";
+
+						nft.timeStart = json.items[idx].regDatetime;
+
+
+						/*
+						const today = new Date();
+						console.log(today);
+						console.log("today fullyear", today.getFullYear());
+
+						console.log(json.items[idx].regDatetime);
+
+						const startday = new Date(json.items[idx].regDatetime);
+						console.log("startTime", startday);
+
+						console.log("today fullyear", today.getFullYear());
+						console.log("startday fullyear", startday.getFullYear());
+
+						const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
+						
+
+						console.log("inDays", inDays);
+
+						const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+
+						console.log("inSeconds", inSeconds);
+						*/
+						
+
+						/*
+						const diffYear = today.getFullYear() - json.items[idx].regDatetime.getFullYear();
+						//nft.timeLeft = String(diffYear);
+						*/
+
+
+						nft.maturityLevel = "Level 1";
 						nft.miningAmount = "0.05322324";
 	
 	

@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 
 
 export default function GameHeader({
+	walletDisconnected,
 	address,
 	setAddress,
 	data,
@@ -108,6 +109,8 @@ export default function GameHeader({
 			//refConnect.current.style.display = "none";
 
 			setAddress("");
+
+			walletDisconnected();
 			return;
 		}
 
@@ -217,11 +220,12 @@ export default function GameHeader({
 
 
 
+	
 	useEffect(() => {
 
 		//setAddress(window.klaytn.selectedAddress);
 
-		console.log("useEffect address", address);
+		console.log("GameHeader useEffect address", address);
 		
 
 		
@@ -254,63 +258,10 @@ export default function GameHeader({
 
 		}
 		
-		
-
-			
-	
-
-
-
-
-		/*
-		setTimeout(() => {
-			refStakeNFT.current.click();
-		  }, 1000); //miliseconds
-
-		
-
-		setTimeout(() => {
-			refNFT.current.click();
-		  }, 3000); //miliseconds
-		*/
-		
-
-		/*
-		console.log("MintingHeader useEffect isMinting", isMinting);
-		if (isMinting === false) {
-			//ref.current.click();
-
-			setTimeout(() => {
-				ref.current.click();
-			}, 5000); //miliseconds
-		}
-		*/
-
-		/*
-		setTimeout(() => {
-		  ref.current.click();
-		}, 200); //miliseconds
-		*/
-
-		/*
-		let i = 0;
-
-		function pollDOM() {
-		  //console.log(i);
-		  i++;
-		  refNFT.current.click();
-		  refStakeNFT.current.click();
-		}
-		
-		const interval = setInterval(pollDOM, 100000);
-
-
-		return () => clearInterval(interval);
-		*/
 
 
 	}, [address]);
-
+	
 
 
 

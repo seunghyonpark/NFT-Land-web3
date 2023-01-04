@@ -23,6 +23,7 @@ export default function StakingPage({
 }) {
 	
 
+	/*
 	let displayAddress = "";
 	
 	if (address !== undefined && address !== "") {
@@ -30,26 +31,33 @@ export default function StakingPage({
 
 		console.log("displayAddress", displayAddress);
 	}
+	*/
 
+	const [displayAddress, setDisplayAddress] = useState("");
 
+	
 	useEffect(() => {
 
-		console.log("StakingPage useEffect selectedCard", selectedCard);
+		//console.log("StakingPage useEffect selectedCard", selectedCard);
 
 
 
+		if (address === "") {
 
-		return () => {
-			//clearInterval(interval);
-			/*
-			router.events.off('routeChangeStart', handleStart)
-			router.events.off('routeChangeComplete', handleComplete)
-			router.events.off('routeChangeError', handleComplete)
-			*/			
+			setDisplayAddress("");
+
+		} else {
+
+			setDisplayAddress(String(address).substring(0,4) + "...." + String(address).slice(-4));
+
 		}
 
-	}, [selectedCard]);
+		return () => {
+		
+		}
 
+	}, [address, setDisplayAddress]);
+	
 
 
 
@@ -68,7 +76,6 @@ export default function StakingPage({
 			<h1 className=" text-right text-1xl font-extrabold text-amber-400 drop-shadow-xl truncate">
 				{displayAddress} 
 			</h1>
-
 
 			<h1 className="mt-1 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">Ready to Staking</a>

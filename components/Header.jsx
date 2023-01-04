@@ -55,7 +55,7 @@ export default function Header({ address, setAddress }) {
 		} else {
 			setAddress(window.klaytn.selectedAddress);
 		*/
-			console.log("useEffect address", address);
+			console.log("Header useEffect address", address);
 
 			if (address === "") {
 
