@@ -306,6 +306,7 @@ export default function Game({
 
 				<GameMain
 					{...{
+						address,
 						selectedCard,
 						setSelectedCard,
 						data,

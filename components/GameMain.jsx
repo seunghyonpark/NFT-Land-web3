@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function GameMain({
+	address,
 	selectedCard,
 	setSelectedCard,
 	data,
@@ -33,6 +34,7 @@ export default function GameMain({
 
 	const refStake = useRef(null);
 	const refUnstake = useRef(null);
+	const refMint = useRef(null);
 
 
 	const [posts, setPosts] = useState(data);
@@ -74,34 +76,49 @@ export default function GameMain({
 		console.log("GameMain useEffect selectedCard", selectedCard);
 
 		
-		let idx;
-		for(idx=0; idx < data.length; idx++) {
-			if (data[idx].tokenId === selectedCard.tokenId) {
-				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
-				data[idx].cssText = "border-color: yellow; border-width: 7px;";
-
-
-			} else {
-				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
-
-				data[idx].cssText = "border-color: transparent; border-width: 0px;";
-			}
-		}
-
-		if (selectedCard.staking === "true") {
-			refStake.current.style.display = "none";
-			refUnstake.current.style.display = "";
-		} else {
-			refStake.current.style.display = "";
-			refUnstake.current.style.display = "none";
-		}
 		
 
+		if (address === "") {
+			refStake.current.style.display = "none";
+			refUnstake.current.style.display = "none";
+			refMint.current.style.display = "none";
+		} else {
+			refStake.current.style.display = "";
+			refUnstake.current.style.display = "";
+			refMint.current.style.display = "";
+
+
+
+
+			let idx;
+			for(idx=0; idx < data.length; idx++) {
+				if (data[idx].tokenId === selectedCard.tokenId) {
+					itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
+	
+					data[idx].cssText = "border-color: yellow; border-width: 7px;";
+	
+	
+				} else {
+					itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
+	
+					data[idx].cssText = "border-color: transparent; border-width: 0px;";
+				}
+			}
+	
+			if (selectedCard.staking === "true") {
+				refStake.current.style.display = "none";
+				refUnstake.current.style.display = "";
+			} else {
+				refStake.current.style.display = "";
+				refUnstake.current.style.display = "none";
+			}
+
+		}
 
 
  
-	}, [data, selectedCard, miningAmountTotal]);
+	}, [address, data, selectedCard, miningAmountTotal]);
 	
 
 
@@ -239,7 +256,10 @@ export default function GameMain({
 			<div className="bg-gradient-to-l from-blue-500 ">
 
 
-			<div className=" overflow-y-scroll box-content h-screen ">
+			<div className="
+				overflow-y-scroll box-content h-screen
+				">
+
 
 				<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
 
@@ -278,6 +298,7 @@ export default function GameMain({
 					</div>
 
 					))}
+
 
 					{data.length === 0 &&
 						
@@ -327,6 +348,7 @@ export default function GameMain({
 
 
 			<button
+				ref={refMint}
 				onClick={mintNFT}
 				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 			>
