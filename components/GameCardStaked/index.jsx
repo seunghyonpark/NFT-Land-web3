@@ -233,7 +233,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 		<div className="m-auto flex  max-w-[100%] flex-col 
 
-		sm:p-10 md:p-10 lg:p-20 xl:p-32 xl:pt-28
+		sm:p-10 md:p-10 lg:p-20 xl:p-28
 		
 		
 
