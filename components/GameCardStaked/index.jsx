@@ -218,18 +218,25 @@ rounded-lg border border-gray-300
 
 
 bg-cover bg-center bg-[url('/img_tomo.png')]
+
+
+
+
+		sm:p-5 md:p-5 lg:p-16 xl:p-20
+
+		sm:m-0 sm:max-w-lg 
 */}
 
 
 
 	return (
 
-		<div className="m-auto flex  max-w-[70%] flex-col 
+		<div className="m-auto flex  max-w-[100%] flex-col 
+
+		sm:p-10 md:p-10 lg:p-20 xl:p-32 xl:pt-28
 		
-		sm:p-5 md:p-5 lg:p-16 xl:p-20
-		sm:m-0 sm:max-w-lg 
 		
-		
+
 		">
 
 			{/*
@@ -254,7 +261,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				*/}
 
 
-			<button className="m-5 invisible"></button>
+			<button className="m-0 invisible"></button>
 
 			
 			{
