@@ -273,7 +273,7 @@ export default function GameMain({
 				">
 
 				{data.length !== 0 &&
-					<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
+					<div className="mt-2 pt-5 text-normal text-amber-400">Select your M.E. NFTs</div>
 				}
 
 
