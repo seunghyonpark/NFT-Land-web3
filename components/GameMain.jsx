@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import GameCard from "./GameCard/GameCard";
 import { v4 as uuidv4 } from "uuid";
 
@@ -35,6 +36,7 @@ export default function GameMain({
 	const refStake = useRef(null);
 	const refUnstake = useRef(null);
 	const refMint = useRef(null);
+	const refScroller = useRef(null);
 
 
 	const [posts, setPosts] = useState(data);
@@ -80,10 +82,18 @@ export default function GameMain({
 		
 
 		if (address === "") {
+
+			refScroller.current.style.cssText = "";
+
+
 			refStake.current.style.display = "none";
 			refUnstake.current.style.display = "none";
 			refMint.current.style.display = "none";
+
+
 		} else {
+			refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
+
 			refStake.current.style.display = "";
 			refUnstake.current.style.display = "";
 			refMint.current.style.display = "";
@@ -256,12 +266,41 @@ export default function GameMain({
 			<div className="bg-gradient-to-l from-blue-500 ">
 
 
-			<div className="
-				overflow-y-scroll box-content h-screen
+			<div
+				ref={refScroller}
+				className="
+				
 				">
 
+				{data.length !== 0 &&
+					<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
+				}
 
-				<div className="mt-2 text-normal text-amber-400">Select your M.E. NFTs</div>
+
+
+
+				{data.length === 0 &&
+				
+							<Image className="h-500 w-500" 
+								src="/char_group.png"
+								alt=""
+								width={500}
+								height={500}
+							/>
+				}
+
+				{data.length === 0 &&
+						
+						
+						<div className=" text-xl text-amber-400">No exist...</div>
+				}
+
+				{isLoading &&
+				
+					<div className=" text-xl text-amber-400">Loading...</div>
+				}
+
+
 
 				{/* cards container */}
 				<div className="mt-1 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
@@ -300,14 +339,7 @@ export default function GameMain({
 					))}
 
 
-					{data.length === 0 &&
-						
-						<div>
-							<h3 className="text-xl text-amber-400">No exist...</h3>
-						</div>
-						
-						
-					}
+
 
 				</div>
 
