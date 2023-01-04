@@ -17,6 +17,7 @@ export default function useGameNFT(address) {
 	const [tokenId, setTokenId] = useState("");
 	const [stakingCount, setStakingCount] = useState("0");
 	const [selectedCard, setSelectedCard] = useState("");
+	const [miningAmountTotal, setMiningAmountTotal] = useState("0");
 
 
 	const contractAddress = walletAddress.baobabNftContractAddress;
@@ -24,7 +25,24 @@ export default function useGameNFT(address) {
 
 	
 
+	useEffect(() => {
 
+		//setAddress(window.klaytn.selectedAddress);
+
+		console.log("useGameNFT useEffect address", address);
+
+
+		if (address === "") {
+			setData([]);
+			setStakeData([]);
+			setStakingCount("0");
+			setSelectedCard("");
+			setIsInHome(true);
+			setMiningAmountTotal("0");
+		}
+
+
+	}, [address]);
 
 
 
@@ -472,13 +490,30 @@ export default function useGameNFT(address) {
 
 			// update staking count
 			let sCount = 0;
+			let miningAmountTotal = "0";
 			for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
 
 				if (fetchData.data.ownedNfts[idx].staking === "true") {
 					sCount = sCount + 1;
+
+					console.log("miningAmount", fetchData.data.ownedNfts[idx].miningAmount);
+
+
+					miningAmountTotal = String(Number(miningAmountTotal) + Number(fetchData.data.ownedNfts[idx].miningAmount));
 				}
+
+
+
 			}
 			setStakingCount(String(sCount));
+			setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
+
+
+
+			//setMiningAmountTotal("23.523552324");
+
+
+
 
 
 			setIsLoading(false);
@@ -913,7 +948,8 @@ export default function useGameNFT(address) {
 	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
-		selectedCard, setSelectedCard };
+		selectedCard, setSelectedCard,
+		miningAmountTotal };
 
 }
 

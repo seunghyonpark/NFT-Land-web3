@@ -25,7 +25,14 @@ export default function GameHeader({
 		
 	}
 
+
+
+	const [buttonText, setButtonText] = useState("Connect Kaikas");
+
+
 	//const router = useRouter();
+
+	const refConnect = useRef(null);
 
 	const refNFT = useRef(null);
 	const refStakeNFT = useRef(null);
@@ -94,6 +101,15 @@ export default function GameHeader({
 			// Your code
 		  })
 		*/
+
+		if (address === "") {
+
+		} else {
+			//refConnect.current.style.display = "none";
+
+			setAddress("");
+			return;
+		}
 
 		const {klaytn} = window;
 		
@@ -205,8 +221,6 @@ export default function GameHeader({
 
 		//setAddress(window.klaytn.selectedAddress);
 
-
-
 		console.log("useEffect address", address);
 		
 
@@ -221,12 +235,20 @@ export default function GameHeader({
 				//Router.push('/');
 
 				//router.push('/');
+
+				setButtonText("Connect Kaikas");
+
+
 			} else {
 
 
 				refNFT.current.click();
 
 				//refStakeNFT.current.click();
+
+
+				//refConnect.current.style.display = "none";
+				setButtonText("Disconnect");
 
 			}
 
@@ -351,10 +373,11 @@ export default function GameHeader({
 			
 
 				<button
+					ref={refConnect}
 					onClick={loadAccountInfo}
 					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
-					Connect Kaikas
+					{buttonText}
 				</button>
 
 				{/*

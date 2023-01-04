@@ -22,6 +22,7 @@ export default function GameMain({
 	mintNFT,
 	stakingCount,
 	setStakingCount,
+	miningAmountTotal,
 }) {
 
 	const itemEls = useRef(new Array());
@@ -35,7 +36,7 @@ export default function GameMain({
 
 
 	const [posts, setPosts] = useState(data);
-	const [miningAmountTotal, setMiningAmountTotal] = useState("0");
+	
 
 
 	const [hasMore, setHasMore] = useState(true);
@@ -50,19 +51,6 @@ export default function GameMain({
 
 
 	useEffect(() => {
-
-
-		let miningAmountTotal = "0";
-		for(let idx=0; idx < data.length; idx++){
-			if (data[idx].staking === "true") {
-				miningAmountTotal = String(Number(miningAmountTotal) + Number(data[idx].miningAmount));
-
-				console.log("miningAmount", data[idx].miningAmount);
-			}
-		}
-
-
-		setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
 
 		console.log("miningAmountTotal", miningAmountTotal);
 
@@ -93,7 +81,7 @@ export default function GameMain({
 
 				data[idx].cssText = "border-color: yellow; border-width: 7px;";
 
-				
+
 			} else {
 				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
 
@@ -113,7 +101,7 @@ export default function GameMain({
 
 
  
-	}, [data, selectedCard, setMiningAmountTotal]);
+	}, [data, selectedCard, miningAmountTotal]);
 	
 
 
