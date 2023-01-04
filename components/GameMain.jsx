@@ -85,7 +85,52 @@ export default function GameMain({
 
 		console.log("GameMain useEffect selectedCard", selectedCard);
 
+		
+		let idx;
+		for(idx=0; idx < data.length; idx++) {
+			if (data[idx].tokenId === selectedCard.tokenId) {
+				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
+				data[idx].cssText = "border-color: yellow; border-width: 7px;";
+
+				
+			} else {
+				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
+
+				data[idx].cssText = "border-color: transparent; border-width: 0px;";
+			}
+		}
+
+		if (selectedCard.staking === "true") {
+			refStake.current.style.display = "none";
+			refUnstake.current.style.display = "";
+		} else {
+			refStake.current.style.display = "";
+			refUnstake.current.style.display = "none";
+		}
+		
+
+
+
+ 
+	}, [data, selectedCard, setMiningAmountTotal]);
+	
+
+
+	const handleClick = (nft) =>  {
+
+		console.log("handleClick tokenId", nft.tokenId);
+
+		//cardData.selected = true;
+
+		//console.log('cardData.selected', cardData.selected);
+
+		//console.log("itemEls", itemEls.current[0]);
+
+		setSelectedCard(nft);
+
+
+		/*
 		let idx;
 		for(idx=0; idx < data.length; idx++) {
 			if (data[idx].tokenId === selectedCard.tokenId) {
@@ -106,48 +151,9 @@ export default function GameMain({
 			refStake.current.style.display = "";
 			refUnstake.current.style.display = "none";
 		}
+		*/
 
-
-
- 
-	}, [data, selectedCard, setMiningAmountTotal]);
 	
-
-
-	const handleClick = (nft) =>  {
-
-		//cardData.selected = true;
-
-		//console.log('cardData.selected', cardData.selected);
-
-		//console.log("itemEls", itemEls.current[0]);
-
-		setSelectedCard(nft);
-
-
-
-
-
-
-		//itemEls.current[0].GameCard.cardData.selected = true;
-		//itemEls.current[0].style.backgroundColor = "yellow";
-
-		
-
-
-		//console.log("aaaaaa",itemEls[0].current);
-
-
-		//ref.current.style.backgroundColor = "yellow";
-
-		//ref.current.style.border-width = 6;
-
-		//border-width: 8px;
-
-		//ref.current.style.display = "none";
-
-		//ref.current.style.className = "m-auto flex  max-w-[70%] flex-col rounded-lg  border-8 border-gray-300 p-3 sm:m-0 sm:max-w-lg hover:mix-blend-hard-light";
-
 	}
 
 
@@ -175,7 +181,7 @@ export default function GameMain({
 			<ul role="list" className="p-3 divide-y divide-slate-200">
 				<li className="flex py-1 first:pt-0 last:pb-0">
 					
-					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="gold-fish"
 							src={goldFishAddress}
@@ -185,17 +191,17 @@ export default function GameMain({
 						></lottie-player>
 					</div>
 
-					<div className="ml-3 overflow-hidden text-right">
-						<p className="text-xs font-medium text-slate-200">
+					<div className="flex-auto mr-5 overflow-hidden text-right">
+						<p className="text-normal font-medium text-slate-200">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
 						</p>
 						<p className="text-3xl text-amber-400 truncate">{stakingCount}</p>
 					</div>
 				</li>
 
-				<li className="flex py-4 first:pt-0 last:pb-0">
+				<li className="flex py-3 first:pt-0 last:pb-0">
 					
-					<div className="mt-3 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<div className="mt-3 ml-7 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="crypto-tower"
 							src={depositingNFTAddress}
@@ -205,8 +211,8 @@ export default function GameMain({
 						></lottie-player>
 					</div>
 
-					<div className="ml-3 overflow-hidden text-right">
-						<p className="text-xs font-medium text-slate-200">
+					<div className="flex-auto mr-5 overflow-hidden text-right">
+						<p className="text-normal font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
 						<p className="text-3xl text-amber-400 truncate">{miningAmountTotal}</p>
@@ -279,12 +285,10 @@ export default function GameMain({
 							depositNFT={depositNFT}
 							withdrawNFT={withdrawNFT}
 							selectNFT={selectNFT}
-
-							
 						>
-							
 						</GameCard>
 					</div>
+
 					))}
 
 					{data.length === 0 &&

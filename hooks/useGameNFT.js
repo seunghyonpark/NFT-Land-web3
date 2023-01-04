@@ -428,10 +428,7 @@ export default function useGameNFT(address) {
 
 
 		try {
-
 			const response = await fetch(`/api/game-fetch-nfts?wallet=${address}`);
-
-			
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
@@ -440,8 +437,6 @@ export default function useGameNFT(address) {
 				//setIsInHome(true);
 				return;
 			}
-
-
 
 			const fetchData = await response.json();
 
@@ -474,19 +469,16 @@ export default function useGameNFT(address) {
 
 			console.log("length", fetchData.data.ownedNfts.length);
 
+
+			// update staking count
 			let sCount = 0;
 			for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
 
 				if (fetchData.data.ownedNfts[idx].staking === "true") {
 					sCount = sCount + 1;
 				}
-
 			}
 			setStakingCount(String(sCount));
-
-
-
-
 
 
 			setIsLoading(false);
@@ -499,7 +491,6 @@ export default function useGameNFT(address) {
 			alert("There was an error fetching NFTs!----");
 			return;
 		}
-
 
 	};
 
@@ -587,6 +578,7 @@ export default function useGameNFT(address) {
 
 
 
+
 	const depositNFT = async (tokenId) => {
 		
 
@@ -601,9 +593,6 @@ export default function useGameNFT(address) {
 			return;
 		}
 
-
-
-
 		console.log("depositNFT data.length", data.length);
 
 
@@ -612,98 +601,6 @@ export default function useGameNFT(address) {
 		//setIsInHome(false);
 
 		setIsDepositing(true);
-
-
-
-		/*
-		window.caver.klay
-			.sendTransaction({
-				type: 'VALUE_TRANSFER',
-				from: window.klaytn.selectedAddress,
-				to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
-				value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
-				gas: 8000000
-			})
-			.once('transactionHash', transactionHash => {
-				console.log('txHash', transactionHash);
-			})
-			.once('receipt', receipt => {
-				console.log('receipt', receipt);
-
-				//setData(receipt);
-
-				fetchNFTs();
-
-
-				setIsLoading(false);
-			})
-			.once('error', error => {
-				console.log('error', error);
-				//alert("지불에 실패하셨습니다.");
-
-				setIsLoading(false);
-				setIsInHome(true);
-			})
-
-			*/
-			
-
-			
-			// staking contract
-			// https://baobab.scope.klaytn.com/nft/0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5
-			//const contractAddress = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
-
-
-			//const to = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db"; // Staking Wallet Address
-			//const amount = 1000000000000000000n; // 토큰 1개
-			
-			/*
-			const contract = new window.caver.klay.Contract(stakingABI, contractAddress);
-			
-			console.log("contract", contract); // 컨트랙트 객체가 만들어졌다.
-			
-			*/
-
-			// 토큰을 전송하는 매서드를 실행한다.
-			/*
-			const transfer = await contract.methods.transfer(to, amount).send({
-				from : window.klaytn.selectedAddress, 
-				gas: 8000000
-			}); 
-			*/
-
-
-			/*
-			window.caver.klay
-				.sendTransaction({
-					type: 'VALUE_TRANSFER',
-					from: window.klaytn.selectedAddress,
-					to: '0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db',
-					value: window.caver.utils.toPeb('1', 'KLAY'), // 1 클레이 전송
-					gas: 8000000
-				})
-				.once('transactionHash', transactionHash => {
-					console.log('txHash', transactionHash);
-				})
-				.once('receipt', receipt => {
-					console.log('receipt', receipt);
-
-					//setData(receipt);
-
-					fetchNFTs();
-
-
-					setIsLoading(false);
-				})
-				.once('error', error => {
-					console.log('error', error);
-					//alert("지불에 실패하셨습니다.");
-
-					setIsLoading(false);
-					setIsInHome(true);
-				})
-			*/
-
 
 
 		try {	
@@ -780,27 +677,39 @@ export default function useGameNFT(address) {
 
 				///////////////////////
 				updateData[idx].staking = "true";
+				//setData(updateData);
+
+
 
 				//let updateStakeData = stakeData;
 
+				/*
 				let updateStakeData = new Array();
-
 
 				updateStakeData.push(updateData[idx]);
 				setStakeData(updateStakeData);
 				//////////////////////
-
+				*/
 
 
 				// 삭제하지않고 상태만변경
 				//////////updateData.splice(idx, 1);
 
+				/*
+				// 0번째로 옮긴다.
+				const nft = updateData[idx];
+				updateData.splice(idx, 1);
+				updateData.unshift(nft);
 				setData(updateData);
+				*/
+
+
+
+				// update staking count
+				setStakingCount(Number(stakingCount)+1);
 
 				console.log("depositNFT data.length", data.length);
 				console.log("depositNFT updateData.length", updateData.length);
-
-				
 			}
 
 
@@ -819,33 +728,8 @@ export default function useGameNFT(address) {
 			return;
 		}
 
-			//const from = window.klaytn.selectedAddress;
-
-			//const tokenIds = new Array();
-			//tokenIds.push(tokenId);
-
-			/*
-			    const value = 1 * 1e18 // 1ONE
-    const amount = 1
-    contract.methods.mint(amount).send({ from: state.connectedWallet, value })
-			*/
-
-			//const tttid = 225;
-
-			//const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 128;
-
-
-			
-			/*
-			const stake = await contract.methods.stake(1).send({
-				from : from, 
-				gas: 8000000
-			});
-
-			console.log("stake", stake);
-			*/
-
 	};
+	
 
 
 
@@ -890,8 +774,27 @@ export default function useGameNFT(address) {
 				console.log("idx", idx);
 
 
+				
 				updateData[idx].staking = "false";
+				//setData(updateData);
+				
+				
+
+				
+
+
+
+				/*
+				// 0번째로 옮긴다.
+				const nft = updateData[idx];
+				updateData.splice(idx, 1);
+				updateData.unshift(nft);
 				setData(updateData);
+				*/
+
+
+				// update staking count
+				setStakingCount(Number(stakingCount)-1);
 
 
 				/*

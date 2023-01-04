@@ -12,8 +12,12 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 //import { NextIntlProvider } from "next-intl";
 
+import { Inter } from '@next/font/google';
+
 import { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
+
+
 
 // 
 function MyApp({
