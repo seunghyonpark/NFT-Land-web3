@@ -196,6 +196,9 @@ export default async function handler(req, res) {
 				const nft = new Object();
 
 				try {
+
+					
+
 					nft.owner = wallet;
 	
 					const contract = new Object();
@@ -238,7 +241,7 @@ export default async function handler(req, res) {
 	
 						nft.timeLeft = json.items[idx].regDatetime;
 						nft.maturityLevel = "Level 0";
-						nft.miningAmount = "0.00000000";
+						nft.miningAmount = "0.05322324";
 	
 	
 						nft.selected = false;
@@ -261,10 +264,6 @@ export default async function handler(req, res) {
 			}
 
 		}
-
-
-
-
 
 
 
