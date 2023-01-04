@@ -488,6 +488,9 @@ export default function useGameNFT(address) {
 			console.log("length", fetchData.data.ownedNfts.length);
 
 
+
+
+			
 			// update staking count
 			let sCount = 0;
 			let miningAmountTotal = "0";
