@@ -164,7 +164,9 @@ bg-[url('/circuit.png')]
 
 
 		<main
-			className="bg-cover bg-repeat bg-center 
+			className="bg-cover bg-no-repeat bg-center 
+			
+			
 			
 			"
 		>
@@ -172,6 +174,9 @@ bg-[url('/circuit.png')]
 		<div 
 			className="
 		
+
+			
+
 			"
 			>
 			

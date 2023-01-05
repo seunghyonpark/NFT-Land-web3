@@ -294,10 +294,20 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							width={300}
 							height={300}
 						/>
+						
+						
 					}
 
 
+
+
+
+
+
 					{!cardData &&
+
+
+
 
 						<Image
 							src="/nft_01.png"
@@ -305,6 +315,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							width={300}
 							height={300}
 						/>
+
+
+
 					}
 
 
@@ -327,7 +340,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				<div className="mt-0 flex table-fixed flex-row justify-center">
 
 <div 
-	className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
+	className=" w-full rounded-l-md rounded-r-md bg-teal-500 px-0 py-0
 		mix-blend-normal">
 
 		<ul role="list" className="p-3 divide-y divide-slate-200">
