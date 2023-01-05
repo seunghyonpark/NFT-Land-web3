@@ -310,7 +310,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 			sm:p-10 md:p-10 lg:p-20 xl:p-28
 		
-			
+		
 		
 		">
 
@@ -344,12 +344,12 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			{
 				(cardData.length === 0) &&
 
-			<Image
-				src="/nft_01.png"
-				alt=""
-				width={300}
-				height={300}
-			/>
+					<Image
+						src="/nft_01.png"
+						alt=""
+						width={300}
+						height={300}
+					/>
 			
 			}
 
@@ -370,6 +370,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				bg-cover bg-center
 				bg-[url('/iphone-spinner.gif')]
 				${cardData.staking === "true" ? "grayscale" : ""}
+
+				
 				
 				`}
 

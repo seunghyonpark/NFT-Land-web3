@@ -86,9 +86,16 @@ export default function StakingPage({
 				<a href="./mint">Ready to Staking</a>
 			</h1>
 
-			<cards className="mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
-			 bg-cover bg-no-repeat bg-center bg-[url('/img_tomo.png')]
-			  " >	
+			<cards className="
+				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
+			 	bg-cover bg-no-repeat 
+				bg-[url('/img_tomo.png')]
+				
+
+				bg-center
+
+			  "
+			  >	
 
 
 
