@@ -152,6 +152,10 @@ export default function GameMain({
 
 
 
+	{/*
+bg-[url('/circuit.png')]
+*/}
+
 
 	//return data.lenghth > 0 && (
 	return (
@@ -160,10 +164,16 @@ export default function GameMain({
 
 
 		<main
-			//className="bg-contain bg-repeat bg-center bg-[url('/circuit.png')]"
+			className="bg-cover bg-repeat bg-center 
+			
+			"
 		>
 
-			
+		<div 
+			className="
+		
+			"
+			>
 			
 			
 
@@ -394,7 +404,7 @@ export default function GameMain({
 			</div>
 
 
-		
+			</div>
 		
 			
 		</main>

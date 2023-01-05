@@ -294,6 +294,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		sm:p-5 md:p-5 lg:p-16 xl:p-20
 
 		sm:m-0 sm:max-w-lg 
+
+
+
+		m-auto 
 */}
 
 
@@ -305,12 +309,13 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 	return (
 
 		<div className="
-			m-auto flex  max-w-[100%] flex-col
+			flex  max-w-[100%] flex-col
 			rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
 
 			sm:p-10 md:p-10 lg:p-20 xl:p-28
 		
-		
+			
+			
 		
 		">
 
@@ -409,13 +414,17 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 			{/*
+
+			mix-blend-hard-light hover:mix-blend-normal">
+
+
 			(cardData.length !== 0) &&
 			*/}
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
 				<div 
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
-					mix-blend-hard-light hover:mix-blend-normal">
+						mix-blend-normal">
 
 						<ul role="list" className="p-3 divide-y divide-slate-200">
 						{/*#each people as person

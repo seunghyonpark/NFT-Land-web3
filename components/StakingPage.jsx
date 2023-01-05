@@ -86,6 +86,9 @@ export default function StakingPage({
 				<a href="./mint">Ready to Staking</a>
 			</h1>
 
+
+			<div className="mr-10 mt-10" >
+
 			<cards className="
 				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
 			 	bg-cover bg-no-repeat 
@@ -153,6 +156,7 @@ export default function StakingPage({
 			</cards>
 			
 		
+			</div>
 
 		</main>
 
