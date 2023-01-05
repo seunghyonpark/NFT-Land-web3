@@ -260,7 +260,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		<div className={classes.square} data-image="">
 
 			<div className={classes.squarecontainer}>
-				
+
 				<div className={classes.aligncenter}>
 
 					
@@ -310,6 +310,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				</div>
 
 
+				<div className="mt-2"></div>
 				<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{cardData.tokenId}</h2>
 
 

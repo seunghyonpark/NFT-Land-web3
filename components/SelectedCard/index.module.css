@@ -124,7 +124,11 @@
 
 /*Square content*/
 .squarecontainer{
-  //border:1px solid #efefef;
+  //border:2px solid #efefef;
+
+
+  //background-image: url("/img_tomo.png");
+  //background-size: cover;
 
   padding:30px;
   text-align:center;

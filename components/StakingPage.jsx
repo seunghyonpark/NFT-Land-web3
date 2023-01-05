@@ -98,6 +98,7 @@ export default function StakingPage({
 			 	bg-cover bg-no-repeat 
 				bg-[url('/img_tomo.png')]
 				bg-center
+				
 
 
 			  "
