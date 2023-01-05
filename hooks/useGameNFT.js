@@ -135,7 +135,7 @@ export default function useGameNFT(address) {
 
 			}
 
-			setMiningAmountTotal(Number(inSecondsTotal/100000000).toFixed(8));
+			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
 		}
 
 		const interval = setInterval(pollDOM, 1000);
@@ -292,10 +292,13 @@ export default function useGameNFT(address) {
 			*/
 
 
+			/*
 			if (data.length == 9) {
 				data.splice(data.length-1, 1);
 			}
-			data.unshift(nft.data);
+			*/
+
+			data.push(nft.data);
 
 			setIsMinting(false);
 
@@ -638,14 +641,15 @@ export default function useGameNFT(address) {
 					console.log("miningAmount", fetchData.data.ownedNfts[idx].miningAmount);
 
 
-					miningAmountTotal = String(Number(miningAmountTotal) + Number(fetchData.data.ownedNfts[idx].miningAmount));
+					///////miningAmountTotal = String(Number(miningAmountTotal) + Number(fetchData.data.ownedNfts[idx].miningAmount));
 				}
 
 
 
 			}
 			setStakingCount(String(sCount));
-			setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
+
+			/////setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
 
 
 

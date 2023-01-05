@@ -62,7 +62,7 @@ export default function GameMain({
 
 		if (address === "") {
 
-			refScroller.current.style.cssText = "";
+			////refScroller.current.style.cssText = "";
 
 
 			refStake.current.style.display = "none";
@@ -70,7 +70,7 @@ export default function GameMain({
 			refMint.current.style.display = "none";
 
 		} else {
-			refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
+			/////refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
 
 			refStake.current.style.display = "";
 			refUnstake.current.style.display = "";
@@ -81,6 +81,8 @@ export default function GameMain({
 
 			let idx;
 			for(idx=0; idx < data.length; idx++) {
+			//for(idx=0; idx < itemEls.length; idx++) {
+
 				if (data[idx].tokenId === selectedCard.tokenId) {
 					itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 	
@@ -187,7 +189,7 @@ export default function GameMain({
 						<p className="text-normal font-medium text-slate-200">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
 						</p>
-						<p className="text-3xl text-amber-400 truncate">{stakingCount}</p>
+						<p className=" font-mono text-3xl text-amber-400 truncate">{stakingCount}</p>
 					</div>
 				</li>
 
@@ -207,7 +209,7 @@ export default function GameMain({
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
-						<p className="text-3xl text-amber-400 truncate">{miningAmountTotal}</p>
+						<p className=" text-3xl text-amber-400 truncate">{miningAmountTotal}</p>
 					</div>
 
 					{/*
@@ -246,7 +248,7 @@ export default function GameMain({
 			<div
 				ref={refScroller}
 				className="
-				
+				overflow-y-scroll box-content h-screen
 				">
 
 				{data.length !== 0 &&
@@ -288,6 +290,7 @@ export default function GameMain({
 
 					<div className="rounded-lg p-1"
 						key={nft.tokenId}
+						//key={uuidv4()}
 						//onClick={(e) => handleClick(e)}
 						onClick={(e) => {
 							e.preventDefault(); 
