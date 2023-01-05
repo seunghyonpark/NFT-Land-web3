@@ -365,6 +365,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 */}
 
 			
+
+
+
+			
 			{
 				(cardData.length !== 0) &&
 
@@ -388,6 +392,12 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				width={300}
 				height={300}
 			/>
+
+
+
+
+
+			
 			
 			}
 
@@ -420,7 +430,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 			(cardData.length !== 0) &&
 			*/}
-			<div className="mt-2 flex table-fixed flex-row justify-center">
+			<div className="mt-0 flex table-fixed flex-row justify-center">
 
 				<div 
 					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1

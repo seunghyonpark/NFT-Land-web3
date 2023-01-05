@@ -1,7 +1,7 @@
 import React from "react"
 //import NFTCardStaked from "./NFTCardStaked"
 
-import GameCardStaked from "./GameCardStaked/index.jsx"
+//import GameCardStaked from "./GameCardStaked/index.jsx"
 
 import SelectedCard from "./SelectedCard/index.jsx"
 
@@ -65,12 +65,16 @@ export default function StakingPage({
 	
 
 
-
+		
+		//////<main className="hover:bg-gradient-to-r">
+	
 
 	//return data.lenghth > 0 && (
 	return (
 
-		<main>
+
+
+		<main className="">
 
 
 
@@ -83,25 +87,24 @@ export default function StakingPage({
 			</h1>
 
 			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				<a href="./mint">Ready to Staking</a>
+				Ready to Staking
 			</h1>
 
 
-			<div className="mr-0 mt-5" >
+			<div className="mr-12 mt-5" >
 
 			<cards className="
 				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
 			 	bg-cover bg-no-repeat 
 				bg-[url('/img_tomo.png')]
-				
-
 				bg-center
+
 
 			  "
 			  >	
 
 
-
+		
 
 
 
@@ -116,7 +119,7 @@ export default function StakingPage({
 
 			
 					
-					<GameCardStaked
+					<SelectedCard
 						key={uuidv4()}
 						cardData={selectedCard}
 						cryptoTowerAddress={cryptoTowerAddress}
@@ -126,7 +129,7 @@ export default function StakingPage({
 						setTokenId={setTokenId}
 						withdrawNFT={withdrawNFT}
 					>
-					</GameCardStaked>
+					</SelectedCard>
 			
 		
 		{/*
@@ -134,6 +137,8 @@ export default function StakingPage({
 */}
 
 			
+
+	
 
 
 

@@ -115,6 +115,10 @@ export default async function handler(req, res) {
 				const media = new Array() ;
 				nft.media = media;
 
+
+				////console.log("data.items[idx].tokenUri", data.items[idx].tokenUri);
+
+
 				const response = await fetch(data.items[idx].tokenUri);
 
 				if (response.ok) {
@@ -127,7 +131,11 @@ export default async function handler(req, res) {
 					// 객체 생성
 					const mediadata = new Object() ;
 					
-					mediadata.gateway = jsonTokenUri.image;
+					if (jsonTokenUri) {
+						mediadata.gateway = jsonTokenUri.image;
+					} else {
+						mediadata.gateway = "";
+					}
 					
 					// 리스트에 생성된 객체 삽입
 					media.push(mediadata);
@@ -145,23 +153,28 @@ export default async function handler(req, res) {
 					const [miningAmount, setMiningAmount] = useState("0.00000000");
 					*/
 
-					nft.timeLeft = "0 years 0 month 0 days";
-					nft.maturityLevel = "Level 0";
-					nft.miningAmount = "0.00000000";
 
-
-					if (idx === 0) {
-						nft.selected = true;
-					} else {
-						nft.selected = false;
-					}
-
-					nft.staking = "false";
 
 			
 				} else {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
+
+
+				nft.timeLeft = "0 years 0 month 0 days";
+				nft.maturityLevel = "Level 0";
+				nft.miningAmount = "0.00000000";
+
+
+				if (idx === 0) {
+					nft.selected = true;
+				} else {
+					nft.selected = false;
+				}
+
+				nft.staking = "false";
+
+
 			
 			} catch (err) {
 				//alert("There was an error fetching NFTs!");

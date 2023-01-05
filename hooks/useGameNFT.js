@@ -136,8 +136,13 @@ export default function useGameNFT(address) {
 			}
 
 			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
+
+
+
 		}
 
+		
+		/*
 		const interval = setInterval(pollDOM, 1000);
 		
 		
@@ -150,8 +155,11 @@ export default function useGameNFT(address) {
 			clearInterval(interval);
 
 		}
+		*/
 
-	}, [address, data, setMiningAmountTotal]);
+		
+
+	}, [address, data, miningAmountTotal, setMiningAmountTotal]);
 
 
 
