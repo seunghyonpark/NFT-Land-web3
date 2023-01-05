@@ -333,15 +333,20 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			<div className={classes.flipoverlay}></div>
 		</div>
 
+
+
+
 		<div className={classes.square2} data-image="">
 			<div className={classes.squarecontainer2}>
 				<div className={classes.aligncenter}>
 
+
 				<div className="mt-0 flex table-fixed flex-row justify-center">
 
+
 <div 
-	className=" w-full rounded-l-md rounded-r-md bg-teal-500 px-0 py-0
-		mix-blend-normal">
+	className=" w-full rounded bg-teal-500 px-0 py-0 mt-5 border
+		">
 
 		<ul role="list" className="p-3 divide-y divide-slate-200">
 		{/*#each people as person
@@ -352,7 +357,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium text-slate-900">Token ID</p>
-				<p className="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
+				<p className="text-sm text-slate-900 truncate">#{cardData.tokenId}</p>
 			</div>
 			</li>
 
@@ -382,7 +387,35 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 		{/*/each*/}
 		</ul>
-		<div className="mt-12"></div>
+
+
+		<div className="">
+			<button
+				className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+					disabled:opacity-25"
+				onClick={(e) => {
+					e.preventDefault(); 
+					//depositNFT(selectedCard.tokenId);
+				}}
+				
+			>
+					Stake
+			</button>&nbsp;&nbsp;
+			<button
+				className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+				"
+				onClick={(e) => {
+					e.preventDefault();
+					//withdrawNFT(selectedCard.tokenId);
+				}}
+				
+			>
+					Unstake
+			</button>
+		</div>
+
+
+		<div className="mt-5"></div>
 		
 </div>
 
@@ -393,10 +426,15 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 				</div>
+
 			
 			</div>
+
+
 			<div className={classes.flipoverlay}></div>
 		</div>
+
+
 
 	</div>
 
