@@ -238,10 +238,11 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		<div className="
 
 		flex  max-w-[100%] flex-col
-		rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
+		rounded-lg  border-gray-300 sm:m-0 sm:max-w-lg
 
-		sm:p-10 md:p-10 lg:p-20 xl:p-28
-			
+		sm:p-10 md:p-10 lg:p-20 xl:p-24
+		
+		
 		
 		">
 
@@ -312,18 +313,16 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 				<div className="mt-2"></div>
 				<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{cardData.tokenId}</h2>
+				<div className="mt-20"></div>
 
 
 			</div>
 			<div className={classes.flipoverlay}></div>
 		</div>
 
-		<div className={classes.square2} data-image="https://gogodino.saltmarble.io/metaexplorers/images/59.png">
+		<div className={classes.square2} data-image="">
 			<div className={classes.squarecontainer2}>
 				<div className={classes.aligncenter}>
-
-
-
 
 				<div className="mt-0 flex table-fixed flex-row justify-center">
 
@@ -370,7 +369,11 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 		{/*/each*/}
 		</ul>
+		<div className="mt-12"></div>
+		
 </div>
+
+
 
 </div>
 

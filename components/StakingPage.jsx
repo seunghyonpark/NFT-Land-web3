@@ -91,7 +91,7 @@ export default function StakingPage({
 			</h1>
 
 
-			<div className="mr-12 mt-5" >
+			<div className="mr-2 mt-5" >
 
 			<cards className="
 				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
