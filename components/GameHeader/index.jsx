@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import classes from "./index.module.css"
 import { consoleLog } from "mocha/lib/reporters/base"
@@ -278,10 +279,16 @@ export default function GameHeader({
 			</h1>
 	*/}
 
+
+
 			{/* find NFT's form */}
 			<form className="mt-1 flex flex-col">
 
-				<div className="mt-1">
+				<div className="mt-1 ">
+
+
+
+
 				{/*
 				<input
 					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
@@ -303,8 +310,16 @@ export default function GameHeader({
 					Mint NFT
 				</button>
 				*/}
-				
-				
+
+				<Image
+					className=" float-left my-5 w-auto self-center" 
+					src="/logo.png"
+					alt="GOGODINO EXPLORERS"
+					width={100}
+					height={100}
+				/>
+
+		
 				<button
 					ref={refNFT}
 					onClick={fetchNFTs}
@@ -317,7 +332,7 @@ export default function GameHeader({
 				<button
 					ref={refStakeNFT}
 					onClick={fetchStakeNFTs}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className="  invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch Stake NFTs
 				</button>
@@ -326,7 +341,7 @@ export default function GameHeader({
 				<button
 					ref={refConnect}
 					onClick={loadAccountInfo}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					{buttonText}
 				</button>

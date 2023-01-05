@@ -78,16 +78,16 @@ export default function StakingPage({
 
 			{/* logotype */}
 
-			<h1 className=" text-right text-1xl font-extrabold text-amber-400 drop-shadow-xl truncate">
+			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
 				{displayAddress} 
 			</h1>
 
-			<h1 className="mt-1 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
+			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">Ready to Staking</a>
 			</h1>
 
 
-			<div className="mr-10 mt-10" >
+			<div className="mr-0 mt-5" >
 
 			<cards className="
 				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
