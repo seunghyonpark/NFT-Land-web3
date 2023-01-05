@@ -568,9 +568,10 @@ export default function useGameNFT(address) {
 
 
 
-	const fetchNFTs = async (e) => {
+	//const fetchNFTs = async (e) => {
+	const fetchNFTs = async () => {
 
-		e.preventDefault();
+		/////e.preventDefault();
 
 		console.log("fetchNFT address",address);
 

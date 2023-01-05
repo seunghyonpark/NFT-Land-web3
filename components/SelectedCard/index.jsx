@@ -235,6 +235,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 	return (
 
+
+
+
+
 		<div className="
 
 		flex  max-w-[100%] flex-col
@@ -245,8 +249,6 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		
 		
 		">
-
-
 
 <div className={`
 	classes.centerflipcards

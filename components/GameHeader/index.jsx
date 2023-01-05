@@ -36,9 +36,6 @@ export default function GameHeader({
 
 	const refConnect = useRef(null);
 
-	const refNFT = useRef(null);
-	const refStakeNFT = useRef(null);
-
 
 	const onChange = (event) => {
 
@@ -173,7 +170,9 @@ export default function GameHeader({
 				//klaytn.on('accountsChanged', () => this.setAccountInfo(klaytn));
 			} catch (error) {
 				console.log('User denied account access');
+
 				alert("User denied account access");
+
 				return;
 			}
 
@@ -247,7 +246,8 @@ export default function GameHeader({
 			} else {
 
 
-				refNFT.current.click();
+				/////refNFT.current.click();
+				fetchNFTs();
 
 				//refStakeNFT.current.click();
 
@@ -261,7 +261,7 @@ export default function GameHeader({
 		
 
 
-	}, [address]);
+	}, [address, fetchNFTs]);
 	
 
 
@@ -282,34 +282,8 @@ export default function GameHeader({
 
 
 			{/* find NFT's form */}
-			<form className="mt-1 flex flex-col">
+			<form className="mt-1 flex flex-row justify-between">
 
-				<div className="mt-1 ">
-
-
-
-
-				{/*
-				<input
-					className=" invisible w-10/12 self-center rounded-sm pl-2 shadow-lg  sm:w-[25rem] "
-					value={address}
-					onChange={(e) => setAddress(e.target.value)}
-					type="text"
-					placeholder="Your Wallet Address"
-					
-				/>
-*/}
-
-
-
-				{/*
-				<button
-					onClick={mintNFT}
-					className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Mint NFT
-				</button>
-				*/}
 
 				<Image
 					className=" float-left my-5 w-auto self-center" 
@@ -318,24 +292,6 @@ export default function GameHeader({
 					width={100}
 					height={100}
 				/>
-
-		
-				<button
-					ref={refNFT}
-					onClick={fetchNFTs}
-					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Fetch NFTs
-				</button>
-
-				
-				<button
-					ref={refStakeNFT}
-					onClick={fetchStakeNFTs}
-					className="  invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
-				>
-					Fetch Stake NFTs
-				</button>
 			
 
 				<button
@@ -354,8 +310,6 @@ export default function GameHeader({
 					Home
 				</button>
 				*/}
-
-				</div>
 
 			</form>
 
