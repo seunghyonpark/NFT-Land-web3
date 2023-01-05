@@ -1,6 +1,11 @@
 import React from "react"
 //import NFTCardStaked from "./NFTCardStaked"
+
 import GameCardStaked from "./GameCardStaked/index.jsx"
+
+import SelectedCard from "./SelectedCard/index.jsx"
+
+
 import { v4 as uuidv4 } from "uuid"
 
 import { useState, useEffect, useRef } from "react";

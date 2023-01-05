@@ -159,11 +159,12 @@ export default function GameMain({
 
 
 
-		<main>
+		<main
+			//className="bg-contain bg-repeat bg-center bg-[url('/circuit.png')]"
+		>
 
-			{/*
-			<div className="bg-auto bg-no-repeat bg-center bg-[url('/img_rex.png')]">
-	*/}
+			
+			
 			
 
 			<div className="bg-gradient-to-bl from-blue-900">
@@ -393,9 +394,8 @@ export default function GameMain({
 			</div>
 
 
-			{/*
-			</div>
-		*/}
+		
+		
 			
 		</main>
 

@@ -15,7 +15,7 @@ import useStakeNFT from "../../hooks/useStakeNFT.js";
 
 
 // --------------------------
-export default function GameCardStaked({
+export default function SelectedCard({
 	cardData,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -111,10 +111,10 @@ export default function GameCardStaked({
 
 
 
-
+/*
 	useEffect(() => {
 		
-		console.log("GameCardStaked useEffect=====");
+		//console.log("GameCardStaked useEffect");
 
 		//console.log("GameCardStaked useEffect cardData", cardData);
 
@@ -122,28 +122,7 @@ export default function GameCardStaked({
 
 
 
-
-		if (cardData) {
-			if(cardData.staking === "true") {
-
-				const today = new Date();
-				const startday = new Date(cardData.timeStart);
-				//console.log("startday", startday);
-
-				const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
-				//console.log("inDays", inDays);
-
-				const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-				console.log("inSeconds", inSeconds);
-
-				setMiningAmount(Number(inSeconds/100000000).toFixed(8));
-
-			}
-
-		}
-
 		
-		/*
 		let i = 0;
 		function pollDOM() {
 		  //console.log(i);
@@ -157,25 +136,18 @@ export default function GameCardStaked({
 		  //console.log("inDays", inDays);
 
 		  const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-		  console.log("inSeconds", inSeconds);
+		  //console.log("inSeconds", inSeconds);
 
 		  setMiningAmount(Number(inSeconds/100000000).toFixed(8));
 
 		  ////////setMiningAmount(String(Number(miningAmount).toFixed(2)));
 		}
-		*/
 		
-		//const interval = setInterval(pollDOM, 1000);
-
-		if (cardData) {
-
-		} else {
-			//clearInterval(interval);
-		}
+		const interval = setInterval(pollDOM, 1000);
 
 		return () => {
 			
-			//clearInterval(interval);
+			clearInterval(interval);
 
 		}
 
@@ -183,9 +155,9 @@ export default function GameCardStaked({
 
 
 	//}, [cardData, setMiningAmount]);
-	}, [cardData, setMiningAmount]);
+	}, []);
 
-	
+	*/
 
 
 	const genNumber = () => {
@@ -304,15 +276,17 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 	return (
 
-		<div className="
-			m-auto flex  max-w-[100%] flex-col
-			rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
+		<div className="m-auto flex  max-w-[100%] flex-col 
 
-			sm:p-10 md:p-10 lg:p-20 xl:p-28
+		sm:p-10 md:p-10 lg:p-20 xl:p-28
 		
-			
 		
+
 		">
+
+
+
+
 
 
 
@@ -339,6 +313,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				*/}
 
 
+			<button className="m-0 invisible"></button>
 
 			
 			{
@@ -353,34 +328,129 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			
 			}
 
-{/*
-			className={`container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20 ${
-				data !== [] ? "justify-evenly" : "justify-between"
-			} `}
-*/}
 
 			
 			{
 				(cardData.length !== 0) &&
 
-			<Image className={`
 
-				drop-shadow-2xl
-				h-500 w-500
-				bg-cover bg-center
-				bg-[url('/iphone-spinner.gif')]
-				${cardData.staking === "true" ? "grayscale" : ""}
-				
-				`}
+			<div className="border ">
 
-				src={
-					cardData?.media[0]?.gateway ||
-					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-				}
-				alt={cardData?.description}
-				width={300}
-				height={300}
-			/>
+
+			<div className={classes.centerflipcards}>
+
+				<div className={classes.squareflip}>
+
+
+					<div className={classes.square} data-image="">
+						<div className={classes.squarecontainer}>
+							<div className={classes.aligncenter}>
+
+								<Image className={classes.boxshadow}
+									src={
+										cardData?.media[0]?.gateway ||
+										"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+									}
+									alt={cardData?.description}
+									width={300}
+									height={300}
+								/>
+
+							</div>
+							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{cardData.tokenId}</h2>
+							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
+						</div>
+						<div className={classes.flipoverlay}></div>
+					</div>
+
+					<div className={classes.square2} data-image="https://gogodino.saltmarble.io/metaexplorers/images/59.png">
+						<div className={classes.squarecontainer2}>
+							<div className={classes.aligncenter}>
+
+							
+
+							<div className="mt-2 flex table-fixed flex-row justify-center">
+
+	<div 
+		className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
+		mix-blend-hard-light hover:mix-blend-normal">
+
+			<ul role="list" className="p-3 divide-y divide-slate-200">
+			{/*#each people as person
+				<!-- Remove top/bottom padding when first/last child -->*/}
+
+
+				<li className="flex py-4 first:pt-0 last:pb-0">
+				<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-sm font-medium text-slate-900">Token ID</p>
+					<p className="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
+				</div>
+				</li>
+
+				<li className="flex py-4 first:pt-0 last:pb-0">
+				<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-sm font-medium text-slate-900">Time Left</p>
+					<p className="text-sm text-slate-900 truncate">{cardData.timeLeft}</p>
+				</div>
+				</li>
+
+				<li className="flex py-4 first:pt-0 last:pb-0">
+				<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-xs  font-medium text-slate-900" >NFT Maturity</p>
+					<p className="text-sm text-slate-900 truncate">{cardData.maturityLevel}</p>
+				</div>
+				</li>
+
+				<li className="flex py-4 first:pt-0 last:pb-0">
+				<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-xs  font-medium text-slate-900" >Mining Amount ($SML)</p>
+					<p className="text-sm text-slate-900 truncate">{miningAmount}</p>
+				</div>
+				</li>
+
+			{/*/each*/}
+			</ul>
+	</div>
+
+	</div>
+
+
+							</div>
+
+						</div>
+
+
+						<div className={classes.flipoverlay}></div>
+					</div>
+
+					{/*
+					<Image
+						src={
+							cardData?.media[0]?.gateway ||
+							"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+						}
+						alt={cardData?.description}
+						width={300}
+						height={300}
+					/>
+					*/}
+
+
+
+				</div>
+
+				<div className={classes.clearfix}></div>
+
+			</div>
+
+
+
+			</div>
+
 			
 			}
 
@@ -409,6 +479,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			{/*
 			(cardData.length !== 0) &&
 			*/}
+
+
+{/*
+
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 
 				<div 
@@ -417,7 +491,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 						<ul role="list" className="p-3 divide-y divide-slate-200">
 						{/*#each people as person
-							<!-- Remove top/bottom padding when first/last child -->*/}
+							
 
 
 							<li className="flex py-4 first:pt-0 last:pb-0">
@@ -452,11 +526,13 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							</div>
 							</li>
 
-						{/*/each*/}
+						
 						</ul>
 				</div>
 
 			</div>
+						*/}
+
 			{/*
 			}
 		*/}

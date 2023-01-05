@@ -190,6 +190,9 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 			</form>
 
 
+
+
+
 			<div className={classes.centerflipcards}>
 
 				<div className={classes.squareflip}>
@@ -290,6 +293,11 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 
 			
 			</div>
+
+
+
+
+			
 
 		</header>
 	);
