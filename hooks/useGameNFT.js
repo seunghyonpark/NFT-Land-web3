@@ -97,6 +97,8 @@ export default function useGameNFT(address) {
 	useEffect(() => {
 
 		console.log("useGameNFT useEffect===========");
+
+
 		console.log("useGameNFT useEffect address", address);
 
 		
@@ -111,7 +113,7 @@ export default function useGameNFT(address) {
 		
 
 
-		
+		/*
 		let i = 0;
 		function pollDOM() {
 			console.log("useGameNFT useEffect i", i);
@@ -140,7 +142,7 @@ export default function useGameNFT(address) {
 
 
 		}
-
+		*/
 		
 		/*
 		const interval = setInterval(pollDOM, 1000);
@@ -159,7 +161,7 @@ export default function useGameNFT(address) {
 
 		
 
-	}, [address, data, miningAmountTotal, setMiningAmountTotal]);
+	}, [address]);
 
 
 

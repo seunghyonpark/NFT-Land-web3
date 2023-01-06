@@ -216,18 +216,32 @@ export default function Game({
 	return (
 
 
-		
+
+
+
+
 <div className="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
 
 <div className="bg-gradient-to-bl from-black">
 
-		<wholepage
-			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
-				data !== [] ? "justify-evenly" : "justify-between"} 
+
+		<div
+			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20
+			
+				${
+					data !== [] ? "justify-evenly" : "justify-between"
+				} 
 			`}
 		>
+
+
+
+
+
+
 			<Script src={scriptAddress} />
 			
+
 
 			
 			
@@ -247,6 +261,11 @@ export default function Game({
 
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 			</Head>
+
+
+
+
+	
 
 
 			<GameHeader
@@ -356,12 +375,18 @@ export default function Game({
 			<Footer />
 
 
-		</wholepage>
+
+
+
+
+
+		</div>
+
 
 
 		</div>
 		</div>
-		
+
 
 	);
 }

@@ -24,6 +24,7 @@ module.exports = {
       colors: {
         'regal-red': 'rgb(234,51,133)',
       },
+
     },
   },
   plugins: [],

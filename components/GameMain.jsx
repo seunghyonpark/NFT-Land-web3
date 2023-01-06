@@ -154,6 +154,8 @@ export default function GameMain({
 
 	{/*
 bg-[url('/circuit.png')]
+
+drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 */}
 
 
@@ -166,17 +168,14 @@ bg-[url('/circuit.png')]
 		<main
 			className="bg-cover bg-no-repeat bg-center 
 			
-			
-			
+			drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			"
 		>
 
 		<div 
 			className="
-		
-
 			
-
+			
 			"
 			>
 			
@@ -264,7 +263,7 @@ bg-[url('/circuit.png')]
 			<div
 				ref={refScroller}
 				className="
-				overflow-y-scroll box-content h-screen
+					overflow-y-scroll box-content h-screen
 				">
 
 				{data.length !== 0 &&

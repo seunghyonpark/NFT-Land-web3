@@ -41,17 +41,24 @@
 
   //border:1px solid #efefef;
   
+  //position:relative;
+  //float:left;
+  //margin:0px;
+
   position:relative;
   float:left;
   margin:0px;
 
 }
 .squareflip{
-  ///border:2px solid #efefef;
+  //border:2px solid #efefef;
   width:350px;
   height:350px;
+  //width:100%;
+  //height:100%;
 }
 .square,.square2{
+  //border:2px solid #efefef;
   width:100%;
   height:100%;
 }
@@ -90,9 +97,8 @@
 
 
 .square2{
-
   background-size: cover;
-  background-position:center center;
+  background-position:center;
 
   -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
   transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
@@ -157,7 +163,7 @@
 }
 
 .squarecontainer2{
-  padding:40px;
+  padding:0px;
   text-align:center;
   position:relative;
   top:50%;
@@ -189,20 +195,23 @@
   color:white;
   font-family: "Open Sans";
   font-weight:700;
-  font-size:16px;
+  font-size:15px;
 }
 .squareflip h3{
   color:white;
   font-family: "Open Sans";
   font-weight:500;
-  font-size:16px;
+  font-size:15px;
   line-height:26px;
 }
+
 /*Elements*/
 .flipoverlay{
   display:block;
-  //background:rgba(0,0,0,0.5);
-  background:rgba(0,0,0,0.0);
+  background:rgba(0,0,0,0.7);
+  //background:rgba(0,0,0,0.0);
+  //background-image: url("/circuit.png");
+  background-size: contain;
   width:100%;
   height:100%;
   position:absolute;
@@ -277,6 +286,7 @@
 
 
 /*You can delete this style*/
+/*
 .centerflipcards{
   
   display:block;
@@ -294,8 +304,9 @@
     margin-top:10px;
     font-weight:700;
 }
+*/
 
-
+.clearfix{clear:both;}
 
 
 

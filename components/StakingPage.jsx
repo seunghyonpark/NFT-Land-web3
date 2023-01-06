@@ -91,15 +91,16 @@ export default function StakingPage({
 			</h1>
 
 
-			<div className="mr-2 mt-5" >
 
-			<cards className="
-				mt-5 grid justify-center gap-10 md:grid-cols-1 lg:grid-cols-1 
-			 	bg-cover bg-no-repeat 
+
+			<div className="
+				mt-5 
+			 	bg-contain
+				bg-no-repeat 
 				bg-[url('/img_tomo.png')]
-				bg-center
+				bg-top
 				
-
+				min-h-screen
 
 			  "
 			  >	
@@ -159,10 +160,9 @@ export default function StakingPage({
 
 			
 
-			</cards>
+			</div>
 			
 		
-			</div>
 
 		</main>
 

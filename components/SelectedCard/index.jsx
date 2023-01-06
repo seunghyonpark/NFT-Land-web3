@@ -88,16 +88,14 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect data length", cardData.lenght);
-
-
+		console.log("SelectedCard useEffect cardData.staking", cardData.staking);
 
 
 		return () => {
 		
 		}
 
-	}, [cardData]);
+	}, [cardData.staking]);
 
 
 
@@ -229,7 +227,18 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 	className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
 				data !== [] ? "justify-evenly" : "justify-between"} 
 			`}
-	*/
+	
+
+			sm:p-10 md:p-10 
+	lg:p-20
+
+	xl:p-24
+
+
+	sm:pl-[146px] sm:pr-[90px]
+
+	pl-[250px] pr-[250px] pt-[100px]
+			*/
 
 
 
@@ -244,20 +253,29 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		flex  max-w-[100%] flex-col
 		rounded-lg  border-gray-300 sm:m-0 sm:max-w-lg
 
-		sm:p-10 md:p-10 lg:p-20 xl:p-24
+		pl-[250px] pr-[250px] pt-[100px]
+		
+		sm:pl-[137px] sm:pr-[100px] sm:pt-[70px]
+
+		md:pl-[70px] md:pr-[65px] md:pt-[30px]
+		
+		lg:pl-[108px] lg:pr-[100px] lg:pt-[50px]
+
+		xl:pl-[120px] xl:pr-[85px] xl:pt-[70px]
+
 		
 		
 		
 		">
 
-<div className={`
-	classes.centerflipcards
+<div className="
+	flex
+
 	
-`}>
+">
 
 	<div className={
 		classes.squareflip
-		
 	}>
 
 		<div className={classes.square} data-image="">
@@ -343,11 +361,14 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				<div className={classes.aligncenter}>
 
 
-				<div className="mt-0 flex table-fixed flex-row justify-center">
+				<div className="mt-0 flex table-fixed flex-row justify-center  p-5">
 
 
 <div 
-	className=" w-full rounded bg-teal-500 px-0 py-0 mt-5 border
+	className=" w-full rounded
+		 bg-blue-900
+		 text-slate-100
+		 px-0 py-0 mt-0 border
 		">
 
 		<ul role="list" className="p-3 divide-y divide-slate-200">
@@ -358,32 +379,32 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			<li className="flex py-4 first:pt-0 last:pb-0">
 			<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-sm font-medium text-slate-900">Token ID</p>
-				<p className="text-sm text-slate-900 truncate">#{cardData.tokenId}</p>
+				<p className="text-sm font-medium ">Token ID</p>
+				<p className="text-sm truncate">#{cardData.tokenId}</p>
 			</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
 			<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-sm font-medium text-slate-900">Time Left</p>
-				<p className="text-sm text-slate-900 truncate">{cardData.timeLeft}</p>
+				<p className="text-sm font-medium ">Time Left</p>
+				<p className="text-sm truncate">{cardData.timeLeft}</p>
 			</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
 			<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-xs  font-medium text-slate-900" >NFT Maturity</p>
-				<p className="text-sm text-slate-900 truncate">{cardData.maturityLevel}</p>
+				<p className="text-xs  font-medium " >NFT Maturity</p>
+				<p className="text-sm truncate">{cardData.maturityLevel}</p>
 			</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
 			<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-xs  font-medium text-slate-900" >Mining Amount ($SML)</p>
-				<p className="text-sm text-slate-900 truncate">{miningAmount}</p>
+				<p className="text-xs  font-medium " >Mining Amount ($SML)</p>
+				<p className="text-sm truncate">{miningAmount}</p>
 			</div>
 			</li>
 
@@ -391,6 +412,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		</ul>
 
 
+{/*
 		<div className="">
 			<button
 				className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
@@ -415,7 +437,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 					Unstake
 			</button>
 		</div>
-
+			*/}
 
 		<div className="mt-5"></div>
 		
@@ -442,6 +464,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 	<div className={classes.clearfix}></div>
+
+			
 
 </div>
 

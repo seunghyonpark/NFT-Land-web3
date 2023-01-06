@@ -35,6 +35,7 @@ export default function GameHeader({
 	//const router = useRouter();
 
 	const refConnect = useRef(null);
+	const refNFT = useRef(null);
 
 
 	const onChange = (event) => {
@@ -246,8 +247,8 @@ export default function GameHeader({
 			} else {
 
 
-				/////refNFT.current.click();
-				fetchNFTs();
+				refNFT.current.click();
+				////fetchNFTs(); ========> 반복적으로 실행이 된다.
 
 				//refStakeNFT.current.click();
 
@@ -261,7 +262,7 @@ export default function GameHeader({
 		
 
 
-	}, [address, fetchNFTs]);
+	}, [address, refNFT]);
 	
 
 
@@ -294,10 +295,16 @@ export default function GameHeader({
 				/>
 			
 
+				<button ref={refNFT} onClick={(e) => {e.preventDefault(); fetchNFTs(e);}}>
+
+				</button>
+
 				<button
 					ref={refConnect}
 					onClick={loadAccountInfo}
-					className=" float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+					className=" float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+						font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+						duration-200  ease-in-out hover:bg-teal-300"
 				>
 					{buttonText}
 				</button>
