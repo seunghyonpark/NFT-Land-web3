@@ -353,7 +353,7 @@ export default async function handler(req, res) {
 
 	} catch (err) {
 
-		//console.log("err",err);
+		console.log("err",err);
 		res.status(500).json({ message: "Internal Server Error!" });
 	}
 }

@@ -22,6 +22,7 @@ export default function GameMain({
 	withdrawNFT,
 	selectNFT,
 	mintNFT,
+	holdingCount,
 	stakingCount,
 	setStakingCount,
 	miningAmountTotal
@@ -196,7 +197,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						<p className="text-normal font-medium text-slate-200">
 							Staking Count (GDX)
 						</p>
-						<p className=" font-mono text-3xl text-amber-400 truncate">{stakingCount}</p>
+						<p className=" font-mono text-3xl text-amber-400 truncate">{stakingCount} / {holdingCount}</p>
 					</div>
 				</li>
 

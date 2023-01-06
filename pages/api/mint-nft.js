@@ -137,6 +137,8 @@ const account = await caver.kas.wallet.createAccount();
 		
 		console.log("migrateAccounts ret", ret);
 		*/
+
+		
 		
 		/*
 		const keyring = caver.keyringContainer.keyring.generate();
@@ -161,7 +163,10 @@ const account = await caver.kas.wallet.createAccount();
 			console.log("err",err);
 
 		}
+		*/
 		
+		
+		/*
 
 		//caver.wallet.add(senderKeyring);
 
@@ -346,7 +351,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 	} catch (err) {
 
-		//console.log("err",err);
+		console.log("err",err);
 		//console.err;
 		
 		

@@ -66,6 +66,7 @@ export default function Game({
 
 	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
+		holdingCount,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
@@ -358,6 +359,7 @@ export default function Game({
 						withdrawNFT,
 						selectNFT,
 						mintNFT,
+						holdingCount,
 						stakingCount,
 						setStakingCount,
 						miningAmountTotal,
