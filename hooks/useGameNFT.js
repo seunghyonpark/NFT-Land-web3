@@ -213,6 +213,9 @@ export default function useGameNFT(address) {
 			setSelectedCard("");
 			setIsInHome(true);
 			setMiningAmountTotal("0");
+
+			setHoldingCount("0");
+			
 		
 	}
 
@@ -654,6 +657,12 @@ export default function useGameNFT(address) {
 			// alchemy
 			setData(fetchData.data.ownedNfts);
 
+
+			setHoldingCount(fetchData.data.ownedNfts.length);
+
+			
+
+
 			//console.log(data.data.ownedNfts);
 
 			//console.log(data.data.items);
@@ -662,7 +671,7 @@ export default function useGameNFT(address) {
 			// caver
 			///setData(data.data.items);
 
-			console.log("length", fetchData.data.ownedNfts.length);
+			/////console.log("length", fetchData.data.ownedNfts.length);
 
 
 
