@@ -656,13 +656,17 @@ export default function useGameNFT(address) {
 				console.log("fetchData.data.ownedNfts[0]", fetchData.data.ownedNfts[0]);
 
 				setSelectedCard(fetchData.data.ownedNfts[0]);
+
+
+							// alchemy
+				setData(fetchData.data.ownedNfts);
+
+
+				setHoldingCount(fetchData.data.ownedNfts.length);
+
 			}
 
-			// alchemy
-			setData(fetchData.data.ownedNfts);
 
-
-			setHoldingCount(fetchData.data.ownedNfts.length);
 
 			
 

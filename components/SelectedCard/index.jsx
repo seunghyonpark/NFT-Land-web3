@@ -88,7 +88,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
+		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
 		console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
 
 
@@ -99,7 +99,8 @@ export default function SelectedCard({
 		
 		}
 
-	}, [selectedCard.staking, selectedCard.miningAmount]);
+	//}, [selectedCard.staking, selectedCard.miningAmount]);
+	}, [ selectedCard.miningAmount]);
 
 
 

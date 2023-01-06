@@ -236,7 +236,18 @@ export default function GameHeader({
 		//setAddress(window.klaytn.selectedAddress);
 
 		console.log("GameHeader useEffect address", address);
+		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 		
+		/*
+		for (let count = minimum; count <= maximum; count++) {
+            setTimeout(() => {
+                this.setState({count})
+            }, 1000);
+        }
+		*/
+
+
+
 
 		
 		if (address === undefined) {
