@@ -296,7 +296,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 				{/* cards container */}
-				<div className="mt-1 grid justify-center gap-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 p-5
+				<div className="mt-1 grid justify-center gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-5
 					">
 
 

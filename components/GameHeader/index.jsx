@@ -348,11 +348,11 @@ export default function GameHeader({
 						></lottie-player>
 					</div>
 
-					<div className="flex-auto mr-10 overflow-hidden text-right ">
+					<div className="flex-auto mr-5 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
 							Staking Count Total (GDX)
 						</p>
-						<p className="  font-mono text-3xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
+						<p className="  font-mono text-2xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
 					</div>
 
 				</li>
@@ -373,7 +373,7 @@ export default function GameHeader({
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
-						<p className="font-mono text-3xl text-amber-400 truncate">{miningAmountGlobal}</p>
+						<p className="font-mono text-2xl text-amber-400 truncate">{miningAmountGlobal}</p>
 					</div>
 
 
