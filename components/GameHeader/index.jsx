@@ -362,7 +362,7 @@ export default function GameHeader({
 						<p className="text-normal font-medium text-slate-200">
 							Staking Count Total (GDX)
 						</p>
-						<p className="  font-mono text-2xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
+						<p className=" text-2xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
 					</div>
 
 				</div>

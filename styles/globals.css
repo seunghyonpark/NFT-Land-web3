@@ -47,17 +47,21 @@ html {
 	}
 }
 /* images */
+/*
 img {
 	width: 100%;
 	//height: 300px;
 	object-fit: cover;
 	object-position: center;
 }
+*/
 
 /* header title */
+/*
 h1 {
 	animation: glow 2s ease-in-out infinite alternate;
 }
+*/
 
 @keyframes glow {
 	from {
@@ -70,5 +74,35 @@ h1 {
 }
 /*  */
 
+/*
+body {
+	font-family: 'Roboto', sans-serif;
+}
+*/
 
 
+
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, zeroesone, sans-serif;
+}
+  
+@font-face {
+	font-family: "DoongaSlash";
+	font-weight: 100;
+	src: url("/fonts/Doonga_Slash.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "zerogravityextendedbolditalic";
+	font-weight: 100;
+	src: url("/fonts/zerogravityextendedbolditalic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "zeroesone";
+	font-weight: 100;
+	src: url("/fonts/zeroes_one.ttf") format("truetype");
+}
