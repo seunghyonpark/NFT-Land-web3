@@ -76,13 +76,9 @@ export default function StakingPage({
 
 		<main className="">
 
-
-
-		
-
 			{/* logotype */}
 
-			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate">
+			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate ">
 				{displayAddress} 
 			</h1>
 

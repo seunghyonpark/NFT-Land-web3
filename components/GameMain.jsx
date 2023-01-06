@@ -166,17 +166,10 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 		<main
-			className="bg-cover bg-no-repeat bg-center 
-			
-			drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+			className="
+
 			"
 		>
-
-		<div 
-			className="
-			
-			"
-			>
 			
 			
 
@@ -256,13 +249,15 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 
+
 			<div className="bg-gradient-to-l from-blue-500 ">
 
 
 			<div
-				ref={refScroller}
+				//ref={refScroller}
 				className="
-					overflow-y-scroll box-content h-screen
+					overflow-y-scroll  h-screen
+					
 				">
 
 				{data.length !== 0 &&
@@ -272,15 +267,19 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 
-				{data.length === 0 &&
+				{
+				data.length === 0 &&
 				
+			
 							<Image className=" bg-contain bg-no-repeat bg-center" 
 								src="/char_group.png"
 								alt=""
 								width={500}
 								height={500}
 							/>
-				}
+
+				
+			}
 
 				{data.length === 0 &&
 						
@@ -402,9 +401,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			)
 			*/}
 
-
-
-			</div>
 
 
 			</div>

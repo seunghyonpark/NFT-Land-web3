@@ -121,9 +121,10 @@ export default function useGameNFT(address) {
 
 
 
-			/*
+			
 			console.log("data.length", data.length);
 
+			
 			let inSecondsTotal = 0;
 			for(let idx=0; idx < data.length; idx++){
 
@@ -140,7 +141,7 @@ export default function useGameNFT(address) {
 
 			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
 
-			*/
+			
 
 		}
 		
@@ -159,7 +160,7 @@ export default function useGameNFT(address) {
 		}
 		
 
-	}, [address]);
+	}, [address, data]);
 
 
 
