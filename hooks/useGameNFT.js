@@ -735,7 +735,7 @@ export default function useGameNFT(address) {
 			const fetchData = await response.json();
 
 			setStakingCountGlobal(fetchData.data.stakingCountGlobal);
-			setMiningAmountGlobal(Number(fetchData.data.miningAmountGlobal).toFixed(8));
+			setMiningAmountGlobal(Number(fetchData.data.miningAmountGlobal).toFixed(2));
 			
 			return;
 
