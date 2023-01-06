@@ -968,6 +968,12 @@ export default function useGameNFT(address) {
 
 				console.log("depositNFT data.length", data.length);
 				console.log("depositNFT updateData.length", updateData.length);
+
+
+
+				fetchNFTsGlobal();
+
+
 			}
 
 
@@ -1058,6 +1064,10 @@ export default function useGameNFT(address) {
 				// update staking count
 				setStakingCount(Number(stakingCount)-1);
 
+
+				fetchNFTsGlobal();
+
+				
 
 				/*
 				updateData.splice(idx, 1);
