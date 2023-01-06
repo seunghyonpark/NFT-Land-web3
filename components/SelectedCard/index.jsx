@@ -16,7 +16,7 @@ import useStakeNFT from "../../hooks/useStakeNFT.js";
 
 // --------------------------
 export default function SelectedCard({
-	cardData,
+	selectedCard,
 	cryptoTowerAddress,
 	loadingCubesAddress,
 	depositingNFTAddress,
@@ -65,15 +65,15 @@ export default function SelectedCard({
 
 	const [isWithdrawing, setIsWithdrawing] = useState(false);
 
-	const [miningAmount, setMiningAmount] = useState("0.00000000");
+	//const [miningAmount, setMiningAmount] = useState("0.00000000");
 
 
 
 
-	//const { isLoading } = useStakeNFT(cardData.tokenId);
+	//const { isLoading } = useStakeNFT(selectedCard.tokenId);
 
 	// 이렇게 하면 안된다.
-	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(cardData.owner);
+	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(selectedCard.owner);
 
 
 	const refNFTImage = useRef(null);
@@ -88,14 +88,18 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect cardData.staking", cardData.staking);
+		console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
+		console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
+
+
+
 
 
 		return () => {
 		
 		}
 
-	}, [cardData.staking]);
+	}, [selectedCard.staking, selectedCard.miningAmount]);
 
 
 
@@ -111,11 +115,11 @@ export default function SelectedCard({
 
 
 
-	//console.log("cardData.tokenId", cardData.tokenId);
+	//console.log("selectedCard.tokenId", selectedCard.tokenId);
 	//console.log("isInHome", isInHome);
 
 
-	//setTokenId(cardData.tokenId);
+	//setTokenId(selectedCard.tokenId);
 	/* error 발생한다.
 	Unhandled Runtime Error
 Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
@@ -132,10 +136,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	const sayHello = async (e) => {
 		//alert(`Hello, ${name}!`);
 
-		console.log(`Hello, ${cardData.tokenId}!`);
+		console.log(`Hello, ${selectedCard.tokenId}!`);
 
 
-		console.log("cardData", cardData);
+		console.log("selectedCard", selectedCard);
 
 		//setTokenId(tokenId);
 
@@ -152,16 +156,16 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 		//alert(`Hello, ${name}!`);
 
-		console.log(`Hello, ${cardData.tokenId}!`);
+		console.log(`Hello, ${selectedCard.tokenId}!`);
 
 
 		//setTokenId(tokenId);
 
-		if (cardData.staking === "true") {
-			withdrawNFT(cardData.tokenId);
+		if (selectedCard.staking === "true") {
+			withdrawNFT(selectedCard.tokenId);
 
 		} else {
-			depositNFT(cardData.tokenId);
+			depositNFT(selectedCard.tokenId);
 		}
 	};
 
@@ -292,7 +296,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 */}
 
 
-					{cardData &&
+					{selectedCard &&
 
 
 
@@ -302,15 +306,15 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 							h-500 w-500
 							bg-cover bg-center
 							bg-[url('/iphone-spinner.gif')]
-							${cardData.staking === "true" ? "grayscale" : ""}
+							${selectedCard.staking === "true" ? "grayscale" : ""}
 							
 							`}
 
 							src={
-								cardData?.media[0]?.gateway ||
+								selectedCard?.media[0]?.gateway ||
 								"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
 							}
-							alt={cardData?.description}
+							alt={selectedCard?.description}
 							width={500}
 							height={500}
 						/>
@@ -324,7 +328,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 
-					{!cardData &&
+					{!selectedCard &&
 
 
 
@@ -345,7 +349,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 				<div className="mt-2"></div>
-				<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{cardData.tokenId}</h2>
+				<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{selectedCard.tokenId}</h2>
 				<div className="mt-20"></div>
 
 
@@ -377,35 +381,43 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
+			<img className="h-5 w-5 mr-5 rounded-full" src="./enhance.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Token ID</p>
-				<p className="text-sm truncate">#{cardData.tokenId}</p>
+				<p className="text-sm truncate">#{selectedCard.tokenId}</p>
 			</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+			<img className="h-5 w-5 mr-5 rounded-full" src="./staking.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Time Left</p>
-				<p className="text-sm truncate">{cardData.timeLeft}</p>
+				<p className="text-sm truncate">{selectedCard.timeLeft}</p>
 			</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
-			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-xs  font-medium " >NFT Maturity</p>
-				<p className="text-sm truncate">{cardData.maturityLevel}</p>
-			</div>
+				<img className="h-5 w-5 mr-5 rounded-full" src="battle.png" alt="" />
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-xs  font-medium " >NFT Maturity</p>
+					<p className="text-sm truncate">{selectedCard.maturityLevel}</p>
+				</div>
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="sml.png" alt="" />
-			<div className="ml-3 overflow-hidden text-left">
-				<p className="text-xs  font-medium " >Mining Amount ($SML)</p>
-				<p className="text-sm truncate">{miningAmount}</p>
-			</div>
+				<div className="mt-3 ml-3 h-7 w-7 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<lottie-player
+						id="crypto-tower"
+						src={depositingNFTAddress}
+						speed="1"
+						loop
+						autoplay
+					></lottie-player>
+				</div>
+				<div className="ml-3 overflow-hidden text-left">
+					<p className="text-xs  font-medium " >Mining Amount ($SML)</p>
+					<p className="text-sm truncate">{selectedCard.miningAmount}</p>
+				</div>
 			</li>
 
 		{/*/each*/}
@@ -501,7 +513,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 					onClick={() => (sayHello(), console.log("click") )}
 				>
 					{
-						cardData.staking === 'true'
+						selectedCard.staking === 'true'
 						? <p className="font-medium">Stop Staking</p>
 						: <p className="font-medium">Start Staking</p>
 					}
@@ -512,7 +524,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 			
 			{/*
-				(cardData.length === 0) &&
+				(selectedCard.length === 0) &&
 
 					<Image
 						src="/nft_01.png"
@@ -538,7 +550,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 {
-				(cardData.length !== 0) &&
+				(selectedCard.length !== 0) &&
 
 
 				<div></div>
@@ -556,7 +568,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 			
 			{/*
-				(cardData.length !== 0) &&
+				(selectedCard.length !== 0) &&
 
 
 
@@ -566,17 +578,17 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				h-500 w-500
 				bg-cover bg-center
 				bg-[url('/iphone-spinner.gif')]
-				${cardData.staking === "true" ? "grayscale" : ""}
+				${selectedCard.staking === "true" ? "grayscale" : ""}
 
 				
 				
 				`}
 
 				src={
-					cardData?.media[0]?.gateway ||
+					selectedCard?.media[0]?.gateway ||
 					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
 				}
-				alt={cardData?.description}
+				alt={selectedCard?.description}
 				width={300}
 				height={300}
 			/>
@@ -589,14 +601,14 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			{/*
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
-					Contract: {cardData.contract.address}
+					Contract: {selectedCard.contract.address}
 				</div>
 
 				<button
 					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
 
 					onClick={() =>
-						navigator.clipboard.writeText(cardData.contract.address)
+						navigator.clipboard.writeText(selectedCard.contract.address)
 					}
 				>
 					<p className="font-medium">Copy</p>
@@ -610,7 +622,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			mix-blend-hard-light hover:mix-blend-normal">
 
 
-			(cardData.length !== 0) &&
+			(selectedCard.length !== 0) &&
 			*/}
 
 			{/*
@@ -628,11 +640,11 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 				onClick={(e) => sayHello(e)}
 
-				//onClick={() => selectNFT(cardData)}
+				//onClick={() => selectNFT(selectedCard)}
 				
 			>
 				{
-					cardData.staking === 'true'
+					selectedCard.staking === 'true'
 					? <p className="font-medium">Stop Staking</p>
 					: <p className="font-medium">Start Staking</p>
 				}
@@ -647,10 +659,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				<button
 					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
-					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
+					onClick={() => (sayHello(selectedCard.tokenId), console.log("click") )}
 				>
 					{
-						cardData.staking === 'true'
+						selectedCard.staking === 'true'
 						? <p className="font-medium">Stop Staking</p>
 						: <p className="font-medium">Start Staking</p>
 					}

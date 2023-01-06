@@ -69,6 +69,7 @@ export default function Game({
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
+		stakingCountGlobal, miningAmountGlobal,
 	} = useGameNFT(address);
 
 
@@ -286,6 +287,14 @@ export default function Game({
 					depositingNFTAddress,
 					withdrawingNFTAddress,
 					nftWalletAddress,
+					scriptAddress,
+					cryptoTowerAddress,
+					goldFishAddress,
+					loadingCubesAddress,
+					stakingCount,
+					miningAmountTotal,
+					stakingCountGlobal,
+					miningAmountGlobal,
 				}}
 			/>
 			
@@ -329,9 +338,7 @@ export default function Game({
 			/>
 			*/}
 
-			<cards className="mt-4 grid justify-center gap-10
-				grid-cols-2
-				">	
+			<cards className="mt-4 grid justify-center gap-10 grid-cols-2 ">	
 
 				<GameMain
 					{...{

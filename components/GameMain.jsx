@@ -194,7 +194,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Staking Count (GDX)
+							Staking Count (GDX)
 						</p>
 						<p className=" font-mono text-3xl text-amber-400 truncate">{stakingCount}</p>
 					</div>
@@ -214,7 +214,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
-						Current Earned Total ($SML)
+						Current Earned ($SML)
 						</p>
 						<p className=" text-3xl text-amber-400 truncate">{miningAmountTotal}</p>
 					</div>

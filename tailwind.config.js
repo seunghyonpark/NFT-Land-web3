@@ -7,7 +7,13 @@ module.exports = {
   theme: {
     
     fontFamily: {
-      sans: ['"PT Sans"', 'sans-serif']
+      sans: [
+
+        '"Segoe UI"',
+        'Roboto',
+        'sans-serif'
+        
+      ]
     },
     
    /*

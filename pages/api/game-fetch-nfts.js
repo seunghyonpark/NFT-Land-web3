@@ -67,6 +67,35 @@ export default async function handler(req, res) {
 
 		const { wallet } = req.query;
 
+
+
+		if (wallet) {
+
+		} else {
+			
+			const response = await fetch(`http://wallet.treasureverse.io/gogostaking`);
+
+			if (response.ok) {
+	
+				const json = await response.json();
+	
+
+
+				const nftsGlobal = new Object();
+				nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
+				nftsGlobal.miningAmountGlobal = json.miningAmountGlobal;
+	
+				res.json({ message: "Fetch successful!", data:  nftsGlobal});
+				return;
+	
+			}
+			
+		}
+
+
+
+
+
 		const  contractName = 'GOGODINO Official';
 
 

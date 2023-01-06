@@ -19,6 +19,15 @@ export default function GameHeader({
 	isMinting,
 	depositingNFTAddress,
 	nftWalletAddress,
+	scriptAddress,
+	cryptoTowerAddress,
+	goldFishAddress,
+	loadingCubesAddress,
+	stakingCount,
+	miningAmountTotal,
+	stakingCountGlobal,
+	miningAmountGlobal,
+
 }) {
 
 	if (address) {
@@ -320,6 +329,60 @@ export default function GameHeader({
 
 			</form>
 
+
+
+{/*
+			<ul role="list" className="p-3 divide-y divide-slate-200">
+			*/}
+			<ul role="list" className="p-3 flex justify-center divide-x divide-slate-200">
+				
+				<li className="flex py-0 first:pt-0 last:pb-0 ">
+					
+					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="gold-fish"
+							src={goldFishAddress}
+							speed="5"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+					<div className="flex-auto mr-10 overflow-hidden text-right ">
+						<p className="text-normal font-medium text-slate-200">
+							Staking Count Total (GDX)
+						</p>
+						<p className="  font-mono text-3xl text-amber-400 truncate">{stakingCountGlobal}</p>
+					</div>
+
+
+
+				</li>
+
+				<li className="flex py-0 first:pt-0 last:pb-0 ">
+					
+					<div className="mt-3 ml-10 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="crypto-tower"
+							src={depositingNFTAddress}
+							speed="1"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+					<div className="flex-auto mr-5 overflow-hidden text-right ">
+						<p className="text-normal font-medium text-slate-200">
+						Current Earned Total ($SML)
+						</p>
+						<p className="font-mono text-3xl text-amber-400 truncate">{miningAmountGlobal}</p>
+					</div>
+
+
+				</li>
+
+			</ul>
+				
 
 
 		</header>

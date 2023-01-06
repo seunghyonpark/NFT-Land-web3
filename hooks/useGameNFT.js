@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 import walletAddress from "../constants/walletAddress.json";
+import { min } from "rxjs";
 
 
 export default function useGameNFT(address) {
@@ -18,6 +19,9 @@ export default function useGameNFT(address) {
 	const [stakingCount, setStakingCount] = useState("0");
 	const [selectedCard, setSelectedCard] = useState("");
 	const [miningAmountTotal, setMiningAmountTotal] = useState("0");
+
+	const [stakingCountGlobal, setStakingCountGlobal] = useState("0");
+	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
 
 	const contractAddress = walletAddress.baobabNftContractAddress;
@@ -109,7 +113,19 @@ export default function useGameNFT(address) {
 			//setSelectedCard("");
 			//setIsInHome(true);
 			//setMiningAmountTotal("0");
+
+
+
+			
+			//fetchNFTsGlobal();
+
+
+
 		}
+
+
+		fetchNFTsGlobal();
+
 		
 
 
@@ -120,19 +136,28 @@ export default function useGameNFT(address) {
 			i++;
 
 
+			fetchNFTsGlobal();
+
 
 			
-			console.log("data.length", data.length);
+			console.log("useGameNFT useEffect data.length", data.length);
 
-			
+			let sCount = 0;
 			let inSecondsTotal = 0;
 			for(let idx=0; idx < data.length; idx++){
 
 				if (data[idx].staking === "true") {
+					sCount = sCount + 1;
 					const today = new Date();
-					const startday = new Date(data[idx].timeStart);
+
+					let startday = new Date();
+					if (data[idx].timeStart) {
+						startday = new Date(data[idx].timeStart);
+					}
 
 					const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
+					
+					data[idx].miningAmount = Number(inSeconds/100000000).toFixed(8);
 
 					inSecondsTotal = inSecondsTotal + inSeconds;
 				}
@@ -141,16 +166,16 @@ export default function useGameNFT(address) {
 
 			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
 
-			
+			setStakingCount(String(sCount));
 
 		}
+
+		const interval = setInterval(pollDOM, 10000);
 		
-		
-		const interval = setInterval(pollDOM, 5000);
 		
 		
 		if (address === "") {
-			clearInterval(interval);
+			//clearInterval(interval);
 		}
 
 		return () => {
@@ -160,7 +185,7 @@ export default function useGameNFT(address) {
 		}
 		
 
-	}, [address, data]);
+	}, [address, data, setMiningAmountTotal, miningAmountTotal, setStakingCount]);
 
 
 
@@ -658,6 +683,7 @@ export default function useGameNFT(address) {
 
 			}
 			setStakingCount(String(sCount));
+			
 
 			/////setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
 
@@ -681,6 +707,46 @@ export default function useGameNFT(address) {
 		}
 
 	};
+
+
+
+
+
+
+
+	const fetchNFTsGlobal = async () => {
+
+		console.log("fetchNFTsGlobal");
+
+
+
+		try {
+			const response = await fetch(`/api/game-fetch-nfts`);
+
+			if (!response.ok) {
+				//alert("Something went wrong! Check your Input or Connection");
+
+				return;
+			}
+
+			const fetchData = await response.json();
+
+			setStakingCountGlobal(fetchData.data.stakingCountGlobal);
+			setMiningAmountGlobal(Number(fetchData.data.miningAmountGlobal).toFixed(8));
+			
+			return;
+
+		} catch (err) {
+
+			console.log("err="+err);
+			//alert("There was an error fetching NFTs!----");
+			return;
+		}
+
+	};
+
+
+
 
 
 
@@ -846,15 +912,12 @@ export default function useGameNFT(address) {
 				let updateData = new Array();
 				updateData = data;
 
-				console.log("depositNFT data.length", data.length);
-				console.log("depositNFT updateData.length", updateData.length);
-
 
 				let idx;
 				for(idx=0; idx < updateData.length; idx++){
 
-					console.log("updateData idx tokenId", updateData[idx].tokenId);
-					console.log("tokenId", tokenId);
+					//console.log("updateData idx tokenId", updateData[idx].tokenId);
+					//console.log("tokenId", tokenId);
 
 					if (updateData[idx].tokenId.toString() === tokenId.toString()) {
 						break;
@@ -865,6 +928,13 @@ export default function useGameNFT(address) {
 
 				///////////////////////
 				updateData[idx].staking = "true";
+				//updateData[idx].timeLeft = "true";
+				//updateData[idx].maturityLevel = "true";
+				//updateData[idx].miningAmount = "true";
+
+				setSelectedCard(updateData[idx]);
+
+
 				//setData(updateData);
 
 
@@ -964,6 +1034,10 @@ export default function useGameNFT(address) {
 
 				
 				updateData[idx].staking = "false";
+				updateData[idx].timeLeft = "0 years 0 month 0 days";
+				updateData[idx].maturityLevel = "Level 0";
+				updateData[idx].miningAmount = "0";
+
 				//setData(updateData);
 				
 				
@@ -1102,7 +1176,10 @@ export default function useGameNFT(address) {
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
-		miningAmountTotal };
+		miningAmountTotal,
+		stakingCountGlobal,
+		miningAmountGlobal
+	};
 
 }
 
