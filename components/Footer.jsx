@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
 	return (
-		<footer className="mt-8 mb-5 text-amber-400 drop-shadow-lg">
+		<footer className="mt-8 mb-15 text-amber-400 drop-shadow-lg">
 			Made by{" "}
 			<a
 				className=" font-semibold text-amber-400"

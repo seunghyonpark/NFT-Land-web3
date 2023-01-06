@@ -281,7 +281,7 @@ export default function GameHeader({
 
 	return (
 
-		<header className="mt-1">
+		<header className="mt-0">
 			{/* logotype */}
 			{/*
 			<h1 className="text-center text-5xl font-extrabold text-amber-400 drop-shadow-xl ">

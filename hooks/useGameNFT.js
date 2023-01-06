@@ -340,6 +340,10 @@ export default function useGameNFT(address) {
 
 			data.push(nft.data);
 
+
+			setHoldingCount(holdingCount+1);
+
+
 			setIsMinting(false);
 
 			return;

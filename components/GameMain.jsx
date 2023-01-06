@@ -73,12 +73,17 @@ export default function GameMain({
 		} else {
 			/////refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
 
-			refStake.current.style.display = "";
-			refUnstake.current.style.display = "";
+			if (data.length === 0) {
+				refStake.current.style.display = "none";
+				refUnstake.current.style.display = "none";
+			} else {
+				refStake.current.style.display = "";
+				refUnstake.current.style.display = "";
+			}
+
+
 			refMint.current.style.display = "";
-
-
-
+			
 
 			let idx;
 			for(idx=0; idx < data.length; idx++) {
