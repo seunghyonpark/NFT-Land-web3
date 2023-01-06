@@ -113,7 +113,7 @@ export default function useGameNFT(address) {
 		
 
 
-		/*
+		
 		let i = 0;
 		function pollDOM() {
 			console.log("useGameNFT useEffect i", i);
@@ -121,6 +121,7 @@ export default function useGameNFT(address) {
 
 
 
+			/*
 			console.log("data.length", data.length);
 
 			let inSecondsTotal = 0;
@@ -139,13 +140,12 @@ export default function useGameNFT(address) {
 
 			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
 
-
+			*/
 
 		}
-		*/
 		
-		/*
-		const interval = setInterval(pollDOM, 1000);
+		
+		const interval = setInterval(pollDOM, 5000);
 		
 		
 		if (address === "") {
@@ -157,8 +157,6 @@ export default function useGameNFT(address) {
 			clearInterval(interval);
 
 		}
-		*/
-
 		
 
 	}, [address]);

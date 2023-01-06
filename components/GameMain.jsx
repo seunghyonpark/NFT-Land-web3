@@ -175,7 +175,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 		<div 
 			className="
 			
-			
 			"
 			>
 			
@@ -275,7 +274,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				{data.length === 0 &&
 				
-							<Image className="h-500 w-500" 
+							<Image className=" bg-contain bg-no-repeat bg-center" 
 								src="/char_group.png"
 								alt=""
 								width={500}

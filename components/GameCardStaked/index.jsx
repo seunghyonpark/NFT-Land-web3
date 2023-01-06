@@ -389,8 +389,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
 				}
 				alt={cardData?.description}
-				width={300}
-				height={300}
+				width={500}
+				height={500}
 			/>
 
 
