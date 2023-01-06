@@ -257,7 +257,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		flex  max-w-[100%] flex-col
 		rounded-lg  border-gray-300 sm:m-0 sm:max-w-lg
 
-		pl-[250px] pr-[250px] pt-[100px]
+		pl-[50px] pr-[40px] pt-[20px]
 		
 		sm:pl-[137px] sm:pr-[100px] sm:pt-[70px]
 

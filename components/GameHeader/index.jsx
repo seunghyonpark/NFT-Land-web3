@@ -334,9 +334,9 @@ export default function GameHeader({
 {/*
 			<ul role="list" className="p-3 divide-y divide-slate-200">
 			*/}
-			<ul role="list" className="p-3 flex justify-center divide-x divide-slate-200">
+			<ul role="list" className="p-3 flex flex-row justify-between divide-x divide-slate-200">
 				
-				<li className="flex py-0 first:pt-0 last:pb-0 ">
+				<li className="float-left flex py-0 first:pt-0 last:pb-0 ">
 					
 					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
@@ -355,11 +355,9 @@ export default function GameHeader({
 						<p className="  font-mono text-3xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
 					</div>
 
-
-
 				</li>
 
-				<li className="flex py-0 first:pt-0 last:pb-0 ">
+				<li className="float-left flex py-0 first:pt-0 last:pb-0 ">
 					
 					<div className="mt-3 ml-10 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player

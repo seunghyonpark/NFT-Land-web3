@@ -214,7 +214,14 @@ export default function Game({
 
 
 
-	//
+	/*
+
+				${
+					data !== [] ? "justify-evenly" : "justify-between"
+				} 
+	*/
+
+
 	return (
 
 
@@ -231,11 +238,10 @@ export default function Game({
 
 
 		<div
-			className={`container m-auto flex  min-h-screen flex-col text-center px-5  sm:px-10 md:px-20
+			className={`container m-auto  min-h-screen text-center px-5  sm:px-10 md:px-20
 			
-				${
-					data !== [] ? "justify-evenly" : "justify-between"
-				} 
+			
+			justify-between
 
 				
 			`}
