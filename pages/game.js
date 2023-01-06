@@ -351,7 +351,13 @@ export default function Game({
 			/>
 			*/}
 
-			<cards className="mt-4 grid justify-center gap-10 grid-cols-2 ">	
+			<cards className="mt-4 grid justify-center gap-10
+				sm:grid-cols-2
+				md:grid-cols-2
+				lg:grid-cols-2
+				xl:grid-cols-2
+
+				grid-cols-1 ">	
 
 				<GameMain
 					{...{
