@@ -4,7 +4,7 @@ import Script from "next/script";
 import GameHeader from "../components/GameHeader/index.jsx";
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
-import GameMain from "../components/GameMain.jsx";
+import GameMain from "../components/GameMain/index.jsx";
 import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";

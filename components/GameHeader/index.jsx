@@ -77,37 +77,15 @@ export default function GameHeader({
 
 
 	useEffect(() => {
-
-		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
-
-		let number = String(Number(miningAmountGlobal) * 100000000);
-
+		
+		let number = String(Number(miningAmountGlobal) * 100);
 		let start = 0;
-		const end = 10000;
-
-		let totalMilSecDur = 1;
-		let incrementTime = (totalMilSecDur / end) * 1000;
-		console.log("incrementTime", incrementTime);
-
+		const end = 100;
+		let incrementTime = 10;
 		let timer = setInterval(() => {
-			start += 100;
-
-			const amount = Number(((number-10000) + start) / 100000000).toFixed(8);
-
-			if (start < end) {
-
-				setThisMiningAmountGlobal(amount);
-			}
-			
-		}, incrementTime);
-
-
-		totalMilSecDur = 100;
-		incrementTime = (totalMilSecDur / end) * 1000;
-		let timer2 = setInterval(() => {
 			start += 1;
 
-			const amount = Number(((number-100) + start) / 100000000).toFixed(8);
+			const amount = Number(((number-100) + start) / 100).toFixed(2);
 
 			if (start < end) {
 
@@ -115,19 +93,19 @@ export default function GameHeader({
 			}
 
 		}, incrementTime);
+		
 
 
 		return () => {
 			
 			clearInterval(timer);
-			clearInterval(timer2);
 	
 		}		
 
 	}, [miningAmountGlobal]);
 
 
-
+	
 	useEffect(() => {
 
 		console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
@@ -162,7 +140,7 @@ export default function GameHeader({
 
 	}, [mintingCountGlobal]);
 
-
+	
 
 
 
@@ -559,7 +537,7 @@ export default function GameHeader({
 						<p className="font-mono text-2xl text-amber-400 truncate">
 						*/}
 							
-							<div className={classes.number}>{thisMiningAmountGlobal}</div>
+							<div className={classes.number}>{thisMiningAmountGlobal} / 20000000</div>
 						{/*
 						</p>
 					*/}
