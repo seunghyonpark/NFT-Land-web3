@@ -736,8 +736,6 @@ export default function useGameNFT(address) {
 
 		console.log("fetchNFTsGlobal");
 
-
-
 		try {
 			const response = await fetch(`/api/game-fetch-nfts`);
 
@@ -749,8 +747,18 @@ export default function useGameNFT(address) {
 
 			const fetchData = await response.json();
 
-			setStakingCountGlobal(fetchData.data.stakingCountGlobal);
-			setMiningAmountGlobal(Number(fetchData.data.miningAmountGlobal).toFixed(8));
+			const range = 10;
+			const randomNumber = Math.random() * range;
+
+			const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber) - (range / 2);
+
+			const miningAmountGlobal = Number(fetchData.data.miningAmountGlobal) + randomNumber/100000000 - (range/10000000 / 2);
+
+			setStakingCountGlobal(stakingCountGlobal);
+
+			setMiningAmountGlobal(miningAmountGlobal);
+
+
 			
 			return;
 

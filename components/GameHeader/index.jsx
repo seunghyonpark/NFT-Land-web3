@@ -42,6 +42,7 @@ export default function GameHeader({
 
 
 	const [thisMiningAmountGlobal, setThisMiningAmountGlobal] = useState(Number(miningAmountGlobal));
+	const [thisStakingCountGlobal, setThisStakingCountGlobal] = useState(Number(stakingCountGlobal));
 
 
 
@@ -77,40 +78,10 @@ export default function GameHeader({
 
 		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 
-
-		/*
-		///////setThisMiningAmountGlobal(miningAmountGlobal);
-
-		const maximum = Number(miningAmountGlobal) * 1000;
-		const minimum = maximum - 1000;
-
-		//console.log("minimum", minimum);
-		//console.log("maximum", maximum);
-	
-		for (let count = minimum; count <= maximum; count++) {
-
-			const viewMiningAmountGlobal = Number(count/1000).toFixed(8);
-			//console.log("viewMiningAmountGlobal", viewMiningAmountGlobal);
-
-			setThisMiningAmountGlobal(viewMiningAmountGlobal);
-
-		}
-
-
-		//const interval = setInterval(pollDOM, 100);
-		*/
-
 		let number = String(Number(miningAmountGlobal) * 100000000);
-
-		console.log("number", number);
 
 		let start = 0;
 		const end = 10000;
-
-		console.log("end", end);
-
-
-		//if (start === end) return;
 
 		let totalMilSecDur = 1;
 		let incrementTime = (totalMilSecDur / end) * 1000;
@@ -125,11 +96,12 @@ export default function GameHeader({
 
 				setThisMiningAmountGlobal(amount);
 			}
-
 			
 		}, incrementTime);
 
 
+		totalMilSecDur = 100;
+		incrementTime = (totalMilSecDur / end) * 1000;
 		let timer2 = setInterval(() => {
 			start += 1;
 
@@ -140,12 +112,8 @@ export default function GameHeader({
 				setThisMiningAmountGlobal(amount);
 			}
 
-			
 		}, incrementTime);
 
-
-
-		//if (start === end) crearInterval(timer);
 
 		return () => {
 			
@@ -155,6 +123,50 @@ export default function GameHeader({
 		}		
 
 	},[miningAmountGlobal]);
+
+
+
+
+	useEffect(() => {
+
+		console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
+
+		let number = String(stakingCountGlobal);
+
+		let start = 0;
+		const end = stakingCountGlobal;
+
+
+		//console.log("start", start);
+		//console.log("end", end);
+
+		let incrementTime = 1;
+
+		let timer = setInterval(() => {
+			start += 1;
+
+			const amount = Number(start).toFixed(0);
+
+			if (start < end) {
+
+				setThisStakingCountGlobal(amount);
+			}
+			
+		}, incrementTime);
+
+
+		return () => {
+			
+			clearInterval(timer);
+
+	
+		}		
+
+	},[stakingCountGlobal]);
+
+
+
+
 
 
 
@@ -476,7 +488,14 @@ export default function GameHeader({
 						<p className="text-normal font-medium text-slate-200">
 							Staking Count Total (GDX)
 						</p>
-						<p className=" text-2xl text-amber-400 truncate">{stakingCountGlobal} / 10000</p>
+						{/*
+						<p className=" text-2xl text-amber-400 truncate">
+						*/}
+							
+							<div className={classes.number}>{thisStakingCountGlobal} / 10000</div>
+						{/*
+						</p>
+						*/}
 					</div>
 
 				</div>
