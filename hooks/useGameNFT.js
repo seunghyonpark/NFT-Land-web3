@@ -174,12 +174,6 @@ export default function useGameNFT(address) {
 		}
 
 		const interval = setInterval(pollDOM, 10000);
-		
-		
-		
-		if (address === "") {
-			//clearInterval(interval);
-		}
 
 		return () => {
 			
@@ -189,9 +183,6 @@ export default function useGameNFT(address) {
 		
 
 	}, [address, data, setMiningAmountTotal, miningAmountTotal, setStakingCount]);
-
-
-
 
 
 
