@@ -68,6 +68,7 @@ export default async function handler(req, res) {
 		const data = await caver.kas.tokenHistory.getNFT(contractAddress, tokenid);
 
 		console.log("data", data);
+		
 		/*
 		Nft {
 			owner: '0x6045c976d3ea130b2782029a8faf38236f7d1022',
