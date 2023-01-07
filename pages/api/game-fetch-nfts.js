@@ -72,23 +72,52 @@ export default async function handler(req, res) {
 		if (wallet) {
 
 		} else {
+			const nftsGlobal = new Object();
 			
 			const response = await fetch(`http://wallet.treasureverse.io/gogostaking`);
 
 			if (response.ok) {
 	
 				const json = await response.json();
+				
+				if (json) {
+					nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
+					nftsGlobal.miningAmountGlobal = json.miningAmountGlobal;
+				}
 	
-
-
-				const nftsGlobal = new Object();
-				nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
-				nftsGlobal.miningAmountGlobal = json.miningAmountGlobal;
-	
-				res.json({ message: "Fetch successful!", data:  nftsGlobal});
-				return;
-	
+				
 			}
+
+
+			/*
+			NftContractDetail {
+				address: '0x3b92b8c9765d77c1ce6ee928e679aacbbcbed3c1',
+				name: 'GOGODINO Official',
+				symbol: 'GDX',
+				totalSupply: '0x17b',
+				createdAt: 1672223341,
+				updatedAt: 1673077597,
+				deletedAt: 0,
+				type: 'KIP-17',
+				status: 'completed'
+			}
+			*/
+
+			const data = await caver.kas.tokenHistory.getNFTContract(contractAddress);
+
+			console.log("data.totalSupply", caver.utils.hexToNumber(data.totalSupply));
+
+			if (data) {
+				//data.totalSupply
+
+				nftsGlobal.mintingCountGlobal = caver.utils.hexToNumber(data.totalSupply);
+			}
+
+
+
+			res.json({ message: "Fetch successful!", data:  nftsGlobal});
+
+			return;
 			
 		}
 

@@ -762,7 +762,7 @@ export default function useGameNFT(address) {
 
 
 
-			const mintingCountGlobal = "6270";
+			const mintingCountGlobal = fetchData.data.mintingCountGlobal;
 			setMintingCountGlobal(mintingCountGlobal);
 
 			
