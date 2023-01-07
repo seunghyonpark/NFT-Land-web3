@@ -94,12 +94,19 @@ body {
 body {
 	padding: 0;
 	margin: 0;
-	font-family: zeroesone;
+	font-family: 'Zeroes One';
 }
 
-  
+
 @font-face {
-	font-family: "DoongaSlash";
+	font-family: "Iceland Regular";
+	font-weight: 150;
+	src: url("/fonts/Iceland-Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+	font-family: "Doonga Slash";
 	font-weight: 100;
 	src: url("/fonts/Doonga_Slash.ttf") format("truetype");
 }
@@ -111,7 +118,7 @@ body {
 }
 
 @font-face {
-	font-family: "zeroesone";
+	font-family: "Zeroes One";
 	font-weight: 100;
 	src: url("/fonts/zeroes_one.ttf") format("truetype");
 }

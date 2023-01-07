@@ -231,11 +231,10 @@ export default function Game({
 
 <div className="bg-cover bg-center bg-[url('/milkyway.jpeg')] ">
 	
-
-
-
 <div className="bg-gradient-to-bl from-black">
 
+
+	
 
 		<div
 			className={`container m-auto  min-h-screen text-center px-5  sm:px-10 md:px-20
@@ -419,8 +418,6 @@ export default function Game({
 
 
 		</div>
-
-
 		</div>
 
 

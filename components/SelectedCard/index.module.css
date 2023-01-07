@@ -193,13 +193,13 @@
 /*Style text*/
 .squareflip h2{
   color:white;
-  font-family: "zeroesone";
+  font-family: "Zeroes One"";
   font-weight:700;
   font-size:15px;
 }
 .squareflip h3{
   color:white;
-  font-family: "zeroesone";
+  font-family: "Zeroes One"";
   font-weight:500;
   font-size:15px;
   line-height:26px;
@@ -299,7 +299,7 @@
 }
 .clearfix{clear:both;}
 .centerflipcards p{
-    font-family:"Open Sans";
+    font-family:"Zeroes One";
     font-size:13px;
     margin-top:10px;
     font-weight:700;

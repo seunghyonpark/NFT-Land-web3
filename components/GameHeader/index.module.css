@@ -1,3 +1,11 @@
+
+.number{
+    font-family: "Iceland Regular";
+    color: white;
+    font-weight:500;
+    font-size:45px;
+}
+
 .squareflip{
     -webkit-perspective: 1000;
     -moz-perspective: 1000;
@@ -157,13 +165,13 @@
 /*Style text*/
 .squareflip h2{
     color:white;
-    font-family: "Open Sans";
+    font-family: "Zeroes One";
     font-weight:700;
     font-size:20px;
 }
 .squareflip h3{
     color:white;
-    font-family: "Open Sans";
+    font-family: "Zeroes One";
     font-weight:500;
     font-size:16px;
     line-height:26px;
