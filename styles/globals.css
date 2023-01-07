@@ -82,12 +82,20 @@ body {
 
 
 
-
+/*
 body {
 	padding: 0;
 	margin: 0;
 	font-family: -apple-system, zeroesone, sans-serif;
 }
+*/
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: zeroesone;
+}
+
   
 @font-face {
 	font-family: "DoongaSlash";

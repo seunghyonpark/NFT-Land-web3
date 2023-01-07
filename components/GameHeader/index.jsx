@@ -5,6 +5,7 @@ import classes from "./index.module.css"
 import { consoleLog } from "mocha/lib/reporters/base"
 
 import { useRouter } from 'next/router'
+import { min } from "mocha/lib/reporters"
 
 
 export default function GameHeader({
@@ -27,7 +28,6 @@ export default function GameHeader({
 	miningAmountTotal,
 	stakingCountGlobal,
 	miningAmountGlobal,
-
 }) {
 
 	if (address) {
@@ -41,10 +41,97 @@ export default function GameHeader({
 	const [buttonText, setButtonText] = useState("Connect Kaikas");
 
 
+	const [thisMiningAmountGlobal, setThisMiningAmountGlobal] = useState(Number(miningAmountGlobal));
+
+
+
 	//const router = useRouter();
 
 	const refConnect = useRef(null);
 	const refNFT = useRef(null);
+
+
+
+	const onChangeThisMiningAmountGlobal = () => {
+
+        console.log("onChangeThisMiningAmountGlobal");
+
+		const minimum = thisMiningAmountGlobal;
+		const maximum = Number(miningAmountGlobal);
+
+		
+		for (let count = minimum; count <= maximum; count++) {
+            setTimeout(() => {
+                setThisMiningAmountGlobal(count);
+            }, 1000);
+        }
+
+    }
+
+
+	useEffect(() => {
+
+		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+
+
+		setThisMiningAmountGlobal(miningAmountGlobal);
+		
+		
+
+	},[miningAmountGlobal, setThisMiningAmountGlobal]);
+
+
+
+
+	
+	useEffect(() => {
+
+		//setAddress(window.klaytn.selectedAddress);
+
+		console.log("GameHeader useEffect address", address);
+		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+		
+
+
+
+
+
+		
+		if (address === undefined) {
+
+			//router.push('/');
+
+		} else {
+
+			if (address === "") {
+				//Router.push('/');
+
+				//router.push('/');
+
+				setButtonText("Connect Kaikas");
+
+
+			} else {
+
+
+				refNFT.current.click();
+				////fetchNFTs(); ========> 반복적으로 실행이 된다.
+
+				//refStakeNFT.current.click();
+
+
+				//refConnect.current.style.display = "none";
+				setButtonText("Disconnect");
+
+			}
+
+		}
+		
+
+
+	}, [address, refNFT, ]);
+
+
 
 
 	const onChange = (event) => {
@@ -231,59 +318,6 @@ export default function GameHeader({
 
 
 	
-	useEffect(() => {
-
-		//setAddress(window.klaytn.selectedAddress);
-
-		console.log("GameHeader useEffect address", address);
-		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
-		
-		/*
-		for (let count = minimum; count <= maximum; count++) {
-            setTimeout(() => {
-                this.setState({count})
-            }, 1000);
-        }
-		*/
-
-
-
-
-		
-		if (address === undefined) {
-
-			//router.push('/');
-
-		} else {
-
-			if (address === "") {
-				//Router.push('/');
-
-				//router.push('/');
-
-				setButtonText("Connect Kaikas");
-
-
-			} else {
-
-
-				refNFT.current.click();
-				////fetchNFTs(); ========> 반복적으로 실행이 된다.
-
-				//refStakeNFT.current.click();
-
-
-				//refConnect.current.style.display = "none";
-				setButtonText("Disconnect");
-
-			}
-
-		}
-		
-
-
-	}, [address, refNFT]);
-	
 
 
 
@@ -380,7 +414,7 @@ export default function GameHeader({
 
 				<div className="float-left flex py-0 first:pt-0 last:pb-0 ">
 					
-					<div className="mt-3 ml-10 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<div className="mt-3 ml-6 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="crypto-tower"
 							src={depositingNFTAddress}
@@ -394,7 +428,7 @@ export default function GameHeader({
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned Total ($SML)
 						</p>
-						<p className="font-mono text-2xl text-amber-400 truncate">{miningAmountGlobal}</p>
+						<p className="font-mono text-2xl text-amber-400 truncate">{thisMiningAmountGlobal}</p>
 					</div>
 
 
