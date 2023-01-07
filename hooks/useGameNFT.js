@@ -173,7 +173,14 @@ export default function useGameNFT(address) {
 
 		}
 
-		const interval = setInterval(pollDOM, 10000);
+		let intervalMiliSecond;
+		if (address) {
+			intervalMiliSecond = 10000;
+		} else {
+			intervalMiliSecond = 3000;
+		}
+
+		const interval = setInterval(pollDOM, intervalMiliSecond);
 
 		return () => {
 			

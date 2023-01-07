@@ -68,18 +68,93 @@ export default function GameHeader({
 
     }
 
+	const fetchNFTsGlobal = async () => {
+
+	}
+
 
 	useEffect(() => {
 
 		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 
 
-		setThisMiningAmountGlobal(miningAmountGlobal);
-		
-		
+		/*
+		///////setThisMiningAmountGlobal(miningAmountGlobal);
 
-	},[miningAmountGlobal, setThisMiningAmountGlobal]);
+		const maximum = Number(miningAmountGlobal) * 1000;
+		const minimum = maximum - 1000;
 
+		//console.log("minimum", minimum);
+		//console.log("maximum", maximum);
+	
+		for (let count = minimum; count <= maximum; count++) {
+
+			const viewMiningAmountGlobal = Number(count/1000).toFixed(8);
+			//console.log("viewMiningAmountGlobal", viewMiningAmountGlobal);
+
+			setThisMiningAmountGlobal(viewMiningAmountGlobal);
+
+		}
+
+
+		//const interval = setInterval(pollDOM, 100);
+		*/
+
+		let number = String(Number(miningAmountGlobal) * 100000000);
+
+		console.log("number", number);
+
+		let start = 0;
+		const end = 10000;
+
+		console.log("end", end);
+
+
+		//if (start === end) return;
+
+		let totalMilSecDur = 1;
+		let incrementTime = (totalMilSecDur / end) * 1000;
+		console.log("incrementTime", incrementTime);
+
+		let timer = setInterval(() => {
+			start += 100;
+
+			const amount = Number(((number-10000) + start) / 100000000).toFixed(8);
+
+			if (start < end) {
+
+				setThisMiningAmountGlobal(amount);
+			}
+
+			
+		}, incrementTime);
+
+
+		let timer2 = setInterval(() => {
+			start += 1;
+
+			const amount = Number(((number-100) + start) / 100000000).toFixed(8);
+
+			if (start < end) {
+
+				setThisMiningAmountGlobal(amount);
+			}
+
+			
+		}, incrementTime);
+
+
+
+		//if (start === end) crearInterval(timer);
+
+		return () => {
+			
+			clearInterval(timer);
+			clearInterval(timer2);
+	
+		}		
+
+	},[miningAmountGlobal]);
 
 
 
@@ -90,12 +165,6 @@ export default function GameHeader({
 
 		console.log("GameHeader useEffect address", address);
 		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
-		
-
-
-
-
-
 		
 		if (address === undefined) {
 
