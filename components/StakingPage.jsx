@@ -78,7 +78,8 @@ export default function StakingPage({
 
 			{/* logotype */}
 
-			<div className=" box-border h-20
+			<div className="
+				mb-3 box-border h-20
 			 	bg-cover
 				bg-no-repeat 
 				bg-[url('/gdx_banner.jpeg')]

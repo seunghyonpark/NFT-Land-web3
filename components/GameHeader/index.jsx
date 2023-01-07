@@ -26,6 +26,7 @@ export default function GameHeader({
 	loadingCubesAddress,
 	stakingCount,
 	miningAmountTotal,
+	mintingCountGlobal,
 	stakingCountGlobal,
 	miningAmountGlobal,
 }) {
@@ -41,6 +42,7 @@ export default function GameHeader({
 	const [buttonText, setButtonText] = useState("Connect Kaikas");
 
 
+	const [thisMintCountGlobal, setThisMintingCountGlobal] = useState(Number(mintingCountGlobal));
 	const [thisMiningAmountGlobal, setThisMiningAmountGlobal] = useState(Number(miningAmountGlobal));
 	const [thisStakingCountGlobal, setThisStakingCountGlobal] = useState(Number(stakingCountGlobal));
 
@@ -122,7 +124,44 @@ export default function GameHeader({
 	
 		}		
 
-	},[miningAmountGlobal]);
+	}, [miningAmountGlobal]);
+
+
+
+	useEffect(() => {
+
+		console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
+
+		let number = String(mintingCountGlobal);
+
+		let start = parseInt(mintingCountGlobal) - 100;
+		const end = mintingCountGlobal;
+
+
+		//console.log("start", start);
+		//console.log("end", end);
+
+		let incrementTime = 1;
+
+		let timer = setInterval(() => {
+			start += 1;
+
+			const amount = Number(start).toFixed(0);
+
+			if (start < end) {
+
+				setThisMintingCountGlobal(amount);
+			}
+			
+		}, incrementTime);
+
+		return () => {
+			
+			clearInterval(timer);
+		}		
+
+	}, [mintingCountGlobal]);
+
 
 
 
@@ -162,7 +201,7 @@ export default function GameHeader({
 	
 		}		
 
-	},[stakingCountGlobal]);
+	}, [stakingCountGlobal]);
 
 
 
@@ -492,7 +531,7 @@ export default function GameHeader({
 						<p className=" text-2xl text-amber-400 truncate">
 						*/}
 							
-							<div className={classes.number}>{thisStakingCountGlobal} / 10000</div>
+							<div className={classes.number}>{thisStakingCountGlobal} / {thisMintCountGlobal}</div>
 						{/*
 						</p>
 						*/}

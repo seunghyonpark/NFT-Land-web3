@@ -19,8 +19,10 @@ export default function useGameNFT(address) {
 	const [holdingCount, setHoldingCount] = useState("0");
 	const [stakingCount, setStakingCount] = useState("0");
 	const [selectedCard, setSelectedCard] = useState("");
+
 	const [miningAmountTotal, setMiningAmountTotal] = useState("0.00000000");
 
+	const [mintingCountGlobal, setMintingCountGlobal] = useState("0");
 	const [stakingCountGlobal, setStakingCountGlobal] = useState("0");
 	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
@@ -759,6 +761,10 @@ export default function useGameNFT(address) {
 			setMiningAmountGlobal(miningAmountGlobal);
 
 
+
+			const mintingCountGlobal = "6270";
+			setMintingCountGlobal(mintingCountGlobal);
+
 			
 			return;
 
@@ -1213,6 +1219,7 @@ export default function useGameNFT(address) {
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
+		mintingCountGlobal,
 		stakingCountGlobal,
 		miningAmountGlobal,
 		holdingCount,

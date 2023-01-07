@@ -70,7 +70,7 @@ export default function Game({
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
-		stakingCountGlobal, miningAmountGlobal,
+		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
 	} = useGameNFT(address);
 
 
@@ -305,6 +305,7 @@ export default function Game({
 					loadingCubesAddress,
 					stakingCount,
 					miningAmountTotal,
+					mintingCountGlobal,
 					stakingCountGlobal,
 					miningAmountGlobal,
 				}}
