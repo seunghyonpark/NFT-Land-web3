@@ -105,7 +105,7 @@ export default async function handler(req, res) {
 
 			const data = await caver.kas.tokenHistory.getNFTContract(contractAddress);
 
-			console.log("data.totalSupply", caver.utils.hexToNumber(data.totalSupply));
+			////console.log("data.totalSupply", caver.utils.hexToNumber(data.totalSupply));
 
 			if (data) {
 				//data.totalSupply

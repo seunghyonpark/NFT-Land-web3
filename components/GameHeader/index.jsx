@@ -78,7 +78,7 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 
 		let number = String(Number(miningAmountGlobal) * 100000000);
 
@@ -168,7 +168,7 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
+		//console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
 
 		let number = String(stakingCountGlobal);
 
@@ -503,7 +503,7 @@ export default function GameHeader({
 			<ul  className="p-3 flex flex-row justify-between divide-x divide-slate-200">
 		*/}
 
-			<cards className="mt-4 grid justify-center gap-10
+			<cards className="mt-0 grid justify-center gap-10
 							sm:grid-cols-2
 							md:grid-cols-2
 							lg:grid-cols-2

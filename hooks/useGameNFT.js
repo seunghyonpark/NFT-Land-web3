@@ -342,6 +342,7 @@ export default function useGameNFT(address) {
 
 
 			setHoldingCount(holdingCount+1);
+			setMintingCountGlobal(mintingCountGlobal+1);
 
 
 			setIsMinting(false);
@@ -749,7 +750,7 @@ export default function useGameNFT(address) {
 
 			const fetchData = await response.json();
 
-			const range = 10;
+			const range = 3;
 			const randomNumber = Math.random() * range;
 
 			const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber) - (range / 2);
