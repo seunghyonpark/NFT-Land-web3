@@ -103,11 +103,6 @@ export default function useGameNFT(address) {
 
 	useEffect(() => {
 
-		console.log("useGameNFT useEffect===========");
-
-
-		console.log("useGameNFT useEffect address", address);
-
 		
 		if (address === "") {
 			//setData([]);
@@ -116,13 +111,8 @@ export default function useGameNFT(address) {
 			//setSelectedCard("");
 			//setIsInHome(true);
 			//setMiningAmountTotal("0");
-
-
-
 			
 			//fetchNFTsGlobal();
-
-
 
 		}
 
@@ -131,11 +121,10 @@ export default function useGameNFT(address) {
 
 		
 
-
 		
 		let i = 0;
 		function pollDOM() {
-			console.log("useGameNFT useEffect i", i);
+			////console.log("useGameNFT useEffect i", i);
 			i++;
 
 
@@ -143,7 +132,7 @@ export default function useGameNFT(address) {
 
 
 			
-			console.log("useGameNFT useEffect data.length", data.length);
+			///console.log("useGameNFT useEffect data.length", data.length);
 
 			let sCount = 0;
 			let inSecondsTotal = 0;
@@ -151,18 +140,6 @@ export default function useGameNFT(address) {
 
 				if (data[idx].staking === "true") {
 					sCount = sCount + 1;
-					const today = new Date();
-
-					let startday = new Date();
-					if (data[idx].timeStart) {
-						startday = new Date(data[idx].timeStart);
-					}
-
-					const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-					
-					data[idx].miningAmount = Number(inSeconds/100000000).toFixed(8);
-
-					inSecondsTotal = inSecondsTotal + inSeconds;
 				}
 
 			}
@@ -191,7 +168,7 @@ export default function useGameNFT(address) {
 		}
 		
 
-	}, [address, data, setMiningAmountTotal, miningAmountTotal, setStakingCount]);
+	}, [address, data, miningAmountTotal]);
 
 
 
@@ -645,6 +622,7 @@ export default function useGameNFT(address) {
 
 
 
+			console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
 			console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
 
 			if (fetchData.data.ownedNfts.length === 0) {
@@ -654,9 +632,9 @@ export default function useGameNFT(address) {
 			} else {
 
 				
-				console.log("fetchData.data.ownedNfts[0]", fetchData.data.ownedNfts[0]);
+				console.log("fetchNFTs fetchData.data.ownedNfts[0].miningAmount", fetchData.data.ownedNfts[0].miningAmount);
 
-				setSelectedCard(fetchData.data.ownedNfts[0]);
+				////setSelectedCard(fetchData.data.ownedNfts[0]);
 
 
 							// alchemy
@@ -664,6 +642,8 @@ export default function useGameNFT(address) {
 
 
 				setHoldingCount(fetchData.data.ownedNfts.length);
+
+				setMiningAmountTotal(fetchData.miningAmountTotal);
 
 			}
 

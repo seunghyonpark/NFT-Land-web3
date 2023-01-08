@@ -230,6 +230,10 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			<div className=" font-mono mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
 				# {cardData.tokenId}
 			</div>
+
+			<div className=" font-mono mt-2 text-right text-xs rounded-md bg-teal-50 px-2">
+				{cardData.miningAmount} $SML
+			</div>
 			
 			
 

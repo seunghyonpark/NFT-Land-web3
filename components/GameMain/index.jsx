@@ -67,22 +67,35 @@ export default function GameMain({
 
 
 	useEffect(() => {
+
+        console.log("GameMain miningAmountTotal", miningAmountTotal);
+
+		const numFix = 4;
+
+        if (address === "") {
+            const amount = Number(0).toFixed(numFix);
+            setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
+            return;
+        }
         
-        console.log("miningAmountTotal", miningAmountTotal);
-		
-		let number = String(Number(miningAmountTotal) * 10000);
+        
+
+		let number = Number(miningAmountTotal) * 10000;
+
+
 		let start = 0;
 		const end = 100;
 		let incrementTime = 10;
 		let timer = setInterval(() => {
-			start += 1;
-
-			const amount = Number(((number-100) + start) / 100).toFixed(4);
-
-			if (start < end) {
-
+			
+			if (start <= end) {
+                const amount = Number(((number-end) + start) / 10000.0).toFixed(numFix);
 				setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
-			}
+			} else {
+                clearInterval(timer);
+                return;
+            }
+            start += 1;
 
 		}, incrementTime);
 
@@ -92,7 +105,7 @@ export default function GameMain({
 	
 		}		
 
-	}, [miningAmountTotal, stakingCount]);
+	}, [address, miningAmountTotal, stakingCount]);
 
 
 
@@ -159,7 +172,8 @@ export default function GameMain({
 
 	const handleClick = (nft) =>  {
 
-		console.log("handleClick tokenId", nft.tokenId);
+		console.log("GameMain handleClick tokenId", nft.tokenId);
+		console.log("GameMain handleClick miningAmount", nft.miningAmount);
 
 		//cardData.selected = true;
 
@@ -308,32 +322,33 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					
 				">
 
-				{data.length !== 0 &&
+				{
+                data.length !== 0 &&
 					<div className="mt-2 pt-5 text-normal text-amber-400">Select your M.E. NFTs</div>
 				}
 
 
 
 
-				{
-				data.length === 0 &&
+				{data.length === 0 && 
 				
-			
-							<Image className=" bg-contain bg-no-repeat bg-center" 
-								src="/char_group.png"
-								alt=""
-								width={500}
-								height={500}
-							/>
+                    <div>
+                        <Image className=" bg-contain bg-no-repeat bg-center" 
+                            src="/char_group.png"
+                            alt=""
+                            width={500}
+                            height={500}
+                        />
 
-				
-			}
+                        <div className=" text-xl text-amber-400">No exist...</div>
+                    </div>
+                    
+			    }
 
-				{data.length === 0 &&
-						
-						
-						<div className=" text-xl text-amber-400">No exist...</div>
-				}
+
+				{/*data.length === 0 &&	
+					<div className=" text-xl text-amber-400">No exist...</div>
+                */}
 
 				{isLoading &&
 				

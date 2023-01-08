@@ -61,7 +61,7 @@ export default function StakingPage({
 		
 		}
 
-	}, [address, setDisplayAddress]);
+	}, [address, selectedCard]);
 	
 
 

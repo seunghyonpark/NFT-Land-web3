@@ -246,6 +246,11 @@ export default async function handler(req, res) {
 
 
 
+
+		// staked NFTs
+
+		let miningAmountTotal = 0;
+
 		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?wallet=${wallet}`);
 
 		if (response.ok) {
@@ -257,18 +262,30 @@ export default async function handler(req, res) {
 				//console.log("item tokenId", json.items[idx].tokenId);
 				//console.log("item regDatetime", json.items[idx].regDatetime);
 
-
-				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
-
-				///console.log("item", item);
-
-
+				miningAmountTotal = miningAmountTotal + Number(json.items[idx].miningAmount);
 
 				const nft = new Object();
 
-				try {
+				nft.timeLeft = "4 years 11 month 354 days";
 
-					
+				nft.timeStart = json.items[idx].regDatetime;
+
+
+				nft.maturityLevel = "Level 1";
+
+				nft.miningAmount = json.items[idx].miningAmount;
+
+				console.log("json.items[idx].miningAmount", json.items[idx].miningAmount );
+
+
+				nft.selected = false;
+
+				nft.staking = "true";
+
+
+				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
+
+				try {
 
 					nft.owner = wallet;
 	
@@ -278,6 +295,7 @@ export default async function handler(req, res) {
 					nft.contract = contract;
 	
 					nft.tokenId = json.items[idx].tokenId;
+
 					nft.tokenUri = item.tokenUri;
 	
 	
@@ -289,11 +307,6 @@ export default async function handler(req, res) {
 					if (response.ok) {
 	
 						const jsonTokenUri = await response.json();
-	
-						//console.log(jsonTokenUri.name);
-						//console.log(jsonTokenUri.image);
-	
-						
 				
 						// 객체 생성
 						const mediadata = new Object() ;
@@ -303,56 +316,9 @@ export default async function handler(req, res) {
 						// 리스트에 생성된 객체 삽입
 						media.push(mediadata);
 	
-						
-	
 						nft.title = jsonTokenUri.name;
 						
 						nft.description = jsonTokenUri.description;
-	
-	
-						nft.timeLeft = "4 years 11 month 354 days";
-
-						nft.timeStart = json.items[idx].regDatetime;
-
-
-						/*
-						const today = new Date();
-						console.log(today);
-						console.log("today fullyear", today.getFullYear());
-
-						console.log(json.items[idx].regDatetime);
-
-						const startday = new Date(json.items[idx].regDatetime);
-						console.log("startTime", startday);
-
-						console.log("today fullyear", today.getFullYear());
-						console.log("startday fullyear", startday.getFullYear());
-
-						const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
-						
-
-						console.log("inDays", inDays);
-
-						const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-
-						console.log("inSeconds", inSeconds);
-						*/
-						
-
-						/*
-						const diffYear = today.getFullYear() - json.items[idx].regDatetime.getFullYear();
-						//nft.timeLeft = String(diffYear);
-						*/
-
-
-						nft.maturityLevel = "Level 1";
-						nft.miningAmount = "0.05322324";
-	
-	
-						nft.selected = false;
-
-						nft.staking = "true";
-						
 				
 					} else {
 						//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
@@ -363,6 +329,10 @@ export default async function handler(req, res) {
 					//return;
 					//console.log("err",err);
 				}
+
+
+			
+
 				
 				ownedNfts.unshift(nft);
 
@@ -377,7 +347,7 @@ export default async function handler(req, res) {
 
 		aaa.ownedNfts = ownedNfts;
 
-		res.json({ message: "Fetch successful!", data:  aaa});
+		res.json({ message: "Fetch successful!", data: aaa, miningAmountTotal: miningAmountTotal});
 
 
 	} catch (err) {

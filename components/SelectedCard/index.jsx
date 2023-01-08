@@ -85,24 +85,67 @@ export default function SelectedCard({
 
 
 
-
 	useEffect(() => {
 
-		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
-		console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
-
-
-
+		console.log("SelectedCard useEffect tokenId", selectedCard.tokenId);
 
 
 		return () => {
 		
 		}
 
-	//}, [selectedCard.staking, selectedCard.miningAmount]);
+	}, [ selectedCard.tokenId]);
+
+
+
+	useEffect(() => {
+
+		console.log("SelectedCard useEffect staking", selectedCard.staking);
+
+
+		return () => {
+		
+		}
+
+	}, [ selectedCard.staking]);
+
+
+	useEffect(() => {
+
+		console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
+
+
+		return () => {
+		
+		}
+
 	}, [ selectedCard.miningAmount]);
 
 
+	useEffect(() => {
+
+		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
+		console.log("SelectedCard useEffect staking.timeLeft", selectedCard.timeLeft);
+
+
+		return () => {
+		
+		}
+
+	}, [ selectedCard.timeLeft]);
+
+
+	useEffect(() => {
+
+		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
+		console.log("SelectedCard useEffect staking.maturityLevel", selectedCard.maturityLevel);
+
+
+		return () => {
+		
+		}
+
+	}, [ selectedCard.maturityLevel]);
 
 	
 

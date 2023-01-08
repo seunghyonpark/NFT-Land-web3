@@ -77,25 +77,28 @@ export default function GameHeader({
 
 
 	useEffect(() => {
+
+		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 		
 		let number = String(Number(miningAmountGlobal) * 100);
 		let start = 0;
 		const end = 100;
 		let incrementTime = 10;
 		let timer = setInterval(() => {
-			start += 1;
-
+			
 			const amount = Number(((number-100) + start) / 100).toFixed(2);
 
-			if (start < end) {
-
-				setThisMiningAmountGlobal(amount);
+			if (start > end) {
+				clearInterval(timer);
+				return;
 			}
+
+			setThisMiningAmountGlobal(amount);
+
+			start += 1;
 
 		}, incrementTime);
 		
-
-
 		return () => {
 			
 			clearInterval(timer);
@@ -108,7 +111,7 @@ export default function GameHeader({
 	
 	useEffect(() => {
 
-		console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
+		//console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
 
 		let number = String(mintingCountGlobal);
 
