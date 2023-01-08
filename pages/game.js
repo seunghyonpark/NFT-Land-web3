@@ -275,9 +275,10 @@ export default function Game({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 		
 
-
-				
-  
+				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
+				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, Ecosystem"></meta>
+				<meta property="og:image" content="/gdx.jpeg"></meta>
+				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
 
 
