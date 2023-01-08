@@ -89,7 +89,6 @@ export default function SelectedCard({
 
 		console.log("SelectedCard useEffect tokenId", selectedCard.tokenId);
 
-
 		return () => {
 		
 		}
@@ -100,8 +99,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect staking", selectedCard.staking);
-
+		//console.log("SelectedCard useEffect staking", selectedCard.staking);
 
 		return () => {
 		
@@ -112,8 +110,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
-
+		//console.log("SelectedCard useEffect selectedCard.miningAmount", selectedCard.miningAmount);
 
 		return () => {
 		
@@ -124,9 +121,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
-		console.log("SelectedCard useEffect staking.timeLeft", selectedCard.timeLeft);
-
+		//console.log("SelectedCard useEffect staking.timeLeft", selectedCard.timeLeft);
 
 		return () => {
 		
@@ -137,9 +132,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		//console.log("SelectedCard useEffect selectedCard.staking", selectedCard.staking);
-		console.log("SelectedCard useEffect staking.maturityLevel", selectedCard.maturityLevel);
-
+		//console.log("SelectedCard useEffect staking.maturityLevel", selectedCard.maturityLevel);
 
 		return () => {
 		

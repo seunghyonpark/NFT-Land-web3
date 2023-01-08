@@ -77,6 +77,12 @@ export default function GameMain({
             setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
             return;
         }
+
+		if (miningAmountTotal === "0") {
+			const amount = Number(0).toFixed(numFix);
+            setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
+            return;
+		}
         
         
 
@@ -138,9 +144,9 @@ export default function GameMain({
 			refMint.current.style.display = "";
 			
 
+			/* bug bugbug bug
 			let idx;
 			for(idx=0; idx < data.length; idx++) {
-			//for(idx=0; idx < itemEls.length; idx++) {
 
 				if (data[idx].tokenId === selectedCard.tokenId) {
 					itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
@@ -149,11 +155,14 @@ export default function GameMain({
 	
 	
 				} else {
-					itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
+					itemEls.current[idx].style?.cssText = "border-color: transparent; border-width: 0px;";
 	
 					data[idx].cssText = "border-color: transparent; border-width: 0px;";
 				}
 			}
+			*/
+
+
 	
 			if (selectedCard.staking === "true") {
 				refStake.current.style.display = "none";

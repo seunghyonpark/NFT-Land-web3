@@ -37,3 +37,11 @@
     animation-iteration-count:  infinite;
     animation-timing-function: linear; 
 }
+
+
+.number{
+    font-family: "Iceland Regular";
+    font-weight:100;
+    font-size:18px;
+    text-align: right;
+}

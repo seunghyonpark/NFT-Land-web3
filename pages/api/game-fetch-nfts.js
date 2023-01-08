@@ -266,16 +266,20 @@ export default async function handler(req, res) {
 
 				const nft = new Object();
 
+				nft.owner = wallet;
+
+				nft.tokenId = json.items[idx].tokenId;
+
 				nft.timeLeft = "4 years 11 month 354 days";
 
 				nft.timeStart = json.items[idx].regDatetime;
-
 
 				nft.maturityLevel = "Level 1";
 
 				nft.miningAmount = json.items[idx].miningAmount;
 
-				console.log("json.items[idx].miningAmount", json.items[idx].miningAmount );
+				//console.log("json.items[idx].tokenId", json.items[idx].tokenId );
+				//console.log("json.items[idx].miningAmount", json.items[idx].miningAmount );
 
 
 				nft.selected = false;
@@ -286,18 +290,13 @@ export default async function handler(req, res) {
 				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
 
 				try {
-
-					nft.owner = wallet;
 	
 					const contract = new Object();
 					contract.address = contractAddress;
 					contract.name = contractName;
 					nft.contract = contract;
-	
-					nft.tokenId = json.items[idx].tokenId;
-
+					
 					nft.tokenUri = item.tokenUri;
-	
 	
 					const media = new Array() ;
 					nft.media = media;
@@ -331,9 +330,6 @@ export default async function handler(req, res) {
 				}
 
 
-			
-
-				
 				ownedNfts.unshift(nft);
 
 			}

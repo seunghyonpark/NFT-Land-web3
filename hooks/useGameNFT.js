@@ -103,23 +103,7 @@ export default function useGameNFT(address) {
 
 	useEffect(() => {
 
-		
-		if (address === "") {
-			//setData([]);
-			//setStakeData([]);
-			//setStakingCount("0");
-			//setSelectedCard("");
-			//setIsInHome(true);
-			//setMiningAmountTotal("0");
-			
-			//fetchNFTsGlobal();
-
-		}
-
-
 		fetchNFTsGlobal();
-
-		
 
 		
 		let i = 0;
@@ -127,28 +111,7 @@ export default function useGameNFT(address) {
 			////console.log("useGameNFT useEffect i", i);
 			i++;
 
-
 			fetchNFTsGlobal();
-
-
-			
-			///console.log("useGameNFT useEffect data.length", data.length);
-
-			let sCount = 0;
-			let inSecondsTotal = 0;
-			for(let idx=0; idx < data.length; idx++){
-
-				if (data[idx].staking === "true") {
-					sCount = sCount + 1;
-				}
-
-			}
-
-			setMiningAmountTotal(Number( Number(miningAmountTotal) + inSecondsTotal/100000000).toFixed(8));
-
-			setStakingCount(String(sCount));
-
-			setHoldingCount(data.length);
 
 		}
 
@@ -168,7 +131,81 @@ export default function useGameNFT(address) {
 		}
 		
 
-	}, [address, data, miningAmountTotal]);
+	//}, [address, data, miningAmountTotal]);
+	}, [address]);
+
+
+
+	useEffect(() => {
+
+		if (address) {}
+		else return;
+
+		const fetchNFTs = async () => {
+	
+			try {
+				const response = await fetch(`/api/game-fetch-nfts?wallet=${address}`);
+	
+				if (!response.ok) {
+					return;
+				}
+	
+				const fetchData = await response.json();
+	
+				console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
+				console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
+	
+				if (fetchData.data.ownedNfts.length === 0) {
+
+				} else {
+	
+					// alchemy
+					setData(fetchData.data.ownedNfts);
+	
+					setHoldingCount(fetchData.data.ownedNfts.length);
+	
+					setMiningAmountTotal(fetchData.miningAmountTotal);
+	
+				}
+	
+				// update staking count
+				let sCount = 0;
+				for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
+	
+					if (fetchData.data.ownedNfts[idx].staking === "true") {
+						sCount = sCount + 1;
+					}
+	
+				}
+				setStakingCount(String(sCount));
+
+
+	
+			} catch (err) {
+				setIsLoading(false);
+	
+				console.log("err="+err);
+				alert("There was an error fetching NFTs!----");
+
+			}
+	
+		};
+
+		let intervalMiliSecond = 10000;
+
+		const interval = setInterval(fetchNFTs, intervalMiliSecond);
+
+		return () => {
+			
+			clearInterval(interval);
+
+		}
+		
+	}, [address]);
+
+
+
+
 
 
 
@@ -582,14 +619,12 @@ export default function useGameNFT(address) {
 
 
 
-	//const fetchNFTs = async (e) => {
+
 	const fetchNFTs = async () => {
 
 		/////e.preventDefault();
 
 		console.log("fetchNFT address",address);
-
-		
 
 		if (address === "") {
 			//alert("Please provide Wallet Address!");
@@ -632,7 +667,7 @@ export default function useGameNFT(address) {
 			} else {
 
 				
-				console.log("fetchNFTs fetchData.data.ownedNfts[0].miningAmount", fetchData.data.ownedNfts[0].miningAmount);
+				//////console.log("fetchNFTs fetchData.data.ownedNfts[0].miningAmount", fetchData.data.ownedNfts[0].miningAmount);
 
 				////setSelectedCard(fetchData.data.ownedNfts[0]);
 
@@ -646,23 +681,6 @@ export default function useGameNFT(address) {
 				setMiningAmountTotal(fetchData.miningAmountTotal);
 
 			}
-
-
-
-			
-
-
-			//console.log(data.data.ownedNfts);
-
-			//console.log(data.data.items);
-
-
-			// caver
-			///setData(data.data.items);
-
-			/////console.log("length", fetchData.data.ownedNfts.length);
-
-
 
 
 			
@@ -680,20 +698,9 @@ export default function useGameNFT(address) {
 					///////miningAmountTotal = String(Number(miningAmountTotal) + Number(fetchData.data.ownedNfts[idx].miningAmount));
 				}
 
-
-
 			}
 			setStakingCount(String(sCount));
 			
-
-			/////setMiningAmountTotal(String(Number(miningAmountTotal).toFixed(2)));
-
-
-
-			//setMiningAmountTotal("23.523552324");
-
-
-
 
 
 			setIsLoading(false);
@@ -708,8 +715,6 @@ export default function useGameNFT(address) {
 		}
 
 	};
-
-
 
 
 
