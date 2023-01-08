@@ -268,6 +268,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
                         <div className={classes.number}>{stakingCount} / {holdingCount}</div>
 
+
 					</div>
 				</li>
 
@@ -287,6 +288,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned ($SML)
 						</p>
+						
 						<div className={classes.number}>{thisMiningAmountTotal}</div>
 					</div>
 
