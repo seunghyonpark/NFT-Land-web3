@@ -129,7 +129,7 @@ const account = await caver.kas.wallet.createAccount();
 
 		
 		/*
-		const keyring = caver.wallet.keyring.createFromPrivateKey("process.env.OWNER_PRIVATE_KEY");
+		const keyring = caver.wallet.keyring.createFromPrivateKey(process.env.OWNER_PRIVATE_KEY);
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
