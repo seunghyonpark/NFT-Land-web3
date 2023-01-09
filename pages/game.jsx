@@ -66,8 +66,8 @@ export default function Game({
 	const nftName = "GOGODINO Official";
 	
 
-	console.log("Game contractAddress", contractAddress);
-	console.log("Game stakingWalletAddress", stakingWalletAddress);
+	//console.log("Game contractAddress", contractAddress);
+	//console.log("Game stakingWalletAddress", stakingWalletAddress);
 
 	
 

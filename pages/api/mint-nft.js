@@ -64,8 +64,7 @@ export default async function handler(req, res) {
 
 		const { chainid, owner, contract, wallet, baseuri } = req.query;
 
-
-		console.log("mint-nft chainid", chainid);
+		//console.log("mint-nft chainid", chainid);
 
 		const contractOwnerAddress = owner;
 		const contractAddress = contract;
@@ -133,16 +132,16 @@ const account = await caver.kas.wallet.createAccount();
 */
 
 
+		console.log(process.env.OWNER_PRIVATE_KEY_GDX);
 		
-		/*
-		const keyring = caver.wallet.keyring.createFromPrivateKey("574d76546a407b6300e76b68ddb868888b3364e42c11d77aec18f71662a734d2");
+		const keyring = caver.wallet.keyring.createFromPrivateKey(process.env.OWNER_PRIVATE_KEY_GDX);
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 		
 		console.log("migrateAccounts ret", ret);
-		*/
+		
 	
 
 
@@ -234,6 +233,8 @@ const account = await caver.kas.wallet.createAccount();
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
 
+		const tokenUri = `${baseURI}/${tokenId}.json`;
+
 
 		/*
 		{"image":"ipfs://QmYxT4LnK8sqLupjbS6eRvu1si7Ly2wFQAqFebxhWntcf6","attributes":[{"trait_type":"Background","value":"Purple"},{"trait_type":"Eyes","value":"Bored"},{"trait_type":"Mouth","value":"Tongue Out"},{"trait_type":"Clothes","value":"Bone Necklace"},{"trait_type":"Fur","value":"Cheetah"}]}
@@ -266,10 +267,9 @@ const account = await caver.kas.wallet.createAccount();
 
 
 
-		const tokenUri = `${baseURI}/${tokenId}.json`;
 
 
-		console.log("mint-nft tokenId", tokenId);
+
 
 
 
