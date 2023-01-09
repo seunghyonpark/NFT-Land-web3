@@ -21,11 +21,13 @@ const alchemy = new Alchemy({
 */
 
 //const chainId = "8217"; // cypress
-const chainId = "1001"; // baobab
+//const chainId = "1001"; // baobab
+
+
 const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 // Set an authorization through 'caver.initKASAPI' function
-const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
+//const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
@@ -67,10 +69,12 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { contract, wallet, tokenid } = req.query;
+		const { chainid, contract, wallet, tokenid } = req.query;
 
+		console.log("withdraw-nft chainid",chainid);
 		console.log("withdraw-nft wallet",wallet);
 		console.log("withdraw-nft tokenid",tokenid);
+		
 		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
 
 
@@ -80,6 +84,8 @@ export default async function handler(req, res) {
 		const tokenId = tokenid;
 
 
+
+		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
 
 		//-------- mint -------------------
@@ -131,10 +137,8 @@ await contract.methods.say().send(options)
 */
 
 
-/*
+		/*
 		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY;
-
-		//const ownerPrivateKey = process.env.OWNER_PRIVATE_KEY;
 
 		const keyring = caver.wallet.keyring.createFromPrivateKey(stakingWalletPrivateKey);
 		const address = keyring.address;
@@ -142,9 +146,10 @@ await contract.methods.say().send(options)
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 
+		console.log("address", address);
 		console.log(ret);
-*/
-
+		*/
+		
 
 
 /*
@@ -246,7 +251,7 @@ console.log("ret", ret);
 
 
 
-			const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?wallet=${wallet}&tokenid=${tokenId}`);
+			const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?chainid=${chainid}&wallet=${wallet}&tokenid=${tokenId}`);
 
 			if (response.ok) {
 

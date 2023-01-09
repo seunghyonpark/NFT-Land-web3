@@ -36,7 +36,7 @@ const options = {
 
 
 //-----------------------------
-export default function Game({
+export default function GDX({
 	baseURI,
 	contractOwnerAddress,
 	contractAddress,
@@ -78,11 +78,8 @@ export default function Game({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-
-	
-	//const chainId = "8217"; // cypress
-	const chainId = "1001"; // baobab
-
+	const chainId = "8217"; // cypress
+	//const chainId = "1001"; // baobab
 
 	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
@@ -489,8 +486,11 @@ export async function getStaticProps() {
 	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 	console.log("Game getStaticProps stakingWalletAddress", stakingWalletAddress);
 
-	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_GDX;
-	const contractAddress = process.env.CONTRACT_ADDRESS_GDX;
+
+
+	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_ORIGINAL;
+
+	const contractAddress = process.env.CONTRACT_ADDRESS_ORIGINAL;
 
 
 

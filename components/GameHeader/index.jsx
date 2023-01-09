@@ -136,13 +136,15 @@ export default function GameHeader({
 		let incrementTime = 1;
 
 		let timer = setInterval(() => {
-			start += 1;
+			
 
 			const amount = Number(start).toFixed(0);
 
-			if (start < end) {
+			if (start <= end) {
 
 				setThisMintingCountGlobal(amount);
+
+				start += 1;
 			}
 			
 		}, incrementTime);

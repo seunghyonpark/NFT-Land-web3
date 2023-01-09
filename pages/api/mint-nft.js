@@ -17,12 +17,11 @@ const alchemy = new Alchemy({
 });
 */
 
-//const chainId = "8217"; // cypress
-const chainId = "1001"; // baobab
+
 const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 // Set an authorization through 'caver.initKASAPI' function
-const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
+//const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
@@ -63,13 +62,19 @@ export default async function handler(req, res) {
 		}
 
 
-		const { owner, contract, wallet, baseuri } = req.query;
+		const { chainid, owner, contract, wallet, baseuri } = req.query;
+
+
+		console.log("mint-nft chainid", chainid);
 
 		const contractOwnerAddress = owner;
 		const contractAddress = contract;
 
 
 		const baseURI = baseuri;
+
+
+		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
 
 

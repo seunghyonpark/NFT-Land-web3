@@ -17,11 +17,13 @@ const alchemy = new Alchemy({
 */
 
 //const chainId = "8217"; // cypress
-const chainId = "1001"; // baobab
+//const chainId = "1001"; // baobab
+
+
 const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 // Set an authorization through 'caver.initKASAPI' function
-const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
+//const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
@@ -61,7 +63,11 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { contract, wallet } = req.query;
+		const { chainid, contract, wallet } = req.query;
+
+
+		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
+
 
 		const contractAddress = contract;
 
@@ -71,7 +77,7 @@ export default async function handler(req, res) {
 		} else {
 			const nftsGlobal = new Object();
 			
-			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?contract=${contractAddress}`);
+			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}`);
 
 			
 
@@ -79,7 +85,7 @@ export default async function handler(req, res) {
 	
 				const json = await response.json();
 				
-				//console.log("game-fetch-nfts json",json);
+				console.log("game-fetch-nfts staking info json",json);
 
 				if (json) {
 					nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
@@ -255,7 +261,7 @@ export default async function handler(req, res) {
 
 		let miningAmountTotal = 0;
 
-		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?contract=${contractAddress}&wallet=${wallet}`);
+		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}&wallet=${wallet}`);
 
 
 		//console.log("game-fetch-nfts response", response);
