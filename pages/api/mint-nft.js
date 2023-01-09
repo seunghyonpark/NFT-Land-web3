@@ -18,8 +18,8 @@ const alchemy = new Alchemy({
 */
 
 
-const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
+const accessKeyId = process.env.KAS_ACCESS_KEY_ID_WAYNE;
+const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY_WAYNE;
 // Set an authorization through 'caver.initKASAPI' function
 //const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
