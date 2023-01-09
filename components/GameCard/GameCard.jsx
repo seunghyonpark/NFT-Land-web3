@@ -120,6 +120,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			`}
 	*/
 
+	/*
 	useEffect(() => {
 
 		console.log("GameCard cardData.tokenId", cardData.tokenId);
@@ -127,7 +128,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 		//ref.current.style = cardData.cssText;
 
 	}, [cardData.tokenId]);
-
+	*/
 
 	//${cardData.selected !== true ? "border" : "border-8"}
 

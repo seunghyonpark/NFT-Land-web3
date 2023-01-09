@@ -126,21 +126,31 @@ await contract.methods.say().send(options)
 */
 
 
-/*
-const account = await caver.kas.wallet.createAccount();
-
-*/
 
 
-		console.log(process.env.OWNER_PRIVATE_KEY_GDX);
+
+
+		//console.log(process.env.OWNER_PRIVATE_KEY_GDX);
 		
-		const keyring = caver.wallet.keyring.createFromPrivateKey(process.env.OWNER_PRIVATE_KEY_GDX);
+		/*
+		const keyring = caver.wallet.keyring.createFromPrivateKey(process.env.OWNER_PRIVATE_KEY_WAYNE);
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 		
 		console.log("migrateAccounts ret", ret);
+		*/
+
+
+		/*
+		RegistrationStatusResponse {
+			status: 'all failed',
+			failures: RegistrationFailure {
+			  '0x3ffdd8771021451f9a4ec50b4413598d8a65b21b': 'failed to send a raw transaction to klaytn node; invalid transaction v, r, s values of the sender'
+			}
+		  }
+		  */
 		
 	
 
@@ -191,8 +201,20 @@ const account = await caver.kas.wallet.createAccount();
 
 		*/
 
+		/*
+		const account = await caver.kas.wallet.createAccount();
+		console.log("account", account);
 
-
+		Account {
+			address: '0x7B745b7D98564d9E7329a3301834cc312D48549F',
+			chainId: 1001,
+			createdAt: 1673275134,
+			keyId: 'krn:1001:wallet:0ff2e9e4-0b76-458b-9736-633e6b1f2746:account-pool:default:0x1ccca3e6e9c52acc14edb3e93b30b8ad5b687fe63f7ff0b044fd218cf4558bac',
+			krn: 'krn:1001:wallet:0ff2e9e4-0b76-458b-9736-633e6b1f2746:account-pool:default',
+			publicKey: '0x0471a7d033c21ec155623bd9e11a9d845c9f4bccc2e17cf2178f0407633b8cbc69338b52463e3903736d1b181b46f59e7d3c2883147158e05e2177d6b068e104f9',
+			updatedAt: 1673275134
+		  }
+		*/
 	
 
 		const gas = 150000000;
@@ -217,10 +239,10 @@ const account = await caver.kas.wallet.createAccount();
 		*/
 
 
-		console.log("mint-nft contractAddress", contractAddress);
-		console.log("mint-nft contractOwnerAddress", contractOwnerAddress);
+		//console.log("mint-nft contractAddress", contractAddress);
+		//console.log("mint-nft contractOwnerAddress", contractOwnerAddress);
 
-		console.log("mint-nft baseURI", baseURI);
+		//console.log("mint-nft baseURI", baseURI);
 
 
 

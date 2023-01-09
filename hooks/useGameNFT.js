@@ -30,7 +30,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	const [stakingNFT, setStakingNFT] = useState(nftSymbol);
 
 
-	console.log("useGameNFT stakingWalletAddress", stakingWalletAddress);
+	////console.log("useGameNFT stakingWalletAddress", stakingWalletAddress);
 	
 	/*
 	useEffect(() => {
@@ -120,18 +120,27 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				}
 	
 				const fetchData = await response.json();
+
+
+				/*
 	
 				const range = 3;
 				const randomNumber = Math.random() * range;
 	
-				const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber) - (range / 2);
+				const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber);
 	
-				const miningAmountGlobal = Number(fetchData.data.miningAmountGlobal) + randomNumber/100000000 - (range/10000000 / 2);
+				const miningAmountGlobal = Number(fetchData.data.miningAmountGlobal) + randomNumber/100000000;
 	
 				setStakingCountGlobal(stakingCountGlobal);
 	
 				setMiningAmountGlobal(miningAmountGlobal);
+				*/
 	
+				const stakingCountGlobal = fetchData.data.stakingCountGlobal;
+				setStakingCountGlobal(stakingCountGlobal);
+	
+				const miningAmountGlobal = fetchData.data.miningAmountGlobal;
+				setMiningAmountGlobal(miningAmountGlobal);
 	
 	
 				const mintingCountGlobal = fetchData.data.mintingCountGlobal;
@@ -151,7 +160,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-		//fetchNFTsGlobal();
+		fetchNFTsGlobal();
 
 		/*
 		let i = 0;
@@ -168,7 +177,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		if (address) {
 			intervalMiliSecond = 10000;
 		} else {
-			intervalMiliSecond = 3000;
+			intervalMiliSecond = 10000;
 		}
 
 		const interval = setInterval(fetchNFTsGlobal, intervalMiliSecond);
@@ -181,7 +190,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		
 
 	//}, [address, data, miningAmountTotal]);
-	}, [address, contractAddress]);
+	}, [address, contractAddress, chainId]);
+
+
 
 
 
@@ -870,7 +881,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 				const wallet = from;
-				const response = await fetch(`/api/deposit-nft?chainid=${chainId}&contract=${contractAddress}&wallet=${wallet}&tokenid=${tokenId}&uri=${tokenUri}`);
+				const response = await fetch(`/api/deposit-nft?stakingwallet=${stakingWalletAddress}&chainid=${chainId}&contract=${contractAddress}&wallet=${wallet}&tokenid=${tokenId}&uri=${tokenUri}`);
 
 				if (!response.ok) {
 					//////setIsWithdrawing(false);
@@ -980,7 +991,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			const wallet = window.klaytn.selectedAddress;
 
-			const response = await fetch(`/api/withdraw-nft?chainid=${chainId}&wallet=${wallet}&tokenid=${tokenId}`);
+			const response = await fetch(`/api/withdraw-nft?stakingwallet=${stakingWalletAddress}&chainid=${chainId}&contract=${contractAddress}&wallet=${wallet}&tokenid=${tokenId}`);
 
 			if (!response.ok) {
 				setIsWithdrawing(false);

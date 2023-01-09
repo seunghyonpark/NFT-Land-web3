@@ -32,7 +32,7 @@ const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
 
 /*
 export default async function handler(req, res) {
@@ -69,15 +69,16 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { chainid, contract, wallet, tokenid } = req.query;
+		const { stakingwallet, chainid, contract, wallet, tokenid } = req.query;
 
+		console.log("withdraw-nft stakingwallet",stakingwallet);
 		console.log("withdraw-nft chainid",chainid);
+		console.log("withdraw-nft contract",contract);
 		console.log("withdraw-nft wallet",wallet);
 		console.log("withdraw-nft tokenid",tokenid);
-		
-		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
 
 
+		const stakingWalletAddress = stakingwallet;
 
 		const contractAddress = contract;
 
@@ -137,21 +138,7 @@ await contract.methods.say().send(options)
 */
 
 
-		/*
-		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY;
-
-		const keyring = caver.wallet.keyring.createFromPrivateKey(stakingWalletPrivateKey);
-		const address = keyring.address;
-		const key = keyring.key.privateKey;
-
-		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
-
-		console.log("address", address);
-		console.log(ret);
-		*/
 		
-
-
 /*
 const keyring = caver.wallet.keyring.createFromPrivateKey("privagekey");
 const address = keyring.address;
@@ -161,10 +148,38 @@ const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 console.log("ret", ret);
 */
 
+		/*
+		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY_WAYNE;
+
+		const keyring = caver.wallet.keyring.createFromPrivateKey(stakingWalletPrivateKey);
+		const address = keyring.address;
+		const key = keyring.key.privateKey;
+
+		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
+
+		console.log("address", address);
+		console.log(ret);
+
+		RegistrationStatusResponse { status: 'ok' }
+		*/
+
+
+		/*
+		const account = await caver.kas.wallet.createAccount();
+		console.log("account", account);
+		*/
+
 		
 		const gas = 150000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
+
+
+		//console.log("deployed", deployed);
+
+
+
+
 
 		/*
 		deployed.events
@@ -178,10 +193,14 @@ console.log("ret", ret);
 
 		const withdrawTokenId = parseInt(caver.utils.toBN(tokenId));
 
-		//console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
 		
+		console.log("contractAddress", contractAddress);
+		console.log("stakingWalletAddress", stakingWalletAddress);
 
-		
+		console.log("wallet", wallet);
+
+		console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
+
 
 		const receipt = await deployed.send(
 			{from: stakingWalletAddress, gas},
@@ -190,6 +209,7 @@ console.log("ret", ret);
 			wallet,
 			withdrawTokenId
 		);
+
 
 		//console.log("withdraw-nft receipt", receipt);
 

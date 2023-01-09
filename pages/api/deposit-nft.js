@@ -67,8 +67,9 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { chainid, contract, wallet, tokenid, uri } = req.query;
+		const { stakingwallet, chainid, contract, wallet, tokenid, uri } = req.query;
 
+		console.log("deposit-nft stakingwallet",stakingwallet);
 		console.log("deposit-nft chainid",chainid);
 		console.log("deposit-nft contract",contract);
 		console.log("deposit-nft wallet",wallet);
@@ -76,15 +77,11 @@ export default async function handler(req, res) {
 		console.log("deposit-nft uri",uri);
 
 
-		console.log("deposit-nft stakingWalletAddress", stakingWalletAddress);
+		//const stakingWalletAddress = stakingwallet;
+		const tokenId = tokenid;
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
-
-
-
-		const tokenId = tokenid;
-
 
 
 		const response = await fetch(`http://wallet.treasureverse.io/gogodeposit?chainid=${chainid}&contract=${contract}&wallet=${wallet}&tokenid=${tokenId}&uri=${uri}`);

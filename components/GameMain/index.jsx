@@ -385,8 +385,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					{data?.map((nft) => (
 
 					<div className="rounded-lg p-1"
-						key={nft.tokenId}
-						//key={uuidv4()}
+						//key={nft.tokenId}
+						key={uuidv4()}
 						//onClick={(e) => handleClick(e)}
 						onClick={(e) => {
 							e.preventDefault(); 

@@ -479,13 +479,14 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
 
 	console.log("Game getStaticProps stakingWalletAddress", stakingWalletAddress);	
 
 
 
-	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_BAYC;
+	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
+
 	const contractAddress = process.env.CONTRACT_ADDRESS_BAYC;
 
 

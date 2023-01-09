@@ -79,8 +79,6 @@ export default async function handler(req, res) {
 			
 			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}`);
 
-			
-
 			if (response.ok) {
 	
 				const json = await response.json();
@@ -91,7 +89,6 @@ export default async function handler(req, res) {
 					nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
 					nftsGlobal.miningAmountGlobal = json.miningAmountGlobal;
 				}
-	
 				
 			}
 
@@ -110,7 +107,7 @@ export default async function handler(req, res) {
 			}
 			*/
 
-			//console.log("game-fetch-nfts contractAddress", contractAddress);
+			/////console.log("game-fetch-nfts contractAddress", contractAddress);
 
 
 			const data = await caver.kas.tokenHistory.getNFTContract(contractAddress);
@@ -121,6 +118,8 @@ export default async function handler(req, res) {
 				//data.totalSupply
 
 				nftsGlobal.mintingCountGlobal = caver.utils.hexToNumber(data.totalSupply);
+
+				
 			}
 
 

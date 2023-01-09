@@ -58,7 +58,7 @@ export default function GameHeader({
 
 	const onChangeThisMiningAmountGlobal = () => {
 
-        console.log("onChangeThisMiningAmountGlobal");
+        //console.log("onChangeThisMiningAmountGlobal");
 
 		const minimum = thisMiningAmountGlobal;
 		const maximum = Number(miningAmountGlobal);
@@ -79,7 +79,7 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 
 		if (miningAmountGlobal === "0") return;
 
@@ -116,7 +116,7 @@ export default function GameHeader({
 	
 	useEffect(() => {
 
-		console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
+		//console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
 
 
 
@@ -211,7 +211,7 @@ export default function GameHeader({
 
 		//setAddress(window.klaytn.selectedAddress);
 
-		console.log("GameHeader useEffect address", address);
+		//console.log("GameHeader useEffect address", address);
 		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
 		
 		if (address === undefined) {
@@ -264,7 +264,7 @@ export default function GameHeader({
 			return;
 		}
 
-		console.log("connectWallet");
+		//console.log("connectWallet");
 
 
 		//const {klaytn} = window;

@@ -28,7 +28,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 
 const contractAddress = ""; // baobab contract
-const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
 
 /*
 export default async function handler(req, res) {
