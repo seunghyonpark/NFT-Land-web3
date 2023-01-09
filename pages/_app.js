@@ -2,20 +2,20 @@ import '../styles/globals.css'
 
 //import '../styles/dashboard.css'
 
-import lightTheme from "../theme/light";
-import darkTheme from "../theme/dark";
+//import lightTheme from "../theme/light";
+//import darkTheme from "../theme/dark";
 
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
 
 import React, { useState, useEffect } from "react";
-import { ThemeProvider } from "@material-ui/core/styles";
+//import { ThemeProvider } from "@material-ui/core/styles";
 
 //import { NextIntlProvider } from "next-intl";
 
-import { Inter } from '@next/font/google';
+//import { Inter } from '@next/font/google';
 
-import { AppProps } from 'next/app';
-import { SessionProvider } from 'next-auth/react';
+//import { AppProps } from 'next/app';
+//import { SessionProvider } from 'next-auth/react';
 
 
 
