@@ -14,8 +14,8 @@ import walletAddress from "../constants/walletAddress.json";
 
 import { useRouter } from 'next/router';
 
-import { readFileSync } from 'fs';
-import path from 'path';
+//import { readFileSync } from 'fs';
+//import path from 'path';
 
 
 import { Fireworks } from 'fireworks-js';
@@ -36,7 +36,7 @@ const options = {
 
 
 //-----------------------------
-export default function Game({
+export default function Miya({
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -45,7 +45,7 @@ export default function Game({
 	depositingNFTAddress,
 	withdrawingNFTAddress,
 	nftWalletAddress,
-	testData,
+	//testData,
 }) {
 
 
@@ -56,6 +56,9 @@ export default function Game({
 	//const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
+
+	const [contractAddress, setContractAddress] = useState("0xe8591423857d02d826d40ab5cb7d7dbe1394bb88");
+
 
 	//const [selectedCard, setSelectedCard] = useState("");
 
@@ -71,7 +74,7 @@ export default function Game({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address);
+	} = useGameNFT(address, contractAddress);
 
 
 	const ref = useRef();
@@ -271,9 +274,9 @@ export default function Game({
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
-
+				{/*
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-		
+				*/}
 
 				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
 				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
@@ -463,8 +466,11 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const file = path.join(process.cwd(), 'posts', 'test.json');
-	const testData = readFileSync(file, 'utf8');
+
+
+
+	//const file = path.join(process.cwd(), 'posts', 'test.json');
+	//const testData = readFileSync(file, 'utf8');
 
 
 		/*
@@ -499,7 +505,7 @@ export async function getStaticProps() {
 			dataProcessingAddress,
 			depositingNFTAddress,
 			withdrawingNFTAddress,
-			testData,
+			//testData,
 			//posts,
 		},
 		revalidate: 10,

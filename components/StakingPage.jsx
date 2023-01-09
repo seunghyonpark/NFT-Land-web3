@@ -43,10 +43,6 @@ export default function StakingPage({
 	
 	useEffect(() => {
 
-		//console.log("StakingPage useEffect selectedCard", selectedCard);
-
-
-
 		if (address === "") {
 
 			setDisplayAddress("");
@@ -61,7 +57,7 @@ export default function StakingPage({
 		
 		}
 
-	}, [address, selectedCard]);
+	}, [address]);
 	
 
 
@@ -72,20 +68,20 @@ export default function StakingPage({
 	//return data.lenghth > 0 && (
 	return (
 
-
-
 		<main className="">
 
 			{/* logotype */}
 
-			<div className="
-				mb-3 box-border h-20
-			 	bg-cover
-				bg-no-repeat 
-				bg-[url('/gdx_banner.jpeg')]
-			  ">
+			{!address &&
+				<div className="
+					mb-3 box-border h-20
+					bg-cover
+					bg-no-repeat 
+					bg-[url('/gdx_banner.jpeg')]
+				"></div>
+			}
 
-			</div>
+
 
 			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate ">
 				{displayAddress} 

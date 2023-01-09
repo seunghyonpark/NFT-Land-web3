@@ -35,7 +35,7 @@ export default function GameCard({
 
 	const ref = useRef(null);
 
-	cardData.selected = false;
+	//cardData.selected = false;
 
 	//const [isLoading, setIsLoading] = useState(false);
 
@@ -122,11 +122,11 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 	useEffect(() => {
 
-		//console.log("cardData", cardData);
+		console.log("GameCard cardData.tokenId", cardData.tokenId);
 
 		//ref.current.style = cardData.cssText;
 
-	}, [cardData]);
+	}, [cardData.tokenId]);
 
 
 	//${cardData.selected !== true ? "border" : "border-8"}

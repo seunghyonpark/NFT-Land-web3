@@ -27,7 +27,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 
 //const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
+//const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
 
 /*
 export default async function handler(req, res) {
@@ -65,8 +65,9 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { wallet } = req.query;
+		const { contract, wallet } = req.query;
 
+		const contractAddress = contract;
 
 
 		if (wallet) {
@@ -74,12 +75,16 @@ export default async function handler(req, res) {
 		} else {
 			const nftsGlobal = new Object();
 			
-			const response = await fetch(`http://wallet.treasureverse.io/gogostaking`);
+			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?contract=${contractAddress}`);
+
+			
 
 			if (response.ok) {
 	
 				const json = await response.json();
 				
+				//console.log("game-fetch-nfts json",json);
+
 				if (json) {
 					nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;
 					nftsGlobal.miningAmountGlobal = json.miningAmountGlobal;
@@ -103,9 +108,12 @@ export default async function handler(req, res) {
 			}
 			*/
 
+			//console.log("game-fetch-nfts contractAddress", contractAddress);
+
+
 			const data = await caver.kas.tokenHistory.getNFTContract(contractAddress);
 
-			////console.log("data.totalSupply", caver.utils.hexToNumber(data.totalSupply));
+			//console.log("game-fetch-nfts data", data);
 
 			if (data) {
 				//data.totalSupply
@@ -123,7 +131,7 @@ export default async function handler(req, res) {
 
 
 
-
+		//console.log("game start======");
 
 		const  contractName = 'GOGODINO Official';
 
@@ -136,7 +144,7 @@ export default async function handler(req, res) {
 		};
 
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
-		//console.log("game-fetch-nfts data="+JSON.stringify(data));
+		//console.log("game-fetch-nfts data", data);
 
 		//const response = await fetch("http://wallet.treasureverse.io/gogo");
 		//if (response.ok) {
@@ -251,11 +259,16 @@ export default async function handler(req, res) {
 
 		let miningAmountTotal = 0;
 
-		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?wallet=${wallet}`);
+		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?contract=${contractAddress}&wallet=${wallet}`);
+
+
+		//console.log("game-fetch-nfts response", response);
 
 		if (response.ok) {
 
 			const json = await response.json();
+
+			//console.log("game-fetch-nfts json", json);
 
 			for(let idx=0; idx < json.items.length; idx++){
 
@@ -286,48 +299,41 @@ export default async function handler(req, res) {
 
 				nft.staking = "true";
 
+				const contract = new Object();
+				contract.address = contractAddress;
+				contract.name = contractName;
+				nft.contract = contract;
 
-				const item = await caver.kas.tokenHistory.getNFT(contractAddress, json.items[idx].tokenId);
 
-				try {
+				const media = new Array() ;
+				nft.media = media;
+
+				const mediadata = new Object() ;
+						
+				media.push(mediadata);
+
+				nft.title = "";
+				
+				nft.description = "";
+
+				////console.log(json.items[idx].uri);
+
+				const response = await fetch(json.items[idx].uri);
+
+				if (response.ok) {
 	
-					const contract = new Object();
-					contract.address = contractAddress;
-					contract.name = contractName;
-					nft.contract = contract;
+					const jsonTokenUri = await response.json();
 					
-					nft.tokenUri = item.tokenUri;
-	
-					const media = new Array() ;
-					nft.media = media;
-	
-					const response = await fetch(item.tokenUri);
-	
-					if (response.ok) {
-	
-						const jsonTokenUri = await response.json();
-				
-						// 객체 생성
-						const mediadata = new Object() ;
-						
-						mediadata.gateway = jsonTokenUri.image;
-						
-						// 리스트에 생성된 객체 삽입
-						media.push(mediadata);
-	
-						nft.title = jsonTokenUri.name;
-						
-						nft.description = jsonTokenUri.description;
-				
-					} else {
-						//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
-					}
-				
-				} catch (err) {
-					//alert("There was an error fetching NFTs!");
-					//return;
-					//console.log("err",err);
+					mediadata.gateway = jsonTokenUri.image;
+					
+					nft.title = jsonTokenUri.name;
+					
+					nft.description = jsonTokenUri.description;
+			
+				} else {
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
+
 
 
 				ownedNfts.unshift(nft);

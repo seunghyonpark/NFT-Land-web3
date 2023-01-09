@@ -68,6 +68,9 @@ export default function GameMain({
 
 	useEffect(() => {
 
+
+
+
         console.log("GameMain miningAmountTotal", miningAmountTotal);
 
 		const numFix = 4;
@@ -79,6 +82,9 @@ export default function GameMain({
         }
 
 		if (miningAmountTotal === "0") {
+
+			console.log("==========");
+			
 			const amount = Number(0).toFixed(numFix);
             setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
             return;
@@ -91,6 +97,7 @@ export default function GameMain({
 
 		let start = 0;
 		const end = 100;
+
 		let incrementTime = 10;
 		let timer = setInterval(() => {
 			
@@ -288,7 +295,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned ($SML)
 						</p>
-						
+
 						<div className={classes.number}>{thisMiningAmountTotal}</div>
 					</div>
 

@@ -138,7 +138,8 @@ const account = await caver.kas.wallet.createAccount();
 		console.log("migrateAccounts ret", ret);
 		*/
 
-		
+
+
 		
 		/*
 		const keyring = caver.keyringContainer.keyring.generate();
@@ -229,7 +230,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
-		//console.log("tokenId", tokenId);
+		///console.log("mint-nft tokenId", tokenId);
 
 
 		const receipt = await deployed.send(

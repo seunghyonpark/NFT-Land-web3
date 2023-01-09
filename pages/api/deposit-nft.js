@@ -30,7 +30,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
+/////const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
 const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*
@@ -68,10 +68,14 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { wallet, tokenid } = req.query;
+		const { contract, wallet, tokenid, uri } = req.query;
 
+		console.log("deposit-nft contract",contract);
 		console.log("deposit-nft wallet",wallet);
 		console.log("deposit-nft tokenid",tokenid);
+		console.log("deposit-nft uri",uri);
+
+
 		console.log("deposit-nft stakingWalletAddress", stakingWalletAddress);
 
 
@@ -79,7 +83,7 @@ export default async function handler(req, res) {
 
 
 
-		const response = await fetch(`http://wallet.treasureverse.io/gogodeposit?wallet=${wallet}&tokenid=${tokenId}`);
+		const response = await fetch(`http://wallet.treasureverse.io/gogodeposit?contract=${contract}&wallet=${wallet}&tokenid=${tokenId}&uri=${uri}`);
 
 		//console.log("response", response);
 

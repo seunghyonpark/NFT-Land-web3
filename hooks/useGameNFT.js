@@ -6,7 +6,8 @@ import walletAddress from "../constants/walletAddress.json";
 import { min } from "rxjs";
 
 
-export default function useGameNFT(address) {
+export default function useGameNFT(address, contractAddress) {
+
 	const [data, setData] = useState([]);
 	const [stakeData, setStakeData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function useGameNFT(address) {
 	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
 
-	const contractAddress = walletAddress.baobabNftContractAddress;
+	////////const contractAddress = walletAddress.baobabNftContractAddress;
 	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	
@@ -103,9 +104,56 @@ export default function useGameNFT(address) {
 
 	useEffect(() => {
 
-		fetchNFTsGlobal();
 
-		
+
+		const fetchNFTsGlobal = async () => {
+
+			console.log("fetchNFTsGlobal");
+	
+			try {
+				const response = await fetch(`/api/game-fetch-nfts?contract=${contractAddress}`);
+	
+				if (!response.ok) {
+					//alert("Something went wrong! Check your Input or Connection");
+	
+					return;
+				}
+	
+				const fetchData = await response.json();
+	
+				const range = 3;
+				const randomNumber = Math.random() * range;
+	
+				const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber) - (range / 2);
+	
+				const miningAmountGlobal = Number(fetchData.data.miningAmountGlobal) + randomNumber/100000000 - (range/10000000 / 2);
+	
+				setStakingCountGlobal(stakingCountGlobal);
+	
+				setMiningAmountGlobal(miningAmountGlobal);
+	
+	
+	
+				const mintingCountGlobal = fetchData.data.mintingCountGlobal;
+				setMintingCountGlobal(mintingCountGlobal);
+	
+				
+				return;
+	
+			} catch (err) {
+	
+				console.log("err="+err);
+				//alert("There was an error fetching NFTs!----");
+				return;
+			}
+	
+		};
+
+
+
+		//fetchNFTsGlobal();
+
+		/*
 		let i = 0;
 		function pollDOM() {
 			////console.log("useGameNFT useEffect i", i);
@@ -114,6 +162,7 @@ export default function useGameNFT(address) {
 			fetchNFTsGlobal();
 
 		}
+		*/
 
 		let intervalMiliSecond;
 		if (address) {
@@ -122,7 +171,7 @@ export default function useGameNFT(address) {
 			intervalMiliSecond = 3000;
 		}
 
-		const interval = setInterval(pollDOM, intervalMiliSecond);
+		const interval = setInterval(fetchNFTsGlobal, intervalMiliSecond);
 
 		return () => {
 			
@@ -132,7 +181,7 @@ export default function useGameNFT(address) {
 		
 
 	//}, [address, data, miningAmountTotal]);
-	}, [address]);
+	}, [address, contractAddress]);
 
 
 
@@ -144,7 +193,7 @@ export default function useGameNFT(address) {
 		const fetchNFTs = async () => {
 	
 			try {
-				const response = await fetch(`/api/game-fetch-nfts?wallet=${address}`);
+				const response = await fetch(`/api/game-fetch-nfts?contract=${contractAddress}&wallet=${address}`);
 	
 				if (!response.ok) {
 					return;
@@ -201,7 +250,7 @@ export default function useGameNFT(address) {
 
 		}
 		
-	}, [address]);
+	}, [address, contractAddress]);
 
 
 
@@ -643,7 +692,7 @@ export default function useGameNFT(address) {
 
 
 		try {
-			const response = await fetch(`/api/game-fetch-nfts?wallet=${address}`);
+			const response = await fetch(`/api/game-fetch-nfts?contract=${contractAddress}&wallet=${address}`);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection");
@@ -725,7 +774,7 @@ export default function useGameNFT(address) {
 		console.log("fetchNFTsGlobal");
 
 		try {
-			const response = await fetch(`/api/game-fetch-nfts`);
+			const response = await fetch(`/api/game-fetch-nfts?contract=${contractAddress}`);
 
 			if (!response.ok) {
 				//alert("Something went wrong! Check your Input or Connection");
@@ -907,12 +956,31 @@ export default function useGameNFT(address) {
 			})
 			*/
 
+			console.log("transfer", transfer);
+
+
 			if (transfer) {
-				console.log("transfer", transfer);
+				
+
+
+				let tokenUri;
+				for(let idx=0; idx < data.length; idx++){
+					console.log("data[idx].tokenUri", data[idx].tokenUri);
+
+					if (data[idx].tokenId.toString() === tokenId.toString()) {
+
+						tokenUri = data[idx].tokenUri;
+
+						console.log("tokenUri", tokenUri);
+
+					}
+	
+				}
+
 
 
 				const wallet = from;
-				const response = await fetch(`/api/deposit-nft?wallet=${wallet}&tokenid=${tokenId}`);
+				const response = await fetch(`/api/deposit-nft?contract=${contractAddress}&wallet=${wallet}&tokenid=${tokenId}&uri=${tokenUri}`);
 
 				if (!response.ok) {
 					//////setIsWithdrawing(false);

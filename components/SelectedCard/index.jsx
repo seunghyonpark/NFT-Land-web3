@@ -87,7 +87,7 @@ export default function SelectedCard({
 
 	useEffect(() => {
 
-		console.log("SelectedCard useEffect tokenId", selectedCard.tokenId);
+		////console.log("SelectedCard useEffect tokenId", selectedCard.tokenId);
 
 		return () => {
 		
