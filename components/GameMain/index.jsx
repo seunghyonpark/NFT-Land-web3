@@ -9,6 +9,7 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function GameMain({
+	nftSymbol,
 	address,
 	selectedCard,
 	setSelectedCard,
@@ -270,7 +271,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
-							Staking Count (GDX)
+							Staking Count ({nftSymbol})
 						</p>
 
                         <div className={classes.number}>{stakingCount} / {holdingCount}</div>

@@ -26,7 +26,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
-const contractOwnerAddress = walletAddress.contractOwnerAddress;
+//const contractOwnerAddress = walletAddress.contractOwnerAddress;
 
 
 /*
@@ -63,11 +63,13 @@ export default async function handler(req, res) {
 		}
 
 
-		const { contract, wallet } = req.query;
+		const { owner, contract, wallet, baseuri } = req.query;
 
+		const contractOwnerAddress = owner;
 		const contractAddress = contract;
 
 
+		const baseURI = baseuri;
 
 
 
@@ -128,15 +130,15 @@ const account = await caver.kas.wallet.createAccount();
 
 		
 		/*
-		const keyring = caver.wallet.keyring.createFromPrivateKey(process.env.OWNER_PRIVATE_KEY);
+		const keyring = caver.wallet.keyring.createFromPrivateKey("");
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 		
 		console.log("migrateAccounts ret", ret);
-		*/
-
+		
+	*/
 
 
 		
@@ -191,24 +193,7 @@ const account = await caver.kas.wallet.createAccount();
 
 		const gas = 150000000;
 
-		const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
-
 		const deployed = caver.contract.create(contractABI, contractAddress);
-
-		
-		
-		//deployed.setWallet(keyringContainer); Error: Invalid JSON RPC response: {"code":1034210,"message":"Unsupported method
-
-
-
-		//const ownerPublicKey = process.env.OWNER_PUBLIC_KEY;
-		
-
-	
-/*
-Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check that the corresponding account or keyring exists.
-*/
-
 
 
 
@@ -222,14 +207,33 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 		.on('error', console.error)
 		*/
 
+		/*
+		https://miya.sunmiya.club/1.json
+
+		*/
 
 
+		console.log("mint-nft contractAddress", contractAddress);
+		console.log("mint-nft contractOwnerAddress", contractOwnerAddress);
+
+		console.log("mint-nft baseURI", baseURI);
+
+
+
+		//const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
+
+		//const baseURI = 'https://miya.sunmiya.club';
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
-		///console.log("mint-nft tokenId", tokenId);
+		const tokenUri = `${baseURI}/${tokenId}.json`;
+
+
+		console.log("mint-nft tokenId", tokenId);
+
+
 
 
 		const receipt = await deployed.send(
@@ -237,7 +241,7 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 			'mintWithTokenURI',
 			wallet,
 			tokenId,
-			`${baseURI}/${tokenId}.json`
+			tokenUri
 		);
 
 		/*

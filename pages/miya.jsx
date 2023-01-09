@@ -9,7 +9,7 @@ import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
-import walletAddress from "../constants/walletAddress.json";
+//import walletAddress from "../constants/walletAddress.json";
 
 
 import { useRouter } from 'next/router';
@@ -37,6 +37,10 @@ const options = {
 
 //-----------------------------
 export default function Miya({
+	baseURI,
+	contractOwnerAddress,
+	contractAddress,
+	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -57,7 +61,9 @@ export default function Miya({
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
 
-	const [contractAddress, setContractAddress] = useState("0xe8591423857d02d826d40ab5cb7d7dbe1394bb88");
+
+	const nftSymbol = "MIYA";
+	const nftName = "Sunmiya Club Official";
 
 
 	//const [selectedCard, setSelectedCard] = useState("");
@@ -74,7 +80,8 @@ export default function Miya({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, contractAddress);
+	} = useGameNFT(address, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	
 
 
 	const ref = useRef();
@@ -292,6 +299,7 @@ export default function Miya({
 
 			<GameHeader
 				{...{
+					nftSymbol,
 					walletDisconnected,
 					address,
 					setAddress,
@@ -365,6 +373,7 @@ export default function Miya({
 
 				<GameMain
 					{...{
+						nftSymbol,
 						address,
 						selectedCard,
 						setSelectedCard,
@@ -390,6 +399,7 @@ export default function Miya({
 
 				<StakingPage
 					{...{
+						nftSymbol,
 						selectedCard,
 						address,
 						stakeData,
@@ -466,7 +476,14 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+	console.log("Game getStaticProps stakingWalletAddress", stakingWalletAddress);	
 
+	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_MIYA;
+	const contractAddress = process.env.CONTRACT_ADDRESS_MIYA;
+
+
+	const baseURI = "https://miya.sunmiya.club";
 
 
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
@@ -498,6 +515,10 @@ export async function getStaticProps() {
 
 	return {
 		props: {
+			baseURI,
+			contractOwnerAddress,
+			contractAddress,
+			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

@@ -12,13 +12,10 @@ export default function useStakeNFT(tokenId) {
 
 	const address = "0x3db3Fb2E3d2A51C71BcAd2A4fC022828B835d005"; // staking wallet
 
-	/*
-	const contractAddress = process.env.BAOBOB_NFT_CONTRACT_ADDRESS;
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
-	*/
+
 
 	const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
-	const stakingWalletAddress = "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db";
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 
 
 	const depositNFT = async (e) => {

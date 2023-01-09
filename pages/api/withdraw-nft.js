@@ -30,7 +30,7 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const stakingWalletAddress = walletAddress.stakingWalletAddress;
+const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 
 /*
 export default async function handler(req, res) {
@@ -130,8 +130,8 @@ const options = {
 await contract.methods.say().send(options)
 */
 
+
 /*
-		////const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY;
 
 		//const ownerPrivateKey = process.env.OWNER_PRIVATE_KEY;
@@ -142,9 +142,10 @@ await contract.methods.say().send(options)
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 
-
-		const stakingPublicKey = address;
+		console.log(ret);
 */
+
+
 
 /*
 const keyring = caver.wallet.keyring.createFromPrivateKey("privagekey");

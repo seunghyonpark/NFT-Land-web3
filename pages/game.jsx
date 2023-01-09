@@ -9,7 +9,7 @@ import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
-import walletAddress from "../constants/walletAddress.json";
+//import walletAddress from "../constants/walletAddress.json";
 
 
 import { useRouter } from 'next/router';
@@ -37,6 +37,10 @@ const options = {
 
 //-----------------------------
 export default function Game({
+	baseURI,
+	contractOwnerAddress,
+	contractAddress,
+	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -57,9 +61,15 @@ export default function Game({
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
 
-	const [contractAddress, setContractAddress] = useState("0x5824ab492a878cda0d33522a145fa6fc337ccda8");
 
+	const nftSymbol = "GDX";
+	const nftName = "GOGODINO Official";
+	
 
+	console.log("Game contractAddress", contractAddress);
+	console.log("Game stakingWalletAddress", stakingWalletAddress);
+
+	
 
 	//const [selectedCard, setSelectedCard] = useState("");
 
@@ -75,7 +85,7 @@ export default function Game({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, contractAddress);
+	} = useGameNFT(address, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
 
 
 	const ref = useRef();
@@ -293,6 +303,7 @@ export default function Game({
 
 			<GameHeader
 				{...{
+					nftSymbol,
 					walletDisconnected,
 					address,
 					setAddress,
@@ -366,6 +377,7 @@ export default function Game({
 
 				<GameMain
 					{...{
+						nftSymbol,
 						address,
 						selectedCard,
 						setSelectedCard,
@@ -391,6 +403,7 @@ export default function Game({
 
 				<StakingPage
 					{...{
+						nftSymbol,
 						selectedCard,
 						address,
 						stakeData,
@@ -467,6 +480,19 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+	console.log("Game getStaticProps stakingWalletAddress", stakingWalletAddress);
+
+	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_GDX;
+	const contractAddress = process.env.CONTRACT_ADDRESS_GDX;
+
+
+
+	const baseURI = "https://gogodino.saltmarble.io/metaexplorers/json";
+
+
+
+
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
 	//const testData = readFileSync(file, 'utf8');
 
@@ -496,6 +522,10 @@ export async function getStaticProps() {
 
 	return {
 		props: {
+			baseURI,
+			contractOwnerAddress,
+			contractAddress,
+			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

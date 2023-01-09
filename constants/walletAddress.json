@@ -1,16 +1,13 @@
 {
-    "contractOwnerAddressOld": "0xbddf88ce3263d1097ca03873fb53933e4fe2a3c1",
-
 
     "contractOwnerAddress": "0xdcb8b0181de81Fd59da72e2f1f73689b25e44B37",
 
+    "defaultWalletAddress": "0xfD18f01C8c87DA4aa6F543a46d6AaFf912098868",
+    
     
 
+    "GDX": "",
+    "SML": ""
 
-    
-    "stakingWalletAddress-old": "0x0a3548D4621075B2E5B9c6B2e99B9B61d19570db",
 
-    "stakingWalletAddress": "0x75B9Db9578753e7e046982fD96AaaC5C08A4Bcf8",
-
-    "defaultWalletAddress": "0xfD18f01C8c87DA4aa6F543a46d6AaFf912098868"   
 }

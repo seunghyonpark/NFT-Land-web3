@@ -17,7 +17,7 @@ export default function useMintNFT(address) {
 
 
 	const contractAddress = "";
-	const stakingWalletAddress = walletAddress.stakingWalletAddress;
+	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 
 	
 

@@ -12,6 +12,7 @@ import { useState, useEffect, useRef } from "react";
 
 
 export default function StakingPage({
+	nftSymbol,
 	selectedCard,
 	address,
 	stakeData,
@@ -88,7 +89,7 @@ export default function StakingPage({
 			</h1>
 
 			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				Ready to Staking
+				Ready to Staking ({nftSymbol})
 			</h1>
 
 

@@ -6,7 +6,7 @@ import walletAddress from "../constants/walletAddress.json";
 import { min } from "rxjs";
 
 
-export default function useGameNFT(address, contractAddress) {
+export default function useGameNFT(address, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol) {
 
 	const [data, setData] = useState([]);
 	const [stakeData, setStakeData] = useState([]);
@@ -27,9 +27,10 @@ export default function useGameNFT(address, contractAddress) {
 	const [stakingCountGlobal, setStakingCountGlobal] = useState("0");
 	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
+	const [stakingNFT, setStakingNFT] = useState(nftSymbol);
 
-	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
+	console.log("useGameNFT stakingWalletAddress", stakingWalletAddress);
 	
 	/*
 	useEffect(() => {
@@ -326,7 +327,7 @@ export default function useGameNFT(address, contractAddress) {
 		try {
 
 
-			const response = await fetch(`/api/mint-nft?contract=${contractAddress}&wallet=${address}`);
+			const response = await fetch(`/api/mint-nft?owner=${contractOwnerAddress}&contract=${contractAddress}&wallet=${address}&baseuri=${baseURI}`);
 
 
 			/// for vercel test
@@ -927,7 +928,7 @@ export default function useGameNFT(address, contractAddress) {
 
 			const contract = new window.caver.klay.Contract(contractABI, contractAddress);
 
-			console.log("contract", contract);
+			//console.log("contract", contract);
 			
 			const from = window.klaytn.selectedAddress;
 
@@ -937,10 +938,10 @@ export default function useGameNFT(address, contractAddress) {
 			//const to = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
 
 			
-			console.log("contractAddress", contractAddress);
-			console.log("tokenId", tokenId);
-			console.log("from", from);
-			console.log("to", to);
+			//console.log("contractAddress", contractAddress);
+			//console.log("tokenId", tokenId);
+			//console.log("from", from);
+			//console.log("to", to);
 
 
 			const transfer = await contract.methods.transferFrom(from, to, tokenId).send({
@@ -955,7 +956,7 @@ export default function useGameNFT(address, contractAddress) {
 			})
 			*/
 
-			console.log("transfer", transfer);
+			//console.log("transfer", transfer);
 
 
 			if (transfer) {
@@ -970,7 +971,7 @@ export default function useGameNFT(address, contractAddress) {
 
 						tokenUri = data[idx].tokenUri;
 
-						console.log("tokenUri", tokenUri);
+						///console.log("tokenUri", tokenUri);
 
 					}
 	

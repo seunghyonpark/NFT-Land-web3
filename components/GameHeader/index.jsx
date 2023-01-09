@@ -9,6 +9,7 @@ import { min } from "mocha/lib/reporters"
 
 
 export default function GameHeader({
+	nftSymbol,
 	walletDisconnected,
 	address,
 	setAddress,
@@ -149,7 +150,14 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		//console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
+
+		if (stakingCountGlobal === "0") {
+
+			console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
+
+			setThisStakingCountGlobal("0");
+			return;
+		}
 
 		let number = String(stakingCountGlobal);
 
@@ -506,7 +514,7 @@ export default function GameHeader({
 
 					<div className="flex-auto mr-8 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
-							Staking Count Total (GDX)
+							Staking Count Total ({nftSymbol})
 						</p>
 						{/*
 						<p className=" text-2xl text-amber-400 truncate">
