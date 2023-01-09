@@ -26,7 +26,6 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
-const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
 const contractOwnerAddress = walletAddress.contractOwnerAddress;
 
 
@@ -63,10 +62,10 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { wallet } = req.query;
 
-		//console.log("wallet",wallet);
+		const { contract, wallet } = req.query;
 
+		const contractAddress = contract;
 
 
 
@@ -302,9 +301,10 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 		*/
 
 
+		try {
 
-		const  contractName = 'GOGODINO Official';
-		const nft = new Object();
+			const  contractName = 'GOGODINO Official';
+			const nft = new Object();
 
 
 			//nft.owner = data.itmes[idx].owner;  error
@@ -345,10 +345,15 @@ Error: Failed to find 0xaD87a8a48E59B1448Dc2317FD7886f2d89132b71. Please check t
 			} else {
 				//console.log("fetch tokenUri error", response);
 			}
+
+			res.json({ message: "Mint successful!", data: nft});
 		
+		} catch (err) {
+			console.log("err",err);
 
+			res.status(500).json({ error: err });
+		}
 
-		res.json({ message: "Mint successful!", data: nft});
 
 	} catch (err) {
 

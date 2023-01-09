@@ -16,7 +16,7 @@ export default function useMintNFT(address) {
 	const [tokenId, setTokenId] = useState("");
 
 
-	const contractAddress = walletAddress.baobabNftContractAddress;
+	const contractAddress = "";
 	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	

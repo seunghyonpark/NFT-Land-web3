@@ -30,7 +30,6 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
 const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*
@@ -68,12 +67,15 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { wallet, tokenid } = req.query;
+		const { contract, wallet, tokenid } = req.query;
 
 		console.log("withdraw-nft wallet",wallet);
 		console.log("withdraw-nft tokenid",tokenid);
 		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
 
+
+
+		const contractAddress = contract;
 
 		const tokenId = tokenid;
 

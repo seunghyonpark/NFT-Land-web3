@@ -30,7 +30,6 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-/////const contractAddress = walletAddress.baobabNftContractAddress; // baobab contract
 const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 /*

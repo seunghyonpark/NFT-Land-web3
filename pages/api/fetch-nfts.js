@@ -26,8 +26,8 @@ const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-//const contractAddress = '0xf57255329ad3f60b19cb452b68546e11f1fe20df'; // cypress contract
-const contractAddress = walletAddress.baobabNftContractAddress;; // baobab contract
+
+const contractAddress = ""; // baobab contract
 
 /*
 export default async function handler(req, res) {

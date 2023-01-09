@@ -28,7 +28,6 @@ export default function useGameNFT(address, contractAddress) {
 	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
 
-	////////const contractAddress = walletAddress.baobabNftContractAddress;
 	const stakingWalletAddress = walletAddress.stakingWalletAddress;
 
 	
@@ -327,7 +326,7 @@ export default function useGameNFT(address, contractAddress) {
 		try {
 
 
-			const response = await fetch(`/api/mint-nft?wallet=${address}`);
+			const response = await fetch(`/api/mint-nft?contract=${contractAddress}&wallet=${address}`);
 
 
 			/// for vercel test
