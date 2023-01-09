@@ -79,7 +79,11 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-		//console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+		console.log("GameHeader useEffect miningAmountGlobal", miningAmountGlobal);
+
+		if (miningAmountGlobal === "0") return;
+
+
 		
 		let number = String(Number(miningAmountGlobal) * 100);
 		let start = 0;
@@ -112,9 +116,15 @@ export default function GameHeader({
 	
 	useEffect(() => {
 
-		//console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
+		console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
+
+
+
+		if (mintingCountGlobal === "0") return;
 
 		let number = String(mintingCountGlobal);
+
+
 
 		let start = parseInt(mintingCountGlobal) - 100;
 		const end = mintingCountGlobal;
@@ -150,12 +160,8 @@ export default function GameHeader({
 
 	useEffect(() => {
 
-
 		if (stakingCountGlobal === "0") {
 
-			console.log("GameHeader useEffect stakingCountGlobal", stakingCountGlobal);
-
-			setThisStakingCountGlobal("0");
 			return;
 		}
 
@@ -448,13 +454,22 @@ export default function GameHeader({
 			{/* find NFT's form */}
 			<form className="mt-1 flex flex-row justify-between">
 
+			{/*
+			<wholepage
+			className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
+				data !== [] ? "justify-evenly" : "justify-between"
+				
+			} 
+			`}
+		*/}
 
 				<Image
-					className=" float-left my-5 w-auto self-center" 
-					src="/logo.png"
+					className="float-left my-5 w-auto self-center" 
+					src={`/logo_${nftSymbol}.png`}
 					alt="GOGODINO EXPLORERS"
 					width={100}
-					height={100}
+					height={100} 
+					
 				/>
 			
 

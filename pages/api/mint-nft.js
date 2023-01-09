@@ -130,15 +130,15 @@ const account = await caver.kas.wallet.createAccount();
 
 		
 		/*
-		const keyring = caver.wallet.keyring.createFromPrivateKey("");
+		const keyring = caver.wallet.keyring.createFromPrivateKey("574d76546a407b6300e76b68ddb868888b3364e42c11d77aec18f71662a734d2");
 		const address = keyring.address;
 		const key = keyring.key.privateKey;
 
 		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
 		
 		console.log("migrateAccounts ret", ret);
-		
-	*/
+		*/
+	
 
 
 		
@@ -227,6 +227,39 @@ const account = await caver.kas.wallet.createAccount();
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
+
+
+
+		/*
+		{"image":"ipfs://QmYxT4LnK8sqLupjbS6eRvu1si7Ly2wFQAqFebxhWntcf6","attributes":[{"trait_type":"Background","value":"Purple"},{"trait_type":"Eyes","value":"Bored"},{"trait_type":"Mouth","value":"Tongue Out"},{"trait_type":"Clothes","value":"Bone Necklace"},{"trait_type":"Fur","value":"Cheetah"}]}
+		*/
+
+		/*
+		if (contractAddress === "0x96bfdba18f3f7b9806dd9ecec5e5a940fef9f0bb") {
+
+
+			const tokenUri = `${baseURI}/${tokenId}`;
+
+			const response = await fetch(tokenUri);
+
+
+			console.log("response", response);
+
+
+			if (response.ok) {
+
+				const jsonTokenUri = await response.json();
+
+
+				console.log("jsonTokenUri", jsonTokenUri);
+
+
+			}
+
+		}
+		*/
+
+
 
 		const tokenUri = `${baseURI}/${tokenId}.json`;
 

@@ -41,7 +41,8 @@ export default function StakingPage({
 
 	const [displayAddress, setDisplayAddress] = useState("");
 
-	
+
+
 	useEffect(() => {
 
 		if (address === "") {
@@ -66,20 +67,25 @@ export default function StakingPage({
 		//////<main className="hover:bg-gradient-to-r">
 	
 
+		
+
 	//return data.lenghth > 0 && (
 	return (
 
 		<main className="">
 
-			{/* logotype */}
 
 			{!address &&
 				<div className="
-					mb-3 box-border h-20
-					bg-cover
-					bg-no-repeat 
-					bg-[url('/gdx_banner.jpeg')]
-				"></div>
+
+				mb-3 box-border h-20
+	bg-cover
+	bg-no-repeat 
+	bg-[url('/banner_GDX.png')]
+
+					
+				">
+				</div>
 			}
 
 
