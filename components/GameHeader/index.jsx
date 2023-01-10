@@ -443,7 +443,7 @@ export default function GameHeader({
 
 	return (
 
-		<header className="mt-0">
+		<header className="mt-0 flex flex-col">
 			{/* logotype */}
 			{/*
 			<h1 className="text-center text-5xl font-extrabold text-amber-400 drop-shadow-xl ">
@@ -468,7 +468,7 @@ export default function GameHeader({
 				<Image
 					className="float-left my-5 w-auto self-center" 
 					src={`/logo_${nftSymbol}.png`}
-					alt="GOGODINO EXPLORERS"
+					alt={`${nftSymbol}`}
 					width={100}
 					height={100} 
 					
@@ -499,7 +499,6 @@ export default function GameHeader({
 				*/}
 
 			</form>
-
 
 
 {/*
@@ -575,8 +574,19 @@ export default function GameHeader({
 				</div>
 
 			</cards>
-				
 
+			{!address &&
+
+				<Image
+					className="float-center w-full mb-5 " 
+					src={`/banner_${nftSymbol}.png`}
+					alt={`${nftSymbol}`}
+					width={500}
+					height={500} 
+				/>
+
+			}
+				
 
 		</header>
 

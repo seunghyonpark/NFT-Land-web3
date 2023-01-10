@@ -74,22 +74,6 @@ export default function StakingPage({
 
 		<main className="">
 
-
-			{!address &&
-				<div className="
-
-				mb-3 box-border h-20
-	bg-cover
-	bg-no-repeat 
-	bg-[url('/banner_GDX.png')]
-
-					
-				">
-				</div>
-			}
-
-
-
 			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate ">
 				{displayAddress} 
 			</h1>
