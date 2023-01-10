@@ -36,7 +36,7 @@ const options = {
 
 
 //-----------------------------
-export default function Game({
+export default function Baobab({
 	baseURI,
 	contractOwnerAddress,
 	contractAddress,

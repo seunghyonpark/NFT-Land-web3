@@ -36,7 +36,7 @@ const options = {
 
 
 //-----------------------------
-export default function GDX({
+export default function Cypress({
 	baseURI,
 	contractOwnerAddress,
 	contractAddress,
