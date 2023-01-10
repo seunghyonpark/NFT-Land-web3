@@ -9,6 +9,7 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function GameMain({
+	chainId,
 	nftSymbol,
 	address,
 	selectedCard,
@@ -32,6 +33,7 @@ export default function GameMain({
 }) {
 
 
+	console.log("GameMain chainId", chainId);
 
     const [thisMiningAmountTotal, setThisMiningAmountTotal] = useState(Number(miningAmountTotal));
 
@@ -171,12 +173,32 @@ export default function GameMain({
 			*/
 
 
+			if (address) {
+
+				if (data.length === 0) {
+					refStake.current.style.display = "none";
+					refUnstake.current.style.display = "none";
+
+				} else {
 	
-			if (selectedCard.staking === "true") {
-				refStake.current.style.display = "none";
-				refUnstake.current.style.display = "";
+					if (selectedCard.staking === "true") {
+						refStake.current.style.display = "none";
+						refUnstake.current.style.display = "";
+					} else {
+						refStake.current.style.display = "";
+						refUnstake.current.style.display = "none";
+					}
+				}
 			} else {
-				refStake.current.style.display = "";
+				refStake.current.style.display = "none";
+				refUnstake.current.style.display = "none";
+			}
+
+
+			if (selectedCard) {
+
+			} else {
+				refStake.current.style.display = "none";
 				refUnstake.current.style.display = "none";
 			}
 
@@ -430,8 +452,10 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className="">
 				<button
 					ref={refStake}
-					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
-						disabled:opacity-25"
+					className={`
+						my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+						disabled:opacity-25
+					`}
 					onClick={(e) => {
 						e.preventDefault(); 
 						depositNFT(selectedCard.tokenId);
@@ -440,10 +464,12 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				>
 						Stake
 				</button>&nbsp;&nbsp;
+
 				<button
 					ref={refUnstake}
-					className=" my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
-					"
+					className={`
+						my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+					`}
 					onClick={(e) => {
 						e.preventDefault();
 						withdrawNFT(selectedCard.tokenId);
@@ -455,17 +481,26 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			</div>
 
 
+
 			<button
 				ref={refMint}
 				onClick={mintNFT}
-				className=" my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
+				className={` ${chainId === "8217" && "invisible" }
+				my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+				font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300 
+				`}
 			>
 					Mint NFT
 			</button>
 
 
+
+
+
+
 			</div>
 
+		
 
 
 

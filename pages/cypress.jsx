@@ -380,6 +380,7 @@ export default function Cypress({
 
 				<GameMain
 					{...{
+						chainId,
 						nftSymbol,
 						address,
 						selectedCard,
