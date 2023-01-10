@@ -31,9 +31,6 @@ const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
-
-//////const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
-
 /*
 export default async function handler(req, res) {
 	try {
@@ -255,8 +252,11 @@ console.log("ret", ret);
 		if (chainId === "8217") {
 			fromAddress = stakingWalletAddress;
 		} else {
-			//to = stakingWalletAddress;
-			fromAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+			// wayne@nuklabs.com
+			////fromAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+
+			// info@nuklabs.com
+			fromAddress = "0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567";
 		}
 		
 

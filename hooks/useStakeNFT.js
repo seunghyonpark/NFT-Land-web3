@@ -15,7 +15,7 @@ export default function useStakeNFT(tokenId) {
 
 
 	const contractAddress = "0x3f7a4d253c954ba0deb1c0ac2c031595c02f231b";
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+	const stakingWalletAddress = "";
 
 
 	const depositNFT = async (e) => {

@@ -849,7 +849,11 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				to = stakingWalletAddress;
 			} else {
 				//to = stakingWalletAddress;
-				to = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+				///// wayne@nuklabs.com
+				////to = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+
+				///  info@nuklabs.com
+				to = "0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567";
 			}
 
 

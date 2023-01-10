@@ -247,12 +247,13 @@ await contract.methods.say().send(options)
 
 
 
+		
 		/*
 		  // KAS: Create a Klaytn account.
 		  const result5 = await caver.kas.wallet.createAccount();
 		  //user.address = result.address;
 		  console.log("res", result5);
-		*/
+			*/
 
 
 
@@ -297,12 +298,13 @@ await contract.methods.say().send(options)
 
 
 
-		/*
+		/*		
 		const result2 = await caver.kas.kip17.deploy (
 			"GOGODINO Official",
 			"GDX",
-			"kip17-gdx-kkk"
+			"kip17-gdx"
 		);
+		console.log("caver.kas.kip17.deploy result", result2);
 		*/
 	
 		/*
@@ -311,8 +313,10 @@ await contract.methods.say().send(options)
 			"MIYA",
 			"kip17-miya"
 		);
-		console.log("caver.kas.kip17.deploy result", result);
+		
+		console.log("caver.kas.kip17.deploy result", result3);
 		*/
+		
 
 		/*
 		ErrorResponse {
