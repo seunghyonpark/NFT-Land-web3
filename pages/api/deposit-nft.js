@@ -21,7 +21,7 @@ const alchemy = new Alchemy({
 */
 
 //const chainId = "8217"; // cypress
-const chainId = "1001"; // baobab
+//////const chainId = "1001"; // baobab
 const accessKeyId = process.env.KAS_ACCESS_KEY_ID_WAYNE;
 const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY_WAYNE;
 // Set an authorization through 'caver.initKASAPI' function
@@ -30,7 +30,7 @@ const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY_WAYNE;
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
+/////const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS;
 
 /*
 export default async function handler(req, res) {

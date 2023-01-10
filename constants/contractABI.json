@@ -539,7 +539,16 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "symbol",
+				"type": "string"
+			}
+		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"

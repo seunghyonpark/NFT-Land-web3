@@ -247,6 +247,15 @@ await contract.methods.say().send(options)
 
 
 
+		/*
+		  // KAS: Create a Klaytn account.
+		  const result5 = await caver.kas.wallet.createAccount();
+		  //user.address = result.address;
+		  console.log("res", result5);
+		*/
+
+
+
 
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
@@ -294,14 +303,24 @@ await contract.methods.say().send(options)
 			"GDX",
 			"kip17-gdx-kkk"
 		);
-
+		*/
 	
+		/*
 		const result3 = await caver.kas.kip17.deploy (
 			"Sunmiya Club Official",
 			"MIYA",
-			"kip17-miya-kkk"
+			"kip17-miya"
 		);
+		console.log("caver.kas.kip17.deploy result", result);
 		*/
+
+		/*
+		ErrorResponse {
+  _code: 1100159,
+  _message: 'a free-tier user does not have access to the API',
+  _requestId: '48fed070-c75d-4e4a-8b0b-6f8820d24c37'
+}
+*/
 
 
 		/*
@@ -318,7 +337,7 @@ await contract.methods.say().send(options)
 
 
 		/*
-		const gas = 150000000;
+		const gas = 1000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
     

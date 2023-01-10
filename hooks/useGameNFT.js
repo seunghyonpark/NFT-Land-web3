@@ -466,7 +466,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			type: 'VALUE_TRANSFER',
 			from: wallet,
 			to: stakingWalletAddress,
-			value: window.caver.utils.toPeb('2', 'KLAY'), // 1 클레이 전송
+			value: window.caver.utils.toPeb('0.1', 'KLAY'), // 1 클레이 전송
 			gas: 8000000
 		})
 		.once('transactionHash', transactionHash => {
@@ -1120,7 +1120,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			type: 'VALUE_TRANSFER',
 			from: wallet,
 			to: stakingWalletAddress,
-			value: window.caver.utils.toPeb('3', 'KLAY'), // 1 클레이 전송
+			value: window.caver.utils.toPeb('0.1', 'KLAY'), // 1 클레이 전송
 			gas: 8000000
 		})
 		.once('transactionHash', transactionHash => {

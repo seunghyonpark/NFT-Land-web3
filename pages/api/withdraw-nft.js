@@ -32,7 +32,7 @@ const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY_WAYNE;
 //caver.initKIP17API(chainId, accessKeyId, secretAccessKey);
 
 
-const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+//////const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
 
 /*
 export default async function handler(req, res) {
@@ -172,7 +172,7 @@ console.log("ret", ret);
 		
 
 		/*
-		const gas = 150000000;
+		const gas = 1000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
 		*/
@@ -205,25 +205,27 @@ console.log("ret", ret);
 		const withdrawTokenId = parseInt(caver.utils.toBN(tokenId));
 
 		
-		console.log("contractAddress", contractAddress);
-		console.log("stakingWalletAddress", stakingWalletAddress);
+		/*
+		console.log("withdraw-nft contractAddress", contractAddress);
+		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
 
-		console.log("wallet", wallet);
+		console.log("withdraw-nft wallet", wallet);
 
 		console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
+		*/
 
 
 		/*
-		const receipt = await deployed.send(
-			{from: stakingWalletAddress, gas},
-			'transferFrom',
-			stakingWalletAddress,
+		const result = await caver.kas.kip17.mint (
+			contractAddress,
 			wallet,
-			withdrawTokenId
+			caver.utils.toHex(tokenId),
+			tokenUri
 		);
 		*/
 
-		const result = await caver.kas.kip17.transfer(
+		/*
+		const result = await caver.kas.kip17.transfer (
 			contractAddress,
 			stakingWalletAddress,
 			stakingWalletAddress,
@@ -232,6 +234,35 @@ console.log("ret", ret);
 		);
 
 		console.log("caver.kas.kip17.transfer result", result);
+		*/
+
+		/*
+		ErrorResponse {
+  _code: 1104404,
+  _message: 'Contract not found',
+  _requestId: 'a9d9c017-c38c-4a24-88af-e0a301a8233e'
+}
+
+		*/
+
+
+		//console.log("withdraw-nft contractABI", contractABI)
+
+		const gas = 1000000;
+
+		const deployed = caver.contract.create(contractABI, contractAddress);
+
+		const result = await deployed.send (
+			{from: stakingWalletAddress, gas},
+			'transferFrom',
+			stakingWalletAddress,
+			wallet,
+			withdrawTokenId
+		);
+		
+		//console.log("withdraw-nft transferFrom result", result);
+
+
 
 
 
