@@ -38,7 +38,7 @@ export default function GameHeader2({
 		
 	}
 
-
+	//console.log("GameHeader2");
 
 	const [buttonText, setButtonText] = useState("Connect Kaikas");
 

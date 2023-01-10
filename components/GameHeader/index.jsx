@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import { min } from "mocha/lib/reporters"
 
 
-export default function GameHeader({
+export default function GameHeader ({
 	nftSymbol,
 	walletDisconnected,
 	address,
@@ -38,6 +38,7 @@ export default function GameHeader({
 		
 	}
 
+	//console.log("GameHeader");
 
 
 	const [buttonText, setButtonText] = useState("Connect Kaikas");
@@ -85,7 +86,7 @@ export default function GameHeader({
 
 
 		
-		let number = String(Number(miningAmountGlobal) * 100);
+		let number = Number(miningAmountGlobal) * 100;
 		let start = 0;
 		const end = 100;
 		let incrementTime = 10;
@@ -93,14 +94,10 @@ export default function GameHeader({
 			
 			const amount = Number(((number-100) + start) / 100).toFixed(2);
 
-			if (start > end) {
-				clearInterval(timer);
-				return;
+			if (start <= end) {
+				setThisMiningAmountGlobal(amount);
+				start += 1;
 			}
-
-			setThisMiningAmountGlobal(amount);
-
-			start += 1;
 
 		}, incrementTime);
 		
@@ -179,13 +176,14 @@ export default function GameHeader({
 		let incrementTime = 1;
 
 		let timer = setInterval(() => {
-			start += 1;
+			
 
 			const amount = Number(start).toFixed(0);
 
-			if (start < end) {
+			if (start <= end) {
 
 				setThisStakingCountGlobal(amount);
+				start += 1;
 			}
 			
 		}, incrementTime);

@@ -33,7 +33,7 @@ export default function GameMain({
 }) {
 
 
-	console.log("GameMain chainId", chainId);
+	//console.log("GameMain chainId", chainId);
 
     const [thisMiningAmountTotal, setThisMiningAmountTotal] = useState(Number(miningAmountTotal));
 
@@ -70,9 +70,6 @@ export default function GameMain({
 
 
 	useEffect(() => {
-
-
-
 
         console.log("GameMain miningAmountTotal", miningAmountTotal);
 
@@ -260,9 +257,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 	//return data.lenghth > 0 && (
 	return (
-
-
-
 
 		<main
 			className="

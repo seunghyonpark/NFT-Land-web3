@@ -377,6 +377,7 @@ export default function Miya({
 
 				<GameMain
 					{...{
+						chainId,
 						nftSymbol,
 						address,
 						selectedCard,

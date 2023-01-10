@@ -104,8 +104,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 	useEffect(() => {
 
-
-
 		const fetchNFTsGlobal = async () => {
 
 			console.log("fetchNFTsGlobal");
@@ -261,7 +259,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		}
 		
-	}, [address, contractAddress]);
+	}, [address, contractAddress, chainId]);
 
 
 

@@ -383,6 +383,7 @@ export default function Baobab({
 
 				<GameMain
 					{...{
+						chainId,
 						nftSymbol,
 						address,
 						selectedCard,
