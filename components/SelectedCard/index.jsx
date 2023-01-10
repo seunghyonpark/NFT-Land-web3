@@ -305,7 +305,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		
 		lg:pl-[108px] lg:pr-[100px] lg:pt-[50px]
 
-		xl:pl-[165px] xl:pr-[0px] xl:pt-[130px]
+		xl:pl-[127px] xl:pr-[90px] xl:pt-[90px]
 
 		
 		
@@ -313,6 +313,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		">
 
 			{/*
+			xl:pl-[165px] xl:pr-[0px] xl:pt-[130px]
+
 			xl:pl-[165px] xl:pr-[0px] xl:pt-[130px]
 			*/}
 
