@@ -15,7 +15,7 @@ function Main({
 
 
 			<Image className="h-500 w-500" 
-				src="/char_group.png"
+				src="/gamemain_GDX.png"
 				alt=""
 				width={500}
 				height={500}

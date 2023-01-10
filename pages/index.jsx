@@ -105,7 +105,7 @@ export default function Home({
 
 				<meta property="og:description" content="GOGO DINO META EXPLORERS" />
 
-				<meta property="og:image" content="cardmain_GDX.png" />
+				<meta property="og:image" content="gamemain_GDX.png" />
 				<link rel="icon" href="/favicon.ico" />
 				<link href="https://fonts.googleapis.com" />
 
