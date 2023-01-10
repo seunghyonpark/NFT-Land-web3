@@ -381,7 +381,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
                             height={500}
                         />
 
-                        <div className=" mt-5 text-xl text-amber-400">No exist...</div>
+                        <div className=" mt-5 text-xl text-amber-400">No NFTs</div>
                     </div>
                     
 			    }
