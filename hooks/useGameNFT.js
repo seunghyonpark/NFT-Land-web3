@@ -177,7 +177,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		if (address) {
 			intervalMiliSecond = 10000;
 		} else {
-			intervalMiliSecond = 10000;
+			intervalMiliSecond = 20000;
 		}
 
 		const interval = setInterval(fetchNFTsGlobal, intervalMiliSecond);
@@ -834,7 +834,25 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			const from = window.klaytn.selectedAddress;
 
 
-			const to = stakingWalletAddress;
+			
+			// cypress 일경우
+			// baobab 일경우
+			/*
+			const chainId = "8217"; // cypress
+	//const chainId = "1001"; // baobab
+			*/
+
+			//const to = stakingWalletAddress;
+			let to = "";
+
+			if (chainId === "8217") {
+				to = stakingWalletAddress;
+			} else {
+				//to = stakingWalletAddress;
+				to = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+			}
+
+
 
 			//const to = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
 

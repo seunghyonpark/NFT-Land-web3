@@ -84,6 +84,8 @@ export default async function handler(req, res) {
 
 		const tokenId = tokenid;
 
+		const chainId = chainid;
+
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -248,19 +250,30 @@ console.log("ret", ret);
 
 		//console.log("withdraw-nft contractABI", contractABI)
 
+		
+		let fromAddress = "";
+		if (chainId === "8217") {
+			fromAddress = stakingWalletAddress;
+		} else {
+			//to = stakingWalletAddress;
+			fromAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+		}
+		
+
+
 		const gas = 1000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
 
 		const result = await deployed.send (
-			{from: stakingWalletAddress, gas},
+			{from: fromAddress, gas},
 			'transferFrom',
-			stakingWalletAddress,
+			fromAddress,
 			wallet,
 			withdrawTokenId
 		);
 		
-		//console.log("withdraw-nft transferFrom result", result);
+		console.log("withdraw-nft transferFrom result", result);
 
 
 

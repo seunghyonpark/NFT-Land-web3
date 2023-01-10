@@ -66,10 +66,18 @@ export default async function handler(req, res) {
 		const { chainid, contract, wallet } = req.query;
 
 
+		console.log("game-fetch-nfts chainid", chainid);
+		console.log("game-fetch-nfts contract", contract);
+		console.log("game-fetch-nfts wallet", wallet);
+
+
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
 
-		const contractAddress = contract;
+		const chainId = chainid;
+		let contractAddress = contract;
+
+
 
 
 		if (wallet) {
@@ -77,7 +85,7 @@ export default async function handler(req, res) {
 		} else {
 			const nftsGlobal = new Object();
 			
-			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}`);
+			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainId}&contract=${contractAddress}`);
 
 			if (response.ok) {
 	
@@ -129,6 +137,9 @@ export default async function handler(req, res) {
 			return;
 			
 		}
+
+
+
 
 
 
@@ -254,7 +265,16 @@ export default async function handler(req, res) {
 
 
 
-
+		/*
+		let fromAddress = "";
+		if (chainId === "8217") {
+			fromAddress = stakingWalletAddress;
+		} else {
+			//to = stakingWalletAddress;
+			fromAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+		}
+		*/
+		
 
 		// staked NFTs
 

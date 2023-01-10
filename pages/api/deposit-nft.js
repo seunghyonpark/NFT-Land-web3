@@ -84,7 +84,7 @@ export default async function handler(req, res) {
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
 
-		const response = await fetch(`http://wallet.treasureverse.io/gogodeposit?chainid=${chainid}&contract=${contract}&wallet=${wallet}&tokenid=${tokenId}&uri=${uri}`);
+		const response = await fetch(`http://wallet.treasureverse.io/gogodeposit?stakingwallet=${stakingwallet}&chainid=${chainid}&contract=${contract}&wallet=${wallet}&tokenid=${tokenId}&uri=${uri}`);
 
 		//console.log("response", response);
 
