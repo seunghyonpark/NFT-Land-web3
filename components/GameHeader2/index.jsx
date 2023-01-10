@@ -508,18 +508,17 @@ export default function GameHeader2({
 			<ul  className="p-3 flex flex-row justify-between divide-x divide-slate-200">
 		*/}
 
-			<cards className="mt-0 grid justify-center gap-10
-							sm:grid-cols-1
-							md:grid-cols-1
-							lg:grid-cols-1
-							xl:grid-cols-1
+<cards className="mt-0 grid justify-center gap-10
+							sm:grid-cols-2
+							md:grid-cols-2
+							lg:grid-cols-2
+							xl:grid-cols-2
 
-							grid-cols-1 
-							">	
+							grid-cols-1 ">	
 
-				<div className="flex flex-row py-0 first:pt-0 last:pb-0 ">
+				<div className="float-right flex py-0 first:pt-0 last:pb-0 ">
 					
-					<div className=" flex-none mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="gold-fish"
 							src={goldFishAddress}
@@ -529,7 +528,7 @@ export default function GameHeader2({
 						></lottie-player>
 					</div>
 
-					<div className=" flex-none mr-8 overflow-hidden text-right ">
+					<div className="flex-auto mr-0 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
 							Staking Count Total ({nftSymbol})
 						</p>
@@ -545,6 +544,9 @@ export default function GameHeader2({
 
 				</div>
 
+				<div className="float-left flex py-0 first:pt-0 last:pb-0 invisible">
+					
+				</div>
 
 			</cards>
 
