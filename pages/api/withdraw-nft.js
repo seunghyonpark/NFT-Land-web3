@@ -170,10 +170,21 @@ console.log("ret", ret);
 		*/
 
 		
+
+		/*
 		const gas = 150000000;
 
 		const deployed = caver.contract.create(contractABI, contractAddress);
+		*/
 
+		/*
+		const result = await caver.kas.kip17.mint (
+			contractAddress,
+			wallet,
+			caver.utils.toHex(tokenId),
+			tokenUri
+		);
+		*/
 
 		//console.log("deployed", deployed);
 
@@ -202,6 +213,7 @@ console.log("ret", ret);
 		console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
 
 
+		/*
 		const receipt = await deployed.send(
 			{from: stakingWalletAddress, gas},
 			'transferFrom',
@@ -209,11 +221,23 @@ console.log("ret", ret);
 			wallet,
 			withdrawTokenId
 		);
+		*/
+
+		const result = await caver.kas.kip17.transfer(
+			contractAddress,
+			stakingWalletAddress,
+			stakingWalletAddress,
+			wallet,
+			caver.utils.toHex(withdrawTokenId)
+		);
+
+		console.log("caver.kas.kip17.transfer result", result);
+
 
 
 		//console.log("withdraw-nft receipt", receipt);
 
-		if (receipt) {
+		if (result) {
 
 			const data = await caver.kas.tokenHistory.getNFT(contractAddress, withdrawTokenId);
 

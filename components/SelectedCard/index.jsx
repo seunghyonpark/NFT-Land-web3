@@ -16,6 +16,7 @@ import useStakeNFT from "../../hooks/useStakeNFT.js";
 
 // --------------------------
 export default function SelectedCard({
+	nftSymbol,
 	selectedCard,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -361,18 +362,12 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 
-
-
-
-
 					{!selectedCard &&
 
 
-
-
 						<Image
-							src="/nft_01.png"
-							alt=""
+							src={`/selectedcard_${nftSymbol}.png`}
+							alt={`${nftSymbol}`}
 							width={300}
 							height={300}
 						/>

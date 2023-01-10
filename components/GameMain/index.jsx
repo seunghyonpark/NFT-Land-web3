@@ -351,15 +351,15 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				{data.length === 0 && 
 				
-                    <div>
-                        <Image className=" bg-contain bg-no-repeat bg-center" 
-                            src="/char_group.png"
-                            alt=""
+                    <div className="flex flex-col">
+                        <Image className="float-center w-full mt-5 p-5 " 
+							src={`/gamemain_${nftSymbol}.png`}
+                            alt={`${nftSymbol}`}
                             width={500}
                             height={500}
                         />
 
-                        <div className=" text-xl text-amber-400">No exist...</div>
+                        <div className=" mt-5 text-xl text-amber-400">No exist...</div>
                     </div>
                     
 			    }

@@ -115,6 +115,7 @@ export default function StakingPage({
 					
 					<SelectedCard
 						key={uuidv4()}
+						nftSymbol={nftSymbol}
 						selectedCard={selectedCard}
 						cryptoTowerAddress={cryptoTowerAddress}
 						loadingCubesAddress={loadingCubesAddress}
