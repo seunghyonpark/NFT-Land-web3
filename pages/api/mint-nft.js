@@ -217,11 +217,6 @@ await contract.methods.say().send(options)
 		*/
 	
 
-		const gas = 150000000;
-
-		const deployed = caver.contract.create(contractABI, contractAddress);
-
-
 
 
 		/*
@@ -250,13 +245,16 @@ await contract.methods.say().send(options)
 
 		//const baseURI = 'https://miya.sunmiya.club';
 
+
+
+
 		const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
-
 		const tokenUri = `${baseURI}/${tokenId}.json`;
 
+		console.log("totalSupply.result", totalSupply.result);
 
 		/*
 		{"image":"ipfs://QmYxT4LnK8sqLupjbS6eRvu1si7Ly2wFQAqFebxhWntcf6","attributes":[{"trait_type":"Background","value":"Purple"},{"trait_type":"Eyes","value":"Bored"},{"trait_type":"Mouth","value":"Tongue Out"},{"trait_type":"Clothes","value":"Bone Necklace"},{"trait_type":"Fur","value":"Cheetah"}]}
@@ -290,11 +288,40 @@ await contract.methods.say().send(options)
 
 
 
+		/*
+		const result2 = await caver.kas.kip17.deploy (
+			"GOGODINO Official",
+			"GDX",
+			"kip17-gdx-kkk"
+		);
+
+	
+		const result3 = await caver.kas.kip17.deploy (
+			"Sunmiya Club Official",
+			"MIYA",
+			"kip17-miya-kkk"
+		);
+		*/
 
 
+		/*
+		Kip17DeployResponse {
+			status: 'Submitted',
+			transactionHash: '0x5e2930ff059fa598f2b0a98c5a4e55037abbd9834be57b2cc7459c5d3d1ddb22',
+			options: Kip17FeePayerOptions {
+			  enableGlobalFeePayer: true,
+			  userFeePayer: Kip17FeePayerOptionsUserFeePayer { krn: '', address: '' }
+			}
+		  }
+
+		  */
 
 
+		/*
+		const gas = 150000000;
 
+		const deployed = caver.contract.create(contractABI, contractAddress);
+    
 
 		const receipt = await deployed.send(
 			{from: contractOwnerAddress, gas},
@@ -303,6 +330,20 @@ await contract.methods.say().send(options)
 			tokenId,
 			tokenUri
 		);
+		*/
+
+				//contract address
+		//0x856b4d21791b1cc9b561751797849d5e6a234ac2
+
+		const result = await caver.kas.kip17.mint (
+			contractAddress,
+			wallet,
+			caver.utils.toHex(tokenId),
+			tokenUri
+		);
+
+		console.log("caver.kas.kip17.mint result", result);
+
 
 		/*
 		/// for vercel test

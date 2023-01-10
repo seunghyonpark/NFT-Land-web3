@@ -212,8 +212,8 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				const fetchData = await response.json();
 	
-				console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
-				console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
+				//console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
+				//console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
 	
 				if (fetchData.data.ownedNfts.length === 0) {
 
@@ -361,7 +361,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			const nft = await response.json();
 
-			console.log("nft.data",nft.data);
+			//console.log("nft.data",nft.data);
 
 			//setTokenId(nft.data.tokenId);
 
