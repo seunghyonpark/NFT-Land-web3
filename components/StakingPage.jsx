@@ -11,7 +11,8 @@ import { v4 as uuidv4 } from "uuid"
 import { useState, useEffect, useRef } from "react";
 
 
-export default function StakingPage({
+export default function StakingPage ({
+	nftName,
 	nftSymbol,
 	selectedCard,
 	address,
@@ -28,6 +29,7 @@ export default function StakingPage({
 	withdrawNFT,
 }) {
 	
+	console.log("StakingPage nftName", nftName);
 
 	/*
 	let displayAddress = "";
@@ -115,6 +117,7 @@ export default function StakingPage({
 					
 					<SelectedCard
 						key={uuidv4()}
+						nftName={nftName}
 						nftSymbol={nftSymbol}
 						selectedCard={selectedCard}
 						cryptoTowerAddress={cryptoTowerAddress}

@@ -409,6 +409,7 @@ export default function Baobab({
 
 				<StakingPage
 					{...{
+						nftName,
 						nftSymbol,
 						selectedCard,
 						address,

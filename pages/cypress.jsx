@@ -63,7 +63,7 @@ export default function Cypress({
 
 
 	const nftSymbol = "GDX";
-	const nftName = "GOGODINO Official";
+	const nftName = "GOGO DINO META EXPLORERS";
 	
 
 	console.log("Game contractAddress", contractAddress);
@@ -283,8 +283,8 @@ export default function Cypress({
 			<Head>
 				<title>GOGO DINO META EXPLORERS</title>
 				<meta
-					name="GOGO DINO META EXPLORERS"
-					content="GOGO DINO META EXPLORERS"
+					name={nftName}
+					content={nftName}
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
@@ -292,7 +292,7 @@ export default function Cypress({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
-				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
+				<meta property="og:title" content={nftName}></meta>
 				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
 				<meta property="og:image" content="/gdx.jpeg"></meta>
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
@@ -406,6 +406,7 @@ export default function Cypress({
 
 				<StakingPage
 					{...{
+						nftName,
 						nftSymbol,
 						selectedCard,
 						address,

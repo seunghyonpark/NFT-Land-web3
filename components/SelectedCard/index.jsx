@@ -16,6 +16,7 @@ import useStakeNFT from "../../hooks/useStakeNFT.js";
 
 // --------------------------
 export default function SelectedCard({
+	nftName,
 	nftSymbol,
 	selectedCard,
 	cryptoTowerAddress,
@@ -29,6 +30,7 @@ export default function SelectedCard({
 
 
 
+	console.log("SelectedCard nftName", nftName);
 
 
 	/*
@@ -381,7 +383,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 				<div className="mt-2"></div>
-				<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #{selectedCard.tokenId}</h2>
+				<h2 className={classes.textshadow}>{nftName} #{selectedCard.tokenId}</h2>
 				<div className="mt-20"></div>
 
 
