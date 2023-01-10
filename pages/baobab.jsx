@@ -63,7 +63,7 @@ export default function Baobab({
 
 
 	const nftSymbol = "GDX";
-	const nftName = "GOGODINO Official";
+	const nftName = "GOGO DINO META EXPLORERS";
 	
 
 	//console.log("Game contractAddress", contractAddress);

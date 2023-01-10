@@ -63,7 +63,7 @@ export default function Miya({
 
 
 	const nftSymbol = "MIYA";
-	const nftName = "Sunmiya Club";
+	const nftName = "Miya";
 
 
 
