@@ -91,7 +91,7 @@ export default async function handler(req, res) {
 	
 				const json = await response.json();
 				
-				console.log("game-fetch-nfts staking info json",json);
+				//console.log("game-fetch-nfts staking info json",json);
 
 				if (json) {
 					nftsGlobal.stakingCountGlobal = json.stakingCountGlobal;

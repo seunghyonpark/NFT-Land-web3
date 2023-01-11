@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Baobab({
+export default function Gangnam ({
 	baseURI,
 	contractOwnerAddress,
 	contractAddress,
@@ -341,7 +341,6 @@ export default function Baobab({
 				}}
 			/>
 
-{/*
 				<StakingHeader
 					{...{
 						chainId,
@@ -368,7 +367,7 @@ export default function Baobab({
 						miningAmountTotal,
 					}}
 				/>
-				*/}
+			
 
 			{/*isWithdrawing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">

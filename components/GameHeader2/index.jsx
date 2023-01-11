@@ -465,6 +465,7 @@ export default function GameHeader2({
 			`}
 		*/}
 
+
 				<Image
 					className="float-left my-5 w-auto self-center" 
 					src={`/logo_${nftSymbol}.png`}
@@ -550,7 +551,7 @@ export default function GameHeader2({
 
 			</cards>
 
-			{!address &&
+			{/*!address &&
 
 				<Image
 					className="float-center w-full mb-5 " 
@@ -560,7 +561,7 @@ export default function GameHeader2({
 					height={500} 
 				/>
 
-			}
+					*/}
 				
 
 		</header>

@@ -8,6 +8,7 @@ import { min } from "rxjs";
 
 export default function useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol) {
 
+	const [stakeDataGlobal, setStakeDataGlobal] = useState([]);
 	const [data, setData] = useState([]);
 	const [stakeData, setStakeData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -106,7 +107,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		const fetchNFTsGlobal = async () => {
 
-			console.log("fetchNFTsGlobal");
+			///console.log("fetchNFTsGlobal");
 	
 			try {
 				const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}`);
@@ -143,16 +144,72 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				const mintingCountGlobal = fetchData.data.mintingCountGlobal;
 				setMintingCountGlobal(mintingCountGlobal);
-	
 				
-				return;
+				//return;
 	
 			} catch (err) {
 	
 				console.log("err="+err);
 				//alert("There was an error fetching NFTs!----");
-				return;
+				//return;
 			}
+
+
+
+
+			try {
+				
+				const response = await fetch(`/api/game-fetch-nfts-more?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
+	
+				if (!response.ok) {
+					return;
+				}
+	
+				const fetchData = await response.json();
+	
+
+	
+				if (fetchData.data.ownedNfts.length === 0) {
+
+				} else {
+
+					
+	
+					// alchemy
+					setStakeDataGlobal(fetchData.data.ownedNfts);
+	
+					//setHoldingCount(fetchData.data.ownedNfts.length);
+	
+					//setMiningAmountTotal(fetchData.miningAmountTotal);
+	
+				}
+	
+				/*
+				// update staking count
+				let sCount = 0;
+				for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
+	
+					if (fetchData.data.ownedNfts[idx].staking === "true") {
+						sCount = sCount + 1;
+					}
+	
+				}
+				setStakingCount(String(sCount));
+				*/
+
+	
+			} catch (err) {
+				///setIsLoading(false);
+	
+				console.log("err="+err);
+				///alert("There was an error fetching NFTs!----");
+
+			}
+
+
+
+
+
 	
 		};
 
@@ -202,6 +259,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		const fetchNFTs = async () => {
 	
 			try {
+
 				const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
 	
 				if (!response.ok) {
@@ -243,7 +301,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				setIsLoading(false);
 	
 				console.log("err="+err);
-				alert("There was an error fetching NFTs!----");
+				//alert("There was an error fetching NFTs!----");
 
 			}
 	
@@ -1190,7 +1248,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 	return { walletConnected, walletDisconnected, mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
-		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
+		stakeDataGlobal, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,
 		miningAmountTotal,

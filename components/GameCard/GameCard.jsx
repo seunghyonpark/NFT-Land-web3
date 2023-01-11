@@ -122,7 +122,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	
 	useEffect(() => {
 
-		console.log("GameCard cardData.selected "+cardData.tokenId, cardData.selected);
+		//console.log("GameCard cardData.selected "+cardData.tokenId, cardData.selected);
 
 		//ref.current.style = cardData.cssText;
 
