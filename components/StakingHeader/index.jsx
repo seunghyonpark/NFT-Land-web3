@@ -166,7 +166,7 @@ export default function StakingHeader({
 	}, [address, stakeDataGlobal, selectedCard]);
 	
 
-
+	/*
 	const handleClick = (nft) =>  {
 
 		////console.log("StakingHeader handleClick tokenId", nft.tokenId);
@@ -179,30 +179,6 @@ export default function StakingHeader({
 		setSelectedCard(nft);
 
 
-		
-		/*
-		let idx;
-		for(idx=0; idx < stakeDataGlobal.length; idx++) {
-			if (stakeDataGlobal[idx].tokenId === selectedCard.tokenId) {
-				itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
-
-				stakeDataGlobal[idx].cssText = "border-color: yellow; border-width: 7px;";
-			} else {
-				itemEls.current[idx].style.cssText = "border-color: transparent; border-width: 0px;";
-
-				stakeDataGlobal[idx].cssText = "border-color: transparent; border-width: 0px;";
-			}
-		}
-
-		if (selectedCard.staking === "true") {
-			refStake.current.style.display = "none";
-			refUnstake.current.style.display = "";
-		} else {
-			refStake.current.style.display = "";
-			refUnstake.current.style.display = "none";
-		}
-		*/
-
 		let idx;
 		for(idx=0; idx < stakeDataGlobal.length; idx++) {
 			stakeDataGlobal[idx].selected = false;
@@ -212,7 +188,7 @@ export default function StakingHeader({
 
 	
 	}
-
+	*/
 
 
 	{/*
@@ -290,7 +266,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				{/* cards container */}
 				<div className="mt-0 grid justify-center gap-5
-						grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 p-3
+						grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 p-3
 					">
 
 
@@ -300,11 +276,13 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						//key={nft.tokenId}
 						key={uuidv4()}
 						//onClick={(e) => handleClick(e)}
+						/*
 						onClick={(e) => {
 							e.preventDefault(); 
 							handleClick(nft);
 						}}
 						ref={(element) => itemEls.current.push(element)}
+						*/
 					>
 						<GameCard
 							key={uuidv4()}

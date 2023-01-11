@@ -14,6 +14,7 @@ export default function GameHeader ({
 	contractAddress,
 	setContractAddress,
 	nftSymbol,
+	setNftSymbol,
 	walletDisconnected,
 	address,
 	setAddress,
@@ -403,13 +404,14 @@ export default function GameHeader ({
 
 	const selectContract = async (contractName) => {
 
+		setNftSymbol(contractName);
+
 		if (contractName === "GDX") {
 			setContractAddress("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
 			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
 		} else {
 			setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
 			setBaseURI("https://miya.sunmiya.club");
-
 		}
 
 	}
@@ -496,17 +498,6 @@ export default function GameHeader ({
 				</button>
 
 				<button
-					className="  float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {e.preventDefault(); selectContract("GDX")} }> GDX </button>
-				<button
-					className="  float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {e.preventDefault(); selectContract("MIYA")} }> MIYA </button>
-
-				<button
 					ref={refConnect}
 					onClick={loadAccountInfo}
 					className=" float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
@@ -527,6 +518,19 @@ export default function GameHeader ({
 
 			</form>
 
+
+			<div className="flex flex-row">
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {e.preventDefault(); selectContract("GDX")} }> GDX </button>
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {e.preventDefault(); selectContract("MIYA")} }> MIYA </button>	
+			</div>
 
 {/*
 			<ul role="list" className="p-3 divide-y divide-slate-200">
@@ -613,7 +617,12 @@ export default function GameHeader ({
 				/>
 
 				*/}
+
+
+
+
 				
+
 
 		</header>
 

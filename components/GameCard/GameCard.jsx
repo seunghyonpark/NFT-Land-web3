@@ -165,7 +165,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 		<div ref={ref}
 			className={`
-			m-auto flex  max-w-[70%] flex-col rounded-lg p-3 sm:m-0 sm:max-w-lg 
+			m-auto flex  max-w-[98%] flex-col rounded-lg p-3 sm:m-0 sm:max-w-lg 
 			hover:mix-blend-hard-light
 			border
 

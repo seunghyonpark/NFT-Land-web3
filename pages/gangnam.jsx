@@ -73,9 +73,10 @@ export default function Gangnam ({
 
 
 
+	const [nftSymbol, setNftSymbol] = useState("GDX");
+	const [nftName, setNftName] = useState("GOGO DINO META EXPLORERS");
 
-	const nftSymbol = "GDX";
-	const nftName = "GOGO DINO META EXPLORERS";
+
 	
 
 	//console.log("Game contractAddress", contractAddress);
@@ -331,6 +332,7 @@ export default function Gangnam ({
 					contractAddress,
 					setContractAddress,
 					nftSymbol,
+					setNftSymbol,
 					walletDisconnected,
 					address,
 					setAddress,
