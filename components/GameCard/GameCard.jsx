@@ -260,7 +260,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			*/}
 
 			<div className=" mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
-				# {cardData.tokenId}
+				{cardData.contract.symbol} #{cardData.tokenId}
 			</div>
 
 			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">

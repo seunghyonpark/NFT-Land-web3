@@ -119,6 +119,26 @@ export default function Gangnam ({
 
 	useEffect(() => {
 
+		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
+			setNftName("GOGO DINO META EXPLORERS");
+			setNftSymbol("GDX");
+			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
+		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
+			setNftName("Sunmiya Club");
+			setNftSymbol("MIYA");
+			setBaseURI("https://miya.sunmiya.club");
+		}
+
+	}, [contractAddress]);
+
+
+
+
+
+
+
+	useEffect(() => {
+
 		
 
 		/*

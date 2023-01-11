@@ -410,7 +410,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			/// for vercel test
 
-			console.log("mint-nft api result", response);
+			//console.log("mint-nft api result", response);
 
 
 

@@ -342,9 +342,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		
 	sm:pl-[50px] sm:pr-[50px] sm:pt-[70px]
 
-	md:pl-[70px] md:pr-[70px] md:pt-[0px]
+	md:pl-[90px] md:pr-[90px] md:pt-[0px]
 
-	xl:pl-[170px] xl:pr-[160px] xl:pt-[60px]
+	xl:pl-[135px] xl:pr-[130px] xl:pt-[60px]
 	
 	
 ">
@@ -451,7 +451,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 mr-5 rounded-full" src="./enhance.png" alt="" />
+			<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Token ID</p>
 				<p className="text-sm truncate">#{selectedCard.tokenId}</p>
@@ -459,7 +459,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 mr-5 rounded-full" src="./staking.png" alt="" />
+			<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Time Left</p>
 				<p className="text-sm truncate">{selectedCard.timeLeft}</p>
@@ -467,7 +467,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-				<img className="h-5 w-5 mr-5 rounded-full" src="battle.png" alt="" />
+				<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
 				<div className="ml-3 overflow-hidden text-left">
 					<p className="text-xs  font-medium " >NFT Maturity</p>
 					<p className="text-sm truncate">{selectedCard.maturityLevel}</p>
@@ -475,7 +475,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-				<div className="mt-3 ml-3 h-7 w-7 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+				<div className="mt-3 ml-3 h-7 w-5 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 					<lottie-player
 						id="crypto-tower"
 						src={depositingNFTAddress}
@@ -484,7 +484,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 						autoplay
 					></lottie-player>
 				</div>
-				<div className="ml-3 overflow-hidden text-left">
+				<div className=" overflow-hidden text-left">
 					<p className="text-xs  font-medium " >Mining Amount ($SML)</p>
 					<p className="text-sm truncate">{selectedCard.miningAmount}</p>
 				</div>

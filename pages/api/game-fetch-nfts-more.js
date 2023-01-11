@@ -77,6 +77,18 @@ export default async function handler(req, res) {
 		const chainId = chainid;
 		let contractAddress = contract;
 
+		let contractName = "";
+		let contractSymbol = "";
+
+
+
+		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
+			contractName = "GOGO DINO META EXPLORERS";
+			contractSymbol = "GDX";
+		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
+			contractName = "Sunmiya Club";
+			contractSymbol = "MIYA";
+		}
 
 
 		// staked NFTs
@@ -90,7 +102,7 @@ export default async function handler(req, res) {
 
 
 		const ownedNfts = new Array();
-		const contractName = "AAA";
+		
 
 
 		if (response.ok) {
@@ -134,6 +146,7 @@ export default async function handler(req, res) {
 				const contract = new Object();
 				contract.address = contractAddress;
 				contract.name = contractName;
+				contract.symbol = contractSymbol;
 				nft.contract = contract;
 
 

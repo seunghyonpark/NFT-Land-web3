@@ -402,21 +402,6 @@ export default function GameHeader ({
 	}
 
 
-	const selectContract = async (contractName) => {
-
-		setNftSymbol(contractName);
-
-		if (contractName === "GDX") {
-			setContractAddress("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
-			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
-		} else {
-			setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
-			setBaseURI("https://miya.sunmiya.club");
-		}
-
-	}
-
-
 	/*
 	const router = useRouter();
 
@@ -524,12 +509,24 @@ export default function GameHeader ({
 					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {e.preventDefault(); selectContract("GDX")} }> GDX </button>
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+					}}
+				>
+					GDX
+				</button>
 				<button
 					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {e.preventDefault(); selectContract("MIYA")} }> MIYA </button>	
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
+					}}
+				>
+					MIYA
+				</button>	
 			</div>
 
 {/*
@@ -547,33 +544,7 @@ export default function GameHeader ({
 
 							grid-cols-1 ">	
 
-				<div className="float-right flex py-0 first:pt-0 last:pb-0 ">
-					
-					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-						<lottie-player
-							id="gold-fish"
-							src={goldFishAddress}
-							speed="5"
-							loop
-							autoplay
-						></lottie-player>
-					</div>
 
-					<div className="flex-auto mr-8 overflow-hidden text-right ">
-						<p className="text-normal font-medium text-slate-200">
-							Staking Count Total ({nftSymbol})
-						</p>
-						{/*
-						<p className=" text-2xl text-amber-400 truncate">
-						*/}
-							
-							<div className={classes.number}>{thisStakingCountGlobal} / {thisMintCountGlobal}</div>
-						{/*
-						</p>
-						*/}
-					</div>
-
-				</div>
 
 				<div className="float-left flex py-0 first:pt-0 last:pb-0 ">
 					
@@ -601,8 +572,36 @@ export default function GameHeader ({
 					*/}
 					</div>
 
-
 				</div>
+
+
+				<div className="float-right flex py-0 first:pt-0 last:pb-0 ">
+					
+					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
+						<lottie-player
+							id="gold-fish"
+							src={goldFishAddress}
+							speed="5"
+							loop
+							autoplay
+						></lottie-player>
+					</div>
+
+					<div className="flex-auto mr-8 overflow-hidden text-right ">
+						<p className="text-normal font-medium text-slate-200">
+							Staking Count Total ({nftSymbol})
+						</p>
+						{/*
+						<p className=" text-2xl text-amber-400 truncate">
+						*/}
+							
+							<div className={classes.number}>{thisStakingCountGlobal} / {thisMintCountGlobal}</div>
+						{/*
+						</p>
+						*/}
+					</div>
+
+				</div>				
 
 			</cards>
 
