@@ -538,7 +538,6 @@ export async function getStaticProps() {
 			baseURI,
 			contractOwnerAddress,
 			contractAddress,
-			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,
