@@ -30,6 +30,7 @@ export default function GameHeader2({
 	stakingCountGlobal,
 	miningAmountGlobal,
 }) {
+	
 
 	if (address) {
 		//console.log("MintHeaderHeader address",address);
