@@ -29,7 +29,7 @@ export default function StakingPage ({
 	withdrawNFT,
 }) {
 	
-	console.log("StakingPage nftName", nftName);
+	////console.log("StakingPage nftName", nftName);
 
 	/*
 	let displayAddress = "";

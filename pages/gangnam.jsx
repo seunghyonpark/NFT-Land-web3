@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
-import GameHeader2 from "../components/GameHeader2/index.jsx";
+import GameHeader from "../components/GameHeader/index.jsx";
 
 import StakingHeader from "../components/StakingHeader/index.jsx";
 
@@ -42,9 +42,7 @@ const options = {
 
 //-----------------------------
 export default function Gangnam ({
-	baseURI,
 	contractOwnerAddress,
-	contractAddress,
 	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -65,6 +63,15 @@ export default function Gangnam ({
 	//const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
+
+
+	const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+
+	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
+
+	const [baseURI, setBaseURI] = useState("https://gogodino.saltmarble.io/metaexplorers/json");
+
+
 
 
 	const nftSymbol = "GDX";
@@ -110,6 +117,8 @@ export default function Gangnam ({
 
 
 	useEffect(() => {
+
+		
 
 		/*
 		console.log("session?.user", session?.user);
@@ -315,8 +324,12 @@ export default function Gangnam ({
 	
 
 
-			<GameHeader2
+			<GameHeader
 				{...{
+					baseURI,
+					setBaseURI,
+					contractAddress,
+					setContractAddress,
 					nftSymbol,
 					walletDisconnected,
 					address,
@@ -528,11 +541,11 @@ export async function getStaticProps() {
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 
 	
-	const contractAddress = process.env.CONTRACT_ADDRESS_GDX;
+	
 
 
 
-	const baseURI = "https://gogodino.saltmarble.io/metaexplorers/json";
+	
 
 
 
@@ -566,9 +579,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			baseURI,
 			contractOwnerAddress,
-			contractAddress,
 			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,

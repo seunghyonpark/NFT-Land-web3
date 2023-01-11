@@ -105,6 +105,10 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 	useEffect(() => {
 
+		console.log("useGameNFT useEffect contractAddress==========", contractAddress);
+
+
+
 		const fetchNFTsGlobal = async () => {
 
 			///console.log("fetchNFTsGlobal");
@@ -253,7 +257,12 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 	useEffect(() => {
 
-		if (address) {}
+		console.log("useGameNFT useEffect contractAddress-------------", contractAddress);
+
+		if (address) {
+
+			
+		}
 		else return;
 
 		const fetchNFTs = async () => {
@@ -271,9 +280,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				//console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
 				//console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
 	
-				if (fetchData.data.ownedNfts.length === 0) {
+				//if (fetchData.data.ownedNfts.length === 0) {
 
-				} else {
+				//} else {
 	
 					// alchemy
 					setData(fetchData.data.ownedNfts);
@@ -282,7 +291,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 					setMiningAmountTotal(fetchData.miningAmountTotal);
 	
-				}
+				//}
 	
 				// update staking count
 				let sCount = 0;
@@ -306,6 +315,8 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			}
 	
 		};
+
+		fetchNFTs();
 
 		let intervalMiliSecond = 10000;
 

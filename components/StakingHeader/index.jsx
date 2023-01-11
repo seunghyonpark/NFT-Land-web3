@@ -74,7 +74,7 @@ export default function StakingHeader({
 
 	useEffect(() => {
 
-        console.log("StakingHeader miningAmountTotal", miningAmountTotal);
+        ////console.log("StakingHeader miningAmountTotal", miningAmountTotal);
 
 		const numFix = 4;
 
@@ -127,7 +127,7 @@ export default function StakingHeader({
 
 	useEffect(() => {
 
-		console.log("StakingHeader useEffect=========");
+		////console.log("StakingHeader useEffect=========");
 
 
 		if (address === "") {
@@ -169,7 +169,7 @@ export default function StakingHeader({
 
 	const handleClick = (nft) =>  {
 
-		console.log("StakingHeader handleClick tokenId", nft.tokenId);
+		////console.log("StakingHeader handleClick tokenId", nft.tokenId);
 
 
 		//console.log('cardData.selected', cardData.selected);
@@ -233,15 +233,15 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			
 			
 
-			<div className="bg-gradient-to-bl from-blue-900">
+			<div className=" bg-gradient-to-bl from-blue-900">
 
 
-			<div className="mt-1"></div>
+			<div className=" mt-1"></div>
 
 
 
 
-			<div className="bg-gradient-to-l from-blue-500 ">			
+			<div className=" rounded-lg bg-gradient-to-l from-blue-500 ">			
 
 
 			<div className="mt-0 pt-3 pb-3 text-normal text-amber-400">Staked NFTs</div>
@@ -250,7 +250,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div
 				//ref={refScroller} h-screen
 				className="
-					overflow-y-scroll h-96
+					overflow-y-scroll h-80
 					
 				">
 
@@ -290,7 +290,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				{/* cards container */}
 				<div className="mt-0 grid justify-center gap-5
-						grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 p-3
+						grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 p-3
 					">
 
 

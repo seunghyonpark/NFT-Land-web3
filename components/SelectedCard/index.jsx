@@ -30,7 +30,7 @@ export default function SelectedCard({
 
 
 
-	console.log("SelectedCard nftName", nftName);
+	////console.log("SelectedCard nftName", nftName);
 
 
 	/*
@@ -196,7 +196,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 		//alert(`Hello, ${name}!`);
 
-		console.log(`Hello, ${selectedCard.tokenId}!`);
+		/////console.log(`Hello, ${selectedCard.tokenId}!`);
 
 
 		//setTokenId(tokenId);

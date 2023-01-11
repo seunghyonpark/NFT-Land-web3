@@ -9,6 +9,10 @@ import { min } from "mocha/lib/reporters"
 
 
 export default function GameHeader ({
+	baseURI,
+	setBaseURI,
+	contractAddress,
+	setContractAddress,
 	nftSymbol,
 	walletDisconnected,
 	address,
@@ -397,6 +401,20 @@ export default function GameHeader ({
 	}
 
 
+	const selectContract = async (contractName) => {
+
+		if (contractName === "GDX") {
+			setContractAddress("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
+		} else {
+			setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
+			setBaseURI("https://miya.sunmiya.club");
+
+		}
+
+	}
+
+
 	/*
 	const router = useRouter();
 
@@ -476,6 +494,17 @@ export default function GameHeader ({
 				<button ref={refNFT} onClick={(e) => {e.preventDefault(); fetchNFTs(e);}}>
 
 				</button>
+
+				<button
+					className="  float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {e.preventDefault(); selectContract("GDX")} }> GDX </button>
+				<button
+					className="  float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {e.preventDefault(); selectContract("MIYA")} }> MIYA </button>
 
 				<button
 					ref={refConnect}
@@ -573,7 +602,7 @@ export default function GameHeader ({
 
 			</cards>
 
-			{!address &&
+			{/*!address &&
 
 				<Image
 					className="float-center w-full mb-5 " 
@@ -583,7 +612,7 @@ export default function GameHeader ({
 					height={500} 
 				/>
 
-			}
+				*/}
 				
 
 		</header>
