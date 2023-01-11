@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"
 import router from "next/router";
 
 import { useState, useEffect } from "react";
@@ -198,7 +199,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
 				<div className={classes.squareflip}>
 					<div className={classes.square} data-image="">
 						<div className={classes.squarecontainer}>
-							<div className={classes.aligncenter}><img className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/59.png" alt=""/></div>
+							<div className={classes.aligncenter}><Image className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/59.png" alt=""/></div>
 							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #59</h2>
 							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
 						</div>
@@ -218,7 +219,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
                 <div className={classes.squareflip}>
 					<div className={classes.square} data-image="">
 						<div className={classes.squarecontainer}>
-							<div className={classes.aligncenter}><img className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/60.png" alt=""/></div>
+							<div className={classes.aligncenter}><Image className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/60.png" alt=""/></div>
 							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #60</h2>
 							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
 						</div>
@@ -236,7 +237,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
                 <div className={classes.squareflip}>
 					<div className={classes.square} data-image="">
 						<div className={classes.squarecontainer}>
-							<div className={classes.aligncenter}><img className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/61.png" alt=""/></div>
+							<div className={classes.aligncenter}><Image className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/61.png" alt=""/></div>
 							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #61</h2>
 							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
 						</div>
@@ -254,7 +255,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
                 <div className={classes.squareflip}>
 					<div className={classes.square} data-image="">
 						<div className={classes.squarecontainer}>
-							<div className={classes.aligncenter}><img className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/62.png" alt=""/></div>
+							<div className={classes.aligncenter}><Image className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/62.png" alt=""/></div>
 							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #62</h2>
 							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
 						</div>
@@ -272,7 +273,7 @@ export default function DashboardHeader({ address, setAddress, fetchNFTs }) {
                 <div className={classes.squareflip}>
 					<div className={classes.square} data-image="">
 						<div className={classes.squarecontainer}>
-							<div className={classes.aligncenter}><img className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/63.png" alt=""/></div>
+							<div className={classes.aligncenter}><Image className={classes.boxshadow} src="https://gogodino.saltmarble.io/metaexplorers/images/63.png" alt=""/></div>
 							<h2 className={classes.textshadow}>GOGO DINO META EXPLORERS #63</h2>
 							<h3 className={classes.textshadow}>The #1 Selling Most Enjoyable and Creative Multipurpose WordPress theme.</h3>
 						</div>

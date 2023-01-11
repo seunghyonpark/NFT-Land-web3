@@ -79,7 +79,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 							<!-- Remove top/bottom padding when first/last child -->*/}
 
 				<li class="flex py-4 first:pt-0 last:pb-0">
-				<img class="h-7 w-7 rounded-full" src="./opensea.png" alt="" />
+				<Image class="h-7 w-7 rounded-full" src="./opensea.png" alt="" />
 				<div class="ml-3 overflow-hidden text-left">
 					<p class="text-xs  text-slate-900">
 

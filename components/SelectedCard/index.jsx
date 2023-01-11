@@ -451,7 +451,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="./enhance.png" alt="" />
+			<Image className="h-5 w-5 rounded-full" src="/enhance.png" alt=""
+				width={500}
+				height={500}
+			/>
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Token ID</p>
 				<p className="text-sm truncate">#{selectedCard.tokenId}</p>
@@ -459,7 +462,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-			<img className="h-5 w-5 rounded-full" src="./staking.png" alt="" />
+			<Image className="h-5 w-5 rounded-full" src="/staking.png" alt=""
+				width={500}
+				height={500}
+			/>
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Time Left</p>
 				<p className="text-sm truncate">{selectedCard.timeLeft}</p>
@@ -467,7 +473,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			</li>
 
 			<li className="flex py-4 first:pt-0 last:pb-0">
-				<img className="h-5 w-5 rounded-full" src="battle.png" alt="" />
+				<Image className="h-5 w-5 rounded-full" src="/battle.png" alt=""
+					width={500}
+					height={500}
+				/>
 				<div className="ml-3 overflow-hidden text-left">
 					<p className="text-xs  font-medium " >NFT Maturity</p>
 					<p className="text-sm truncate">{selectedCard.maturityLevel}</p>

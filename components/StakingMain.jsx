@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 //import NFTCardStaked from "./NFTCardStaked"
 import NFTCardStaked from "./NFTCardStaked/index.jsx"
 import { v4 as uuidv4 } from "uuid"
@@ -32,7 +33,7 @@ export default function StakingMain({
 
 			<ul role="list" className="p-6 divide-y divide-slate-200">
 				<li className="flex py-4 first:pt-0 last:pb-0">
-					<img className="h-12 w-12 rounded-full" src="./img_card1.png" alt="" />
+					<Image className="h-12 w-12 rounded-full" src="./img_card1.png" alt="" />
 					<div className="ml-3 overflow-hidden text-left">
 						<p className="text-xs font-medium text-slate-900">
 							Staking Count
@@ -41,7 +42,7 @@ export default function StakingMain({
 					</div>
 				</li>
 				<li className="flex py-4 first:pt-0 last:pb-0">
-					<img className="h-12 w-12 rounded-full" src="./sml.png" alt="" />
+					<Image className="h-12 w-12 rounded-full" src="./sml.png" alt="" />
 					<div className="ml-3 overflow-hidden text-left">
 						<p className="text-xs font-medium text-slate-900">
 						Current Earned Total ($SML)

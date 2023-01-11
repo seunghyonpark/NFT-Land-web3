@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Typography, Button } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Header from "../header";
@@ -34,7 +35,7 @@ export default function Layout({ changeTheme, theme, children }) {
         >
           <div className={classes.copyContainer}>
             <div className={classes.copyCentered}>
-            <img style={{
+            <Image style={{
                 width: '360px',
                 marginLeft: '-15px',
               }} src={url} alt="Chainlist logo" />

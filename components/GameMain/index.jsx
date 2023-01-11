@@ -313,7 +313,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					</div>
 
 					{/*
-					<img class="h-5 w-5 rounded-full" src="./sml.png" alt="" />
+					<Image class="h-5 w-5 rounded-full" src="./sml.png" alt="" />
 					*/}
 
 				</li>
