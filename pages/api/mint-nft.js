@@ -66,7 +66,10 @@ export default async function handler(req, res) {
 
 		//console.log("mint-nft chainid", chainid);
 
-		const contractOwnerAddress = owner;
+		//////////const contractOwnerAddress = owner;
+
+
+
 		const contractAddress = contract;
 
 
@@ -245,7 +248,7 @@ await contract.methods.say().send(options)
 
 		//const baseURI = 'https://miya.sunmiya.club';
 
-
+		//const baseURI = "https://belly.bellygom.world";
 
 		
 		/*
@@ -253,7 +256,7 @@ await contract.methods.say().send(options)
 		  const result5 = await caver.kas.wallet.createAccount();
 		  //user.address = result.address;
 		  console.log("res", result5);
-			*/
+		*/			
 
 
 
@@ -316,13 +319,28 @@ await contract.methods.say().send(options)
 		
 		console.log("caver.kas.kip17.deploy result", result3);
 		*/
+
+		/*
+		const result3 = await caver.kas.kip17.deploy (
+			"Bellygom World Official",
+			"BELLYGOM",
+			"kip17-bellygom"
+		);
 		
+		console.log("caver.kas.kip17.deploy result", result3);
+		*/
 
 		/*
 		ErrorResponse {
   _code: 1100159,
   _message: 'a free-tier user does not have access to the API',
   _requestId: '48fed070-c75d-4e4a-8b0b-6f8820d24c37'
+}
+
+ErrorResponse {
+  _code: 1104700,
+  _message: 'Invalid alias',
+  _requestId: 'f59951ed-180a-9158-811d-7c89c01f422d'
 }
 */
 

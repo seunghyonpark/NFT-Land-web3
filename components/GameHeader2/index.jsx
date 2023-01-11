@@ -16,7 +16,6 @@ export default function GameHeader2({
 	data,
 	mintNFT,
 	fetchNFTs,
-	fetchStakeNFTs,
 	isLoading,
 	isMinting,
 	depositingNFTAddress,

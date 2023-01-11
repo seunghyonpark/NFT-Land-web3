@@ -382,83 +382,6 @@ export default function useMintNFT(address) {
 
 
 
-	const fetchStakeNFTs = async (e) => {
-
-		e.preventDefault();
-
-		//console.log("fetchStakeNFTs address",address);
-
-		
-
-		if (address === "") {
-			//alert("Please provide Wallet Address!");
-			return;
-		}
-
-
-		//setData([]);
-
-
-		//setIsLoading(true);
-		setIsInHome(false);
-
-
-		try {
-
-			const response = await fetch(`/api/fetch-stake-nfts?wallet=${address}`);
-
-			//console.log("response=", response);
-
-			if (!response.ok) {
-				alert("Something went wrong! Check your Input or Connection");
-
-				//setIsLoading(false);
-				//setIsInHome(true);
-				return;
-			}
-
-
-
-			const fetchData = await response.json();
-
-			//console.log("data=",fetchData);
-
-			if (fetchData.data.totalCount == 0) {
-				//setIsInHome(true);
-				//setIsLoading(false);
-				//alert("This Wallet has no NFTs");
-			}
-
-			// alchemy
-			setStakeData(fetchData.data.ownedNfts);
-
-			//const aaa = new Array();
-			//setStakeData(aaa);
-
-
-			//console.log(data.data.ownedNfts);
-
-			//console.log(data.data.items);
-
-
-			// caver
-			///setData(data.data.items);
-
-
-			//setIsLoading(false);
-			return;
-
-		} catch (err) {
-			console.log("err="+err);
-			alert("There was an error fetching NFTs!----");
-			return;
-		}
-	};
-
-
-
-
-
 
 
 
@@ -855,5 +778,5 @@ export default function useMintNFT(address) {
 
 
 
-	return { mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
+	return { mintNFT,checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId };
 }

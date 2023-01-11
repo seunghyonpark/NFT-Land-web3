@@ -641,7 +641,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		/////e.preventDefault();
 
-		console.log("fetchNFT address",address);
+		console.log("useGameFNT fetchNFTs address",address);
 
 		if (address === "") {
 			//alert("Please provide Wallet Address!");
@@ -660,10 +660,15 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 		try {
+
 			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
 
 			if (!response.ok) {
-				alert("Something went wrong! Check your Input or Connection");
+				alert("Something went wrong! Check your Input or Connection====");
+
+
+				
+
 
 				setIsLoading(false);
 				//setIsInHome(true);
@@ -782,92 +787,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-
-
-
-
-	const fetchStakeNFTs = async (e) => {
-
-		e.preventDefault();
-
-		//console.log("fetchStakeNFTs address",address);
-
-		
-
-		if (address === "") {
-			//alert("Please provide Wallet Address!");
-			return;
-		}
-
-
-		//setData([]);
-
-
-		//setIsLoading(true);
-		setIsInHome(false);
-
-
-		try {
-
-			const response = await fetch(`/api/fetch-stake-nfts?wallet=${address}`);
-
-			console.log("fetchStakeNFTs response=", response);
-
-			if (!response.ok) {
-				alert("Something went wrong! Check your Input or Connection");
-
-				//setIsLoading(false);
-				//setIsInHome(true);
-				return;
-			}
-
-
-
-			const fetchData = await response.json();
-
-			//console.log("data=",fetchData);
-
-			if (fetchData.data.totalCount == 0) {
-				//setIsInHome(true);
-				//setIsLoading(false);
-				//alert("This Wallet has no NFTs");
-			}
-
-			// alchemy
-			setStakeData(fetchData.data.ownedNfts);
-
-			//const aaa = new Array();
-			//setStakeData(aaa);
-
-
-			//console.log(data.data.ownedNfts);
-
-			//console.log(data.data.items);
-
-
-			// caver
-			///setData(data.data.items);
-
-
-			//setIsLoading(false);
-			return;
-
-		} catch (err) {
-			console.log("err="+err);
-			alert("There was an error fetching NFTs!----");
-			return;
-		}
-	};
-
-
-
-
-
-
-
-
-
-
 	const depositNFT = async (tokenId) => {
 		
 
@@ -915,12 +834,14 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			if (chainId === "8217") {
 				to = stakingWalletAddress;
 			} else {
-				//to = stakingWalletAddress;
+				
+				to = stakingWalletAddress;
+				
 				///// wayne@nuklabs.com
-				////to = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
+				//to = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
 
 				///  info@nuklabs.com
-				to = "0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567";
+				//to = "0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567";
 			}
 
 
@@ -1258,7 +1179,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-	return { walletConnected, walletDisconnected, mintNFT,checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	return { walletConnected, walletDisconnected, mintNFT,checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		stakeDataGlobal, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		stakingCount, setStakingCount,
 		selectedCard, setSelectedCard,

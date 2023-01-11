@@ -5,8 +5,11 @@ import classes from "./index.module.css";
 import GameCard from "../GameCard/GameCard";
 import { v4 as uuidv4 } from "uuid";
 
-import { useState, useEffect, useRef, forwardRef } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { useState, useEffect, useRef } from "react";
+//import InfiniteScroll from "react-infinite-scroll-component";
+
+import Link from 'next/link';
+
 
 export default function StakingHeader({
 	chainId,
@@ -233,6 +236,13 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					</svg>
 				</button>
 				</div>
+
+{/*
+				<Link href="https://testnets.opensea.io/assets/baobab/0x771b7d7c1bf142f68b8ae72575ae80a08714c714/269" passHref={true}>
+    <button>StackOverflow</button>
+  </Link>
+
+	*/}
 			</div>		
 
 			<div

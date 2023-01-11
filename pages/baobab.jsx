@@ -44,8 +44,6 @@ const options = {
 export default function Baobab({
 	baseURI,
 	contractOwnerAddress,
-	contractAddress,
-	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -65,6 +63,18 @@ export default function Baobab({
 	//const [address, setAddress] = useState(walletAddress.defaultWalletAddress);
 	//const [address, setAddress] = useState(session?.user);
 	const [address, setAddress] = useState("");
+
+
+	// info@nuklabs.com
+	//const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
+
+	//0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567
+
+
+	// wayne@nuklabs.com
+	const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
 
 
 	const nftSymbol = "GDX";
@@ -89,7 +99,7 @@ export default function Baobab({
 	const chainId = "1001"; // baobab
 
 
-	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		stakeDataGlobal,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
@@ -324,7 +334,6 @@ export default function Baobab({
 					data,
 					mintNFT,
 					fetchNFTs,
-					fetchStakeNFTs,
 					isMinting,
 					depositingNFTAddress,
 					withdrawingNFTAddress,
@@ -524,13 +533,9 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+	
 
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
-
-	
-	const contractAddress = process.env.CONTRACT_ADDRESS_GDX;
-
 
 
 	const baseURI = "https://gogodino.saltmarble.io/metaexplorers/json";
@@ -569,8 +574,6 @@ export async function getStaticProps() {
 		props: {
 			baseURI,
 			contractOwnerAddress,
-			contractAddress,
-			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

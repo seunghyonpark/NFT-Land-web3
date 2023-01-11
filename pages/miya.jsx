@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
-import GameHeader from "../components/GameHeader/index.jsx";
+import GameHeader2 from "../components/GameHeader2/index.jsx";
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import GameMain from "../components/GameMain/index.jsx";
@@ -39,8 +39,6 @@ const options = {
 export default function Miya({
 	baseURI,
 	contractOwnerAddress,
-	contractAddress,
-	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -62,6 +60,17 @@ export default function Miya({
 	const [address, setAddress] = useState("");
 
 
+	// info@nuklabs.com
+	//const [contractAddress, setContractAddress] = useState("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
+
+
+	// wayne@nuklabs.com
+	const [contractAddress, setContractAddress] = useState("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
+
+
+
 	const nftSymbol = "MIYA";
 	const nftName = "Miya";
 
@@ -77,7 +86,7 @@ export default function Miya({
 	//const chainId = "8217"; // cypress
 	const chainId = "1001"; // baobab
 
-	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
 		stakingCount, setStakingCount,
@@ -301,7 +310,7 @@ export default function Miya({
 	
 
 
-			<GameHeader
+			<GameHeader2
 				{...{
 					nftSymbol,
 					walletDisconnected,
@@ -310,7 +319,6 @@ export default function Miya({
 					data,
 					mintNFT,
 					fetchNFTs,
-					fetchStakeNFTs,
 					isMinting,
 					depositingNFTAddress,
 					withdrawingNFTAddress,
@@ -482,12 +490,12 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+
 
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 	
 
-	const contractAddress = process.env.CONTRACT_ADDRESS_MIYA;
+	
 
 
 	const baseURI = "https://miya.sunmiya.club";
@@ -524,8 +532,6 @@ export async function getStaticProps() {
 		props: {
 			baseURI,
 			contractOwnerAddress,
-			contractAddress,
-			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

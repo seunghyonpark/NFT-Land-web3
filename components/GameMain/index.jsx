@@ -519,7 +519,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 			</div>
 
-
+{/*
 			<button
 				className="float-right mt-3 bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 				type="button"
@@ -530,7 +530,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				</svg>
       		</button>	
 
-
+		*/}
 
 
 			{showModal ? (

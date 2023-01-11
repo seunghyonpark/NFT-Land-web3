@@ -43,7 +43,6 @@ const options = {
 //-----------------------------
 export default function Gangnam ({
 	contractOwnerAddress,
-	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -65,7 +64,16 @@ export default function Gangnam ({
 	const [address, setAddress] = useState("");
 
 
-	const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+	// info@nuklabs.com
+	//const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
+
+
+	// wayne@nuklabs.com
+	const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
+
+
 
 	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
 
@@ -97,7 +105,7 @@ export default function Gangnam ({
 	const chainId = "1001"; // baobab
 
 
-	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		stakeDataGlobal,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
@@ -119,6 +127,8 @@ export default function Gangnam ({
 
 	useEffect(() => {
 
+		// info@nuklabs.com
+		/*
 		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
@@ -127,7 +137,31 @@ export default function Gangnam ({
 			setNftName("Sunmiya Club");
 			setNftSymbol("MIYA");
 			setBaseURI("https://miya.sunmiya.club");
+		} else if (contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
+			setNftName("Bellygom World");
+			setNftSymbol("BELLYGOM");
+			setBaseURI("https://belly.bellygom.world");
 		}
+		*/
+
+
+		// wayne@nuklabs.com
+
+		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") {
+			setNftName("GOGO DINO META EXPLORERS");
+			setNftSymbol("GDX");
+			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
+		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") {
+			setNftName("Sunmiya Club");
+			setNftSymbol("MIYA");
+			setBaseURI("https://miya.sunmiya.club");
+		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {
+			setNftName("Bellygom World");
+			setNftSymbol("BELLYGOM");
+			setBaseURI("https://belly.bellygom.world");
+		}
+
+
 
 	}, [contractAddress]);
 
@@ -359,7 +393,6 @@ export default function Gangnam ({
 					data,
 					mintNFT,
 					fetchNFTs,
-					fetchStakeNFTs,
 					isMinting,
 					depositingNFTAddress,
 					withdrawingNFTAddress,
@@ -558,7 +591,7 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+	
 
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 
@@ -602,7 +635,6 @@ export async function getStaticProps() {
 	return {
 		props: {
 			contractOwnerAddress,
-			stakingWalletAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

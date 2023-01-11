@@ -66,9 +66,9 @@ export default async function handler(req, res) {
 		const { chainid, contract, wallet } = req.query;
 
 
-		console.log("game-fetch-nfts chainid", chainid);
-		console.log("game-fetch-nfts contract", contract);
-		console.log("game-fetch-nfts wallet", wallet);
+		//console.log("game-fetch-nfts chainid", chainid);
+		//console.log("game-fetch-nfts contract", contract);
+		//console.log("game-fetch-nfts wallet", wallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -143,7 +143,7 @@ export default async function handler(req, res) {
 
 
 
-		//console.log("game start======");
+		//console.log("game-fetch-nfts start======");
 
 		const  contractName = 'GOGODINO Official';
 
@@ -156,6 +156,8 @@ export default async function handler(req, res) {
 		};
 
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
+		
+		
 		//console.log("game-fetch-nfts data", data);
 
 		//const response = await fetch("http://wallet.treasureverse.io/gogo");
@@ -280,6 +282,7 @@ export default async function handler(req, res) {
 
 		let miningAmountTotal = 0;
 
+		
 		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}&wallet=${wallet}`);
 
 

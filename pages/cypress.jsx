@@ -39,8 +39,6 @@ const options = {
 export default function Cypress({
 	baseURI,
 	contractOwnerAddress,
-	contractAddress,
-	stakingWalletAddress,
 	scriptAddress,
 	cryptoTowerAddress,
 	loadingCubesAddress,
@@ -62,6 +60,15 @@ export default function Cypress({
 	const [address, setAddress] = useState("");
 
 
+	// info@nuklabs.com
+	const [contractAddress, setContractAddress] = useState("0xf57255329ad3f60b19cb452b68546e11f1fe20df");
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735D18F229A90000");
+
+	// wayne@nuklabs.com
+	//const [contractAddress, setContractAddress] = useState("0xf57255329ad3f60b19cb452b68546e11f1fe20df");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735D18F229A95d9dB14A7A0B7C76EF2180b1B5");
+
+
 	const nftSymbol = "GDX";
 	const nftName = "GOGO DINO META EXPLORERS";
 	
@@ -81,7 +88,7 @@ export default function Cypress({
 	const chainId = "8217"; // cypress
 	//const chainId = "1001"; // baobab
 
-	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
 		stakingCount, setStakingCount,
@@ -313,7 +320,6 @@ export default function Cypress({
 					data,
 					mintNFT,
 					fetchNFTs,
-					fetchStakeNFTs,
 					isMinting,
 					depositingNFTAddress,
 					withdrawingNFTAddress,
@@ -485,7 +491,7 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	const stakingWalletAddress = process.env.STAKING_WALLET_ADDRESS_WAYNE;
+
 
 
 

@@ -11,7 +11,6 @@ export default function MintHeader({
 	data,
 	mintNFT,
 	fetchNFTs,
-	fetchStakeNFTs,
 	isMinting,
 	depositingNFTAddress,
 }) {
@@ -289,7 +288,6 @@ export default function MintHeader({
 				
 				<button
 					ref={refStakeNFT}
-					onClick={fetchStakeNFTs}
 					className=" invisible my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1 font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300"
 				>
 					Fetch Stake NFTs

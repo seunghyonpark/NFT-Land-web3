@@ -45,7 +45,7 @@ export default function Mint({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-	const { mintNFT, checkNFT, fetchNFTs, fetchStakeNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
+	const { mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId } = useMintNFT(address);
 
 
 	const ref = useRef();
@@ -195,7 +195,6 @@ export default function Mint({
 					data,
 					mintNFT,
 					fetchNFTs,
-					fetchStakeNFTs,
 					isMinting,
 				}}
 			/>

@@ -66,9 +66,9 @@ export default async function handler(req, res) {
 		const { chainid, contract, wallet } = req.query;
 
 
-		console.log("game-fetch-nfts-more chainid", chainid);
-		console.log("game-fetch-nfts-more contract", contract);
-		console.log("game-fetch-nfts-more wallet", wallet);
+		//console.log("game-fetch-nfts-more chainid", chainid);
+		//console.log("game-fetch-nfts-more contract", contract);
+		//console.log("game-fetch-nfts-more wallet", wallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -88,8 +88,10 @@ export default async function handler(req, res) {
 		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
 			contractName = "Sunmiya Club";
 			contractSymbol = "MIYA";
+		} else if (contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
+			contractName = "Bellygom World";
+			contractSymbol = "BELLYGOM";
 		}
-
 
 		// staked NFTs
 
@@ -97,19 +99,13 @@ export default async function handler(req, res) {
 
 		const response = await fetch(`http://wallet.treasureverse.io/gogostakingmore?chainid=${chainid}&contract=${contractAddress}`);
 
-
-		//console.log("game-fetch-nfts-more response", response);
-
-
 		const ownedNfts = new Array();
 		
-
-
 		if (response.ok) {
 
 			const json = await response.json();
 
-			//console.log("game-fetch-nfts json", json);
+			//console.log("game-fetch-nfts-more json", json);
 
 
 			

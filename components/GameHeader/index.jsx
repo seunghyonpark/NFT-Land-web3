@@ -21,7 +21,6 @@ export default function GameHeader ({
 	data,
 	mintNFT,
 	fetchNFTs,
-	fetchStakeNFTs,
 	isLoading,
 	isMinting,
 	depositingNFTAddress,
@@ -504,6 +503,7 @@ export default function GameHeader ({
 			</form>
 
 
+{/*
 			<div className="flex flex-row">
 				<button
 					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
@@ -526,7 +526,62 @@ export default function GameHeader ({
 					}}
 				>
 					MIYA
-				</button>	
+				</button>
+
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18");
+					}}
+				>
+					BELLYGOM
+				</button>
+
+				*/}
+
+
+{/*  wayne@nuklabs.com */}
+			<div className="flex flex-row">
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xfb5611f91ce965893d1d36195587233fa04691a6");
+					}}
+				>
+					GDX
+				</button>
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
+					}}
+				>
+					MIYA
+				</button>
+
+				<button
+					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1");
+					}}
+				>
+					BELLYGOM
+				</button>
+
+
+
 			</div>
 
 {/*
