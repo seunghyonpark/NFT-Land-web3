@@ -93,16 +93,15 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 	};
 
-	const handleClick = (e) =>  {
-		e.preventDefault();
-		
-		console.log(e);
+	const handleClick = () =>  {
 
-		cardData.selected = true;
+		console.log("GameCard handleClick");
 
-		console.log('cardData.selected', cardData.selected);
 
-		ref.current.style.backgroundColor = "yellow";
+		//cardData.selected = true;
+
+
+		//ref.current.style.backgroundColor = "yellow";
 
 		//ref.current.style.border-width = 6;
 
@@ -120,29 +119,61 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			`}
 	*/
 
-	/*
+	
 	useEffect(() => {
 
-		console.log("GameCard cardData.tokenId", cardData.tokenId);
+		console.log("GameCard cardData.selected "+cardData.tokenId, cardData.selected);
 
 		//ref.current.style = cardData.cssText;
 
-	}, [cardData.tokenId]);
-	*/
+		if (cardData.selected) {
+			ref.current.style = "border-color: rgb(234,51,133); border-width: 5px;";
+		} else {
+			ref.current.style = "border-gray-300 border-1px;";
+		}
+
+		//cardData.selected ? "border-color: yellow; border-width: 7px;"
+		//: "border-color: transparent; border-width: 0px;"
+
+
+	}, [cardData.selected, cardData.tokenId]);
+
+
+	useEffect(() => {
+
+		//console.log("GameCard cardData.staking", cardData.staking);
+
+		//ref.current.style = cardData.cssText;
+
+	}, [cardData.staking]);
+	
 
 	//${cardData.selected !== true ? "border" : "border-8"}
 
+
+
+
 	return (
 
+		/*
+		itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
+		data[idx].cssText = "border-color: yellow; border-width: 7px;";
 
+		${cardData.cssText}
+		*/
 
 		<div ref={ref}
 			className={`
-			m-auto flex  max-w-[70%] flex-col rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg 
+			m-auto flex  max-w-[70%] flex-col rounded-lg p-3 sm:m-0 sm:max-w-lg 
 			hover:mix-blend-hard-light
-			border ${cardData.cssText}
+			border
+
 			`}
+			onClick={(e) => {
+				e.preventDefault(); 
+				handleClick();
+			}}
 			>
 
 
@@ -155,6 +186,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 
 			{cardData.staking === 'false' && (
 				<Image className={`
+					rounded-lg
 					drop-shadow-2xl
 					h-500 w-500
 					bg-cover bg-center bg-[url('/iphone-spinner.gif')]
@@ -179,6 +211,7 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 				<div className="relative">
 				
 					<Image className="
+						rounded-lg
 						drop-shadow-2xl
 						h-500 w-500
 						bg-cover bg-center bg-[url('/iphone-spinner.gif')]

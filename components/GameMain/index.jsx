@@ -209,9 +209,7 @@ export default function GameMain({
 	const handleClick = (nft) =>  {
 
 		console.log("GameMain handleClick tokenId", nft.tokenId);
-		console.log("GameMain handleClick miningAmount", nft.miningAmount);
 
-		//cardData.selected = true;
 
 		//console.log('cardData.selected', cardData.selected);
 
@@ -220,6 +218,7 @@ export default function GameMain({
 		setSelectedCard(nft);
 
 
+		
 		/*
 		let idx;
 		for(idx=0; idx < data.length; idx++) {
@@ -242,6 +241,13 @@ export default function GameMain({
 			refUnstake.current.style.display = "none";
 		}
 		*/
+
+		let idx;
+		for(idx=0; idx < data.length; idx++) {
+			data[idx].selected = false;
+		}
+		
+		nft.selected = true;
 
 	
 	}
@@ -411,7 +417,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						ref={(element) => itemEls.current.push(element)}
 					>
 						<GameCard
-							//key={uuidv4()}
+							key={uuidv4()}
 
 							//key={nft.tokenId}
 							
