@@ -85,13 +85,13 @@ export default function StakingPage ({
 			</h1>
 
 
-
+{/*bg-[url('/img_tomo.png')]*/}
 
 			<div className="
 				mt-5 
 			 	bg-contain
 				bg-no-repeat 
-				bg-[url('/img_tomo.png')]
+
 				bg-top
 				
 				min-h-screen
