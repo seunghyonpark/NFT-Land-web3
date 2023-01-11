@@ -96,6 +96,8 @@ export default function StakingPage ({
 				
 				min-h-screen
 
+				bg-[url('/img_tomo.png')]
+
 			  "
 			  >	
 

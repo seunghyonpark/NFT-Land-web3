@@ -71,7 +71,7 @@ export default function GameMain({
 
 	
 
-
+/*
 	useEffect(() => {
 
         console.log("GameMain miningAmountTotal", miningAmountTotal);
@@ -125,6 +125,11 @@ export default function GameMain({
 
 
 
+
+
+
+
+
 	useEffect(() => {
 
 		console.log("GameMain useEffect=========");
@@ -152,25 +157,6 @@ export default function GameMain({
 
 
 			refMint.current.style.display = "";
-			
-
-			/* bug bugbug bug
-			let idx;
-			for(idx=0; idx < data.length; idx++) {
-
-				if (data[idx].tokenId === selectedCard.tokenId) {
-					itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
-	
-					data[idx].cssText = "border-color: yellow; border-width: 7px;";
-	
-	
-				} else {
-					itemEls.current[idx].style?.cssText = "border-color: transparent; border-width: 0px;";
-	
-					data[idx].cssText = "border-color: transparent; border-width: 0px;";
-				}
-			}
-			*/
 
 
 			if (address) {
@@ -206,7 +192,8 @@ export default function GameMain({
 
 
 	}, [address, data, selectedCard]);
-	
+
+	*/
 
 
 	const handleClick = (nft) =>  {

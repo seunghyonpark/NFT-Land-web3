@@ -88,6 +88,8 @@ export default function SelectedCard({
 
 
 
+
+
 	useEffect(() => {
 
 		////console.log("SelectedCard useEffect tokenId", selectedCard.tokenId);
@@ -286,13 +288,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 
-	return (
 
 
-
-
-
-		<div className="
+{/*
 
 		flex  max-w-[100%] flex-col
 		rounded-lg  border-gray-300 sm:m-0 sm:max-w-lg
@@ -307,9 +305,26 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 		xl:pl-[127px] xl:pr-[90px] xl:pt-[90px]
 
-		
-		
-		
+
+	*/}
+
+
+
+
+
+
+	return (
+
+
+
+
+
+		<div className="
+
+			
+
+			
+			
 		">
 
 			{/*
@@ -318,13 +333,25 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			xl:pl-[165px] xl:pr-[0px] xl:pt-[130px]
 			*/}
 
-<div className="
-	flex
+			
 
+<div className=" 
+	flex flex-col
+
+	pl-[50px] pr-[50px] pt-[20px]
+		
+	sm:pl-[50px] sm:pr-[50px] sm:pt-[70px]
+
+	md:pl-[70px] md:pr-[70px] md:pt-[0px]
+
+	xl:pl-[170px] xl:pr-[160px] xl:pt-[60px]
+	
 	
 ">
 
-	<div className={
+
+
+	<div className={ 
 		classes.squareflip
 	}>
 
@@ -347,7 +374,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 						<Image className={`
-
+							rounded-md
 							drop-shadow-2xl
 							h-500 w-500
 							bg-cover bg-center
@@ -374,6 +401,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 
 						<Image
+
+							className="
+							rounded-md "
 							src={`/selectedcard_${nftSymbol}.png`}
 							alt={`${nftSymbol}`}
 							width={300}

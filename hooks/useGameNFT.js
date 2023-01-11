@@ -234,9 +234,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		let intervalMiliSecond;
 		if (address) {
-			intervalMiliSecond = 20000;
-		} else {
 			intervalMiliSecond = 30000;
+		} else {
+			intervalMiliSecond = 50000;
 		}
 
 		const interval = setInterval(fetchNFTsGlobal, intervalMiliSecond);
