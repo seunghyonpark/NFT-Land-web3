@@ -6,13 +6,15 @@ import firstFunction from "../../inngest/first";
 
 import anotherFunction from "../../inngest/another";
 
+import runBackfillForUser from "../../inngest/runBackfillForUser";
 
 
 export default serve(
-  "My app name",
+  "My API",
   [
     firstFunction,
     anotherFunction,
+    runBackfillForUser,
   ]
 ); // Serve your function
 
