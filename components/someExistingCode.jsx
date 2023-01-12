@@ -9,7 +9,7 @@ function someExistingCode() {
 
 
     return {
-        sendEmail,
+        sendEmail
     }
 
 }

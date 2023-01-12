@@ -1,6 +1,6 @@
 import { createFunction } from "inngest"
 import { serve } from "inngest/next"
-import { sendEmail } from "../../components/someExistingCode"
+//import { sendEmail } from "../../components/someExistingCode"
 
 
 
@@ -17,6 +17,7 @@ const welcomeEmail = createFunction(
       throw new Error("Event payload missing email")
     }
 
+    /*
     await sendEmail({
       template: "welcome-email",
       to: event.user.email,
@@ -25,6 +26,7 @@ const welcomeEmail = createFunction(
         signupReason: event.data?.signupReason,
       },
     });
+    */
 
     return `Successfully sent`
   }
@@ -33,5 +35,5 @@ const welcomeEmail = createFunction(
 // This is the same as above, you can pass as many functions are you want in the array:
 // Grab your key here: https://app.inngest.com/secrets
 export default serve("My App", [ welcomeEmail ], {
-  //signingKey: process.env.INNGEST_SIGNING_KEY
+  signingKey: process.env.INNGEST_SIGNING_KEY
 });
