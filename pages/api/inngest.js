@@ -2,10 +2,19 @@ import { createFunction } from "inngest"
 import { serve } from "inngest/next"
 //import { sendEmail } from "../../components/someExistingCode"
 
-import demoFn from "../../inngest/demo"; // Import your function
+import firstFunction from "../../inngest/first";
+
+import anotherFunction from "../../inngest/another";
 
 
-export default serve("My app name", [demoFn]); // Serve your function
+
+export default serve(
+  "My app name",
+  [
+    firstFunction,
+    anotherFunction,
+  ]
+); // Serve your function
 
 
 /*
