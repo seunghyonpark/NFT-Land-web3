@@ -3,10 +3,6 @@ import { serve } from "inngest/next"
 //import { sendEmail } from "../../components/someExistingCode"
 
 
-
-
-
-
 // Define your function
 const welcomeEmail = createFunction(
   "Send Welcome Email",
