@@ -1,30 +1,28 @@
-// /pages/api/inngest.js
-
-import { createScheduledFunction } from "inngest"
+import { createFunction } from "inngest"
 import { serve } from "inngest/next"
-//import { sendWeeklyDigestEmailsToAllUsers } from "../../someExistingCode"
-// Your scheduled function
-const weeklyDigest = createScheduledFunction(
-  "Send Weekly Digest",
-  "0 12 * * 1", // At 12:00 every Monday
-  async () => {
-
-
-    /*
-    const results = await sendWeeklyDigestEmailsToAllUsers();
-    return {
-      message: `Weekly digests sent to ${results.sent} users successfully`,
+import { sendEmail } from "../../someExistingCode"
+// Define your function
+const welcomeEmail = createFunction(
+  "Send Welcome Email",
+  "user.signup",
+  async ({ event }) => {
+    if (!event.user?.email) {
+      throw new Error("Event payload missing email")
     }
-    */
-
-    /* your code, anything returned will be catpured in Inngest logs */
-    return "Hello!"
-
-
+    await sendEmail({
+      template: "welcome-email",
+      to: event.user.email,
+      data: {
+        // The template will use this to show useful content to our new user
+        signupReason: event.data?.signupReason,
+      },
+    });
+    return `Successfully sent`
   }
 )
 
-
-export default serve("My App", [ weeklyDigest ], {
-    //signingKey: process.env.INNGEST_SIGNING_KEY
+// This is the same as above, you can pass as many functions are you want in the array:
+// Grab your key here: https://app.inngest.com/secrets
+export default serve("My App", [ welcomeEmail ], {
+  //signingKey: process.env.INNGEST_SIGNING_KEY
 });
