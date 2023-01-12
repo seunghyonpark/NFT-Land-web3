@@ -340,13 +340,22 @@ export default async function handler(req, res) {
 				
 				nft.description = "";
 
-				////console.log(json.items[idx].uri);
+				//console.log(json.items[idx].uri);
+
+				
 
 				const response = await fetch(json.items[idx].uri);
+
+
 
 				if (response.ok) {
 	
 					const jsonTokenUri = await response.json();
+
+
+					
+
+
 					
 					mediadata.gateway = jsonTokenUri.image;
 					
@@ -358,6 +367,7 @@ export default async function handler(req, res) {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
 
+		
 
 
 				ownedNfts.unshift(nft);

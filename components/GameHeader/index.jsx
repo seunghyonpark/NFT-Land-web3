@@ -96,7 +96,7 @@ export default function GameHeader ({
 		let incrementTime = 10;
 		let timer = setInterval(() => {
 			
-			const amount = Number(((number-100) + start) / 100).toFixed(2);
+			const amount = Number(((number-100) + start) / 100).toFixed(4);
 
 			if (start <= end) {
 				setThisMiningAmountGlobal(amount);
