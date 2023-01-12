@@ -457,7 +457,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			/>
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Token ID</p>
-				<p className="text-sm truncate">#{selectedCard.tokenId}</p>
+				<p className="text-xs truncate">#{selectedCard.tokenId}</p>
 			</div>
 			</li>
 
@@ -468,7 +468,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			/>
 			<div className="ml-3 overflow-hidden text-left">
 				<p className="text-sm font-medium ">Time Left</p>
-				<p className="text-sm truncate">{selectedCard.timeLeft}</p>
+				<p className="text-xs truncate">{selectedCard.timeLeft}</p>
 			</div>
 			</li>
 
@@ -478,8 +478,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 					height={500}
 				/>
 				<div className="ml-3 overflow-hidden text-left">
-					<p className="text-xs  font-medium " >NFT Maturity</p>
-					<p className="text-sm truncate">{selectedCard.maturityLevel}</p>
+					<p className="text-sm  font-medium " >NFT Maturity</p>
+					<p className="text-xs truncate">{selectedCard.maturityLevel}</p>
 				</div>
 			</li>
 
@@ -494,8 +494,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 					></lottie-player>
 				</div>
 				<div className=" overflow-hidden text-left">
-					<p className="text-xs  font-medium " >Mining Amount ($SML)</p>
-					<p className="text-sm truncate">{selectedCard.miningAmount}</p>
+					<p className="text-sm  font-medium " >Mining Amount ($SML)</p>
+					<p className="text-xs truncate">{selectedCard.miningAmount}</p>
 				</div>
 			</li>
 

@@ -318,7 +318,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		fetchNFTs();
 
-		let intervalMiliSecond = 10000;
+		let intervalMiliSecond = 20000;
 
 		const interval = setInterval(fetchNFTs, intervalMiliSecond);
 

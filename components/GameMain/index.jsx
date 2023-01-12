@@ -71,7 +71,7 @@ export default function GameMain({
 
 	
 
-/*
+
 	useEffect(() => {
 
         console.log("GameMain miningAmountTotal", miningAmountTotal);
@@ -128,7 +128,7 @@ export default function GameMain({
 
 
 
-
+	/*
 
 	useEffect(() => {
 

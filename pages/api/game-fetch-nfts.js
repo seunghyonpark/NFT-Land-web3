@@ -367,6 +367,7 @@ export default async function handler(req, res) {
 		}
 
 
+		console.log("game-fetch-nfts miningAmountTotal", miningAmountTotal);
 
 
 		const aaa = new Object();
