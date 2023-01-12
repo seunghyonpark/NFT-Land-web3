@@ -501,19 +501,19 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			</div>
 
 
-{/*
+
 			<button
 				ref={refMint}
 				onClick={mintNFT}
 				className={` ${chainId === "8217" && "" }
-				my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+				my-5  self-center rounded-lg bg-amber-400 px-5 py-1
 				font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300 
 				`}
 			>
 					Mint NFT
 			</button>
 
-				*/}
+				
 
 
 
