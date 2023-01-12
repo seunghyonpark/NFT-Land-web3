@@ -344,7 +344,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 	md:pl-[90px] md:pr-[90px] md:pt-[0px]
 
-	xl:pl-[135px] xl:pr-[130px] xl:pt-[60px]
+	xl:pl-[160px] xl:pr-[130px] xl:pt-[60px]
 	
 	
 ">

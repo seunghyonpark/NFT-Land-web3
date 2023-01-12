@@ -227,6 +227,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				<div className=" text-left ml-5 mt-0 pt-3 pb-3 text-normal text-amber-400">Staked NFTs</div>
 			
 				<div className="  ">
+					{/*
 				<button
 					className=" m-5 bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 					onClick={() => setShowModal(true)}
@@ -235,6 +236,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
 					</svg>
 				</button>
+	*/}
 				</div>
 
 {/*
