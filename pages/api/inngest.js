@@ -1,14 +1,22 @@
 import { createFunction } from "inngest"
 import { serve } from "inngest/next"
-import { sendEmail } from "../../someExistingCode"
+import { sendEmail } from "../../components/someExistingCode"
+
+
+
+
+
+
 // Define your function
 const welcomeEmail = createFunction(
   "Send Welcome Email",
   "user.signup",
   async ({ event }) => {
+
     if (!event.user?.email) {
       throw new Error("Event payload missing email")
     }
+
     await sendEmail({
       template: "welcome-email",
       to: event.user.email,
@@ -17,6 +25,7 @@ const welcomeEmail = createFunction(
         signupReason: event.data?.signupReason,
       },
     });
+
     return `Successfully sent`
   }
 )
