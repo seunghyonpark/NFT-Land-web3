@@ -685,6 +685,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 							`}
 							onClick={() => setShowModalUnstake(false)}
 							
+							
 						>
 								Cancel
 						</button>
@@ -694,7 +695,11 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 								
 								ml-3 my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-slate-200 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
 							`}
-							onClick={() => setShowModalUnstake(false)}
+							onClick={(e) => {
+								e.preventDefault();
+								setShowModalUnstake(false);
+								withdrawNFT(selectedCard.tokenId);
+							}}
 							
 						>
 								Unstake
