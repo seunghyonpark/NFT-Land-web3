@@ -470,8 +470,8 @@ export default function GameHeader2({
 					className="float-left my-5 w-auto self-center" 
 					src={`/logo_${nftSymbol}.png`}
 					alt={`${nftSymbol}`}
-					width={100}
-					height={100} 
+					width={500}
+					height={500} 
 					
 				/>
 			
@@ -519,6 +519,7 @@ export default function GameHeader2({
 
 				<div className="float-right flex py-0 first:pt-0 last:pb-0 ">
 					
+					{/*
 					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="gold-fish"
@@ -528,6 +529,15 @@ export default function GameHeader2({
 							autoplay
 						></lottie-player>
 					</div>
+					*/}
+
+					<Image
+						className=" ml-6 h-12 w-12 " 
+						src={`/staking_count_${nftSymbol}.gif`}
+						alt={`${nftSymbol}`}
+						width={500}
+						height={500} 
+					/>
 
 					<div className="flex-auto mr-0 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
@@ -557,8 +567,8 @@ export default function GameHeader2({
 					className="float-center w-full mb-5 " 
 					src={`/banner_${nftSymbol}.png`}
 					alt={`${nftSymbol}`}
-					width={500}
-					height={500} 
+					width={1024}
+					height={1024} 
 				/>
 
 			}

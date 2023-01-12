@@ -81,7 +81,7 @@ export default function StakingPage ({
 			</h1>
 
 			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				Ready to Staking ({nftSymbol})
+			Now Staking...
 			</h1>
 
 

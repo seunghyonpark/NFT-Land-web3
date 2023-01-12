@@ -271,6 +271,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<ul role="list" className="p-3 divide-y divide-slate-200">
 				<li className="flex py-1 first:pt-0 last:pb-0">
 					
+					{/*
 					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="gold-fish"
@@ -280,6 +281,15 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 							autoplay
 						></lottie-player>
 					</div>
+	*/}
+
+					<Image
+						className=" ml-6 h-12 w-12 " 
+						src={`/staking_count_${nftSymbol}.gif`}
+						alt={`${nftSymbol}`}
+						width={500}
+						height={500} 
+					/>
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
@@ -294,6 +304,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				<li className="flex py-3 first:pt-0 last:pb-0">
 					
+					{/*
 					<div className="mt-3 ml-7 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
 						<lottie-player
 							id="crypto-tower"
@@ -303,6 +314,16 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 							autoplay
 						></lottie-player>
 					</div>
+*/}
+
+					<Image
+						className=" ml-6 h-12 w-12 " 
+						src={`/current_earned_${nftSymbol}.gif`}
+						alt={`${nftSymbol}`}
+						width={500}
+						height={500} 
+					/>
+
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
@@ -532,6 +553,18 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 		*/}
 
+
+			<div className="flex flex-row">
+				<div className="flex-1"></div>
+				<Image
+					onClick={() => setShowModal(true)}
+					className=" ml-6 h-12 w-12 flex-none" 
+					src={`/notice.gif`}
+					alt={`notice`}
+					width={500}
+					height={500} 
+				/>
+			</div>
 
 			{showModal ? (
 				<>
