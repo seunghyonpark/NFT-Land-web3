@@ -470,8 +470,8 @@ export default function GameHeader2({
 					className="float-left my-5 w-auto self-center" 
 					src={`/logo_${nftSymbol}.png`}
 					alt={`${nftSymbol}`}
-					width={500}
-					height={500} 
+					width={120}
+					height={120} 
 					
 				/>
 			
