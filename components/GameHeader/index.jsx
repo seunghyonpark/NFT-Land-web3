@@ -603,15 +603,13 @@ export default function GameHeader ({
 
 				<div className="float-left flex py-0 first:pt-0 last:pb-0 ">
 					
-					<div className="mt-3 ml-6 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-						<lottie-player
-							id="crypto-tower"
-							src={depositingNFTAddress}
-							speed="1"
-							loop
-							autoplay
-						></lottie-player>
-					</div>
+					<Image
+						className=" ml-6 h-12 w-12 " 
+						src={`/current_earned_${nftSymbol}.gif`}
+						alt={`${nftSymbol}`}
+						width={500}
+						height={500} 
+					/>
 
 					<div className="flex-auto mr-9 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
@@ -621,7 +619,7 @@ export default function GameHeader ({
 						<p className="font-mono text-2xl text-amber-400 truncate">
 						*/}
 							
-							<div className={classes.number}>{thisMiningAmountGlobal} / 20000000</div>
+							<div className={classes.number}>{thisMiningAmountGlobal}</div>
 						{/*
 						</p>
 					*/}
@@ -632,15 +630,13 @@ export default function GameHeader ({
 
 				<div className="float-right flex py-0 first:pt-0 last:pb-0 ">
 					
-					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-						<lottie-player
-							id="gold-fish"
-							src={goldFishAddress}
-							speed="5"
-							loop
-							autoplay
-						></lottie-player>
-					</div>
+					<Image
+						className=" ml-6 h-12 w-12 " 
+						src={`/staking_count_${nftSymbol}.gif`}
+						alt={`${nftSymbol}`}
+						width={500}
+						height={500} 
+					/>
 
 					<div className="flex-auto mr-8 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
