@@ -1,6 +1,6 @@
 import { createFunction } from "inngest"
 import { serve } from "inngest/next"
-import { sendEmail } from "../../someExistingCode.js"
+import { sendEmail } from "../../someExistingCode"
 // Define your function
 const welcomeEmail = createFunction(
   "Send Welcome Email",

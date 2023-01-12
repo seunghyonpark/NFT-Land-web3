@@ -13,3 +13,6 @@ const welcomeEmail = createFunction(
     return `Hello ${event.name}!` // = "Hello user.signup!"
     }
 )
+
+
+export default welcomeEmail;
