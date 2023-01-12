@@ -551,7 +551,7 @@ export default function GameHeader2({
 
 			</cards>
 
-			{/*!address &&
+			{!address &&
 
 				<Image
 					className="float-center w-full mb-5 " 
@@ -561,7 +561,7 @@ export default function GameHeader2({
 					height={500} 
 				/>
 
-					*/}
+			}
 				
 
 		</header>
