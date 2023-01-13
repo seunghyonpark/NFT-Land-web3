@@ -70,7 +70,7 @@ export default function Yangjae ({
 
 
 	// wayne@nuklabs.com
-	const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
+	const [contractAddress, setContractAddress] = useState("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
 	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
 
 
