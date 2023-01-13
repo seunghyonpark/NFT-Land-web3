@@ -367,6 +367,7 @@ export default function Gangnam ({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
+				<meta property="og:site_name" content="GANGNAM"></meta>
 				<meta property="og:title" content="GANGNAM"></meta>
 				<meta property="og:description"
 					content="
@@ -377,6 +378,10 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 					">
 				</meta>
 				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og"></meta>
+				<meta proterty="og:url"
+					content="">
+				</meta>
+
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
 
