@@ -367,6 +367,8 @@ export default function Gangnam ({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
+				<meta property="og:type" content="website"></meta>
+
 				<meta property="og:site_name" content="GANGNAM"></meta>
 				<meta property="og:title" content="GANGNAM"></meta>
 				<meta property="og:description"
@@ -377,10 +379,20 @@ Based on concrete technology and moves, broad networks with industries, and soli
 Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
 					">
 				</meta>
-				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og"></meta>
+				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=1234"></meta>
 				<meta proterty="og:url"
-					content="">
+					content="https://gdx.nuklabs.xyz/gangnam">
 				</meta>
+
+				<meta name="description"
+					content="
+					Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
+
+Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
+Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
+					">
+				</meta>
+
 
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
