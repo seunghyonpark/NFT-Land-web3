@@ -34,8 +34,8 @@ export default async function handler(req: NextRequest) {
       >
 
         <img
-          width="1400"
-          height="1400"
+          width="700"
+          height="700"
           src={`https://miya.sunmiya.club/${tokenid}.png`}
           style={{
             borderRadius: 30,
