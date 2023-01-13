@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Yangjae ({
+export default function Busan ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
