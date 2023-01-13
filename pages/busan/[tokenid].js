@@ -56,9 +56,7 @@ export default function Busan ({
                 content="https://gdx.nuklabs.xyz/busan">
             </meta>
 
-            <meta name="page-type" content="website" />
-            <meta name="description"
-                content="
+            <meta name="description" content="
                 Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
 
         Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
