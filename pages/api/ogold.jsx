@@ -8,11 +8,17 @@ export const config = {
 
 export default async function handler(req, res) {
 
-  //const { tokenid } = req.query;
+  try {
+  const { tokenid } = req.query;
 
-  const $username = "vercel";
+  console.log("req.query", req.query);
 
-  const tokenid = "1";
+  //const $username = "vercel";
+
+  //const tokenid = "1";
+  } catch (e) {
+  
+}
 
   if (!tokenid) {
     return new ImageResponse(<>Visit with &quot;?username=vercel&quot;</>, {
@@ -20,6 +26,8 @@ export default async function handler(req, res) {
       height: 630,
     });
   }
+
+
 
   return new ImageResponse(
 
@@ -42,7 +50,7 @@ export default async function handler(req, res) {
         <img
           width="1400"
           height="1400"
-          src={`https://miya.sunmiya.club/122.png`}
+          src={`https://miya.sunmiya.club/100.png`}
           style={{
             borderRadius: 50,
           }}
