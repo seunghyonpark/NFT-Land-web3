@@ -356,10 +356,10 @@ export default function Gangnam ({
 
 
 			<Head>
-				<title>GOGO DINO META EXPLORERS</title>
+				<title>GANGNAM</title>
 				<meta
-					name="GOGO DINO META EXPLORERS"
-					content="GOGO DINO META EXPLORERS"
+					name="GANGNAM EXPLORERS"
+					content="GANGNAM EXPLORERS"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
@@ -367,9 +367,9 @@ export default function Gangnam ({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
-				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
-				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
-				<meta property="og:image" content="/gdx.jpeg"></meta>
+				<meta property="og:title" content="GANGNAM"></meta>
+				<meta property="og:description" content="GANGNAM Project"></meta>
+				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og"></meta>
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
 

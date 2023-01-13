@@ -42,12 +42,12 @@ export default async function handler(req, res) {
         <img
           width="256"
           height="256"
-          src={`https://github.com/vercel.png`}
+          src={`https://miya.sunmiya.club/0.png`}
           style={{
             borderRadius: 128,
           }}
         />
-        <p>github.com/vercel</p>
+        <p>Sunmiya Club</p>
       </div>
     ),
     {
