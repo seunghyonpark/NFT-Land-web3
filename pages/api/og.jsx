@@ -33,15 +33,15 @@ export default async function handler(req, res) {
           background: '#f6f6f6',
           width: '100%',
           height: '100%',
-          paddingTop: 50,
+          paddingTop: 0,
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
         <img
-          width="400"
-          height="400"
+          width="1400"
+          height="1400"
           src={`https://miya.sunmiya.club/0.png`}
           style={{
             borderRadius: 50,
