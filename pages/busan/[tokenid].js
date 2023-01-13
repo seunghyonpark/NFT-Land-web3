@@ -4,17 +4,24 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Busan ({
 
-}) {
+})
+{
 
-  const router = useRouter()
-  const { tokenid } = router.query
+    const router = useRouter();
+    const { tokenid } = router.query;
 
-  const image = "https://gdx.nuklabs.xyz/api/og?tokenid=" + tokenid;
+    useEffect(() => {
+        if(!router.isReady) return;
+        console.log(router.query,'🙆‍♀️ 콘솔에 쿼리 찍힘!');
 
-  console.log("image", image);
+    }, [router.isReady, router.query])
+
+    const image = "https://gdx.nuklabs.xyz/api/og?tokenid=" + tokenid;
+
+    console.log("image", image);
 
 
-  return (
+    return (
 
     <>
     
@@ -79,7 +86,6 @@ export default function Busan ({
 
     </>
 
-
-  )
+    )
 
 }
