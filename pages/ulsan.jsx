@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Lotte ({
+export default function Ulsan ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -380,6 +380,9 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 					">
 				</meta>
 				<meta property="og:image" content="https://i.seadn.io/gcs/files/27a630e340424ee0e6eec39afd533415.png?auto=format&w=1400"></meta>
+				<meta property="og:image:width" content="1400"></meta>
+				<meta property="og:image:height" content="1400"></meta>
+				
 				<meta proterty="og:url"
 					content="https://gdx.nuklabs.xyz/gangnam">
 				</meta>
