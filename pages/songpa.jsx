@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Seoul ({
+export default function Songpa ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -390,8 +390,12 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
 Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
-					">
-				</meta>
+					"
+				></meta>
+
+				<meta name="twitter:image"
+					content="https://gdx.nuklabs.xyz/api/og?t=12349458240343850097808"
+				></meta>
 
 
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
