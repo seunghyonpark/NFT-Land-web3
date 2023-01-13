@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Busan ({
+export default function Seoul ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
