@@ -379,10 +379,12 @@ Based on concrete technology and moves, broad networks with industries, and soli
 Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
 					">
 				</meta>
-				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=23232432423423423"></meta>
+				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=23423423"></meta>
+				<meta property="og:image:width" content="1400"></meta>
+				<meta property="og:image:height" content="1400"></meta>
 				
 				<meta proterty="og:url"
-					content="https://gdx.nuklabs.xyz/songpa">
+					content="https://gdx.nuklabs.xyz/gangnam">
 				</meta>
 
 				<meta name="description"
