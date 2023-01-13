@@ -40,11 +40,11 @@ export default async function handler(req, res) {
         }}
       >
         <img
-          width="256"
-          height="256"
+          width="400"
+          height="400"
           src={`https://miya.sunmiya.club/0.png`}
           style={{
-            borderRadius: 128,
+            borderRadius: 50,
           }}
         />
         <p>Sunmiya Club</p>
