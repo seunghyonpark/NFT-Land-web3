@@ -42,7 +42,7 @@ export default async function handler(req, res) {
         <img
           width="1400"
           height="1400"
-          src={`https://i.seadn.io/gcs/files/27a630e340424ee0e6eec39afd533415.png?auto=format&w=1400`}
+          src={`https://miya.sunmiya.club/122.png`}
           style={{
             borderRadius: 50,
           }}
