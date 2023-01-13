@@ -38,7 +38,12 @@ export function getStaticPaths() {
   };
 }
 
+
 export default function Page({ id, token }: PageProps) {
+
+  console.log("id", id);
+  console.log("token",token);
+
   return (
     <div>
       <h1>Encrypted Open Graph Image.</h1>
