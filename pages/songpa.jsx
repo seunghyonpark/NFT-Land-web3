@@ -379,7 +379,7 @@ Based on concrete technology and moves, broad networks with industries, and soli
 Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
 					">
 				</meta>
-				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=23423423"></meta>
+				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=2342332423423"></meta>
 				<meta property="og:image:width" content="1400"></meta>
 				<meta property="og:image:height" content="1400"></meta>
 				
@@ -396,12 +396,13 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 					"
 				></meta>
 
+				<meta name="twitter:card" content="summary_large_image"></meta> {/*telegram large image */}
 				<meta name="twitter:image"
-					content="https://gdx.nuklabs.xyz/api/og?t=12349458240343850097808"
+					content="https://gdx.nuklabs.xyz/api/og?t=123494582403423433850097808"
 				></meta>
 
 
-				<meta name="twitter:card" content="summary_large_image"></meta> {/*telegram large image */}
+				
 
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
