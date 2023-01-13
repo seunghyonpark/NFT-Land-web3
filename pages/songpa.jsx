@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Ulsan ({
+export default function Songpa ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -400,6 +400,8 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 					content="https://gdx.nuklabs.xyz/api/og?t=12349458240343850097808"
 				></meta>
 
+
+				<meta name="twitter:card" content="summary_large_image"></meta>
 
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
