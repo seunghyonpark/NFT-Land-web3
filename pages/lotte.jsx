@@ -41,7 +41,7 @@ const options = {
 
 
 //-----------------------------
-export default function Songpa ({
+export default function Lotte ({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
