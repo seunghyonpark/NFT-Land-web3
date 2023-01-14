@@ -5,6 +5,8 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { createHmac } from 'node:crypto';
 
+import { v4 as uuidv4 } from "uuid";
+
 interface IParams extends ParsedUrlQuery {
     contract: string;
 }
@@ -48,7 +50,7 @@ export default function Page({ contract, token }: PageProps) {
     console.log("contract", contract);
     console.log("token", token);
 
-    const image = "https://a.nuklabs.xyz/api/og?contract=" + contract;
+    const image = "https://a.nuklabs.xyz/api/og?contract=" + contract + "&uuid=" + uuidv4();
 
     console.log("image", image);
   
@@ -91,7 +93,7 @@ export default function Page({ contract, token }: PageProps) {
                 <meta property="og:image:height" content="1400"></meta>
                 
                 <meta property="og:url"
-                    content="https://a.nuklabs.xyz/busan">
+                    content="https://a.nuklabs.xyz/">
                 </meta>
     
                 <meta name="description" content="
