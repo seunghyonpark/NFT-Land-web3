@@ -1,4 +1,5 @@
 //import { useRouter } from 'next/router'
+import Image from "next/image";
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
@@ -114,8 +115,21 @@ export default function Page({ contract, token }: PageProps) {
             </Head>
     
       
-            <p>NFT: {contract}</p>
-    
+            <div className="flex flex-col">
+                <p>NFT: {contract}</p>
+
+            
+                
+            <Image
+                className=" mt-10 " 
+                src={image}
+                alt={contract}
+                width={500}
+                height={500} 
+            />
+            
+
+            </div>
     
         </>
     
