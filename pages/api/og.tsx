@@ -7,14 +7,35 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const tokenid = searchParams.get('tokenid');
+  const contract = searchParams.get('contract');
 
-  if (!tokenid) {
+  if (!contract) {
     return new ImageResponse(<>Visit with &quot;?username=vercel&quot;</>, {
       width: 1200,
       height: 630,
     });
   }
+
+  const tokenid = Math.floor(Math.random() * 9999);
+
+  let imageSource = "";
+
+  if (contract === "0x8f5aa6b6dcd2d952a22920e8fe3f798471d05901") { // sunmiya
+    imageSource = `https://miya.sunmiya.club/${tokenid}.png`;
+  } else if (contract === "0x8f5aa6b6dcd2d952a22920e8fe3f798471d05901") { // gogodino
+    imageSource = `https://gogodino.saltmarble.io/metaexplorers/images/${tokenid}.png`;
+  } else if (contract === "0xce70eef5adac126c37c8bc0c1228d48b70066d03") { // bellygom
+    imageSource = `https://belly.bellygom.world/${tokenid}.png`;
+  }
+
+ 
+
+  console.log("imageSource", imageSource);
+
+
+  // https://gogodino.saltmarble.io/metaexplorers/json/0.json
+  // https://miya.sunmiya.club/0.json
+  // https://belly.bellygom.world/0.json
 
   return new ImageResponse(
     (
@@ -34,9 +55,9 @@ export default async function handler(req: NextRequest) {
       >
 
         <img
-          width="700"
-          height="700"
-          src={`https://miya.sunmiya.club/${tokenid}.png`}
+          width="900"
+          height="900"
+          src={`${imageSource}`}
           style={{
             borderRadius: 30,
           }}
