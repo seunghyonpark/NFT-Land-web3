@@ -16,6 +16,7 @@ export default async function handler(req: NextRequest) {
     });
   }
 
+  
   const tokenid = Math.floor(Math.random() * 9999);
 
   let imageSource = "";
