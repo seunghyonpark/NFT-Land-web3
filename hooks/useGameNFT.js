@@ -403,16 +403,12 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	const processMintNFT = async () => {
 
 		try {
-
-
 			const response = await fetch(`/api/mint-nft?chainid=${chainId}&owner=${contractOwnerAddress}&contract=${contractAddress}&wallet=${address}&baseuri=${baseURI}`);
 
 
 			/// for vercel test
 
 			//console.log("mint-nft api result", response);
-
-
 
 			if (!response.ok) {
 				setIsMinting(false);
@@ -423,8 +419,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 				return;
 			}
-
-
 
 			const nft = await response.json();
 

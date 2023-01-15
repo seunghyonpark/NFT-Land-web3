@@ -116,19 +116,16 @@ export default function Page({ contract, token }: PageProps) {
     
       
             <div className="flex flex-col">
-                <p>NFT: {contract}</p>
+                <div>NFT: {contract}</div>
 
+                <Image
+                    className=" mt-10 " 
+                    src={image}
+                    alt={contract}
+                    width={500}
+                    height={500} 
+                />
             
-                
-            <Image
-                className=" mt-10 " 
-                src={image}
-                alt={contract}
-                width={500}
-                height={500} 
-            />
-            
-
             </div>
     
         </>
