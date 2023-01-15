@@ -13,7 +13,6 @@ export default createFunction(
 
   async ({ event }) => {
 
-
     const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
     const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 
