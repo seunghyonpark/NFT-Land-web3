@@ -64,7 +64,7 @@ export default async function handler(req, res) {
 
 		const { chainid, owner, contract, wallet, baseuri } = req.query;
 
-		//console.log("mint-nft chainid", chainid);
+		console.log("mint-nft chainid", chainid);
 
 		//////////const contractOwnerAddress = owner;
 
