@@ -3,8 +3,11 @@ import { createFunction } from "inngest";
 import { runBackfillForUser }  from "../lib/backfill-scripts";
 
 export default createFunction(
+
   "Run backfill for user",     // The name displayed in the Inngest dashboard
+
   "retool/backfill.requested", // The event triggger
+  
   async ({ event }) => {
 
     const result = await runBackfillForUser(event.data.user_id);
@@ -15,4 +18,5 @@ export default createFunction(
     };
     
   }
+
 );
