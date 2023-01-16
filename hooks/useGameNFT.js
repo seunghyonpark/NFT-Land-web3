@@ -163,7 +163,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			try {
 				
-				const response = await fetch(`/api/game-fetch-nfts-more?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
+				const response = await fetch(`/api/game-fetch-nfts-more?chainid=${chainId}&contract=${contractAddress}&wallet=${address}&stakingwallet=${stakingWalletAddress}`);
 	
 				if (!response.ok) {
 					return;

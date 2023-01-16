@@ -63,12 +63,13 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { chainid, contract, wallet } = req.query;
+		const { chainid, contract, wallet, stakingwallet } = req.query;
 
 
 		//console.log("game-fetch-nfts-more chainid", chainid);
 		//console.log("game-fetch-nfts-more contract", contract);
 		//console.log("game-fetch-nfts-more wallet", wallet);
+		console.log("game-fetch-nfts-more stakingwallet",stakingwallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -93,9 +94,13 @@ export default async function handler(req, res) {
 			contractSymbol = "BELLYGOM";
 		}
 
+		let miningAmountTotal = 0;
+
 		// staked NFTs
 
-		let miningAmountTotal = 0;
+		/*
+
+		
 
 		const response = await fetch(`http://wallet.treasureverse.io/gogostakingmore?chainid=${chainid}&contract=${contractAddress}`);
 
@@ -107,8 +112,6 @@ export default async function handler(req, res) {
 
 			//console.log("game-fetch-nfts-more json", json);
 
-
-			
 
 			for(let idx=0; idx < json.items.length; idx++){
 
@@ -182,6 +185,106 @@ export default async function handler(req, res) {
 			}
 
 		}
+		*/
+
+
+		// staked NFTs
+		// stakingwallet
+
+
+		const ownedNfts = new Array();
+
+		const nftQuery = {
+			size: 100,
+			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
+		};
+
+		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
+		
+
+		for(let idx=0; idx < data.items.length; idx++){
+	
+			const nft = new Object();
+
+			try {
+				//nft.owner = data.itmes[idx].owner;  error
+
+				nft.owner = wallet;
+
+				const contract = new Object();
+				contract.address = contractAddress;
+
+
+				contract.name = contractName;
+				nft.contract = contract;
+
+				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
+				nft.tokenUri = data.items[idx].tokenUri;
+
+
+				const media = new Array() ;
+				nft.media = media;
+
+
+				////console.log("data.items[idx].tokenUri", data.items[idx].tokenUri);
+
+
+				const response = await fetch(data.items[idx].tokenUri);
+
+				if (response.ok) {
+
+					const jsonTokenUri = await response.json();
+
+					//console.log(jsonTokenUri.name);
+					//console.log(jsonTokenUri.image);
+
+					// 객체 생성
+					const mediadata = new Object() ;
+					
+					if (jsonTokenUri) {
+						mediadata.gateway = jsonTokenUri.image;
+					} else {
+						mediadata.gateway = "";
+					}
+					
+					// 리스트에 생성된 객체 삽입
+					media.push(mediadata);
+
+			
+					nft.title = jsonTokenUri.name;
+					
+					nft.description = jsonTokenUri.description;
+
+			
+				} else {
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+				}
+
+
+				nft.timeLeft = "0 years 0 month 0 days";
+				nft.maturityLevel = "Level 0";
+				nft.miningAmount = "0.00000000";
+
+
+				if (idx === 0) {
+					nft.selected = true;
+				} else {
+					nft.selected = false;
+				}
+
+				nft.staking = "true";
+
+			} catch (err) {
+				//alert("There was an error fetching NFTs!");
+				//return;
+				console.log("err",err);
+			}
+			
+			ownedNfts.push(nft);
+		}
+
+
+
 
 
 

@@ -157,22 +157,6 @@ export default async function handler(req, res) {
 
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 		
-		
-		//console.log("game-fetch-nfts data", data);
-
-		//const response = await fetch("http://wallet.treasureverse.io/gogo");
-		//if (response.ok) {
-
-			//const data = await response.json();
-
-			//console.log("game-fetch-nfts json="+JSON.stringify(json));
-		//}
-
-
-
-
-
-
 
 		for(let idx=0; idx < data.items.length; idx++){
 	
@@ -225,16 +209,6 @@ export default async function handler(req, res) {
 					
 					nft.description = jsonTokenUri.description;
 
-
-
-					/*
-					const [timeLeft, setTimeLeft] = useState("0 years 0 month 0 days"); //4 years 11 month 354 days
-					const [maturityLevel, setMaturityLevel] = useState("Level 0");
-					const [miningAmount, setMiningAmount] = useState("0.00000000");
-					*/
-
-
-
 			
 				} else {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
@@ -265,18 +239,7 @@ export default async function handler(req, res) {
 			ownedNfts.push(nft);
 		}
 
-
-
-		/*
-		let fromAddress = "";
-		if (chainId === "8217") {
-			fromAddress = stakingWalletAddress;
-		} else {
-			//to = stakingWalletAddress;
-			fromAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
-		}
-		*/
-
+		
 
 		// staked NFTs
 
@@ -351,9 +314,6 @@ export default async function handler(req, res) {
 				if (response.ok) {
 	
 					const jsonTokenUri = await response.json();
-
-
-					
 
 
 					
