@@ -25,7 +25,6 @@ export default function MyPage({
 	depositNFT,
 	withdrawNFT,
 	selectNFT,
-	mintNFT,
 	holdingCount,
 	stakingCount,
 	setStakingCount,
@@ -56,7 +55,6 @@ export default function MyPage({
 
 	const refStake = useRef(null);
 	const refUnstake = useRef(null);
-	const refMint = useRef(null);
 	const refScroller = useRef(null);
 
 
@@ -150,7 +148,6 @@ export default function MyPage({
 
 			refStake.current.style.display = "none";
 			refUnstake.current.style.display = "none";
-			refMint.current.style.display = "none";
 
 		} else {
 			/////refScroller.current.style.cssText = "overflow-y-scroll box-content h-screen";
@@ -162,9 +159,6 @@ export default function MyPage({
 				refStake.current.style.display = "";
 				refUnstake.current.style.display = "";
 			}
-
-
-			refMint.current.style.display = "";
 
 
 			if (address) {
@@ -273,98 +267,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className="bg-gradient-to-bl from-blue-900">
 
 
-			<div className="grid grid-cols-3 gap-1">
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xfb5611f91ce965893d1d36195587233fa04691a6");
-					}}
-				>
-					GDX
-				</button>
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
-					}}
-				>
-					MIYA
-				</button>
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1");
-					}}
-				>
-					BELLYGOM
-				</button>
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xd8940245a37a301576eae6ea0348392ade2b8d5d");
-					}}
-				>
-					BIRDEI
-				</button>
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xaedd53a5526658ce286d66f63a6db28c9e79af3e");
-					}}
-				>
-					CMPZPFP
-				</button>
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0x24c8b2bf633672456efc8b415ea8b684498d9f79");
-					}}
-				>
-					ArcheWorld
-				</button>
-
-
-				<button
-					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
-					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
-					duration-200  ease-in-out hover:bg-teal-300"
-					onClick={(e) => {
-						e.preventDefault();
-						setContractAddress("0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584");
-					}}
-				>
-					MTS
-				</button>
-				
-				
-				
-
-			</div>
-
-
 			<div className="bg-gradient-to-l from-blue-500">
 
 
@@ -467,7 +369,98 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 
-			<div className="bg-gradient-to-l from-blue-500 ">			
+			<div className="bg-gradient-to-l from-blue-500 p-3 ">			
+
+
+
+
+			<div className="grid grid-cols-3 gap-1">
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xfb5611f91ce965893d1d36195587233fa04691a6");
+					}}
+				>
+					GDX
+				</button>
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
+					}}
+				>
+					MIYA
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1");
+					}}
+				>
+					BELLYGOM
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd8940245a37a301576eae6ea0348392ade2b8d5d");
+					}}
+				>
+					BIRDEI
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xaedd53a5526658ce286d66f63a6db28c9e79af3e");
+					}}
+				>
+					CMPZPFP
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x24c8b2bf633672456efc8b415ea8b684498d9f79");
+					}}
+				>
+					ArcheWorld
+				</button>
+
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584");
+					}}
+				>
+					MTS
+				</button>
+				
+			</div>
 
 
 
@@ -598,22 +591,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						Unstake
 				</button>
 			</div>
-
-
-
-			<button
-				ref={refMint}
-				onClick={mintNFT}
-				className={` ${chainId === "8217" && "" }
-				my-5  self-center rounded-lg bg-amber-400 px-5 py-1
-				font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300 
-				`}
-			>
-					Mint NFT
-			</button>
-
-				
-
 
 
 

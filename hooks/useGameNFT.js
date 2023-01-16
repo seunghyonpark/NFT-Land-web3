@@ -266,12 +266,16 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		else return;
 
 		const fetchNFTs = async () => {
+
+			setData([]);
+			setIsLoading(true);
 	
 			try {
 
 				const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
 	
 				if (!response.ok) {
+					setIsLoading(false);
 					return;
 				}
 	
@@ -305,6 +309,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				setStakingCount(String(sCount));
 
 
+				setIsLoading(false);
 	
 			} catch (err) {
 				setIsLoading(false);
@@ -318,13 +323,14 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		fetchNFTs();
 
+		/*
 		let intervalMiliSecond = 20000;
-
 		const interval = setInterval(fetchNFTs, intervalMiliSecond);
+		*/
 
 		return () => {
 			
-			clearInterval(interval);
+			//clearInterval(interval);
 
 		}
 		
@@ -631,9 +637,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-	const fetchNFTs = async () => {
+	const fetchNFTs = async (e) => {
 
-		/////e.preventDefault();
+		e.preventDefault();
 
 		console.log("useGameFNT fetchNFTs address",address);
 

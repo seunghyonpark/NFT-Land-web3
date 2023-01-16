@@ -372,6 +372,7 @@ await contract.methods.say().send(options)
 
 
 
+		console.log("mint-nft tokenUri", tokenUri);
 
 
 		//console.log("totalSupply.result", totalSupply.result);
@@ -618,7 +619,9 @@ ErrorResponse {
 			const media = new Array() ;
 			nft.media = media;
 
-			const response = await fetch(`${baseURI}/${tokenId}.json`);
+			///////////const response = await fetch(`${baseURI}/${tokenId}.json`);
+
+			const response = await fetch(tokenUri);
 
 			if (response.ok) {
 

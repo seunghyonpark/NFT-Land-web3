@@ -316,14 +316,8 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 	return (
 
 
-
-
-
 		<div className="
 
-			
-
-			
 			
 		">
 
