@@ -175,8 +175,15 @@ export default function Songpa ({
 			
 			setBaseURI("https://meta.competz.io/tokens");
 
+		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584") {
+			setNftName("Meta Toy Squad");
+			setNftSymbol("MTS");
+			
+			setBaseURI("https://meta.competz.io/tokens");
+
 		}
 
+		
 		
 		
 

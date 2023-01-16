@@ -404,7 +404,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 							className="
 							rounded-md "
-							src={`/selectedcard_${nftSymbol}.png`}
+							src={`/selectedcard_none.jpeg`}
 							alt={`${nftSymbol}`}
 							width={300}
 							height={300}

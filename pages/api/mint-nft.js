@@ -308,14 +308,42 @@ await contract.methods.say().send(options)
 
 
 		let tokenUri;
-		// competz
-		if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") {
-			tokenUri = `${baseURI}/${tokenId}`;
 
-		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {  // ArcheWorld_FandomCard
+		
 
-			const contractAddressOriginal = "0xbaf8864ee1b5f2be3dcd637203aed524b86db4e4"; // ArcheWorld_FandomCard
+		if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") { // bellygom baobab
 
+			const contractAddressOriginal = "0xce70eef5adac126c37c8bc0c1228d48b70066d03"; // bellygom cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+
+		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") { // sunmiya club baobab
+
+			const contractAddressOriginal = "0x8f5aa6b6dcd2d952a22920e8fe3f798471d05901"; // sunmiya club cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+
+		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") { // competz baobab
+
+			const contractAddressOriginal = "0x4d8d3ae115c5b13b4c27ab956e06d6cece9e37c0"; // competz cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+
+		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {  // ArcheWorld_FandomCard baobab
+
+			const contractAddressOriginal = "0xbaf8864ee1b5f2be3dcd637203aed524b86db4e4"; // ArcheWorld_FandomCard cypress
 
 			const chainidCypress = "8217";
 			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
@@ -325,6 +353,17 @@ await contract.methods.say().send(options)
 			
 			//console.log("mint-nft dataNFT", dataNFT); 
 
+		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584") {  // Meta Toy Squard baobab
+
+			const contractAddressOriginal = "0x9ad0e9ba4415d1987149321809d1f1e908d82926"; // Meta Toy Squard cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+			
+			//console.log("mint-nft dataNFT", dataNFT); 
 
 
 		} else {
@@ -430,6 +469,16 @@ await contract.methods.say().send(options)
 		console.log("caver.kas.kip17.deploy result", result5);
 		*/
 			
+			/*
+		const result5 = await caver.kas.kip17.deploy (
+			"Meta Toy Squad",
+			"MTS",
+			"kip17-mts"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result5);
+			*/
+
 
 		/*
 		ErrorResponse {
