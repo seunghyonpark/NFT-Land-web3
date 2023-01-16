@@ -616,7 +616,7 @@ export default function GameHeader ({
 
 					<div className="flex-auto mr-9 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
-						Current Earned Total ($SML)
+						Current Earned Total ($SGPA)
 						</p>
 						{/*
 						<p className="font-mono text-2xl text-amber-400 truncate">
@@ -643,7 +643,7 @@ export default function GameHeader ({
 
 					<div className="flex-auto mr-8 overflow-hidden text-right ">
 						<p className="text-normal font-medium text-slate-200">
-							Staking Count Total ({nftSymbol})
+							Staked / Minted
 						</p>
 						{/*
 						<p className=" text-2xl text-amber-400 truncate">

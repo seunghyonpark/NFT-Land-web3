@@ -215,7 +215,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className=" bg-gradient-to-bl from-blue-900">
 
 
-			<div className=" mt-1"></div>
+			<div className=" mt-3"></div>
 
 
 
