@@ -469,7 +469,7 @@ export default function GameHeader ({
 
 				<Image
 					className="float-left my-5 w-12 self-center" 
-					src={`/logo_${nftSymbol}.png`}
+					src={`/logo_main.png`}
 					alt={`${nftSymbol}`}
 					width={100}
 					height={100} 
