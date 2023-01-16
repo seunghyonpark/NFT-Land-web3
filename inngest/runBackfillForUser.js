@@ -38,15 +38,11 @@ export default createFunction(
       const wallet = "0xf0E392D26e21BA67a692fbE763C103d88c371D5f";
       const baseURI = "https://belly.bellygom.world";
 
-
-
       console.log("minting start");
   
   
       const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
  
-  
-  
   
       const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
   
