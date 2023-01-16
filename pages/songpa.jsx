@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
-import GameHeader from "../components/GameHeader/index.jsx";
+import GameHeader from "../components/GameHeader/index";
 
-import StakingHeader from "../components/StakingHeader/index.jsx";
+import StakingHeader from "../components/StakingHeader/index";
 
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
-import GameMain from "../components/GameMain/index.jsx";
-import Footer from "../components/Footer.jsx";
+import MyPage from "../components/MyPage/index";
+import Footer from "../components/Footer/index";
 import useGameNFT from "../hooks/useGameNFT.js";
 
 
@@ -38,6 +38,8 @@ import { GetServerSideProps } from 'next';
 const options = {
     //options
 };
+
+const projectCodeName = "songpa";
 
 
 //-----------------------------
@@ -159,8 +161,11 @@ export default function Songpa ({
 			setNftName("Bellygom World");
 			setNftSymbol("BELLYGOM");
 			setBaseURI("https://belly.bellygom.world");
+		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d") {
+			setNftName("BIRDIESHOT");
+			setNftSymbol("BIRDIE");
+			setBaseURI("https://live.bdst.kakaogames.com:10443/assets/nft");
 		}
-
 
 
 	}, [contractAddress]);
@@ -518,7 +523,7 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 				grid-cols-1 ">	
 
-				<GameMain
+				<MyPage
 					{...{
 						chainId,
 						nftSymbol,
@@ -542,6 +547,8 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 						stakingCount,
 						setStakingCount,
 						miningAmountTotal,
+						contractAddress,
+						setContractAddress,
 					}}
 				/>
 
@@ -569,7 +576,11 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 			</cards>
 
 
-			<Footer />
+			<Footer
+				{...{
+					projectCodeName
+				}}
+			/>
 
 
 

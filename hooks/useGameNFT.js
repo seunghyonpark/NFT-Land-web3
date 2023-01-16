@@ -249,7 +249,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		
 
 	//}, [address, data, miningAmountTotal]);
-	}, [address, contractAddress, chainId]);
+	}, [address, contractAddress, chainId, stakingWalletAddress]);
 
 
 

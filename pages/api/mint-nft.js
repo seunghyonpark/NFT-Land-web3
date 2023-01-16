@@ -265,7 +265,40 @@ await contract.methods.say().send(options)
 
 		const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
 
+
+
+		/*
+		const chainidCypress = "8217";
+		const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+		const contractAddressOriginal = "0x7b19bf9abe4119618f69aebb78b27f73cdaa4182"; // BIRDIESHOT (BIRDIE)
+
+
+		const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+		
+		
+		console.log("mint-nft dataNFT", dataNFT);
+		*/
+		/*
+		Nft {
+			owner: '0x9e93e11686aa8115c06be8c6c74bdf8b9f2fd710',
+			previousOwner: '0x5db32550a49dd9043784b031f838efd0eb527fa7',
+			tokenId: '0xbb',
+			tokenUri: 'https://live.bdst.kakaogames.com:10443/assets/nft/187',
+			transactionHash: '0xc94730a19c1e63c3d60496e96d0a645f9eb899627b3bcd8a536775fdf5421542',
+			createdAt: 1650884445,
+			updatedAt: 1661835157
+		}
+		*/
+		
+
+
+
+		
 		const tokenUri = `${baseURI}/${tokenId}.json`;
+
+
+
+
 
 		console.log("totalSupply.result", totalSupply.result);
 
@@ -329,6 +362,18 @@ await contract.methods.say().send(options)
 		
 		console.log("caver.kas.kip17.deploy result", result3);
 		*/
+
+
+		/*
+		const result4 = await caver.kas.kip17.deploy (
+			"BIRDIESHOT",
+			"BIRDIE",
+			"kip17-birdie"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result4);
+		*/
+
 
 		/*
 		ErrorResponse {
@@ -483,8 +528,15 @@ ErrorResponse {
 				media.push(mediadata);
 
 				nft.title = jsonTokenUri.name;
+
+				console.log("mint-nft nft.title", nft.title);
+
 				
 				nft.description = jsonTokenUri.description;
+
+				console.log("mint-nft nft.description", nft.description);
+
+
 
 				nft.staking = "false";
 		
