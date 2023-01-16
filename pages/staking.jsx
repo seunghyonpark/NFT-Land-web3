@@ -81,8 +81,8 @@ export default function Staking ({
 
 
 
-	const [nftSymbol, setNftSymbol] = useState("GDX");
-	const [nftName, setNftName] = useState("GOGO DINO META EXPLORERS");
+	const [nftSymbol, setNftSymbol] = useState("SONGPA");
+	const [nftName, setNftName] = useState("SONGPA 345");
 
 
 	
@@ -147,6 +147,7 @@ export default function Staking ({
 
 		// wayne@nuklabs.com
 
+		/*
 		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
@@ -160,7 +161,7 @@ export default function Staking ({
 			setNftSymbol("BELLYGOM");
 			setBaseURI("https://belly.bellygom.world");
 		}
-
+		*/
 
 
 	}, [contractAddress]);

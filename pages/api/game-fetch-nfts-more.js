@@ -83,13 +83,13 @@ export default async function handler(req, res) {
 
 
 
-		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
+		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") {   // 0xfb5611f91ce965893d1d36195587233fa04691a6
 			contractName = "GOGO DINO META EXPLORERS";
 			contractSymbol = "GDX";
-		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
+		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") { // 0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc
 			contractName = "Sunmiya Club";
 			contractSymbol = "MIYA";
-		} else if (contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
+		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {  // 0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1
 			contractName = "Bellygom World";
 			contractSymbol = "BELLYGOM";
 		}
@@ -199,7 +199,17 @@ export default async function handler(req, res) {
 			//cursor: 'PdOALgqNmea5a9vJ6KDBAZ4gzwx6alLo1Q5mX7q2Oz2d7e8PrK1Jpwbm9LZ6D0lRxNnvx4BMAVXNE5Qao3kqgWGYOp9rW8Y3GEDM0deNPbKvkJVEz4oXVrY0Wxk1lbp7B'
 		};
 
-		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
+
+
+
+
+		contractAddress = "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"; // bellygom world
+
+
+		let data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
+
+		//console.log("game-fetch-nfts-more data", data);
+
 		
 
 		for(let idx=0; idx < data.items.length; idx++){
@@ -282,6 +292,100 @@ export default async function handler(req, res) {
 			
 			ownedNfts.push(nft);
 		}
+
+
+		
+
+		contractAddress = "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc"; // sunmiya club
+
+		data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
+		
+
+		for(let idx=0; idx < data.items.length; idx++){
+	
+			const nft = new Object();
+
+			try {
+				//nft.owner = data.itmes[idx].owner;  error
+
+				nft.owner = wallet;
+
+				const contract = new Object();
+				contract.address = contractAddress;
+
+
+				contract.name = contractName;
+				nft.contract = contract;
+
+				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
+				nft.tokenUri = data.items[idx].tokenUri;
+
+
+				const media = new Array() ;
+				nft.media = media;
+
+
+				////console.log("data.items[idx].tokenUri", data.items[idx].tokenUri);
+
+
+				const response = await fetch(data.items[idx].tokenUri);
+
+				if (response.ok) {
+
+					const jsonTokenUri = await response.json();
+
+					//console.log(jsonTokenUri.name);
+					//console.log(jsonTokenUri.image);
+
+					// 객체 생성
+					const mediadata = new Object() ;
+					
+					if (jsonTokenUri) {
+						mediadata.gateway = jsonTokenUri.image;
+					} else {
+						mediadata.gateway = "";
+					}
+					
+					// 리스트에 생성된 객체 삽입
+					media.push(mediadata);
+
+			
+					nft.title = jsonTokenUri.name;
+					
+					nft.description = jsonTokenUri.description;
+
+			
+				} else {
+					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+				}
+
+
+				nft.timeLeft = "0 years 0 month 0 days";
+				nft.maturityLevel = "Level 0";
+				nft.miningAmount = "0.00000000";
+
+
+				if (idx === 0) {
+					nft.selected = true;
+				} else {
+					nft.selected = false;
+				}
+
+				nft.staking = "true";
+
+			} catch (err) {
+				//alert("There was an error fetching NFTs!");
+				//return;
+				console.log("err",err);
+			}
+			
+			ownedNfts.push(nft);
+		}
+
+
+
+
+
 
 
 

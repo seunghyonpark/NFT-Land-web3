@@ -468,7 +468,7 @@ export default function GameHeader ({
 		*/}
 
 				<Image
-					className="float-left my-5 w-auto self-center" 
+					className="float-left my-5 w-12 self-center" 
 					src={`/logo_${nftSymbol}.png`}
 					alt={`${nftSymbol}`}
 					width={100}
@@ -544,7 +544,10 @@ export default function GameHeader ({
 
 
 {/*  wayne@nuklabs.com */}
+
 			<div className="flex flex-row">
+
+				{/*
 				<button
 					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
@@ -580,7 +583,7 @@ export default function GameHeader ({
 					BELLYGOM
 				</button>
 
-
+				*/}
 
 			</div>
 
