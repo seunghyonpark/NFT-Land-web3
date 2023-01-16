@@ -251,11 +251,16 @@ export default async function handler(req, res) {
 
 		//console.log("game-fetch-nfts response", response);
 
+
+
+
+
 		if (response.ok) {
 
 			const json = await response.json();
 
 			//console.log("game-fetch-nfts json", json);
+
 
 			for(let idx=0; idx < json.items.length; idx++){
 
@@ -303,28 +308,29 @@ export default async function handler(req, res) {
 				
 				nft.description = "";
 
-				//console.log(json.items[idx].uri);
+				console.log(json.items[idx].uri);
 
 				
-
-				const response = await fetch(json.items[idx].uri);
-
-
-
-				if (response.ok) {
-	
-					const jsonTokenUri = await response.json();
-
-
-					
-					mediadata.gateway = jsonTokenUri.image;
-					
-					nft.title = jsonTokenUri.name;
-					
-					nft.description = jsonTokenUri.description;
 			
+				if (json.items[idx].uri === undefined) {
 				} else {
-					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					const response = await fetch(json.items[idx].uri);
+				
+
+					if (response.ok) {
+		
+						const jsonTokenUri = await response.json();
+
+						mediadata.gateway = jsonTokenUri.image;
+						
+						nft.title = jsonTokenUri.name;
+						
+						nft.description = jsonTokenUri.description;
+				
+					} else {
+						//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
+					}
+
 				}
 
 		

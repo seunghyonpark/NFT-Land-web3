@@ -286,7 +286,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<Image
 						className=" ml-6 h-12 w-12 " 
-						src={`/staking_count_${nftSymbol}.gif`}
+						src={`/staking_count.gif`}
 						alt={`${nftSymbol}`}
 						width={500}
 						height={500} 
