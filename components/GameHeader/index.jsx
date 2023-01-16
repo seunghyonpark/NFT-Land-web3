@@ -608,7 +608,7 @@ export default function GameHeader ({
 					
 					<Image
 						className=" ml-6 h-12 w-12 " 
-						src={`/current_earned_${nftSymbol}.gif`}
+						src={`/current_earned.gif`}
 						alt={`${nftSymbol}`}
 						width={500}
 						height={500} 

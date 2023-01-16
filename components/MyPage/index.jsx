@@ -273,7 +273,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className="bg-gradient-to-bl from-blue-900">
 
 
-			<div className="flex flex-row">
+			<div className="grid grid-cols-3 gap-1">
 
 				<button
 					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
@@ -322,8 +322,34 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					BIRDEI
 				</button>
 
+				<button
+					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xaedd53a5526658ce286d66f63a6db28c9e79af3e");
+					}}
+				>
+					CMPZPFP
+				</button>
+
+				<button
+					className=" m-3 flex-auto my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x24c8b2bf633672456efc8b415ea8b684498d9f79");
+					}}
+				>
+					ArcheWorld
+				</button>
 
 
+
+				
+				
 				
 
 			</div>
@@ -349,7 +375,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<Image
 						className=" ml-6 h-12 w-12 " 
-						src={`/staking_count_${nftSymbol}.gif`}
+						src={`/staking_count.gif`}
 						alt={`${nftSymbol}`}
 						width={500}
 						height={500} 
@@ -382,7 +408,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<Image
 						className=" ml-6 h-12 w-12 " 
-						src={`/current_earned_${nftSymbol}.gif`}
+						src={`/current_earned.gif`}
 						alt={`${nftSymbol}`}
 						width={500}
 						height={500} 
@@ -454,7 +480,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				
                     <div className="flex flex-col">
                         <Image className="float-center w-full mt-5 p-5 " 
-							src={`/gamemain_${nftSymbol}.png`}
+							src={`/gamemain.png`}
                             alt={`${nftSymbol}`}
                             width={500}
                             height={500}

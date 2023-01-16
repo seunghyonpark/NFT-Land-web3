@@ -165,8 +165,20 @@ export default function Songpa ({
 			setNftName("BIRDIESHOT");
 			setNftSymbol("BIRDIE");
 			setBaseURI("https://live.bdst.kakaogames.com:10443/assets/nft");
+		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") {
+			setNftName("COMPETZ GAMERZ");
+			setNftSymbol("CMPZPFP");
+			setBaseURI("https://meta.competz.io/tokens");
+		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {
+			setNftName("ArcheWorld_FandomCard");
+			setNftSymbol("ArcheWorld_FandomCard");
+			
+			setBaseURI("https://meta.competz.io/tokens");
+
 		}
 
+		
+		
 
 	}, [contractAddress]);
 

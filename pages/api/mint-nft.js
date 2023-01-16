@@ -267,18 +267,33 @@ await contract.methods.say().send(options)
 
 
 
+
+
 		/*
+		
 		const chainidCypress = "8217";
 		const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
-		const contractAddressOriginal = "0x7b19bf9abe4119618f69aebb78b27f73cdaa4182"; // BIRDIESHOT (BIRDIE)
-
+		//const contractAddressOriginal = "0x7b19bf9abe4119618f69aebb78b27f73cdaa4182"; // BIRDIESHOT (BIRDIE)
+		const contractAddressOriginal = "0xbaf8864ee1b5f2be3dcd637203aed524b86db4e4"; // ArcheWorld_FandomCard
 
 		const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
 		
 		
-		console.log("mint-nft dataNFT", dataNFT);
+		console.log("mint-nft dataNFT", dataNFT); 
 		*/
+		
 		/*
+		Nft {
+			owner: '0xa284204de7ba3e6b9eb97ab60fb16dbed8d97a54',
+			previousOwner: '0x374ef089f5cd5cf08b7455eebb33b2141a573cf3',
+			tokenId: '0x40',
+			tokenUri: 'https://ipfs.archeworld.com/ipfs/QmNQNib5NBL2wPLGQAvACC7UAsHAQjx3VqhCPsodcMbifm/99084bd4e0ee6124b79c55aa9fc6942e.json',
+			transactionHash: '0x61215a314b75afe7c353dc4881c4385d5ae74dea334935bc3fe38cdbd980c69d',
+			createdAt: 1649086441,
+			updatedAt: 1649131644
+		}
+
+
 		Nft {
 			owner: '0x9e93e11686aa8115c06be8c6c74bdf8b9f2fd710',
 			previousOwner: '0x5db32550a49dd9043784b031f838efd0eb527fa7',
@@ -292,9 +307,29 @@ await contract.methods.say().send(options)
 		
 
 
+		let tokenUri;
+		// competz
+		if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") {
+			tokenUri = `${baseURI}/${tokenId}`;
 
-		
-		const tokenUri = `${baseURI}/${tokenId}.json`;
+		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {  // ArcheWorld_FandomCard
+
+			const contractAddressOriginal = "0xbaf8864ee1b5f2be3dcd637203aed524b86db4e4"; // ArcheWorld_FandomCard
+
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+			
+			//console.log("mint-nft dataNFT", dataNFT); 
+
+
+
+		} else {
+			tokenUri = `${baseURI}/${tokenId}.json`;
+		}
 
 
 
@@ -374,6 +409,27 @@ await contract.methods.say().send(options)
 		console.log("caver.kas.kip17.deploy result", result4);
 		*/
 
+
+		/*
+		const result5 = await caver.kas.kip17.deploy (
+			"COMPETZ GAMERZ",
+			"CMPZPFP",
+			"kip17-cmpzpfp"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result5);
+			*/
+
+		/*
+		const result5 = await caver.kas.kip17.deploy (
+			"ArcheWorld_FandomCard",
+			"ArcheWorld_FandomCard",
+			"kip17-archeworld-fandomcard"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result5);
+		*/
+			
 
 		/*
 		ErrorResponse {
