@@ -1,6 +1,6 @@
 import React from "react";
 
-function Footer() {
+function Footer({projectCodeName,}) {
 	return (
 		<footer className="mt-8 mb-15 text-amber-400 drop-shadow-lg">
 			Made by{" "}
@@ -10,6 +10,9 @@ function Footer() {
 				target="_blank"
 				rel="noreferrer"
 			>
+				
+				
+
 				© 2022 SML. All rights reserved.
 			</a>
 		</footer>
