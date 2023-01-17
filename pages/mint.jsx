@@ -181,6 +181,12 @@ export default function Mint ({
 			
 			setBaseURI("https://meta.competz.io/tokens");
 
+		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5") {
+			setNftName("DOGESOUNDCLUB MATES");
+			setNftSymbol("MATE");
+			
+			setBaseURI("https://meta.competz.io/tokens");
+
 		}
 
 		

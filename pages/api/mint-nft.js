@@ -365,6 +365,17 @@ await contract.methods.say().send(options)
 			
 			//console.log("mint-nft dataNFT", dataNFT); 
 
+		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5") {  // DOGESOUNDCLUB MATES baobab
+
+			const contractAddressOriginal = "0xe47e90c58f8336a2f24bcd9bcb530e2e02e1e8ae"; // DOGESOUNDCLUB MATES cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+			
+			//console.log("mint-nft dataNFT", dataNFT); 
 
 		} else {
 			tokenUri = `${baseURI}/${tokenId}.json`;
@@ -480,6 +491,15 @@ await contract.methods.say().send(options)
 		console.log("caver.kas.kip17.deploy result", result5);
 			*/
 
+			/*
+		const result5 = await caver.kas.kip17.deploy (
+			"DOGESOUNDCLUB MATES",
+			"MATE",
+			"kip17-mate"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result5);
+			*/
 
 		/*
 		ErrorResponse {
