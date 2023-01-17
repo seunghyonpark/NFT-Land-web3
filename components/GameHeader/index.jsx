@@ -594,7 +594,10 @@ export default function GameHeader ({
 			<ul  className="p-3 flex flex-row justify-between divide-x divide-slate-200">
 		*/}
 
-			<cards className="mt-0 grid justify-center gap-10
+
+
+			{/*
+			<div className="mt-0 grid justify-center gap-10
 							sm:grid-cols-2
 							md:grid-cols-2
 							lg:grid-cols-2
@@ -618,14 +621,10 @@ export default function GameHeader ({
 						<p className="text-normal font-medium text-slate-200">
 						Current Earned Total ($SGPA)
 						</p>
-						{/*
-						<p className="font-mono text-2xl text-amber-400 truncate">
-						*/}
+
 							
 							<div className={classes.number}>{thisMiningAmountGlobal}</div>
-						{/*
-						</p>
-					*/}
+
 					</div>
 
 				</div>
@@ -645,19 +644,17 @@ export default function GameHeader ({
 						<p className="text-normal font-medium text-slate-200">
 							Staked / Minted
 						</p>
-						{/*
-						<p className=" text-2xl text-amber-400 truncate">
-						*/}
-							
+
 							<div className={classes.number}>{thisStakingCountGlobal} / {thisMintCountGlobal}</div>
-						{/*
-						</p>
-						*/}
+
 					</div>
 
 				</div>				
 
-			</cards>
+			</div>
+			*/}
+
+
 
 			{/*!address &&
 

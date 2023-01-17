@@ -267,23 +267,12 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className="bg-gradient-to-bl from-blue-900">
 
 
-			<div className="bg-gradient-to-l from-blue-500">
 
+			{/*
+			<div className="bg-gradient-to-l from-blue-500">
 
 			<ul role="list" className="p-3 divide-y divide-slate-200">
 				<li className="flex py-1 first:pt-0 last:pb-0">
-					
-					{/*
-					<div className="mt-3 ml-6 h-12 w-12 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-						<lottie-player
-							id="gold-fish"
-							src={goldFishAddress}
-							speed="5"
-							loop
-							autoplay
-						></lottie-player>
-					</div>
-	*/}
 
 					<Image
 						className=" ml-6 h-12 w-12 " 
@@ -305,18 +294,6 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				</li>
 
 				<li className="flex py-3 first:pt-0 last:pb-0">
-					
-					{/*
-					<div className="mt-3 ml-7 h-10 w-10 -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
-						<lottie-player
-							id="crypto-tower"
-							src={depositingNFTAddress}
-							speed="1"
-							loop
-							autoplay
-						></lottie-player>
-					</div>
-*/}
 
 					<Image
 						className=" ml-6 h-12 w-12 " 
@@ -335,16 +312,12 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						<div className={classes.number}>{thisMiningAmountTotal}</div>
 					</div>
 
-					{/*
-					<Image class="h-5 w-5 rounded-full" src="./sml.png" alt="" />
-					*/}
-
 				</li>
 
 			</ul>
 
 			</div>
-
+			*/}
 
 			
 					{/*
@@ -485,7 +458,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 				{
                 data.length !== 0 &&
-					<div className="mt-2 pt-5 text-normal text-amber-400">Select your M.E. NFTs</div>
+					<div className="mt-2 pt-5 text-normal text-amber-400">Select My NFT</div>
 				}
 
 
@@ -571,6 +544,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			</div>
 
 
+			{/*
+
 			<div className="">
 				<button
 					ref={refStake}
@@ -603,7 +578,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						Unstake
 				</button>
 			</div>
-
+				*/}
 
 
 			</div>

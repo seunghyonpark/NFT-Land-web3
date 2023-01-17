@@ -386,10 +386,10 @@ export default function Mint ({
 
 
 			<Head>
-				<title>GANGNAM</title>
+				<title>SONGPA</title>
 				<meta
-					name="GANGNAM EXPLORERS"
-					content="GANGNAM EXPLORERS"
+					name="SONGPA WORLD"
+					content="SONGPA WORLD"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
@@ -399,36 +399,30 @@ export default function Mint ({
 
 				<meta property="og:type" content="website"></meta>
 
-				<meta property="og:site_name" content="GANGNAM"></meta>
-				<meta property="og:title" content="GANGNAM"></meta>
+				<meta property="og:site_name" content="SONGPA"></meta>
+				<meta property="og:title" content="SONGPA"></meta>
 				<meta property="og:description"
 					content="
-					Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
-
-Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
-Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
+					SONGPA WORLD
 					">
 				</meta>
-				<meta property="og:image" content="https://gdx.nuklabs.xyz/api/og?t=2342332423423"></meta>
+				<meta property="og:image" content="https://a.nuklabs.xyz/api/og?t=2342332423423"></meta>
 				<meta property="og:image:width" content="1400"></meta>
 				<meta property="og:image:height" content="1400"></meta>
 				
 				<meta proterty="og:url"
-					content="https://gdx.nuklabs.xyz/gangnam">
+					content="https://a.nuklabs.xyz/mint">
 				</meta>
 
 				<meta name="description"
 					content="
-					Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
-
-Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
-Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
+					SONGPA
 					"
 				></meta>
 
 				<meta name="twitter:card" content="summary_large_image"></meta> {/*telegram large image */}
 				<meta name="twitter:image"
-					content="https://gdx.nuklabs.xyz/api/og?t=123494582403423433850097808"
+					content="https://a.nuklabs.xyz/api/og?t=123494582403423433850097808"
 				></meta>
 
 

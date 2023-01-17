@@ -82,9 +82,16 @@ export default function MintingPage ({
 				{displayAddress} 
 			</h1>
 
-			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				Mint my NFT
-			</h1>
+            <button
+				//ref={refMint}
+				onClick={mintNFT}
+				className={` ${chainId === "8217" && "" }
+				my-5  self-center rounded-lg bg-amber-400 px-5 py-1
+				font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300 
+				`}
+			>
+					Mint My NFT
+			</button>
 
 
 {/*bg-[url('/img_tomo.png')]*/}
@@ -159,16 +166,7 @@ export default function MintingPage ({
 				*/}
 
 
-            <button
-				//ref={refMint}
-				onClick={mintNFT}
-				className={` ${chainId === "8217" && "" }
-				my-5  self-center rounded-lg bg-amber-400 px-5 py-1
-				font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300 
-				`}
-			>
-					Mint NFT
-			</button>
+
 			
 
 			</div>
