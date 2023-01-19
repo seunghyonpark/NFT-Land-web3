@@ -402,7 +402,6 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 			<GameHeader
 				{...{
-					setBaseURI,
 					contractAddress,
 					setContractAddress,
 					nftSymbol,
