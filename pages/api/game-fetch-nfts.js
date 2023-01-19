@@ -63,9 +63,10 @@ export default async function handler(req, res) {
 			});
 		}
 
-		const { chainid, contract, wallet } = req.query;
+		const { chainid, contract, wallet, stakingwallet } = req.query;
 
-
+		
+		
 		//console.log("game-fetch-nfts chainid", chainid);
 		//console.log("game-fetch-nfts contract", contract);
 		//console.log("game-fetch-nfts wallet", wallet);
@@ -77,6 +78,7 @@ export default async function handler(req, res) {
 		const chainId = chainid;
 		let contractAddress = contract;
 
+		const stakingWalletAddress = stakingwallet;
 
 
 
@@ -85,7 +87,7 @@ export default async function handler(req, res) {
 		} else {
 			const nftsGlobal = new Object();
 			
-			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainId}&contract=${contractAddress}`);
+			const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainId}&contract=${contractAddress}&stakingwallet=${stakingWalletAddress}`);
 
 			if (response.ok) {
 	
@@ -246,7 +248,7 @@ export default async function handler(req, res) {
 		let miningAmountTotal = 0;
 
 		
-		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}&wallet=${wallet}`);
+		const response = await fetch(`http://wallet.treasureverse.io/gogostaking?chainid=${chainid}&contract=${contractAddress}&wallet=${wallet}&stakingwallet=${stakingWalletAddress}`);
 
 
 		//console.log("game-fetch-nfts response", response);

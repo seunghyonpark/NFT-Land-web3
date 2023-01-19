@@ -199,10 +199,12 @@ await contract.methods.say().send(options)
 
 		*/
 
-		/*
+		
 		const account = await caver.kas.wallet.createAccount();
 		console.log("account", account);
+		
 
+		/*
 		Account {
 			address: '0x7B745b7D98564d9E7329a3301834cc312D48549F',
 			chainId: 1001,

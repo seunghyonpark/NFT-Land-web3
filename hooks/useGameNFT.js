@@ -271,7 +271,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 			try {
 
-				const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
+				const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}&stakingwallet=${stakingWalletAddress}`);
 	
 				if (!response.ok) {
 					setIsLoading(false);
@@ -660,7 +660,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		try {
 
-			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}`);
+			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}&stakingwallet=${stakingWalletAddress}`);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection====");
@@ -746,7 +746,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 		console.log("fetchNFTsGlobal");
 
 		try {
-			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}`);
+			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&stakingwallet=${stakingWalletAddress}`);
 
 			if (!response.ok) {
 				//alert("Something went wrong! Check your Input or Connection");
