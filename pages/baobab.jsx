@@ -14,6 +14,8 @@ import useGameNFT from "../hooks/useGameNFT.js";
 
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
+import contractAddressNFT from "../constants/contractAddressNFT.json";
+
 import stakingAddress from "../constants/stakingAddress.json";
 
 
@@ -65,10 +67,10 @@ export default function Baobab({
 
 
 	// info@nuklabs.com
-	const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+	const [contractAddress, setContractAddress] = useState(contractAddressNFT.GDX);
 	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
 
-	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x6d450E6D26597D89B829F781e6e30F82F804ee80"); // baobab staking wallet address
+	const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.baobab); // baobab staking wallet address
 	
 
 	//0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567

@@ -11,6 +11,10 @@ import MyPage from "../components/MyPage/index";
 import Footer from "../components/Footer/index";
 import useGameNFT from "../hooks/useGameNFT.js";
 
+import stakingAddress from "../constants/stakingAddress.json";
+
+import contractAddressNFT from "../constants/contractAddressNFT.json";
+
 
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
@@ -67,8 +71,8 @@ export default function Mint ({
 
 
 	// info@nuklabs.com
-	const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
-	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
+	const [contractAddress, setContractAddress] = useState(contractAddressNFT.GDX);
+	const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.baobab);
 
 
 	// wayne@nuklabs.com
