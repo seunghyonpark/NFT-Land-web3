@@ -199,10 +199,10 @@ await contract.methods.say().send(options)
 
 		*/
 
-		
+		/*
 		const account = await caver.kas.wallet.createAccount();
 		console.log("account", account);
-		
+		*/
 
 		/*
 		Account {
@@ -298,14 +298,22 @@ await contract.methods.say().send(options)
 			updatedAt: 1661835157
 		}
 		*/
+
 		
+		
+		//const getNFTContractList = await caver.kas.tokenHistory.getNFTContractList();
+		//console.log("getNFTContractList",getNFTContractList);
+
+		//const getNFTContractList = await caver.kas.tokenHistory.getNFTContractList();
+		//console.log("getNFTContractList",getNFTContractList);
+
 
 
 		let tokenUri;
 
 		
 
-		console.log("mint-nft contractAddress", contractAddress);
+		//console.log("mint-nft contractAddress", contractAddress);
 
 
 		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6"		// gogodinao baobab wayne@nuklabs.com
@@ -316,6 +324,8 @@ await contract.methods.say().send(options)
 			const chainidCypress = "8217";
 			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
 			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+
+			//console.log("dataNFT", dataNFT);
 			
 			tokenUri = dataNFT.tokenUri;
 
@@ -411,7 +421,7 @@ await contract.methods.say().send(options)
 
 
 
-		console.log("mint-nft tokenUri", tokenUri);
+		//console.log("mint-nft tokenUri", tokenUri);
 
 
 
@@ -549,7 +559,7 @@ ErrorResponse {
 			tokenUri
 		);
 
-		console.log("caver.kas.kip17.mint result", result);
+		///console.log("caver.kas.kip17.mint result", result);
 
 
 		/*

@@ -268,7 +268,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 
 
-			{/*
+			
 			<div className="bg-gradient-to-l from-blue-500">
 
 			<ul role="list" className="p-3 divide-y divide-slate-200">
@@ -293,6 +293,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					</div>
 				</li>
 
+{/*
 				<li className="flex py-3 first:pt-0 last:pb-0">
 
 					<Image
@@ -313,11 +314,12 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					</div>
 
 				</li>
-
+	*/}
+	
 			</ul>
 
 			</div>
-			*/}
+			
 
 			
 					{/*
