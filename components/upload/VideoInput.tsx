@@ -13,7 +13,7 @@ export default function UploadInput(props) {
   return (
     <div
       onClick={() => {
-        videoRef.current.click();
+        ////////////////////////////// videoRef.current.click();
       }}
       className={
         video
