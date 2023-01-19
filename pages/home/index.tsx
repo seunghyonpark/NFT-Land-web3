@@ -6,6 +6,8 @@ import { Header, Sidebar } from "../../layout";
 import { ApolloClient } from "../../clients";
 import { GET_ALL_VIDEOS } from "../../queries";
 
+import { v4 as uuidv4 } from "uuid";
+
 export default function Home() {
   const [videos, setVideos] = useState<String[]>([]);
   const [loading, setLoading] = useState<Boolean>(true);
@@ -48,23 +50,41 @@ export default function Home() {
     <Background className="w-full">
 
       <div className="w-full flex flex-row">
+
+        {/*
         <Sidebar updateCategory={(category) => setCategory(category)} />
+  */}
+        <Sidebar/>
+
+
         <div className="flex-1 h-screen flex flex-col">
+          
+          {/*
           <Header search={(text) => setQuery(text)} />
+*/}
+
+          <Header/>
+
           <div className="flex flex-row flex-wrap">
             {loading ? (
               <>
                 {Array(10)
                   .fill(0)
                   .map((_, index) => (
-                    <div className="w-80">
+                    <div
+                      key={uuidv4()}
+                      className="w-80">
                       <Loader />
                     </div>
                   ))}
               </>
             ) : (
               videos?.map((video: any) => (
-                <Video video={video} horizontal={false} />
+                <Video
+                  key={uuidv4()}
+                  video={video}
+                  horizontal={false}
+                />
               ))
             )}
           </div>

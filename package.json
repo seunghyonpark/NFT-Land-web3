@@ -22,6 +22,7 @@
     "@vercel/edge-config": "^0.1.0",
     "@vercel/og": "^0.0.27",
     "alchemy-sdk": "^2.2.1",
+    "avvvatars-react": "^0.4.2",
     "axios": "^1.2.1",
     "caver-js": "^1.9.0",
     "caver-js-ext-kas": "^1.12.0",

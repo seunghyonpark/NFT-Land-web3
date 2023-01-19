@@ -22,13 +22,44 @@ import React, { useState, useEffect } from "react";
 import "@rainbow-me/rainbowkit/styles.css";
 import { LivepeerConfig } from "@livepeer/react";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { Chain, configureChains, createClient, WagmiConfig } from "wagmi";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { ThemeProvider } from "../utils";
 import { Toaster } from "react-hot-toast";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, LivePeerClient } from "../clients";
 
+
+import { polygonMumbai, avalanche, bsc, mainnet } from '@wagmi/core/chains';
+
+
+/*
+import { configureChains } from '@wagmi/core'
+import { avalanche, bsc, mainnet } from '@wagmi/core/chains'
+ 
+const { chains, provider } = configureChains(
+  [mainnet, avalanche, bsc],
+  ...
+)
+*/
+
+
+const { chains, provider } = configureChains(
+  //[Chain.polygonMumbai],
+  [polygonMumbai],
+  [publicProvider()]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: "Ourtube",
+  chains,
+});
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider,
+});
 
 
 
@@ -38,7 +69,7 @@ function MyApp({
   Component,
   /////pageProps: { session, ...pageProps }
   pageProps: { ...pageProps }
-}: any ) {
+}) {
 
   //console.log("MyApp"); 
 
@@ -65,8 +96,24 @@ function MyApp({
   return (
 
     //<SessionProvider session={session}>
-      <Component {...pageProps} />
+    //  <Component {...pageProps} />
     //</SessionProvider>
+
+
+    <WagmiConfig client={wagmiClient}>
+      <RainbowKitProvider chains={chains}>
+        <ThemeProvider>
+          <ApolloProvider client={ApolloClient}>
+            <LivepeerConfig client={LivePeerClient}>
+              <Component {...pageProps} />
+              <Toaster />
+            </LivepeerConfig>
+          </ApolloProvider>
+        </ThemeProvider>
+      </RainbowKitProvider>
+    </WagmiConfig>
+
+
 
   )
 

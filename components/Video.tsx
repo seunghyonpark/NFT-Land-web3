@@ -28,6 +28,8 @@ const Video: React.FC<IProps> = ({ video, horizontal }) => {
           }
           src={getImage(video.thumbnailHash)}
           alt=""
+          width={500}
+					height={500} 
         />
         <div className={horizontal ? "ml-3  w-80" : ""}>
           <h4 className="text-md font-bold dark:text-white mt-3 text-black text-transform: capitalize">
