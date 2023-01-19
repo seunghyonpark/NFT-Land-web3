@@ -76,7 +76,7 @@ export default function MintingPage ({
 	//return data.lenghth > 0 && (
 	return (
 
-		<main className="">
+		<main className=" border ">
 
 			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate ">
 				{displayAddress} 
@@ -94,16 +94,24 @@ export default function MintingPage ({
 			</button>
 
 
-{/*bg-[url('/img_tomo.png')]*/}
+{/*bg-[url('/img_tomo.png')]
 
-			<div className="
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+*/}
+
+			<div className=" border
 				mt-5 
 			 	bg-contain
 				bg-no-repeat 
 
 				bg-top
 				
-				min-h-screen
+				
 
 				bg-[url('/img_tomo.png')]
 

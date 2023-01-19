@@ -19,6 +19,20 @@ import React, { useState, useEffect } from "react";
 
 
 
+import "@rainbow-me/rainbowkit/styles.css";
+import { LivepeerConfig } from "@livepeer/react";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { Chain, configureChains, createClient, WagmiConfig } from "wagmi";
+import { publicProvider } from "wagmi/providers/public";
+import { ThemeProvider } from "../utils";
+import { Toaster } from "react-hot-toast";
+import { ApolloProvider } from "@apollo/client";
+import { ApolloClient, LivePeerClient } from "../clients";
+
+
+
+
+
 // 
 function MyApp({
   Component,
