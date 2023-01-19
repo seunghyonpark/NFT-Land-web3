@@ -4,7 +4,8 @@ import { LIVEPEER_KEY } from "../constants";
 
 const LivePeerClient = createReactClient({
   provider: studioProvider({
-    apiKey: LIVEPEER_KEY
+    ////apiKey: LIVEPEER_KEY
+    apiKey: "dasfasd"
   }),
 });
 
