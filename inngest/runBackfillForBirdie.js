@@ -39,7 +39,7 @@ export default createFunction(
       const contractOwnerAddress = "0x65410526d780ecbf15be9b8c5446364b9a4c71af";
       const contractAddress = "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"; // Bellygom World
       const wallet = "0xf0E392D26e21BA67a692fbE763C103d88c371D5f";
-      const baseURI = "https://belly.bellygom.world";
+
 
       console.log("minting start");
   
@@ -50,8 +50,6 @@ export default createFunction(
       const totalSupply = await caver.kas.wallet.callContract(contractAddress, 'totalSupply');
   
       const tokenId = parseInt(caver.utils.toBN(totalSupply.result)) + 1;
-  
-      const tokenUri = `${baseURI}/${tokenId}.json`;
   
       console.log("totalSupply.result", totalSupply.result);
 

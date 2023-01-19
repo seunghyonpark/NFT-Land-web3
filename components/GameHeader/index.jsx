@@ -9,8 +9,6 @@ import { min } from "mocha/lib/reporters"
 
 
 export default function GameHeader ({
-	baseURI,
-	setBaseURI,
 	contractAddress,
 	setContractAddress,
 	nftSymbol,

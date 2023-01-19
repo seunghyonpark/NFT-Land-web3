@@ -37,7 +37,6 @@ const options = {
 
 //-----------------------------
 export default function Miya({
-	baseURI,
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -93,7 +92,7 @@ export default function Miya({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 	
 
 
@@ -495,11 +494,6 @@ export async function getStaticProps() {
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 	
 
-	
-
-
-	const baseURI = "https://miya.sunmiya.club";
-
 
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
 	//const testData = readFileSync(file, 'utf8');
@@ -530,7 +524,6 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			baseURI,
 			contractOwnerAddress,
 			scriptAddress,
 			cryptoTowerAddress,

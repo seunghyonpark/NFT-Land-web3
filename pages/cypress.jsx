@@ -37,7 +37,6 @@ const options = {
 
 //-----------------------------
 export default function Cypress({
-	baseURI,
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -95,7 +94,7 @@ export default function Cypress({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
 	const ref = useRef();
@@ -500,12 +499,6 @@ export async function getStaticProps() {
 	const contractAddress = process.env.CONTRACT_ADDRESS_ORIGINAL;
 
 
-
-	const baseURI = "https://gogodino.saltmarble.io/metaexplorers/json";
-
-
-
-
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
 	//const testData = readFileSync(file, 'utf8');
 
@@ -535,7 +528,6 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			baseURI,
 			contractOwnerAddress,
 			contractAddress,
 			scriptAddress,

@@ -42,7 +42,6 @@ const options = {
 
 //-----------------------------
 export default function Baobab({
-	baseURI,
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -107,7 +106,7 @@ export default function Baobab({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
 	const ref = useRef();
@@ -538,10 +537,6 @@ export async function getStaticProps() {
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 
 
-	const baseURI = "https://gogodino.saltmarble.io/metaexplorers/json";
-
-
-
 
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
 	//const testData = readFileSync(file, 'utf8');
@@ -572,7 +567,6 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			baseURI,
 			contractOwnerAddress,
 			scriptAddress,
 			cryptoTowerAddress,

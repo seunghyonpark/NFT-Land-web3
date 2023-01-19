@@ -62,18 +62,13 @@ export default async function handler(req, res) {
 		}
 
 
-		const { chainid, owner, contract, wallet, baseuri } = req.query;
+		const { chainid, owner, contract, wallet } = req.query;
 
 		console.log("mint-nft chainid", chainid);
 
 		//////////const contractOwnerAddress = owner;
 
-
-
 		const contractAddress = contract;
-
-
-		const baseURI = baseuri;
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -240,9 +235,6 @@ await contract.methods.say().send(options)
 		//console.log("mint-nft contractAddress", contractAddress);
 		//console.log("mint-nft contractOwnerAddress", contractOwnerAddress);
 
-		//console.log("mint-nft baseURI", baseURI);
-
-
 
 		//const baseURI = 'https://gogodino.saltmarble.io/metaexplorers/json';
 
@@ -309,9 +301,17 @@ await contract.methods.say().send(options)
 
 		let tokenUri;
 
-		
+		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") { // gogodino baobab
 
-		if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") { // bellygom baobab
+			const contractAddressOriginal = "0xf57255329ad3f60b19cb452b68546e11f1fe20df"; // gogodino cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+
+		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") { // bellygom baobab
 
 			const contractAddressOriginal = "0xce70eef5adac126c37c8bc0c1228d48b70066d03"; // bellygom cypress
 
@@ -324,6 +324,16 @@ await contract.methods.say().send(options)
 		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") { // sunmiya club baobab
 
 			const contractAddressOriginal = "0x8f5aa6b6dcd2d952a22920e8fe3f798471d05901"; // sunmiya club cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+
+		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d") { // birdie baobab
+
+			const contractAddressOriginal = "0x7b19bf9abe4119618f69aebb78b27f73cdaa4182"; // birdie cypress
 
 			const chainidCypress = "8217";
 			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
@@ -378,45 +388,15 @@ await contract.methods.say().send(options)
 			//console.log("mint-nft dataNFT", dataNFT); 
 
 		} else {
-			tokenUri = `${baseURI}/${tokenId}.json`;
+			//tokenUri = `${baseURI}/${tokenId}.json`;
+
+			res.status(500).json({ error: "tokenUri error" });
+			return;
 		}
 
 
 
 		console.log("mint-nft tokenUri", tokenUri);
-
-
-		//console.log("totalSupply.result", totalSupply.result);
-
-		/*
-		{"image":"ipfs://QmYxT4LnK8sqLupjbS6eRvu1si7Ly2wFQAqFebxhWntcf6","attributes":[{"trait_type":"Background","value":"Purple"},{"trait_type":"Eyes","value":"Bored"},{"trait_type":"Mouth","value":"Tongue Out"},{"trait_type":"Clothes","value":"Bone Necklace"},{"trait_type":"Fur","value":"Cheetah"}]}
-		*/
-
-		/*
-		if (contractAddress === "0x96bfdba18f3f7b9806dd9ecec5e5a940fef9f0bb") {
-
-
-			const tokenUri = `${baseURI}/${tokenId}`;
-
-			const response = await fetch(tokenUri);
-
-
-			console.log("response", response);
-
-
-			if (response.ok) {
-
-				const jsonTokenUri = await response.json();
-
-
-				console.log("jsonTokenUri", jsonTokenUri);
-
-
-			}
-
-		}
-		*/
-
 
 
 
@@ -638,8 +618,6 @@ ErrorResponse {
 
 			const media = new Array() ;
 			nft.media = media;
-
-			///////////const response = await fetch(`${baseURI}/${tokenId}.json`);
 
 			const response = await fetch(tokenUri);
 

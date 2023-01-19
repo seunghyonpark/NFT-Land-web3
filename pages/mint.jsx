@@ -79,9 +79,6 @@ export default function Mint ({
 
 	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
 
-	const [baseURI, setBaseURI] = useState("https://gogodino.saltmarble.io/metaexplorers/json");
-
-
 
 	const [nftSymbol, setNftSymbol] = useState("GDX");
 	const [nftName, setNftName] = useState("GOGO DINO META EXPLORERS");
@@ -115,7 +112,7 @@ export default function Mint ({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
 	const ref = useRef();
@@ -129,63 +126,46 @@ export default function Mint ({
 
 	useEffect(() => {
 
-		// info@nuklabs.com
-		/*
-		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
-			setNftName("GOGO DINO META EXPLORERS");
-			setNftSymbol("GDX");
-			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
-		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
-			setNftName("Sunmiya Club");
-			setNftSymbol("MIYA");
-			setBaseURI("https://miya.sunmiya.club");
-		} else if (contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
-			setNftName("Bellygom World");
-			setNftSymbol("BELLYGOM");
-			setBaseURI("https://belly.bellygom.world");
-		}
-		*/
-
 
 		// wayne@nuklabs.com
 
 		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
-			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
+			//setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
 		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") {
 			setNftName("Sunmiya Club");
 			setNftSymbol("MIYA");
-			setBaseURI("https://miya.sunmiya.club");
+			//setBaseURI("https://miya.sunmiya.club");
 		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {
 			setNftName("Bellygom World");
 			setNftSymbol("BELLYGOM");
-			setBaseURI("https://belly.bellygom.world");
+			//setBaseURI("https://belly.bellygom.world");
 		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d") {
 			setNftName("BIRDIESHOT");
 			setNftSymbol("BIRDIE");
-			setBaseURI("https://live.bdst.kakaogames.com:10443/assets/nft");
+			//setBaseURI("https://live.bdst.kakaogames.com:10443/assets/nft");
 		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") {
 			setNftName("COMPETZ GAMERZ");
 			setNftSymbol("CMPZPFP");
-			setBaseURI("https://meta.competz.io/tokens");
+			//setBaseURI("https://meta.competz.io/tokens");
 		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {
 			setNftName("ArcheWorld_FandomCard");
 			setNftSymbol("ArcheWorld_FandomCard");
 			
-			setBaseURI("https://meta.competz.io/tokens");
+			//setBaseURI("https://meta.competz.io/tokens");
 
 		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584") {
 			setNftName("Meta Toy Squad");
 			setNftSymbol("MTS");
 			
-			setBaseURI("https://meta.competz.io/tokens");
+			//setBaseURI("https://meta.competz.io/tokens");
 
 		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5") {
 			setNftName("DOGESOUNDCLUB MATES");
 			setNftSymbol("MATE");
 			
-			setBaseURI("https://meta.competz.io/tokens");
+			//setBaseURI("https://meta.competz.io/tokens");
 
 		}
 
@@ -439,8 +419,6 @@ export default function Mint ({
 
 			<GameHeader
 				{...{
-					baseURI,
-					setBaseURI,
 					contractAddress,
 					setContractAddress,
 					nftSymbol,

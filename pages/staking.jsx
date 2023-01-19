@@ -77,10 +77,6 @@ export default function Staking ({
 
 	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
 
-	const [baseURI, setBaseURI] = useState("https://gogodino.saltmarble.io/metaexplorers/json");
-
-
-
 	const [nftSymbol, setNftSymbol] = useState("SONGPA");
 	const [nftName, setNftName] = useState("SONGPA 345");
 
@@ -113,7 +109,7 @@ export default function Staking ({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
 	const ref = useRef();
@@ -406,7 +402,6 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 			<GameHeader
 				{...{
-					baseURI,
 					setBaseURI,
 					contractAddress,
 					setContractAddress,

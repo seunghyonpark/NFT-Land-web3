@@ -6,7 +6,7 @@ import walletAddress from "../constants/walletAddress.json";
 import { min } from "rxjs";
 
 
-export default function useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol) {
+export default function useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol) {
 
 	const [stakeDataGlobal, setStakeDataGlobal] = useState([]);
 	const [data, setData] = useState([]);
@@ -409,7 +409,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	const processMintNFT = async () => {
 
 		try {
-			const response = await fetch(`/api/mint-nft?chainid=${chainId}&owner=${contractOwnerAddress}&contract=${contractAddress}&wallet=${address}&baseuri=${baseURI}`);
+			const response = await fetch(`/api/mint-nft?chainid=${chainId}&owner=${contractOwnerAddress}&contract=${contractAddress}&wallet=${address}`);
 
 
 			/// for vercel test
