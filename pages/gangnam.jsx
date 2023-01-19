@@ -77,9 +77,6 @@ export default function Gangnam ({
 
 	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
 
-	const [baseURI, setBaseURI] = useState("https://gogodino.saltmarble.io/metaexplorers/json");
-
-
 
 	const [nftSymbol, setNftSymbol] = useState("GDX");
 	const [nftName, setNftName] = useState("GOGO DINO META EXPLORERS");
@@ -113,7 +110,7 @@ export default function Gangnam ({
 		selectedCard, setSelectedCard,
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
-	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, baseURI, nftSymbol);
+	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
 	const ref = useRef();
@@ -132,15 +129,12 @@ export default function Gangnam ({
 		if (contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
-			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
 		} else if (contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
 			setNftName("Sunmiya Club");
 			setNftSymbol("MIYA");
-			setBaseURI("https://miya.sunmiya.club");
 		} else if (contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
 			setNftName("Bellygom World");
 			setNftSymbol("BELLYGOM");
-			setBaseURI("https://belly.bellygom.world");
 		}
 		*/
 
@@ -150,15 +144,12 @@ export default function Gangnam ({
 		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
-			setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
 		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") {
 			setNftName("Sunmiya Club");
 			setNftSymbol("MIYA");
-			setBaseURI("https://miya.sunmiya.club");
 		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {
 			setNftName("Bellygom World");
 			setNftSymbol("BELLYGOM");
-			setBaseURI("https://belly.bellygom.world");
 		}
 
 
@@ -405,8 +396,6 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 			<GameHeader
 				{...{
-					baseURI,
-					setBaseURI,
 					contractAddress,
 					setContractAddress,
 					nftSymbol,
