@@ -301,7 +301,13 @@ await contract.methods.say().send(options)
 
 		let tokenUri;
 
-		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6") { // gogodino baobab
+		
+
+		console.log("mint-nft contractAddress", contractAddress);
+
+
+		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6"		// gogodinao baobab wayne@nuklabs.com
+			|| contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") { // gogodino baobab info@nuklabs.com
 
 			const contractAddressOriginal = "0xf57255329ad3f60b19cb452b68546e11f1fe20df"; // gogodino cypress
 
@@ -311,7 +317,8 @@ await contract.methods.say().send(options)
 			
 			tokenUri = dataNFT.tokenUri;
 
-		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") { // bellygom baobab
+		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"
+			|| contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") { // bellygom baobab
 
 			const contractAddressOriginal = "0xce70eef5adac126c37c8bc0c1228d48b70066d03"; // bellygom cypress
 
@@ -321,7 +328,8 @@ await contract.methods.say().send(options)
 			
 			tokenUri = dataNFT.tokenUri;
 
-		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") { // sunmiya club baobab
+		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc"
+			|| contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") { // sunmiya club baobab
 
 			const contractAddressOriginal = "0x8f5aa6b6dcd2d952a22920e8fe3f798471d05901"; // sunmiya club cypress
 
@@ -331,7 +339,8 @@ await contract.methods.say().send(options)
 			
 			tokenUri = dataNFT.tokenUri;
 
-		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d") { // birdie baobab
+		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d"
+			|| contractAddress === "0x2fc2defa84bc438178d8af42edcc3b861221d081") { // birdie baobab
 
 			const contractAddressOriginal = "0x7b19bf9abe4119618f69aebb78b27f73cdaa4182"; // birdie cypress
 
@@ -341,7 +350,8 @@ await contract.methods.say().send(options)
 			
 			tokenUri = dataNFT.tokenUri;
 
-		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") { // competz baobab
+		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e"
+			|| contractAddress === "0x07eafbf7390248f0e95a9311f16d8e840094dc77") { // competz baobab
 
 			const contractAddressOriginal = "0x4d8d3ae115c5b13b4c27ab956e06d6cece9e37c0"; // competz cypress
 
@@ -351,7 +361,8 @@ await contract.methods.say().send(options)
 			
 			tokenUri = dataNFT.tokenUri;
 
-		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {  // ArcheWorld_FandomCard baobab
+		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79"
+			|| contractAddress === "0x9812edb36c9c2ce60e06524b60c50ac0c7d1c0c1") {  // ArcheWorld_FandomCard baobab
 
 			const contractAddressOriginal = "0xbaf8864ee1b5f2be3dcd637203aed524b86db4e4"; // ArcheWorld_FandomCard cypress
 
@@ -363,7 +374,8 @@ await contract.methods.say().send(options)
 			
 			//console.log("mint-nft dataNFT", dataNFT); 
 
-		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584") {  // Meta Toy Squard baobab
+		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584"
+			|| contractAddress === "0x8245076be187973db1241a17d691437b9748097c") {  // Meta Toy Squard baobab
 
 			const contractAddressOriginal = "0x9ad0e9ba4415d1987149321809d1f1e908d82926"; // Meta Toy Squard cypress
 
@@ -375,7 +387,8 @@ await contract.methods.say().send(options)
 			
 			//console.log("mint-nft dataNFT", dataNFT); 
 
-		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5") {  // DOGESOUNDCLUB MATES baobab
+		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5"
+			|| contractAddress === "0x772e5fca622c63c2d839f1f8e0d80ef1a542214b") {  // DOGESOUNDCLUB MATES baobab
 
 			const contractAddressOriginal = "0xe47e90c58f8336a2f24bcd9bcb530e2e02e1e8ae"; // DOGESOUNDCLUB MATES cypress
 
@@ -449,37 +462,37 @@ await contract.methods.say().send(options)
 		);
 		
 		console.log("caver.kas.kip17.deploy result", result5);
-			*/
+			
 
-		/*
-		const result5 = await caver.kas.kip17.deploy (
+		
+		const result6 = await caver.kas.kip17.deploy (
 			"ArcheWorld_FandomCard",
 			"ArcheWorld_FandomCard",
 			"kip17-archeworld-fandomcard"
 		);
 		
-		console.log("caver.kas.kip17.deploy result", result5);
-		*/
+		console.log("caver.kas.kip17.deploy result", result6);
+		
 			
-			/*
-		const result5 = await caver.kas.kip17.deploy (
+			
+		const result7 = await caver.kas.kip17.deploy (
 			"Meta Toy Squad",
 			"MTS",
 			"kip17-mts"
 		);
 		
-		console.log("caver.kas.kip17.deploy result", result5);
-			*/
+		console.log("caver.kas.kip17.deploy result", result7);
+			
 
-			/*
-		const result5 = await caver.kas.kip17.deploy (
+			
+		const result8 = await caver.kas.kip17.deploy (
 			"DOGESOUNDCLUB MATES",
 			"MATE",
 			"kip17-mate"
 		);
 		
-		console.log("caver.kas.kip17.deploy result", result5);
-			*/
+		console.log("caver.kas.kip17.deploy result", result8);
+		*/
 
 		/*
 		ErrorResponse {

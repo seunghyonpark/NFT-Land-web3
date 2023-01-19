@@ -501,7 +501,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			</div>
 
 
-
+			{/*
 			<button
 				ref={refMint}
 				onClick={mintNFT}
@@ -512,11 +512,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			>
 					Mint NFT
 			</button>
-
+			*/}
 				
-
-
-
 
 			</div>
 

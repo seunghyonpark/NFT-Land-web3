@@ -542,12 +542,11 @@ export default function GameHeader ({
 
 
 {/*  wayne@nuklabs.com */}
+{/*
+			<div className="grid grid-cols-4 gap-1">
 
-			<div className="flex flex-row">
-
-				{/*
 				<button
-					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					duration-200  ease-in-out hover:bg-teal-300"
 					onClick={(e) => {
@@ -558,7 +557,7 @@ export default function GameHeader ({
 					GDX
 				</button>
 				<button
-					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					duration-200  ease-in-out hover:bg-teal-300"
 					onClick={(e) => {
@@ -570,7 +569,7 @@ export default function GameHeader ({
 				</button>
 
 				<button
-					className=" m-3 float-right my-5 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
 					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					duration-200  ease-in-out hover:bg-teal-300"
 					onClick={(e) => {
@@ -581,9 +580,176 @@ export default function GameHeader ({
 					BELLYGOM
 				</button>
 
-				*/}
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd8940245a37a301576eae6ea0348392ade2b8d5d");
+					}}
+				>
+					BIRDEI
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xaedd53a5526658ce286d66f63a6db28c9e79af3e");
+					}}
+				>
+					CMPZPFP
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x24c8b2bf633672456efc8b415ea8b684498d9f79");
+					}}
+				>
+					ArcheWorld
+				</button>
+
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584");
+					}}
+				>
+					MTS
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xbc497dbababe7566d9a58be51c4771ef9c947bd5");
+					}}
+				>
+					MATE
+				</button>
 
 			</div>
+				*/}
+
+
+			{/*  info@nuklabs.com */}
+
+			<div className="grid grid-cols-4 gap-1">
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+					}}
+				>
+					GDX
+				</button>
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
+					}}
+				>
+					MIYA
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18");
+					}}
+				>
+					BELLYGOM
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x2fc2defa84bc438178d8af42edcc3b861221d081");
+					}}
+				>
+					BIRDEI
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x07eafbf7390248f0e95a9311f16d8e840094dc77");
+					}}
+				>
+					CMPZPFP
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x9812edb36c9c2ce60e06524b60c50ac0c7d1c0c1");
+					}}
+				>
+					ArcheWorld
+				</button>
+
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x8245076be187973db1241a17d691437b9748097c");
+					}}
+				>
+					MTS
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x772e5fca622c63c2d839f1f8e0d80ef1a542214b");
+					}}
+				>
+					MATE
+				</button>
+
+			</div>
+
+
+
+
 
 {/*
 			<ul role="list" className="p-3 divide-y divide-slate-200">

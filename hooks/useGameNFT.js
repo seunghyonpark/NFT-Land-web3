@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 
 import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
-import walletAddress from "../constants/walletAddress.json";
 import { min } from "rxjs";
 
 
