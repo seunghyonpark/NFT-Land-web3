@@ -38,7 +38,7 @@ function MyApp({
   Component,
   /////pageProps: { session, ...pageProps }
   pageProps: { ...pageProps }
-}) {
+}: any ) {
 
   //console.log("MyApp"); 
 

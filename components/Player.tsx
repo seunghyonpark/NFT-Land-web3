@@ -17,7 +17,8 @@ const Player: React.FC<PlayerProps> = ({ id }) => {
         title: asset?.name,
         sources: [
           {
-            src: asset?.downloadUrl,
+            //src: asset?.downloadUrl,
+            src: "",
             type: "video/mp4",
           },
         ],

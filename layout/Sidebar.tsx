@@ -11,7 +11,8 @@ import { IoGameControllerOutline } from "react-icons/io5";
 
 import { Colors } from "../constants/colors";
 
-export default function Sidebar({ updateCategory }) {
+//export default function Sidebar({ updateCategory }) {
+export default function Sidebar({  }) {
   const [active, setActive] = useState("All");
 
   let color = "#878787";
@@ -27,7 +28,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("All");
-        updateCategory("");
+        /////////////////////////////////updateCategory("");
       },
     },
     {
@@ -40,7 +41,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("Travel");
-        updateCategory("Travel");
+        ///////////////////////updateCategory("Travel");
       },
     },
     {
@@ -53,7 +54,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("Sports");
-        updateCategory("Sports");
+        ///////////////////updateCategory("Sports");
       },
     },
     {
@@ -66,7 +67,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("Music");
-        updateCategory("Music");
+        ////////////////////updateCategory("Music");
       },
     },
 
@@ -80,7 +81,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("Science & Technology");
-        updateCategory("Science & Technology");
+        //////////////////////updateCategory("Science & Technology");
       },
     },
     {
@@ -93,7 +94,7 @@ export default function Sidebar({ updateCategory }) {
       ),
       onClick: () => {
         setActive("Gaming");
-        updateCategory("Gaming");
+        /////////////////updateCategory("Gaming");
       },
     },
   ];
