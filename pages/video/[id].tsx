@@ -10,12 +10,16 @@ import { BiCheck } from 'react-icons/bi'
 import Avvvatars from 'avvvatars-react'
 import { IVideo } from '../../types'
 
+
 export default function Video() {
   const router = useRouter()
   const { id } = router.query
   const [video, setVideo] = useState<IVideo | null>(null)
   const [relatedVideos, setRelatedVideos] = useState<IVideo[]>([])
 
+  const [category, setCategory] = useState<String>("");
+
+  /*
   const fetchVideos = () => {
     ApolloClient.query({
       query: GET_ALL_VIDEOS,
@@ -38,14 +42,45 @@ export default function Video() {
         console.log('err', err)
       })
   }
+  */
 
   useEffect(() => {
-    fetchVideos()
-  }, [id])
+
+    const fetchVideos = () => {
+      ApolloClient.query({
+        query: GET_ALL_VIDEOS,
+        variables: {
+          first: 20,
+          skip: 0,
+          orderBy: 'createdAt',
+          orderDirection: 'desc',
+          where: {},
+        },
+        fetchPolicy: 'network-only',
+      })
+        .then(({ data }) => {
+          setRelatedVideos(data.videos.filter((v) => v.id !== id))
+          const video = data?.videos?.find((video) => video.id === id)
+          setVideo(video)
+          console.log('videos', data.videos)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    }
+
+    fetchVideos();
+
+  }, [id]);
+
+
 
   return (
+
     <Background className="flex  h-screen w-full flex-row">
-      <Sidebar />
+
+      <Sidebar updateCategory={(category: any) => setCategory(category)} />
+
       <div className="flex flex-1 flex-col">
         <Header />
         {video && (
@@ -102,4 +137,5 @@ export default function Video() {
       </div>
     </Background>
   )
+
 }
