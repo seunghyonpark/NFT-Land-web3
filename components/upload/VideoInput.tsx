@@ -8,7 +8,7 @@ export default function UploadInput(props) {
 
   const videoRef = useRef(null);
 
-  const handleInput = (e) => {
+  const handleInput = (e: any) => {
 
     setVideo( URL.createObjectURL(e.target.files[0]) );
 
@@ -23,7 +23,9 @@ export default function UploadInput(props) {
   return (
     <div
       onClick={() => {
-        ////////////////////////////// videoRef.current.click();
+        //if (videoRef.current) {
+          videoRef.current?.click();
+        //}
       }}
       className={
         video

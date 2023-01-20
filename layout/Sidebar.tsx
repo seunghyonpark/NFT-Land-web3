@@ -7,12 +7,13 @@ import {
   AiOutlineMenu,
   AiOutlinePlayCircle,
 } from "react-icons/ai";
+
 import { IoGameControllerOutline } from "react-icons/io5";
 
 import { Colors } from "../constants/colors";
 
-//export default function Sidebar({ updateCategory }) {
-export default function Sidebar({  }) {
+export default function Sidebar({ updateCategory }) {
+
   const [active, setActive] = useState("All");
 
   let color = "#878787";
@@ -28,7 +29,7 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("All");
-        /////////////////////////////////updateCategory("");
+        updateCategory("");
       },
     },
     {
@@ -41,7 +42,7 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("Travel");
-        ///////////////////////updateCategory("Travel");
+        updateCategory("Travel");
       },
     },
     {
@@ -54,7 +55,7 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("Sports");
-        ///////////////////updateCategory("Sports");
+        updateCategory("Sports");
       },
     },
     {
@@ -67,7 +68,7 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("Music");
-        ////////////////////updateCategory("Music");
+        updateCategory("Music");
       },
     },
 
@@ -81,7 +82,7 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("Science & Technology");
-        //////////////////////updateCategory("Science & Technology");
+        updateCategory("Science & Technology");
       },
     },
     {
@@ -94,18 +95,20 @@ export default function Sidebar({  }) {
       ),
       onClick: () => {
         setActive("Gaming");
-        /////////////////updateCategory("Gaming");
+        updateCategory("Gaming");
       },
     },
   ];
 
   return (
     <div className="border-r border-border-light dark:border-border-dark p-7 ">
+
       <AiOutlineMenu
         color="#fff"
         size="25px"
         className="fill-icons-light dark:fill-white"
       />
+
       <div className="mt-14 flex flex-col  justify-between h-80">
         {categories.map((category, index) => (
           <div
@@ -117,6 +120,8 @@ export default function Sidebar({  }) {
           </div>
         ))}
       </div>
+
     </div>
   );
+
 }

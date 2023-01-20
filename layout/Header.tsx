@@ -10,8 +10,10 @@ interface IHeader {
 }
 
 export default function Header({ search }: IHeader) {
+
   return (
     <header className="w-full flex justify-between h-20 items-center border-b p-4 border-border-light dark:border-border-dark">
+      
       <div className=" w-1/3	">
         <Link href={"/home"}>
           <Image
@@ -22,6 +24,7 @@ export default function Header({ search }: IHeader) {
           />
         </Link>
       </div>
+
       <div className=" w-1/3 flex justify-center items-center">
         {search ? (
           <input
@@ -49,6 +52,8 @@ export default function Header({ search }: IHeader) {
           />
         </div>
       </div>
+
     </header>
   );
+  
 }
