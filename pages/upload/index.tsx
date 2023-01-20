@@ -32,7 +32,7 @@ export default function Upload() {
   ////const [video, setVideo] = useState<File>()
   const [video, setVideo] = useState<File | undefined>();
 
-  const thumbnailRef = useRef<HTMLInputElement>(null)
+  const thumbnailRef = useRef<HTMLInputElement>(null);
  
 
   //const { mutate: createAsset, data: asset, uploadProgress } = useCreateAsset()

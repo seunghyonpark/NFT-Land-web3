@@ -6,7 +6,9 @@ export default function UploadInput(props) {
   const [video, setVideo] = useState("");
 
 
-  const videoRef = useRef(null);
+  ////const videoRef = useRef(null);
+
+  const videoRef = useRef<HTMLInputElement>(null);
 
   const handleInput = (e: any) => {
 
