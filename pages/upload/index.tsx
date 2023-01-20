@@ -233,6 +233,7 @@ export default function Upload() {
 
 
     // Upload the video to the contract
+    /***********************************
     await contract.uploadVideo(
       data.video,
       data.title,
@@ -243,11 +244,9 @@ export default function Upload() {
       false,
       data.UploadedDate,
     )
+    */
 
   }
-
-
-
 
 
   return (
