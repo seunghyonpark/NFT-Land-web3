@@ -175,10 +175,11 @@ export default function Upload() {
     // Calling the upload thumbnail function and getting the CID
     const thumbnailCID = await uploadThumbnail()
 
+  
+
     // Creating a object to store the metadata
     let data = {
-      video: asset?.id,
-      //video: "",
+      video: asset?.[0].id,
       title,
       description,
       location,
@@ -229,9 +230,10 @@ export default function Upload() {
     //let contract = await getContract()
     let contract = getContract()
 
+
+
     // Upload the video to the contract
     await contract.uploadVideo(
-      
       data.video,
       data.title,
       data.description,
@@ -239,10 +241,13 @@ export default function Upload() {
       data.category,
       data.thumbnail,
       false,
-      data.UploadedDate
-      
+      data.UploadedDate,
     )
+
   }
+
+
+
 
 
   return (
