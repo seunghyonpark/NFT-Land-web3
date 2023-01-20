@@ -11,7 +11,10 @@ import { v4 as uuidv4 } from "uuid";
 export default function Home() {
   const [videos, setVideos] = useState<String[]>([]);
   const [loading, setLoading] = useState<Boolean>(true);
+  
   const [query, setQuery] = useState<String>("");
+  //const [query, setQuery] = useState<string>("");
+
   const [category, setCategory] = useState<String>("");
 
 
@@ -71,7 +74,7 @@ export default function Home() {
         <div className="flex-1 h-screen flex flex-col">
           
           
-          <Header search={(text) => setQuery(text)} />
+          <Header search={(text) => setQuery(String(text))} />
 
 
           
