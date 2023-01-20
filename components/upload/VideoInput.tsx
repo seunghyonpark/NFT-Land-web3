@@ -1,13 +1,21 @@
 import React, { useRef, useState } from "react";
 
-export default function UploadInput(props: any) {
+export default function UploadInput(props) {
+  
+  
   const [video, setVideo] = useState("");
+
+
   const videoRef = useRef(null);
 
-  const handleInput = (e: any) => {
-    setVideo(URL.createObjectURL(e.target.files[0]));
+  const handleInput = (e) => {
+
+    setVideo( URL.createObjectURL(e.target.files[0]) );
+
     props.setVideo(e.target.files[0]);
+
     console.log(e.target.files[0]);
+
   };
 
  

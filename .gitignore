@@ -48,3 +48,8 @@ cache
 # artifacts
 
 
+# graph files
+/indexer/build
+/indexer/generated
+/indexer/node_modules
+

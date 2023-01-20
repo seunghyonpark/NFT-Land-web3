@@ -27,5 +27,8 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
+  //"extends": "@graphprotocol/graph-ts/types/tsconfig.base.json"
+
 }
