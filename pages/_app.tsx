@@ -27,8 +27,8 @@ import { publicProvider } from "wagmi/providers/public";
 import { ThemeProvider } from "../utils";
 import { Toaster } from "react-hot-toast";
 import { ApolloProvider } from "@apollo/client";
-import { ApolloClient, LivePeerClient } from "../clients";
 
+import { ApolloClient, LivePeerClient } from "../clients";
 
 import { polygonMumbai, avalanche, bsc, mainnet } from '@wagmi/core/chains';
 
@@ -112,7 +112,6 @@ function MyApp({
         </ThemeProvider>
       </RainbowKitProvider>
     </WagmiConfig>
-
 
 
   )

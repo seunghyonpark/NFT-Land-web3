@@ -5,6 +5,7 @@ import { CONTRACT_ADDRESS } from "../constants";
 
 export default function getContract() {
 
+  // Creating a new provider
   const provider = new ethers.providers.Web3Provider(window.ethereum as any);
 
   /*
@@ -17,8 +18,15 @@ export default function getContract() {
   const provider = new ethers.providers.Web3Provider(web3);
   */
 
+   // Getting the signer
   const signer = provider.getSigner();
-  let contract = new ethers.Contract(CONTRACT_ADDRESS, ContractAbi.abi, signer);
+
+  // Creating a new contract factory with the signer, address and ABI
+  let contract = new ethers.Contract(
+    CONTRACT_ADDRESS,
+    ContractAbi.abi,
+    signer
+  );
   console.log(contract);
 
   return contract;

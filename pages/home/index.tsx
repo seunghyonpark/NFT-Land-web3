@@ -8,7 +8,9 @@ import { GET_ALL_VIDEOS } from "../../queries";
 
 import { v4 as uuidv4 } from "uuid";
 
+
 export default function Home() {
+
   const [videos, setVideos] = useState<String[]>([]);
   const [loading, setLoading] = useState<Boolean>(true);
   
@@ -27,7 +29,6 @@ export default function Home() {
       setLoading(true);
   
       ApolloClient.query({
-  
         query: GET_ALL_VIDEOS,
         variables: {
           first: 200,
@@ -44,9 +45,10 @@ export default function Home() {
           },
         },
         fetchPolicy: "network-only",
-  
       }).then(({ data }) => {
+        
         console.log("Videos", data.videos);
+
         setVideos(data.videos);
         setLoading(false);
       });
@@ -62,22 +64,15 @@ export default function Home() {
 
   return (
 
- 
     <Background className="w-full">
 
       <div className="w-full flex flex-row">
-
         
         <Sidebar updateCategory={(category: any) => setCategory(category)} />
   
-
         <div className="flex-1 h-screen flex flex-col">
           
-          
           <Header search={(text) => setQuery(String(text))} />
-
-
-          
 
           <div className="flex flex-row flex-wrap">
             {loading ? (
@@ -107,6 +102,7 @@ export default function Home() {
 
     </Background>
   );
+
 }
 
 const Loader = () => {

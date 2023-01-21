@@ -4,7 +4,7 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 
-import { ethers } from "hardhat";
+import { ethers, network, run } from "hardhat";
 
 async function main() {
     // Hardhat always runs the compile task when running scripts with its command
@@ -15,14 +15,44 @@ async function main() {
     // await hre.run('compile');
 
         // We get the contract to deploy
-    const Ourtube = await ethers.getContractFactory("Ourtube");
-    const ourtube = await Ourtube.deploy();
+    const OurtubeFactory = await ethers.getContractFactory("Ourtube");
+    const ourtube = await OurtubeFactory.deploy();
 
-    await ourtube.deployed();
+    //////await ourtube.deployed();
+    const WAIT_BLOCK_CONFIRMATIONS = 6;
+    await ourtube.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
 
-    console.log("Ourtube deployed to:", ourtube.address);
+    //console.log("Ourtube deployed to:", ourtube.address);
+
+    console.log(`Contract deployed to ${ourtube.address} on ${network.name}`);
+
+    console.log(`Verifying contract on Etherscan...`);
+  
+    await run(`verify:verify`, {
+      address: ourtube.address,
+      //constructorArguments: [priceFeedAddress],
+    });
+
+    /*
+    const priceFeedConsumerFactory = await ethers.getContractFactory("PriceConsumerV3");
+    const priceFeedConsumer = await priceFeedConsumerFactory.deploy(priceFeedAddress);
+  
+    const WAIT_BLOCK_CONFIRMATIONS = 6;
+    await priceFeedConsumer.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
+  
+    console.log(`Contract deployed to ${priceFeedConsumer.address} on ${network.name}`);
+  
+    console.log(`Verifying contract on Etherscan...`);
+  
+    await run(`verify:verify`, {
+      address: priceFeedConsumer.address,
+      constructorArguments: [priceFeedAddress],
+    });
+    */
+
 
 }
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.

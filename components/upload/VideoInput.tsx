@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 
 export default function UploadInput(props) {
   
-  
   const [video, setVideo] = useState("");
 
 
@@ -23,6 +22,7 @@ export default function UploadInput(props) {
  
 
   return (
+
     <div
       onClick={() => {
         //if (videoRef.current) {
@@ -56,5 +56,7 @@ export default function UploadInput(props) {
         onChange={handleInput}
       />
     </div>
-  );
+
+  )
+
 }

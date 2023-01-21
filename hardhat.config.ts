@@ -29,7 +29,7 @@ module.exports = {
     },
   },
   solidity: {
-    version: "0.8.9",
+    version: "0.8.17",
 
     /*
     settings: {
@@ -46,7 +46,18 @@ module.exports = {
     cache: "./cache",
     artifacts: "./artifacts"
   },
+
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY, // Your Etherscan API key
-  },
+    apiKey: {
+        //ethereum
+        mainnet: process.env.ETHERSCAN_API_KEY,
+        goerli: process.env.ETHERSCAN_API_KEY,
+
+        //polygon
+        polygon: process.env.POLYGONSCAN_API_KEY,
+        polygonMumbai: process.env.POLYGONSCAN_API_KEY
+   }
+  }
+
+
 };

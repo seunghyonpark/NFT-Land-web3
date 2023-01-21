@@ -17,6 +17,7 @@ async function main() {
     address: priceFeedConsumer.address,
     constructorArguments: [priceFeedAddress],
   });
+  
 }
 
 main().catch((error) => {
