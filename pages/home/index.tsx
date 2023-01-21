@@ -51,6 +51,7 @@ export default function Home() {
 
         setVideos(data.videos);
         setLoading(false);
+
       });
   
     };

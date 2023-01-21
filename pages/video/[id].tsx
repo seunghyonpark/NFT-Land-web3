@@ -14,6 +14,7 @@ import { IVideo } from '../../types'
 export default function Video() {
   const router = useRouter()
   const { id } = router.query
+
   const [video, setVideo] = useState<IVideo | null>(null)
   const [relatedVideos, setRelatedVideos] = useState<IVideo[]>([])
 
@@ -59,10 +60,13 @@ export default function Video() {
         fetchPolicy: 'network-only',
       })
         .then(({ data }) => {
-          setRelatedVideos(data.videos.filter((v) => v.id !== id))
-          const video = data?.videos?.find((video) => video.id === id)
-          setVideo(video)
-          console.log('videos', data.videos)
+          setRelatedVideos(data.videos.filter((v: any) => v.id !== id));
+          
+          const videoFined = data?.videos?.find((video: any) => video.id === id);
+          setVideo(videoFined);
+
+          console.log('videoFined', videoFined);
+
         })
         .catch((err) => {
           console.log('err', err)

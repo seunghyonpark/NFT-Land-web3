@@ -11,14 +11,14 @@ const Player: React.FC<PlayerProps> = ({ id }) => {
   const { data: asset } = useAsset(id);
 
   return (
+
     <Plyr
       source={{
         type: "video",
         title: asset?.name,
         sources: [
           {
-            //src: asset?.downloadUrl,
-            src: "",
+            src: String(asset?.downloadUrl),
             type: "video/mp4",
           },
         ],
@@ -28,7 +28,9 @@ const Player: React.FC<PlayerProps> = ({ id }) => {
       }}
       autoPlay={true}
     />
+
   );
+
 };
 
 export default Player;

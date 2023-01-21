@@ -11,6 +11,7 @@ interface IProps {
 }
 
 const Video: React.FC<IProps> = ({ video, horizontal }) => {
+
   return (
     <Link className="cursor-pointer" href={`/video/${video.id}`}>
       <div

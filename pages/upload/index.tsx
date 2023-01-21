@@ -25,6 +25,7 @@ export default function Upload() {
   const [location, setLocation] = useState<string>('')
   
   //const [thumbnail, setThumbnail] = useState<File>()
+
   const [thumbnail, setThumbnail] = useState<File | undefined>();
 
   const [uploadData, setUploadData] = useState({})
@@ -39,7 +40,7 @@ export default function Upload() {
   
   const {
     mutate: createAsset,
-    data: asset,
+    data: assets,
     status,
     progress,
     error,
@@ -54,7 +55,7 @@ export default function Upload() {
   );
 
   const { data: metrics } = useAssetMetrics({
-    assetId: asset?.[0].id,
+    assetId: assets?.[0].id,
     refetchInterval: 30000,
   });
 
@@ -103,8 +104,8 @@ export default function Upload() {
   const isLoading = useMemo(
     () =>
       status === 'loading' ||
-      (asset?.[0] && asset[0].status?.phase !== 'ready'),
-    [status, asset],
+      (assets?.[0] && assets[0].status?.phase !== 'ready'),
+    [status, assets],
   );
  
   const progressFormatted = useMemo(
@@ -173,16 +174,23 @@ export default function Upload() {
 
 
     // Calling the upload thumbnail function and getting the CID
-    const thumbnailCID = await uploadThumbnail();
+    /////const thumbnailCID = await uploadThumbnail();
 
+
+    /*
+    const thumbnailCID = await saveToIPFS(thumbnail);
+    
+    
     console.log("thumbnailCID", thumbnailCID);
+
+    console.log("assets", assets);
   
     // Creating a object to store the metadata
     let metaData = {
 
-      //video: asset?.[0].id,
+      //video: assets?.[0].id,
 
-      //video: asset?.[0]?.playbackId,
+      //video: assets?.[0]?.playbackId,
       video: thumbnailCID,
 
       title: "aaa",
@@ -197,13 +205,53 @@ export default function Upload() {
     console.log(metaData);
 
 
-    /*
-    await saveVideo(data);
-    */
+    
+    //await saveVideo(data);
+    
 
     let contract = getContract();
 
     
+    await contract.uploadVideo(
+      metaData.video,
+      metaData.title,
+      metaData.description,
+      metaData.location,
+      metaData.category,
+      metaData.thumbnail,
+      false,
+      metaData.UploadedDate,
+    );
+      */
+
+  }
+
+
+  const write = async () => {
+
+    const thumbnailCID = await saveToIPFS(thumbnail);
+    
+    console.log("thumbnailCID", thumbnailCID);
+
+    console.log("assets", assets);
+  
+    // Creating a object to store the metadata
+    let metaData = {
+      video: assets?.[0].id,
+      title: title,
+      description: description,
+      location: location,
+      category: category,
+      thumbnail: thumbnailCID,
+      UploadedDate: Date.now(),
+    }
+
+    // Calling the saveVideo function and passing the metadata object
+    console.log(metaData);
+
+    //await saveVideo(data);
+
+    let contract = getContract();
     await contract.uploadVideo(
       metaData.video,
       metaData.title,
@@ -334,23 +382,33 @@ export default function Upload() {
 
 
   return (
+
     <Background>
+
+      {/*
       <p className="text-2xl font-bold text-white">
+  */}
 
         {/*
         {uploadProgress && uploadProgress * 100}
   */}
 
+      {/*
         {metrics?.metrics?.[0] && (
             <p>Views: {metrics?.metrics?.[0]?.startViews}</p>
         )}
+        */}
 
+        {/*
       </p>
+      */}
+
       <div className="flex h-screen w-full flex-row">
         <Sidebar updateCategory={(category: any) => setCategory(category)} />
         <div className="flex flex-1 flex-col">
           <Header />
           <div className="mt-5 mr-10 flex  justify-end">
+
             <div className="flex items-center">
               <button
                 className="mr-6  rounded-lg border border-gray-600 bg-transparent py-2  px-6  dark:text-[#9CA3AF]"
@@ -360,6 +418,7 @@ export default function Upload() {
               >
                 Discard
               </button>
+
               <button
                 onClick={handleSubmit}
                 className="flex flex-row items-center  justify-between  rounded-lg bg-blue-500 py-2 px-4 text-white hover:bg-blue-700"
@@ -367,8 +426,39 @@ export default function Upload() {
                 <BiCloud />
                 <p className="ml-2">Upload</p>
               </button>
+
+
+              <button
+                onClick={() => {
+                  write();
+                }}
+                className="flex flex-row items-center  justify-between  rounded-lg bg-blue-500 py-2 px-4 text-white hover:bg-blue-700"
+              >
+                <BiCloud />
+                <p className="ml-2">Mint NFT</p>
+              </button>
+
+
             </div>
+
+            {assets?.map((asset) => (
+              <div key={asset.id}>
+                <div>
+                  <div>Asset id: {asset?.id}</div>
+                  <div>Asset Name: {asset?.name}</div>
+                  <div>Playback URL: {asset?.playbackUrl}</div>
+                  <div>IPFS CID: {asset?.storage?.ipfs?.cid ?? 'None'}</div>
+                </div>
+              </div>
+            ))}
+
+            {video ? <p>{video.name}</p> : <p>Select a video file to upload.</p>}
+            {progressFormatted && <p>{progressFormatted}</p>}
+      
+            {error && <div>{error.message}</div>}
+
           </div>
+
           <div className="m-10 mt-5 flex 	flex-col  lg:flex-row">
             <div className="flex flex-col lg:w-3/4 ">
               <label className="text-sm text-gray-600  dark:text-[#9CA3AF]">
@@ -465,7 +555,9 @@ export default function Upload() {
           </div>
         </div>
       </div>
+
     </Background>
+
   )
 
 
