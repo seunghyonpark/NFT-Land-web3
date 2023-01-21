@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from "next/image";
 
 //import { nftContractAddress } from '../config.js';
 
@@ -19,8 +20,8 @@ const nftContractAddress = "0x390CbA41556323bEbe097dE3bfeDf203e7Dcb673";
 
 
 export default function Seoul() {
-	const [mintedNFT, setMintedNFT] = useState(null);
-	const [miningStatus, setMiningStatus] = useState(null);
+	const [mintedNFT, setMintedNFT] = useState<String>("");
+	const [miningStatus, setMiningStatus] = useState(0);
 	const [loadingState, setLoadingState] = useState(0);
 	const [txError, setTxError] = useState(null);
 	
@@ -247,14 +248,18 @@ export default function Seoul() {
 					<div className='font-semibold text-lg text-center mb-4'>
 						Your Eternal Domain Character
 					</div>
-					<img
-						src={mintedNFT}
+					<Image
+						src={String(mintedNFT)}
 						alt=''
 						className='h-60 w-60 rounded-lg shadow-2xl shadow-[#6FFFE9] hover:scale-105 transition duration-500 ease-in-out'
-					/>
+                        width={500}
+                        height={500}
+
+                    />
 				</div>
 			)}
 		</div>
 	)
 }
+
 
