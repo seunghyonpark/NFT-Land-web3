@@ -220,6 +220,7 @@ export default function Seoul() {
 				<a
 					href={`https://testnet.rarible.com/collection/${nftContractAddress}`}
 					target='_blank'
+                    rel="noreferrer" 
 				>
 					<span className='hover:underline hover:underline-offset-8 '>
 						View Collection on Rarible
