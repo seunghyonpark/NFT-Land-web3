@@ -75,12 +75,21 @@ export default function MyPage({
 	};
 
 
+	useEffect(() => {
+
+        console.log("GameMain useEffect nftSymbol", nftSymbol);
+
 	
+		return () => {
+	
+		}		
+
+	}, [nftSymbol]);	
 
 
 	useEffect(() => {
 
-        console.log("GameMain miningAmountTotal", miningAmountTotal);
+        console.log("MyPage miningAmountTotal", miningAmountTotal);
 
 		const numFix = 4;
 
@@ -138,7 +147,7 @@ export default function MyPage({
 
 	useEffect(() => {
 
-		console.log("GameMain useEffect=========");
+		console.log("MyPage useEffect=========");
 
 
 		if (address === "") {
@@ -200,7 +209,7 @@ export default function MyPage({
 
 	const handleClick = (nft) =>  {
 
-		console.log("GameMain handleClick tokenId", nft.tokenId);
+		console.log("Mypage handleClick tokenId", nft.tokenId);
 
 
 		//console.log('cardData.selected', cardData.selected);
@@ -284,10 +293,10 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					<div className="flex-auto mr-5 overflow-hidden text-right">
 						<p className="text-normal font-medium text-slate-200">
-							Staking Count ({nftSymbol})
+							Minting Count ({nftSymbol})
 						</p>
 
-                        <div className={classes.number}>{stakingCount} / {holdingCount}</div>
+                        <div className={classes.number}>{holdingCount} / {"10000"}</div>
 
 
 					</div>

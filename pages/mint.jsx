@@ -131,53 +131,65 @@ export default function Mint ({
 	useEffect(() => {
 
 
+		console.log("mint useEffect contractAddress", contractAddress);
+
 		// wayne@nuklabs.com
 
-		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6" || contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
+		if (contractAddress === "0xfb5611f91ce965893d1d36195587233fa04691a6"
+			|| contractAddress === "0x771b7d7c1bf142f68b8ae72575ae80a08714c714") {
 			setNftName("GOGO DINO META EXPLORERS");
 			setNftSymbol("GDX");
 			//setBaseURI("https://gogodino.saltmarble.io/metaexplorers/json");
-		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc") {
+		} else if (contractAddress === "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc"
+			|| contractAddress === "0xd2e641b4dccc8d7c80a020324db1fcbf457f1363") {
 			setNftName("Sunmiya Club");
 			setNftSymbol("MIYA");
 			//setBaseURI("https://miya.sunmiya.club");
-		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {
+		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"
+			|| contractAddress === "0x4c941de2f98336d3854acf4ebe8e86f5db2c1a18") {
 			setNftName("Bellygom World");
 			setNftSymbol("BELLYGOM");
 			//setBaseURI("https://belly.bellygom.world");
-		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d") {
+		} else if (contractAddress === "0xd8940245a37a301576eae6ea0348392ade2b8d5d"
+			|| contractAddress === "0x2fc2defa84bc438178d8af42edcc3b861221d081") {
 			setNftName("BIRDIESHOT");
 			setNftSymbol("BIRDIE");
 			//setBaseURI("https://live.bdst.kakaogames.com:10443/assets/nft");
-		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e") {
+		} else if (contractAddress === "0xaedd53a5526658ce286d66f63a6db28c9e79af3e"
+			|| contractAddress === "0x07eafbf7390248f0e95a9311f16d8e840094dc77") {
 			setNftName("COMPETZ GAMERZ");
 			setNftSymbol("CMPZPFP");
 			//setBaseURI("https://meta.competz.io/tokens");
-		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79") {
+		} else if (contractAddress === "0x24c8b2bf633672456efc8b415ea8b684498d9f79"
+			|| contractAddress === "0x9812edb36c9c2ce60e06524b60c50ac0c7d1c0c1") {
 			setNftName("ArcheWorld_FandomCard");
 			setNftSymbol("ArcheWorld_FandomCard");
 			
 			//setBaseURI("https://meta.competz.io/tokens");
 
-		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584") {
+		} else if (contractAddress === "0xe70a0a4cf8eb3e2adcbea09c303cb178eaec6584"
+			|| contractAddress === "0x8245076be187973db1241a17d691437b9748097c") {
 			setNftName("Meta Toy Squad");
 			setNftSymbol("MTS");
 			
 			//setBaseURI("https://meta.competz.io/tokens");
 
-		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5") {
+		} else if (contractAddress === "0xbc497dbababe7566d9a58be51c4771ef9c947bd5"
+			|| contractAddress === "0x772e5fca622c63c2d839f1f8e0d80ef1a542214b") {
 			setNftName("DOGESOUNDCLUB MATES");
 			setNftSymbol("MATE");
 			
 			//setBaseURI("https://meta.competz.io/tokens");
 
-		} else if (contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d") {
+		} else if (contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d"
+			|| contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d") {
 			setNftName("Three Kingdom Multiverse Nft");
 			setNftSymbol("3KMNft");
 			
 			//setBaseURI("https://meta.competz.io/tokens");
 
-		} else if (contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0") {
+		} else if (contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0"
+			|| contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0") {
 			setNftName("Puuvillafriends");
 			setNftSymbol("Puuvillafriends");
 			
