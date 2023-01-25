@@ -13,7 +13,7 @@ function Footer({projectCodeName,}) {
 				
 				
 
-				© 2022 SML. All rights reserved.
+				© 2023 SML. All rights reserved.
 			</a>
 		</footer>
 	);
