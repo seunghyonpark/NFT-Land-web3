@@ -70,7 +70,7 @@ export default function Cypress({
 	const [contractAddress, setContractAddress] = useState("0xf57255329ad3f60b19cb452b68546e11f1fe20df"); // cypress
 	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
 
-	const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735d18f229a95d9db14a7a0b7c76ef2180b1b5"); // cypress staking wallet address
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4A69370FC9348C2fa887C4DB7328ce3595689c28"); // cypress staking wallet address
 	
 
 	//0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567
