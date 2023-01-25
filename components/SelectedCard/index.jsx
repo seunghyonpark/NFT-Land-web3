@@ -323,7 +323,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			bg-cover
 			bg-no-repeat
 			bg-top
-			
+			bg-[url('/img_tomo.png')]
 		">
 
 			{/*
