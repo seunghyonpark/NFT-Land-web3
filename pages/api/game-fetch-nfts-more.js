@@ -212,7 +212,7 @@ export default async function handler(req, res) {
 
 		let data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
 
-		////console.log("game-fetch-nfts-more data", data);
+		console.log("game-fetch-nfts-more data.items.length", data.items.length);
 
 		
 

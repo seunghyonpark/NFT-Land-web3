@@ -102,9 +102,10 @@ export default function MintingPage ({
   top: 0;
 }
 
+bg-[url('/img_tomo.png')]
 */}
 
-			<div className=" border
+			<div className=" 
 				mt-5 
 			 	bg-contain
 				bg-no-repeat 
@@ -113,7 +114,7 @@ export default function MintingPage ({
 				
 				
 
-				bg-[url('/img_tomo.png')]
+				
 
 			  "
 			  >	

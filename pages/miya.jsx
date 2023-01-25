@@ -2,14 +2,21 @@ import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import GameHeader2 from "../components/GameHeader2/index.jsx";
+
+import StakingHeader from "../components/StakingHeader/index.jsx";
+
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import GameMain from "../components/GameMain/index.jsx";
 import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
+
+
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
-//import walletAddress from "../constants/walletAddress.json";
+import contractAddressNFT from "../constants/contractAddressNFT.json";
+
+import stakingAddress from "../constants/stakingAddress.json";
 
 
 import { useRouter } from 'next/router';
@@ -36,7 +43,7 @@ const options = {
 
 
 //-----------------------------
-export default function Miya({
+export default function Baobab({
 	contractOwnerAddress,
 	scriptAddress,
 	cryptoTowerAddress,
@@ -46,7 +53,7 @@ export default function Miya({
 	depositingNFTAddress,
 	withdrawingNFTAddress,
 	nftWalletAddress,
-	//testData,
+	testData,
 }) {
 
 
@@ -60,20 +67,28 @@ export default function Miya({
 
 
 	// info@nuklabs.com
-	//const [contractAddress, setContractAddress] = useState("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363");
+	const [contractAddress, setContractAddress] = useState(contractAddressNFT.MIYA);
 	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
+
+	const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.baobab); // baobab staking wallet address
+	
+
+	//0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567
 
 
 	// wayne@nuklabs.com
-	const [contractAddress, setContractAddress] = useState("0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc");
-	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
-
+	//const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.GDX);
 
 
 	const nftSymbol = "MIYA";
 	const nftName = "Sunmiya Club";
+	
 
+	//console.log("Game contractAddress", contractAddress);
+	//console.log("Game stakingWalletAddress", stakingWalletAddress);
 
+	
 
 	//const [selectedCard, setSelectedCard] = useState("");
 
@@ -82,10 +97,14 @@ export default function Miya({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
+
+	
 	//const chainId = "8217"; // cypress
 	const chainId = "1001"; // baobab
 
+
 	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
+		stakeDataGlobal,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
 		stakingCount, setStakingCount,
@@ -93,12 +112,10 @@ export default function Miya({
 		miningAmountTotal,
 		mintingCountGlobal, stakingCountGlobal, miningAmountGlobal,
 	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
-	
 
 
-	const ref = useRef();
 
-	
+	//console.log("baobab stakeDataGlobal", stakeDataGlobal);
 
 	//setAddress(session?.user);
 
@@ -286,10 +303,10 @@ export default function Miya({
 
 
 			<Head>
-				<title>GOGO DINO META EXPLORERS</title>
+				<title>Sunmiya Club</title>
 				<meta
-					name="GOGO DINO META EXPLORERS"
-					content="GOGO DINO META EXPLORERS"
+					name="Sunmiya Club"
+					content="Sunmiya Club"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
@@ -297,8 +314,8 @@ export default function Miya({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
-				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
-				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
+				<meta property="og:title" content="Sunmiya Club"></meta>
+				<meta property="og:description" content="Sunmiya Club"></meta>
 				<meta property="og:image" content="/gdx.jpeg"></meta>
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
@@ -333,7 +350,35 @@ export default function Miya({
 					miningAmountGlobal,
 				}}
 			/>
-			
+
+{/*
+				<StakingHeader
+					{...{
+						chainId,
+						nftSymbol,
+						address,
+						selectedCard,
+						setSelectedCard,
+						stakeDataGlobal,
+						isInHome,
+						isLoading,
+						isConnectWallet,
+						scriptAddress,
+						cryptoTowerAddress,
+						goldFishAddress,
+						loadingCubesAddress,
+						depositingNFTAddress,
+						depositNFT,
+						withdrawNFT,
+						selectNFT,
+						mintNFT,
+						holdingCount,
+						stakingCount,
+						setStakingCount,
+						miningAmountTotal,
+					}}
+				/>
+				*/}
 
 			{/*isWithdrawing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
@@ -489,10 +534,10 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-
+	
 
 	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
-	
+
 
 
 	//const file = path.join(process.cwd(), 'posts', 'test.json');

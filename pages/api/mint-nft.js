@@ -411,6 +411,32 @@ await contract.methods.say().send(options)
 			tokenUri = dataNFT.tokenUri;
 			
 			//console.log("mint-nft dataNFT", dataNFT); 
+		
+		} else if (contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d"
+			|| contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d") {  // Three Kingdom Multiverse Nft baobab
+
+			const contractAddressOriginal = "0xaf867a9752816571248abbedf0e749eaf6ed2101"; // Three Kingdom Multiverse Nft cypress
+
+			const chainidCypress = "8217";
+			const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+			const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+			
+			tokenUri = dataNFT.tokenUri;
+			
+			//console.log("mint-nft dataNFT", dataNFT); 
+
+		} else if (contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0"
+		|| contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0") {  // Puuvillafriends baobab
+
+		const contractAddressOriginal = "0xef45d7272211f7d9c9b3b509d550e8856cd9e050"; // Puuvillafriends cypress
+
+		const chainidCypress = "8217";
+		const caverCypress = new CaverExtKAS(chainidCypress, accessKeyId, secretAccessKey);
+		const dataNFT = await caverCypress.kas.tokenHistory.getNFT(contractAddressOriginal, tokenId);
+		
+		tokenUri = dataNFT.tokenUri;
+		
+		//console.log("mint-nft dataNFT", dataNFT); 
 
 		} else {
 			//tokenUri = `${baseURI}/${tokenId}.json`;
@@ -505,6 +531,27 @@ await contract.methods.say().send(options)
 		
 		console.log("caver.kas.kip17.deploy result", result8);
 		*/
+
+		/*
+		const result9 = await caver.kas.kip17.deploy (
+			"Three Kingdom Multiverse Nft",
+			"3KMNft",
+			"kip17-3kmnft"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result9);
+		*/
+
+		/*
+		const result10 = await caver.kas.kip17.deploy (
+			"Puuvillafriends",
+			"Puuvillafriends",
+			"kip17-puuvillafriends"
+		);
+		
+		console.log("caver.kas.kip17.deploy result", result10);
+			*/
+		
 
 		/*
 		ErrorResponse {

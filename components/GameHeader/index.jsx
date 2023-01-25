@@ -745,6 +745,32 @@ export default function GameHeader ({
 					MATE
 				</button>
 
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d");
+					}}
+				>
+					3KMNft
+				</button>
+
+				<button
+					className=" flex-auto my-1 w-auto self-center rounded-lg bg-amber-400 px-5 py-1
+					font-semibold text-gray-800 drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+					duration-200  ease-in-out hover:bg-teal-300"
+					onClick={(e) => {
+						e.preventDefault();
+						setContractAddress("0x888962ead04bcd823301929eb7e597c4582d25b0");
+					}}
+				>
+					Puuvillafriends
+				</button>
+
+				
+
 			</div>
 
 

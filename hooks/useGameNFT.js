@@ -105,6 +105,8 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	useEffect(() => {
 
 		console.log("useGameNFT useEffect contractAddress==========", contractAddress);
+		console.log("useGameNFT useEffect chainId==========", chainId);
+		console.log("useGameNFT useEffect stakingWalletAddress==========", stakingWalletAddress);
 
 
 
@@ -174,6 +176,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				if (fetchData.data.ownedNfts.length === 0) {
 
+					setStakeDataGlobal(fetchData.data.ownedNfts);
 				} else {
 
 					

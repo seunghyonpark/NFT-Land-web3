@@ -204,9 +204,9 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 	//return stakeDataGlobal.lenghth > 0 && (
 	return (
 
-		<main
+		<div
 			className="
-
+			
 			"
 		>
 			
@@ -223,7 +223,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div className=" rounded-lg bg-gradient-to-l from-blue-500 ">			
 
 
-			<div className="flex flex-row">
+			<div className="flex flex-row
+			">
 				<div className=" text-left ml-5 mt-0 pt-3 pb-3 text-normal text-amber-400">Staked NFTs</div>
 			
 				<div className="  ">
@@ -250,7 +251,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 			<div
 				//ref={refScroller} h-screen
 				className="
-					overflow-y-scroll h-80
+					overflow-y-scroll
 					
 				">
 
@@ -445,7 +446,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 		
 			
-		</main>
+		</div>
 
 	);
 }

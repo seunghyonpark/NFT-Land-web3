@@ -171,10 +171,22 @@ export default function Mint ({
 			
 			//setBaseURI("https://meta.competz.io/tokens");
 
+		} else if (contractAddress === "0x64abb4ba79c39c61d8d7e246ae21124d9ead3d2d") {
+			setNftName("Three Kingdom Multiverse Nft");
+			setNftSymbol("3KMNft");
+			
+			//setBaseURI("https://meta.competz.io/tokens");
+
+		} else if (contractAddress === "0x888962ead04bcd823301929eb7e597c4582d25b0") {
+			setNftName("Puuvillafriends");
+			setNftSymbol("Puuvillafriends");
+			
+			//setBaseURI("https://meta.competz.io/tokens");
 		}
 
+
 		
-		
+
 		
 
 	}, [contractAddress]);

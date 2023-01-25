@@ -138,7 +138,7 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 
 	return (
 		
-		<header className="mt-10">
+		<div className="mt-10">
 			{/* logotype */}
 			<h1 className="text-center text-6xl font-extrabold text-amber-400 drop-shadow-xl ">
 				<a href="./mint">M.E. NFT Staking Service</a>
@@ -185,7 +185,7 @@ function StakingHeader({ address, setAddress, fetchNFTs }) {
 				</h3>
 
 			</form>
-		</header>
+		</div>
 	);
 }
 

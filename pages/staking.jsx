@@ -16,6 +16,10 @@ import useGameNFT from "../hooks/useGameNFT.js";
 
 //import walletAddress from "../constants/walletAddress.json";
 
+import stakingAddress from "../constants/stakingAddress.json";
+import contractAddressNFT from "../constants/contractAddressNFT.json";
+
+
 
 import { useRouter } from 'next/router';
 
@@ -64,15 +68,19 @@ export default function Staking ({
 	const [address, setAddress] = useState("");
 
 
+
 	// info@nuklabs.com
-	//const [contractAddress, setContractAddress] = useState("0x771b7d7c1bf142f68b8ae72575ae80a08714c714");
+	const [contractAddress, setContractAddress] = useState(contractAddressNFT.GDX);
 	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
 
+	const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.baobab); // baobab staking wallet address
 
+	
+	/*
 	// wayne@nuklabs.com
 	const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
 	const [stakingWalletAddress, setStakingWalletAddress] = useState("0x65410526d780ecbf15be9b8c5446364b9a4c71af");
-
+	*/
 
 
 	//setContractAddress("0xd2e641b4dccc8d7c80a020324db1fcbf457f1363"); // 오류
@@ -495,37 +503,6 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 			/>
 			*/}
 
-			<cards className="mt-4 grid justify-center gap-10
-				sm:grid-cols-2
-				md:grid-cols-2
-				lg:grid-cols-2
-				xl:grid-cols-2
-
-				grid-cols-1 ">	
-
-
-				<StakingPage
-					{...{
-						nftName,
-						nftSymbol,
-						selectedCard,
-						address,
-						stakeData,
-						isInHome,
-						isLoading,
-						isConnectWallet,
-						scriptAddress,
-						cryptoTowerAddress,
-						goldFishAddress,
-						loadingCubesAddress,
-						depositingNFTAddress,
-						dataProcessingAddress,
-						setTokenId,
-						withdrawNFT,
-					}}
-				/>
-
-			</cards>
 
 
 			<Footer />
