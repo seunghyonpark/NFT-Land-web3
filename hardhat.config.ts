@@ -21,11 +21,20 @@ module.exports = {
     },
     mumbai: {
       url: "https://rpc-mumbai.maticvigil.com",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY],
     },
     goerli: {
       url: `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
       accounts: [process.env.PRIVATE_KEY],
+    },
+    baobab: {
+      url: "https://api.baobab.klaytn.net:8651",
+      gasPrice: 250000000000,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    gasReporter: {
+      enabled: process.env.REPORT_GAS !== undefined,
+      currency: "USD",
     },
   },
   solidity: {
@@ -44,7 +53,7 @@ module.exports = {
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
-    artifacts: "./artifacts"
+    artifacts: "./artifacts",
   },
 
   etherscan: {
@@ -55,9 +64,9 @@ module.exports = {
 
         //polygon
         polygon: process.env.POLYGONSCAN_API_KEY,
-        polygonMumbai: process.env.POLYGONSCAN_API_KEY
+        polygonMumbai: process.env.POLYGONSCAN_API_KEY,
    }
-  }
+  },
 
 
 };
