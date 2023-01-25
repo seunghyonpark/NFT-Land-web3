@@ -92,7 +92,11 @@ export default function StakingPage ({
 				<h1 className=" 
 					mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl
 					">
-					Now Staking...
+					{selectedCard.staking !== "true" && <p>Ready to Stake</p>}
+					{selectedCard.staking === "true" && <p>Now Staking...</p>}
+
+
+					
 				</h1>
 
 

@@ -256,10 +256,16 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 	useEffect(() => {
 
-		console.log("useGameNFT useEffect contractAddress-------------", contractAddress);
+		//console.log("useGameNFT useEffect contractAddress-------------", contractAddress);
 
 		if (address) {
 
+			console.log("useGameNFT address", address);
+
+			//const wallet = window.klaytn.selectedAddress;
+			const chainId = window.klaytn.chainId;
+
+			console.log('Connected to chain:' + chainId);
 			
 		}
 		else return;
