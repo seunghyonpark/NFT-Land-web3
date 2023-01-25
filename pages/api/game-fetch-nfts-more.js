@@ -53,7 +53,7 @@ export default async function handler(req, res) {
 
 export default async function handler(req, res) {
 
-	//console.log("game-fetch-nfts req",req);
+	///console.log("game-fetch-nfts-more req",req);
 
 	try {
 
@@ -67,9 +67,9 @@ export default async function handler(req, res) {
 
 
 		//console.log("game-fetch-nfts-more chainid", chainid);
-		//console.log("game-fetch-nfts-more contract", contract);
+		console.log("game-fetch-nfts-more contract", contract);
 		//console.log("game-fetch-nfts-more wallet", wallet);
-		console.log("game-fetch-nfts-more stakingwallet",stakingwallet);
+		console.log("game-fetch-nfts-more stakingwallet", stakingwallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -92,7 +92,11 @@ export default async function handler(req, res) {
 		} else if (contractAddress === "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1") {  // 0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1
 			contractName = "Bellygom World";
 			contractSymbol = "BELLYGOM";
+		} else if (contractAddress === "0xf57255329ad3f60b19cb452b68546e11f1fe20df") { // GDX cypress
+			contractName = "GOGO DINO META EXPLORERS";
+			contractSymbol = "GDX";
 		}
+
 
 		let miningAmountTotal = 0;
 
@@ -203,12 +207,12 @@ export default async function handler(req, res) {
 
 
 
-		contractAddress = "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"; // bellygom world
+		//contractAddress = "0xd3bfc0bf408c0fd73e44110349c6db2e60b35be1"; // bellygom world
 
 
 		let data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
 
-		//console.log("game-fetch-nfts-more data", data);
+		////console.log("game-fetch-nfts-more data", data);
 
 		
 
@@ -295,7 +299,7 @@ export default async function handler(req, res) {
 
 
 		
-
+		/*
 		contractAddress = "0xfbcfa5bf7b472921bb5a3628a2a9ec9b4c1cabbc"; // sunmiya club
 
 		data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingwallet, nftQuery);
@@ -381,12 +385,7 @@ export default async function handler(req, res) {
 			
 			ownedNfts.push(nft);
 		}
-
-
-
-
-
-
+		*/
 
 
 
