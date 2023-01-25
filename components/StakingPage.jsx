@@ -75,15 +75,14 @@ export default function StakingPage ({
 	return (
 
 
-		<main className=" 
+		<div className=" 
 			flex flex-col">
 
+{/*
 			<div className=" 
 				m-0
-				
-				
 			">
-
+	*/}
 				<h1 className=" 
 					text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate
 					">
@@ -142,9 +141,11 @@ export default function StakingPage ({
 				</div>			
 				*/}
 
+{/*
 			</div>
+			*/}
 
-		</main>
+		</div>
 
 	);
 }

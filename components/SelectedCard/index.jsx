@@ -320,7 +320,7 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 			mt-2
 
-			bg-contain
+			bg-cover
 			bg-no-repeat
 			bg-top
 			bg-[url('/img_tomo.png')]
