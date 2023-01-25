@@ -2,21 +2,14 @@ import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import Script from "next/script";
 import GameHeader2 from "../components/GameHeader2/index.jsx";
-
-import StakingHeader from "../components/StakingHeader/index.jsx";
-
 import StakingPage from "../components/StakingPage.jsx";
 import MintingDashboard from "../components/MintingDashboard.jsx";
 import GameMain from "../components/GameMain/index.jsx";
 import Footer from "../components/Footer.jsx";
 import useGameNFT from "../hooks/useGameNFT.js";
-
-
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
-import contractAddressNFT from "../constants/contractAddressNFT.json";
-
-import stakingAddress from "../constants/stakingAddress.json";
+//import walletAddress from "../constants/walletAddress.json";
 
 
 import { useRouter } from 'next/router';
@@ -68,27 +61,21 @@ export default function Cypress({
 
 	// info@nuklabs.com
 	const [contractAddress, setContractAddress] = useState("0xf57255329ad3f60b19cb452b68546e11f1fe20df"); // cypress
-	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0x4C85750d5577f71E77Ed137B74A5d5920e468050");
-
-	const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735d18f229a95d9db14a7a0b7c76ef2180b1b5"); // cypress staking wallet address
-	
-
-	//0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567
-
+	const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735d18f229a95d9db14a7a0b7c76ef2180b1b5");
 
 	// wayne@nuklabs.com
-	//const [contractAddress, setContractAddress] = useState("0xfb5611f91ce965893d1d36195587233fa04691a6");
-	//const [stakingWalletAddress, setStakingWalletAddress] = useState(stakingAddress.GDX);
+	//const [contractAddress, setContractAddress] = useState("0xf57255329ad3f60b19cb452b68546e11f1fe20df");
+	//const [stakingWalletAddress, setStakingWalletAddress] = useState("0xb8735D18F229A95d9dB14A7A0B7C76EF2180b1B5");
 
 
 	const nftSymbol = "GDX";
 	const nftName = "GOGO DINO META EXPLORERS";
 	
 
-	//console.log("Game contractAddress", contractAddress);
-	//console.log("Game stakingWalletAddress", stakingWalletAddress);
+	console.log("Game contractAddress", contractAddress);
+	console.log("Game stakingWalletAddress", stakingWalletAddress);
 
-	
+
 
 	//const [selectedCard, setSelectedCard] = useState("");
 
@@ -97,14 +84,10 @@ export default function Cypress({
 	// fetch data handler
 	//const { fetchNFTs, data, isInHome, isLoading } = useFetchNFTs(address);
 
-
-	
 	const chainId = "8217"; // cypress
 	//const chainId = "1001"; // baobab
 
-
 	const { walletConnected, walletDisconnected, mintNFT, checkNFT, fetchNFTs, depositNFT, withdrawNFT, setTokenId, selectNFT,
-		stakeDataGlobal,
 		data, stakeData, isInHome, isLoading, isConnectWallet, isMinting, isDepositing, isWithdrawing, tokenId,
 		holdingCount,
 		stakingCount, setStakingCount,
@@ -114,8 +97,9 @@ export default function Cypress({
 	} = useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol);
 
 
+	const ref = useRef();
 
-	//console.log("baobab stakeDataGlobal", stakeDataGlobal);
+	
 
 	//setAddress(session?.user);
 
@@ -303,10 +287,10 @@ export default function Cypress({
 
 
 			<Head>
-				<title>GOGO DINO META EXPLORERS</title>
+				<title>{nftName}</title>
 				<meta
-					name="GOGO DINO META EXPLORERS"
-					content="GOGO DINO META EXPLORERS"
+					name={nftName}
+					content={nftName}
 				/>
 				<link rel="icon" href="/favicon.ico" />
 
@@ -314,7 +298,7 @@ export default function Cypress({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
-				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
+				<meta property="og:title" content={nftName}></meta>
 				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
 				<meta property="og:image" content="/gdx.jpeg"></meta>
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
@@ -350,35 +334,7 @@ export default function Cypress({
 					miningAmountGlobal,
 				}}
 			/>
-
-{/*
-				<StakingHeader
-					{...{
-						chainId,
-						nftSymbol,
-						address,
-						selectedCard,
-						setSelectedCard,
-						stakeDataGlobal,
-						isInHome,
-						isLoading,
-						isConnectWallet,
-						scriptAddress,
-						cryptoTowerAddress,
-						goldFishAddress,
-						loadingCubesAddress,
-						depositingNFTAddress,
-						depositNFT,
-						withdrawNFT,
-						selectNFT,
-						mintNFT,
-						holdingCount,
-						stakingCount,
-						setStakingCount,
-						miningAmountTotal,
-					}}
-				/>
-				*/}
+			
 
 			{/*isWithdrawing && (
 				<div className="m-auto h-[18rem] w-[15rem] -translate-x-3 -translate-y-3 scale-110 drop-shadow-xl">
@@ -534,10 +490,13 @@ export async function getStaticProps() {
 		"https://assets2.lottiefiles.com/packages/lf20_4vq5kmpx.json";
 
 
-	
 
-	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_WAYNE;
 
+
+
+	const contractOwnerAddress = process.env.OWNER_PUBLIC_KEY_ORIGINAL;
+
+	const contractAddress = process.env.CONTRACT_ADDRESS_ORIGINAL;
 
 
 	//const file = path.join(process.cwd(), 'posts', 'test.json');
@@ -570,6 +529,7 @@ export async function getStaticProps() {
 	return {
 		props: {
 			contractOwnerAddress,
+			contractAddress,
 			scriptAddress,
 			cryptoTowerAddress,
 			loadingCubesAddress,

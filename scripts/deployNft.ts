@@ -28,10 +28,12 @@ async function main() {
 
     console.log(`Verifying contract on Etherscan...`);
   
+    /*
     await run(`verify:verify`, {
       address: contract.address,
       //constructorArguments: [priceFeedAddress],
     });
+    */
 
     /*
     const priceFeedConsumerFactory = await ethers.getContractFactory("PriceConsumerV3");

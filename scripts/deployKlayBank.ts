@@ -15,22 +15,22 @@ async function main() {
     // await hre.run('compile');
 
         // We get the contract to deploy
-    const OurtubeFactory = await ethers.getContractFactory("Ourtube");
-    const ourtube = await OurtubeFactory.deploy();
+    const contractFactory = await ethers.getContractFactory("KlayBank");
+    const contract = await contractFactory.deploy();
 
     //////await ourtube.deployed();
     const WAIT_BLOCK_CONFIRMATIONS = 6;
-    await ourtube.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
+    await contract.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
 
     //console.log("Ourtube deployed to:", ourtube.address);
 
-    console.log(`Contract deployed to ${ourtube.address} on ${network.name}`);
+    console.log(`Contract deployed to ${contract.address} on ${network.name}`);
 
     console.log(`Verifying contract on Etherscan...`);
   
     /*
     await run(`verify:verify`, {
-      address: ourtube.address,
+      address: contract.address,
       //constructorArguments: [priceFeedAddress],
     });
     */

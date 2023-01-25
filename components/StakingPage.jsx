@@ -74,38 +74,30 @@ export default function StakingPage ({
 	//return data.lenghth > 0 && (
 	return (
 
-		<main className="">
 
-			<h1 className=" text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate ">
-				{displayAddress} 
-			</h1>
+		<main className=" 
+			flex flex-col">
 
-			<h1 className="mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
-				Now Staking...
-			</h1>
+			<div className=" 
+				m-0
+				
+				
+			">
+
+				<h1 className=" 
+					text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate
+					">
+					{displayAddress}
+				</h1>
+
+				<h1 className=" 
+					mt-5 text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl
+					">
+					Now Staking...
+				</h1>
 
 
 {/*bg-[url('/img_tomo.png')]*/}
-
-			<div className="
-				mt-5 
-			 	bg-contain
-				bg-no-repeat 
-
-				bg-top
-				
-				min-h-screen
-
-				bg-[url('/img_tomo.png')]
-
-			  "
-			  >	
-
-
-		
-
-
-
 
 
 
@@ -115,21 +107,20 @@ export default function StakingPage ({
 			">
 	*/}
 
-			
 					
-					<SelectedCard
-						key={uuidv4()}
-						nftName={nftName}
-						nftSymbol={nftSymbol}
-						selectedCard={selectedCard}
-						cryptoTowerAddress={cryptoTowerAddress}
-						loadingCubesAddress={loadingCubesAddress}
-						depositingNFTAddress={depositingNFTAddress}
-						dataProcessingAddress={dataProcessingAddress}
-						setTokenId={setTokenId}
-						withdrawNFT={withdrawNFT}
-					>
-					</SelectedCard>
+				<SelectedCard
+					key={uuidv4()}
+					nftName={nftName}
+					nftSymbol={nftSymbol}
+					selectedCard={selectedCard}
+					cryptoTowerAddress={cryptoTowerAddress}
+					loadingCubesAddress={loadingCubesAddress}
+					depositingNFTAddress={depositingNFTAddress}
+					dataProcessingAddress={dataProcessingAddress}
+					setTokenId={setTokenId}
+					withdrawNFT={withdrawNFT}
+				>
+				</SelectedCard>
 			
 		
 		{/*
@@ -137,11 +128,6 @@ export default function StakingPage ({
 */}
 
 			
-
-	
-
-
-
 
 			{/*
 			(stakeData?.length === 0) && (isInHome === false) && (isLoading === false) &&
@@ -156,11 +142,7 @@ export default function StakingPage ({
 				</div>			
 				*/}
 
-			
-
 			</div>
-			
-		
 
 		</main>
 

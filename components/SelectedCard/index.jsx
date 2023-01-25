@@ -316,9 +316,14 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 	return (
 
 
-		<div className="
+		<div className=" 
 
-			
+			mt-2
+
+			bg-contain
+			bg-no-repeat
+			bg-top
+			bg-[url('/img_tomo.png')]
 		">
 
 			{/*
@@ -336,9 +341,9 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 		
 	sm:pl-[50px] sm:pr-[50px] sm:pt-[70px]
 
-	md:pl-[90px] md:pr-[90px] md:pt-[0px]
+	md:pl-[90px] md:pr-[80px] md:pt-[0px]
 
-	xl:pl-[160px] xl:pr-[130px] xl:pt-[60px]
+	xl:pl-[150px] xl:pr-[140px] xl:pt-[50px]
 	
 	
 ">
@@ -398,10 +403,10 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 
 							className="
 							rounded-md "
-							src={`/selectedcard_none.jpeg`}
+							src={`/selectedcard_${nftSymbol}.png`}
 							alt={`${nftSymbol}`}
-							width={300}
-							height={300}
+							width={500}
+							height={500}
 						/>
 
 

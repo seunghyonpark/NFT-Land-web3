@@ -15,22 +15,31 @@ async function main() {
     // await hre.run('compile');
 
         // We get the contract to deploy
-    const OurtubeFactory = await ethers.getContractFactory("Ourtube");
-    const ourtube = await OurtubeFactory.deploy();
+    const contractFactory = await ethers.getContractFactory("ERC721Staking");
+
+/* GDX erc721
+https://baobab.klaytnfinder.io/nft/0x771b7d7c1bf142f68b8ae72575ae80a08714c714
+*/
+
+/* SML erc20
+https://baobab.klaytnfinder.io/account/0xd8a342a755662c86a532773cdccc4fbb6b1774b9
+*/
+
+    const contract = await contractFactory.deploy("0x771b7d7c1bf142f68b8ae72575ae80a08714c714", "0xd8a342a755662c86a532773cdccc4fbb6b1774b9");
 
     //////await ourtube.deployed();
     const WAIT_BLOCK_CONFIRMATIONS = 6;
-    await ourtube.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
+    await contract.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
 
     //console.log("Ourtube deployed to:", ourtube.address);
 
-    console.log(`Contract deployed to ${ourtube.address} on ${network.name}`);
+    console.log(`Contract deployed to ${contract.address} on ${network.name}`);
 
     console.log(`Verifying contract on Etherscan...`);
   
     /*
     await run(`verify:verify`, {
-      address: ourtube.address,
+      address: contract.address,
       //constructorArguments: [priceFeedAddress],
     });
     */

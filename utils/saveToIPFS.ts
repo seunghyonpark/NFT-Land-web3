@@ -2,7 +2,7 @@ import axios from "axios";
 import { WEB3_STORAGE_URL, WEB3_STORAGE_KEY } from "../constants";
 
 // Construct with token and endpoint
-const saveToIPFS = async (file) => {
+const saveToIPFS = async (file: any) => {
   // create a new multipart form data
   const formData = new FormData();
   // add file to the form data
