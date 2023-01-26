@@ -66,12 +66,12 @@ export default async function handler(req, res) {
 		const { chainid, contract, wallet, stakingwallet } = req.query;
 
 		
-		
+		/*
 		console.log("game-fetch-nfts chainid", chainid);
 		console.log("game-fetch-nfts contract", contract);
 		console.log("game-fetch-nfts wallet", wallet);
 		console.log("game-fetch-nfts stakingwallet", stakingwallet);
-
+		*/
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
@@ -82,6 +82,9 @@ export default async function handler(req, res) {
 		const stakingWalletAddress = stakingwallet;
 
 
+
+
+		
 
 		if (wallet) {
 
@@ -153,6 +156,7 @@ export default async function handler(req, res) {
 		console.log("game-fetch-nfts wallet", wallet);
 
 		const  contractName = 'GOGODINO Official';
+		const contractSymbol = "GDX";
 
 
 		const ownedNfts = new Array();
@@ -178,7 +182,9 @@ export default async function handler(req, res) {
 				const contract = new Object();
 				contract.address = contractAddress;
 				contract.name = contractName;
+				contract.symbol = contractSymbol;
 				nft.contract = contract;
+				
 
 				nft.tokenId = caver.utils.hexToNumber(data.items[idx].tokenId);
 				nft.tokenUri = data.items[idx].tokenUri;
@@ -251,9 +257,13 @@ export default async function handler(req, res) {
 			ownedNfts.push(nft);
 		}
 
+
+
 		
 
 		// staked NFTs
+
+		const stakedNfts = new Array();
 
 		let miningAmountTotal = 0;
 
@@ -306,6 +316,7 @@ export default async function handler(req, res) {
 				const contract = new Object();
 				contract.address = contractAddress;
 				contract.name = contractName;
+				contract.symbol = contractSymbol;
 				nft.contract = contract;
 
 
@@ -320,7 +331,7 @@ export default async function handler(req, res) {
 				
 				nft.description = "";
 
-				console.log(json.items[idx].uri);
+				//console.log(json.items[idx].uri);
 
 				
 				
@@ -331,8 +342,6 @@ export default async function handler(req, res) {
 				} else if (json.items[idx].uri === "undefined") {
 
 				} else {
-				
-				
 
 					const response = await fetch(json.items[idx].uri);
 				
@@ -357,13 +366,28 @@ export default async function handler(req, res) {
 
 
 				ownedNfts.unshift(nft);
+				//ownedNfts.push(nft);
+				//stakedNfts.push(nft);
 
 			}
 
 		}
 
 
-		console.log("game-fetch-nfts miningAmountTotal", miningAmountTotal);
+		//console.log("game-fetch-nfts stakedNfts", stakedNfts);
+
+
+		//console.log("game-fetch-nfts miningAmountTotal", miningAmountTotal);
+
+
+
+		//ownedNfts.concat(stakedNfts);
+
+
+
+		//console.log("game-fetch-nfts ownedNfts", ownedNfts);
+
+
 
 
 		const aaa = new Object();
