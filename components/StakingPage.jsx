@@ -79,7 +79,7 @@ export default function StakingPage ({
 	return (
 
 
-		<div className=" 
+		<div className=" border
 			flex flex-col">
 
 
