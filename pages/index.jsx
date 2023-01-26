@@ -332,7 +332,7 @@ export default function Home({
 					"
 				></meta>
 
-				<meta name="twitter:card" content="/gdx.jpeg"></meta> {/*telegram large image */}
+				<meta name="twitter:card" content="summary_large_image"></meta> {/*telegram large image */}
 				<meta name="twitter:image"
 					content="/gdx.jpeg"
 				></meta>
