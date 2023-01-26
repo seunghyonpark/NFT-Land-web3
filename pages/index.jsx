@@ -316,9 +316,28 @@ export default function Home({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				*/}
 
+				<meta property="og:type" content="website"></meta>
+				<meta property="og:site_name" content="GOGO DINO META EXPLORERS"></meta>
 				<meta property="og:title" content="GOGO DINO META EXPLORERS"></meta>
 				<meta property="og:description" content="SML Project, GOGO DINO, Meta Explorers, NFT Staking"></meta>
 				<meta property="og:image" content="/gdx.jpeg"></meta>
+				<meta property="og:image:width" content="1400"></meta>
+				<meta property="og:image:height" content="1400"></meta>
+				
+				<meta proterty="og:url" content="https://ggdstaking.xyz/"></meta>
+
+				<meta name="description"
+					content="
+					SML Project, GOGO DINO, Meta Explorers, NFT Staking
+					"
+				></meta>
+
+				<meta name="twitter:card" content="/gdx.jpeg"></meta> {/*telegram large image */}
+				<meta name="twitter:image"
+					content="/gdx.jpeg"
+				></meta>
+
+
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
 			</Head>
 
