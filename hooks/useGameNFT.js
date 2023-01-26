@@ -659,6 +659,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			return;
 		}
 
+		const wallet = address[0];
 
 		//setData([]);
 
@@ -669,7 +670,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		try {
 
-			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${address}&stakingwallet=${stakingWalletAddress}`);
+			const response = await fetch(`/api/game-fetch-nfts?chainid=${chainId}&contract=${contractAddress}&wallet=${wallet}&stakingwallet=${stakingWalletAddress}`);
 
 			if (!response.ok) {
 				alert("Something went wrong! Check your Input or Connection====");
@@ -796,20 +797,22 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 	const depositNFT = async (tokenId) => {
+
+		console.log("useGameNFT depositNFT address", address);
 		
 
 	//const depositNFT = async (e) => {
 		//e.preventDefault();
 		//setTokenId("384");
 
-		console.log("depositNFT tokenId", tokenId);
+		console.log("useGameNFT depositNFT tokenId", tokenId);
 
 		if (tokenId === "") {
 			alert("Please provide tokenId!");
 			return;
 		}
 
-		console.log("depositNFT data.length", data.length);
+		console.log("useGameNFT depositNFT data.length", data.length);
 
 
 		//setData([]);
@@ -825,7 +828,8 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			//console.log("contract", contract);
 			
-			const from = window.klaytn.selectedAddress;
+			//const from = window.klaytn.selectedAddress;
+			const from = address[0];
 
 
 			
@@ -836,7 +840,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	//const chainId = "1001"; // baobab
 			*/
 
-			//const to = stakingWalletAddress;
+			const to = stakingWalletAddress;
+
+			/*
 			let to = "";
 
 			if (chainId === "8217") {
@@ -851,7 +857,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				///  info@nuklabs.com
 				//to = "0x6a80D8Afba916f0AAE4B0Dd7B528b2B28eabD567";
 			}
-
+			*/
 
 
 			//const to = "0x7e24b4FCa9d152b6C88Da278DfcF69C129E524f5";
@@ -879,8 +885,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 			if (transfer) {
-				
-
 
 				let tokenUri;
 				for(let idx=0; idx < data.length; idx++){
@@ -933,9 +937,10 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 				///////////////////////
 				updateData[idx].staking = "true";
-				//updateData[idx].timeLeft = "true";
-				//updateData[idx].maturityLevel = "true";
-				//updateData[idx].miningAmount = "true";
+				updateData[idx].timeLeft = "4 years 11 month 30 days";
+				updateData[idx].maturityLevel = "Level 1";
+				updateData[idx].miningAmount = "0";
+
 
 				setSelectedCard(updateData[idx]);
 
@@ -1003,11 +1008,12 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-	const processWithdrawNFT = async (tokenId) => {
+	const processWithdrawNFT = async (wallet, tokenId) => {
 
 		try {
 
-			const wallet = window.klaytn.selectedAddress;
+			//const wallet = window.klaytn.selectedAddress;
+			
 
 			const response = await fetch(`/api/withdraw-nft?stakingwallet=${stakingWalletAddress}&chainid=${chainId}&contract=${contractAddress}&wallet=${wallet}&tokenid=${tokenId}`);
 
@@ -1117,14 +1123,17 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		//e.preventDefault();
 
-		console.log("withdrawNFT tokenId", tokenId);
+		console.log("useGameNFT withdrawNFT address[0]", address[0]);
+		console.log("useGameNFT withdrawNFT tokenId", tokenId);
 
 		if (tokenId === "") {
 			alert("Please provide tokenId!");
 			return;
 		}
 
-		const wallet = window.klaytn.selectedAddress;
+		//const wallet = window.klaytn.selectedAddress;
+
+		const wallet = address[0];
 
 		setIsWithdrawing(true);
 
@@ -1158,7 +1167,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 			console.log("isWithdrawing", isWithdrawing);
 
-			processWithdrawNFT(tokenId);
+			processWithdrawNFT(wallet, tokenId);
 			
 		})
 		.once('error', error => {

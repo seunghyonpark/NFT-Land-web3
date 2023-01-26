@@ -494,6 +494,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 					ref={refUnstake}
 					className={`
 						my-5 w-auto self-center rounded-lg bg-regal-red px-5 py-1 font-normal text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] duration-200  ease-in-out hover:bg-teal-300
+						
 					`}
 					//onClick={(e) => {
 					//	e.preventDefault();
@@ -502,6 +503,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 					onClick={(e) => {
 						e.preventDefault();
+						console.log("GameMain address", address);
 						if (address === "") { setShowModalLoginAlert(true); return; }
 						if (selectedCard.staking !== "true") { setShowModalUnstakeAlert(true); return;}
 						setShowModalUnstake(true);
@@ -570,8 +572,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				<div className="flex-1"></div>
 				<Image
 					onClick={() => setShowModal(true)}
-					className=" ml-6 h-12 w-12 flex-none" 
-					src={`/notice.gif`}
+					className=" h-12 w-12 flex-none " 
+					src={`/notice.png`}
 					alt={`notice`}
 					width={500}
 					height={500} 

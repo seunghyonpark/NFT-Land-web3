@@ -150,6 +150,7 @@ export default async function handler(req, res) {
 
 
 		console.log("game-fetch-nfts start======");
+		console.log("game-fetch-nfts wallet", wallet);
 
 		const  contractName = 'GOGODINO Official';
 
@@ -227,11 +228,15 @@ export default async function handler(req, res) {
 				nft.miningAmount = "0.00000000";
 
 
+				/*
 				if (idx === 0) {
 					nft.selected = true;
 				} else {
 					nft.selected = false;
 				}
+				*/
+
+				nft.selected = false;
 
 				nft.staking = "false";
 
@@ -282,7 +287,7 @@ export default async function handler(req, res) {
 
 				nft.tokenId = json.items[idx].tokenId;
 
-				nft.timeLeft = "4 years 11 month 354 days";
+				nft.timeLeft = "4 years 11 month 30 days";
 
 				nft.timeStart = json.items[idx].regDatetime;
 

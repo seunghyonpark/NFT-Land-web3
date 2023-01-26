@@ -225,7 +225,7 @@ export default async function handler(req, res) {
 
 
 					/*
-					const [timeLeft, setTimeLeft] = useState("0 years 0 month 0 days"); //4 years 11 month 354 days
+					const [timeLeft, setTimeLeft] = useState("0 years 0 month 0 days"); //4 years 11 month 30 days
 					const [maturityLevel, setMaturityLevel] = useState("Level 0");
 					const [miningAmount, setMiningAmount] = useState("0.00000000");
 					*/

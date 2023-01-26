@@ -47,13 +47,17 @@ export default function StakingPage ({
 
 	useEffect(() => {
 
+		console.log("StakingPage useEffect address", address);
+
 		if (address === "") {
 
 			setDisplayAddress("");
 
 		} else {
 
-			setDisplayAddress(String(address).substring(0,4) + "...." + String(address).slice(-4));
+			const wallet = address[0];
+
+			setDisplayAddress(String(wallet).substring(0,4) + "...." + String(wallet).slice(-4));
 
 		}
 
@@ -78,11 +82,13 @@ export default function StakingPage ({
 		<div className=" 
 			flex flex-col">
 
-{/*
+
 			<div className=" 
-				m-0
+				
+				m-3
+				
 			">
-	*/}
+	
 				<h1 className=" 
 					text-right text-2xl font-extrabold text-amber-400 drop-shadow-xl truncate
 					">
@@ -145,9 +151,9 @@ export default function StakingPage ({
 				</div>			
 				*/}
 
-{/*
+
 			</div>
-			*/}
+			
 
 		</div>
 
