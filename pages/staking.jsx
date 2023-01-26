@@ -378,10 +378,7 @@ export default function Staking ({
 				<meta property="og:title" content="GANGNAM"></meta>
 				<meta property="og:description"
 					content="
-					Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
-
-Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
-Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
+					GANGNAM
 					">
 				</meta>
 				<meta property="og:image" content="https://a.nuklabs.xyz/api/og?t=1234"></meta>
@@ -391,10 +388,7 @@ Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own uni
 
 				<meta name="description"
 					content="
-					Sunmiya Club is a Klaytn based PFP NFT project with ‘MIYA’ as a main IP, the character motivated by global K-POP artist Sunmi.
-
-Based on concrete technology and moves, broad networks with industries, and solid communities, we serve as a bridge to connect metaverse and offline,
-Sunmiya Club is one representative IP of Web 3.0 era, expanding with our own universe and collaborating with various established industries and metaverse IPs.
+					GANGNAM
 					">
 				</meta>
 
