@@ -1,17 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
-
-
 import classes from "./index.module.css";
 
-import { useRouter } from "next/router";
 import Script from "next/script";
 
-import CardMain from "../../components/CardMain.jsx";
+import CardMain from "../CardMain.jsx";
 
 import useStakeNFT from "../../hooks/useStakeNFT.js";
 
+import { useState, useEffect, useRef } from "react";
 
 
 // --------------------------
@@ -19,56 +16,28 @@ export default function GameCardStaked({
 	cardData,
 	cryptoTowerAddress,
 	loadingCubesAddress,
-	depositingNFTAddress,
-	dataProcessingAddress,
 	depositNFT,
-	setTokenId,
 	withdrawNFT,
+	selectNFT,
 }) {
 
+	let cssText = "";
 
 
-
-
-	/*
-	import { CountUp } from 'https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.js'
-
-	function countStart(){
-	  const $counters = document.querySelectorAll(".js-count-up"),
-			options = {
-			  useEasing: true,
-			  useGrouping: true,
-			  separator: ",",
-			  decimal: "."
-			};
-	
-	  $counters.forEach( (item) => {
-		const value = item.dataset.value;
-		const counter = new CountUp(item, value, options);
-		counter.start();
-	  });
+	if (cardData.staking === "true") {
+		//cssText = "mix-blend-color-burn";
+		cssText = "mix-blend-saturation";
 	}
-	
-	new Waypoint({
-	  element: document.querySelector('.level'),
-	  handler: function() {
-		countStart()
-		//this.destroy() //for once
-	  },
-	  offset: '50%'
-	});
-	*/
 
 
 
+	//const [isSelect, setIsSelect] = useState(false);
 
+	const ref = useRef(null);
 
-	const [isWithdrawing, setIsWithdrawing] = useState(false);
+	//cardData.selected = false;
 
-	const [miningAmount, setMiningAmount] = useState("0.00000000");
-
-
-
+	//const [isLoading, setIsLoading] = useState(false);
 
 	//const { isLoading } = useStakeNFT(cardData.tokenId);
 
@@ -76,122 +45,7 @@ export default function GameCardStaked({
 	//const { depositNFT, withdrawNFT, setTokenId, isInHome, isLoading } = useMintNFT(cardData.owner);
 
 
-	const refNFTImage = useRef(null);
-	
-	const router = useRouter();
 
-	const [loading, setLoading] = useState(false);
-
-
-
-
-	/*
-						const today = new Date();
-						console.log(today);
-						console.log("today fullyear", today.getFullYear());
-
-						console.log(json.items[idx].regDatetime);
-
-						const startday = new Date(json.items[idx].regDatetime);
-						console.log("startTime", startday);
-
-						console.log("today fullyear", today.getFullYear());
-						console.log("startday fullyear", startday.getFullYear());
-
-						const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
-						
-
-						console.log("inDays", inDays);
-
-						const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-
-						console.log("inSeconds", inSeconds);
-
-	*/
-
-
-
-
-	useEffect(() => {
-		
-		console.log("GameCardStaked useEffect=====");
-
-		//console.log("GameCardStaked useEffect cardData", cardData);
-
-		//if (cardData === "") return;
-
-
-
-
-		if (cardData) {
-			if(cardData.staking === "true") {
-
-				const today = new Date();
-				const startday = new Date(cardData.timeStart);
-				//console.log("startday", startday);
-
-				const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
-				//console.log("inDays", inDays);
-
-				const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-				console.log("inSeconds", inSeconds);
-
-				setMiningAmount(Number(inSeconds/100000000).toFixed(8));
-
-			}
-
-		}
-
-		
-		/*
-		let i = 0;
-		function pollDOM() {
-		  //console.log(i);
-		  i++;
-
-		  const today = new Date();
-		  const startday = new Date(cardData.timeStart);
-		  //console.log("startday", startday);
-
-		  const inDays = Math.floor((today.getTime()-startday.getTime())/(24*3600*1000));
-		  //console.log("inDays", inDays);
-
-		  const inSeconds = Math.floor((today.getTime()-startday.getTime())/1000);
-		  console.log("inSeconds", inSeconds);
-
-		  setMiningAmount(Number(inSeconds/100000000).toFixed(8));
-
-		  ////////setMiningAmount(String(Number(miningAmount).toFixed(2)));
-		}
-		*/
-		
-		//const interval = setInterval(pollDOM, 1000);
-
-		if (cardData) {
-
-		} else {
-			//clearInterval(interval);
-		}
-
-		return () => {
-			
-			//clearInterval(interval);
-
-		}
-
-		
-
-
-	//}, [cardData, setMiningAmount]);
-	}, [cardData, setMiningAmount]);
-
-	
-
-
-	const genNumber = () => {
-		console.log("genNumber");
-		//document.querySelector("div").style.setProperty("--percent", Math.random());
-	}
 
 	//console.log("depositNFT", depositNFT);
 
@@ -213,26 +67,6 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 	*/
 
 
-	/*
-	
-	const sayHello = async (e) => {
-		//alert(`Hello, ${name}!`);
-
-		console.log(`Hello, ${cardData.tokenId}!`);
-
-
-		console.log("cardData", cardData);
-
-		//setTokenId(tokenId);
-
-		/////setIsWithdrawing(true);
-
-		//withdrawNFT(tokenId);
-
-		///ref.current.src = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
-	};
-	*/
-	
 	const sayHello = async (e) => {
 		e.preventDefault();
 
@@ -251,292 +85,226 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 		}
 	};
 
-	  
+
+	const selectCard = async (e) => {
+
+		console.log(`selectCard, ${cardData.tokenId}!`);
 
 
-	//const person.imageUrl = "";
-	const person = new Object();
-	person.imageUrl = "";
-	person.name = "Wayne";
-	person.email = "wayne@nuklabs.com";
-		
-			
+	};
 
+	const handleClick = () =>  {
+
+		console.log("GameCard handleClick");
+
+
+		//cardData.selected = true;
+
+
+		//ref.current.style.backgroundColor = "yellow";
+
+		//ref.current.style.border-width = 6;
+
+		//border-width: 8px;
+
+		//ref.current.style.display = "none";
+
+		//ref.current.style.className = "m-auto flex  max-w-[70%] flex-col rounded-lg  border-8 border-gray-300 p-3 sm:m-0 sm:max-w-lg hover:mix-blend-hard-light";
+
+	}
 
 	/*
-	jsonTokenUri {
-  name: 'GOGO DINO META EXPLORERS #447',
-  description: 'We build a business partnership such as the distribution of profits from newly produced animations and webtoons with holders.',
-  image: 'https://gogodino.saltmarble.io/metaexplorers/images/447.png',
-  edition: 447,
-  attributes: [
-    { trait_type: 'Background', value: 'BG_02' },
-    { trait_type: 'Body', value: 'hood_jacket_05' },
-    { trait_type: 'Head', value: 'viki_yellow_02' }
-  ]
-}
-*/
+	className={`container m-auto flex  min-h-screen flex-col px-5 text-center sm:px-10 md:px-20 ${
+				data !== [] ? "justify-evenly" : "justify-between"} 
+			`}
+	*/
+
+	
+	useEffect(() => {
+
+		//console.log("GameCard cardData.selected "+cardData.tokenId, cardData.selected);
+
+		//ref.current.style = cardData.cssText;
+
+		if (cardData.selected) {
+			ref.current.style = "border-color: rgb(234,51,133); border-width: 5px;";
+		} else {
+			ref.current.style = "border-gray-300 border-1px;";
+		}
+
+		//cardData.selected ? "border-color: yellow; border-width: 7px;"
+		//: "border-color: transparent; border-width: 0px;"
 
 
-{/*
-<div className="m-auto flex  max-w-[70%] flex-col rounded-lg border border-gray-300 p-3  sm:m-0 sm:max-w-lg ">
-
-sm:px-10 md:px-200 lg:px-200 xl:px-300
-
-rounded-lg border border-gray-300
+	}, [cardData.selected, cardData.tokenId]);
 
 
-bg-cover bg-center bg-[url('/img_tomo.png')]
+	useEffect(() => {
 
+		//console.log("GameCard cardData.staking", cardData.staking);
 
+		//ref.current.style = cardData.cssText;
 
+	}, [cardData.staking]);
+	
 
-		sm:p-5 md:p-5 lg:p-16 xl:p-20
-
-		sm:m-0 sm:max-w-lg 
-
-
-
-		m-auto 
-*/}
-
-
-
+	//${cardData.selected !== true ? "border" : "border-8"}
 
 
 
 
 	return (
 
-		<div className="
-			flex  max-w-[100%] flex-col
-			rounded-lg  border-gray-300 p-3 sm:m-0 sm:max-w-lg
+		/*
+		itemEls.current[idx].style.cssText = "border-color: rgb(234,51,133); border-width: 7px;";
 
-			sm:p-10 md:p-10 lg:p-20 xl:p-28
-		
-			
-			
-		
-		">
+		data[idx].cssText = "border-color: yellow; border-width: 7px;";
 
+		${cardData.cssText}
+		*/
 
+		<div ref={ref}
+			className={`
+			m-auto flex  max-w-[98%] flex-col rounded-lg p-3 sm:m-0 sm:max-w-lg 
+			hover:mix-blend-hard-light
+			border
+
+			`}
+			onClick={(e) => {
+				e.preventDefault(); 
+				handleClick();
+			}}
+			>
 
 
 			{/*
 			<Script src={scriptAddress} />
 			*/}
 
+			
+
+
+			{cardData.staking === 'false' && (
+				<Image className={`
+					rounded-lg
+					drop-shadow-2xl
+					h-500 w-500
+					bg-cover bg-center bg-[url('/iphone-spinner.gif')]
+					
+					`}
+
+
+					src={
+						cardData?.media[0]?.gateway ||
+						"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+					}
+					alt={cardData?.description}
+					width={500}
+					height={500}
+				/>
+			)}
+
+			{cardData.staking === 'true' && (
+
+				//<div className={classes.load}
+
+				<div className="relative">
+				
+					<Image className="
+						rounded-lg
+						drop-shadow-2xl
+						h-500 w-500
+						bg-cover bg-center bg-[url('/iphone-spinner.gif')]
+						grayscale "
+
+						src={
+							cardData?.media[0]?.gateway ||
+							"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+						}
+						alt={cardData?.description}
+						width={500}
+						height={500}
+					/>
+
+					<div className="absolute bottom-0 left-0 right-0 top-0 bg-regal-red bg-opacity-30 " >
+						
+					</div>
+
+					<h1 className="absolute text-normal text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+						Staking...
+					</h1>
+					
+				</div>
+
+			)}
+
+
+			
+
+			
+
+								{/*
+					<h1 className="text-center text-2xl font-extrabold text-amber-400 drop-shadow-xl ">
+					{address}
+				</h1>
+				*/}
+
 
 			{/* title */}
-
 			{/*
-			<button
-					className="invisible w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+			<div className="mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
+				<p>Background: BG_02</p>
+				<p>Body: hood_jacket_05</p>
+    			<p>Head: viki_yellow_02</p>
+			</div>
+			*/}
 
-					onClick={() => (sayHello(), console.log("click") )}
-				>
-					{
-						cardData.staking === 'true'
-						? <p className="font-medium">Stop Staking</p>
-						: <p className="font-medium">Start Staking</p>
-					}
-			</button>
-				*/}
+			<div className=" mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
+				{cardData.contract.symbol} #{cardData.tokenId}
+			</div>
 
-
-
-			
-			{
-				(cardData.length === 0) &&
-
-					<Image
-						src="/nft_01.png"
-						alt=""
-						width={300}
-						height={300}
-					/>
-			
-			}
-
-{/*
-			className={`container m-auto flex  min-h-screen flex-col px-6 text-center sm:px-10 md:px-20 ${
-				data !== [] ? "justify-evenly" : "justify-between"
-			} `}
-*/}
-
-			
-
-
-
-			
-			{
-				(cardData.length !== 0) &&
-
-			<Image className={`
-
-				drop-shadow-2xl
-				h-500 w-500
-				bg-cover bg-center
-				bg-[url('/iphone-spinner.gif')]
-				${cardData.staking === "true" ? "grayscale" : ""}
-
-				
-				
-				`}
-
-				src={
-					cardData?.media[0]?.gateway ||
-					"https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-				}
-				alt={cardData?.description}
-				width={500}
-				height={500}
-			/>
-
-
-
-
-
+			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">
+				<div className="text-left">$SML</div>
+				<div className="flex-auto">
+					<div className={classes.number}>{Number(cardData.miningAmount).toFixed(4)}</div>
+				</div>
+			</div>
 			
 			
-			}
 
 
-
-			{/* contract info */}
-			{/*
+			{/* token info */}
+	{/*		
 			<div className="mt-2 flex table-fixed flex-row justify-center">
 				<div className=" truncate rounded-l-md bg-teal-200 px-2 py-1">
-					Contract: {cardData.contract.address}
+					# {cardData.tokenId}
 				</div>
+				<div className=" truncate rounded-r-md bg-teal-200 px-2 py-1">
+					
+				</div>
+			</div>
+
+*/}
+
+		
+
+			{/* staking info */}
+
+			{/*	
+			<div className="mt-2 flex table-fixed flex-row justify-center">
+
 
 				<button
-					className="w-auto rounded-r-md bg-teal-500 px-2 py-1 hover:mix-blend-hard-light"
+					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
 
-					onClick={() =>
-						navigator.clipboard.writeText(cardData.contract.address)
-					}
-				>
-					<p className="font-medium">Copy</p>
-				</button>
-			</div>
-				*/}
+					//onClick={() =>
+					//	navigator.clipboard.writeText(data.contract.address)
+					//}
 
+					onClick={(e) => sayHello(e)}
 
-			{/*
-
-			mix-blend-hard-light hover:mix-blend-normal">
-
-
-			(cardData.length !== 0) &&
-			*/}
-			<div className="mt-0 flex table-fixed flex-row justify-center">
-
-				<div 
-					className=" w-auto rounded-l-md rounded-r-md bg-teal-500 px-3 py-1
-						mix-blend-normal">
-
-						<ul role="list" className="p-3 divide-y divide-slate-200">
-						{/*#each people as person
-							<!-- Remove top/bottom padding when first/last child -->*/}
-
-							<li className="flex py-4 first:pt-0 last:pb-0">
-							<Image className="h-5 w-5 rounded-full" src="/enhance.png" alt=""
-								width={500}
-								height={500}
-							/>
-							<div className="ml-3 overflow-hidden text-left">
-								<p className="text-sm font-medium text-slate-900">Owner</p>
-								<p className="text-sm text-slate-900 truncate">{cardData.previousOwner}</p>
-							</div>
-							</li>
-
-
-
-							<li className="flex py-4 first:pt-0 last:pb-0">
-							<Image className="h-5 w-5 rounded-full" src="/enhance.png" alt=""
-								width={500}
-								height={500}
-							/>
-							<div className="ml-3 overflow-hidden text-left">
-								<p className="text-sm font-medium text-slate-900">Token ID</p>
-								<p className="text-sm text-slate-900 truncate">{cardData.tokenId}</p>
-							</div>
-							</li>
-
-							<li className="flex py-4 first:pt-0 last:pb-0">
-							<Image className="h-5 w-5 rounded-full" src="/staking.png" alt=""
-								width={500}
-								height={500}							
-							/>
-							<div className="ml-3 overflow-hidden text-left">
-								<p className="text-sm font-medium text-slate-900">Time Left</p>
-								<p className="text-sm text-slate-900 truncate">{cardData.timeLeft}</p>
-							</div>
-							</li>
-
-							<li className="flex py-4 first:pt-0 last:pb-0">
-							<Image className="h-5 w-5 rounded-full" src="/battle.png" alt=""
-								width={500}
-								height={500}							
-							/>
-							<div className="ml-3 overflow-hidden text-left">
-								<p className="text-xs  font-medium text-slate-900" >NFT Maturity</p>
-								<p className="text-sm text-slate-900 truncate">{cardData.maturityLevel}</p>
-							</div>
-							</li>
-
-							<li className="flex py-4 first:pt-0 last:pb-0">
-							<Image className="h-5 w-5 rounded-full" src="/sml.png" alt=""
-								width={500}
-								height={500}							
-							/>
-							<div className="ml-3 overflow-hidden text-left">
-								<p className="text-xs  font-medium text-slate-900" >Mining Amount ($SML)</p>
-								<p className="text-sm text-slate-900 truncate">{miningAmount}</p>
-							</div>
-							</li>
-
-						{/*/each*/}
-						</ul>
-				</div>
-
-			</div>
-			{/*
-			}
-		*/}
-			
-
-{/*
-			<button
-				className="mt-2 w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
-
-				//onClick={() =>
-				//	navigator.clipboard.writeText(data.contract.address)
-				//}
-
-				onClick={(e) => sayHello(e)}
-
-				//onClick={() => selectNFT(cardData)}
-				
-			>
-				{
-					cardData.staking === 'true'
-					? <p className="font-medium">Stop Staking</p>
-					: <p className="font-medium">Start Staking</p>
-				}
-			</button>
-
-			*/}
-
-			
-			{/* action 
-			<div className="mt-2 flex table-fixed flex-row justify-center ">
-
-				<button
-					className="w-auto rounded-l-md rounded-r-md bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
-
-					onClick={() => (sayHello(cardData.tokenId), console.log("click") )}
+					//onClick={() => selectNFT(cardData)}
+					
 				>
 					{
 						cardData.staking === 'true'
@@ -544,24 +312,28 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 						: <p className="font-medium">Start Staking</p>
 					}
 				</button>
+				*/}
+
+
+				{/*
+				<button
+					className="w-auto rounded-l-md rounded-r-md text-sm bg-amber-400 px-2 py-1 hover:mix-blend-hard-light"
+
+					//onClick={() =>
+					//	navigator.clipboard.writeText(data.contract.address)
+					//}
+
+					onClick={ (e) => selectCard(e) }
+				>
+					{
+						<p className="font-medium">Select</p>
+					}
+				</button>
+				
 
 			</div>
-*/}
 
-
-
-
-
-
-			{/* data staking animation */}
-			
-			{/*className="mt-2 rounded-md bg-teal-50 px-2"
-						crypto-tower
-			cryptoTowerAddress
 			*/}
-			
-
-
 
 			{/*
 			<CardMain
@@ -586,10 +358,27 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 			)}
 			*/}
 
-
+			{/* data fetching animation */}
+			{/*
+			{isLoading && (
+				<div className="m-auto h-[18rem] w-[18rem] -translate-y-5 opacity-80 drop-shadow-xl">
+					<lottie-player
+						id="loading-cubes"
+						src={loadingCubesAddress}
+						speed="1"
+						loop
+						autoplay
+					></lottie-player>
+				</div>
+			)}
+			*/}
 
 		</div>
 
+
+
+
 	);
 }
+
 

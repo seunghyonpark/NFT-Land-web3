@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import classes from "./index.module.css";
 
-import GameCard from "../GameCard/GameCard";
+import GameCardStaked from "../GameCardStaked/index";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState, useEffect, useRef } from "react";
@@ -309,7 +309,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						ref={(element) => itemEls.current.push(element)}
 						*/
 					>
-						<GameCard
+						<GameCardStaked
 							key={uuidv4()}
 
 							//key={nft.tokenId}
@@ -324,7 +324,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 							withdrawNFT={withdrawNFT}
 							selectNFT={selectNFT}
 						>
-						</GameCard>
+						</GameCardStaked>
 					</div>
 
 					))}

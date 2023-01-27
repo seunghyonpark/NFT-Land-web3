@@ -20,8 +20,17 @@ const alchemy = new Alchemy({
 //const chainId = "1001"; // baobab
 
 
+/*
 const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
+*/
+
+const accessKeyId = "KASK2RTKVLLILHRX4NQ9FXHU";
+const secretAccessKey = "KMD0T_gZEQTOCr5k95AvyNedy6HZMO3hNYzcDrbo";
+
+
+
+
 // Set an authorization through 'caver.initKASAPI' function
 //const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
@@ -67,9 +76,9 @@ export default async function handler(req, res) {
 
 
 		//console.log("game-fetch-nfts-more chainid", chainid);
-		console.log("game-fetch-nfts-more contract", contract);
+		//console.log("game-fetch-nfts-more contract", contract);
 		//console.log("game-fetch-nfts-more wallet", wallet);
-		console.log("game-fetch-nfts-more stakingwallet", stakingwallet);
+		///console.log("game-fetch-nfts-more stakingwallet", stakingwallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
