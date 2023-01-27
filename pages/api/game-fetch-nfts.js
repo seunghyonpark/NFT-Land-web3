@@ -28,8 +28,12 @@ const alchemy = new Alchemy({
 //const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
 //const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
 
-const accessKeyId = "KASK2RTKVLLILHRX4NQ9FXHU";
-const secretAccessKey = "KMD0T_gZEQTOCr5k95AvyNedy6HZMO3hNYzcDrbo";
+
+// wayne@nuklabs.com
+const accessKeyId = "KASK0BAC1GACFO1CKKQ7X8C0";
+const secretAccessKey = "5MYKVnvXI2kDb7RxNL_UUgOFOrHEhJo0QCbDa4dG";
+
+
 
 //KAS_ACCESS_KEY_ID_NUKLABS=KASK2RTKVLLILHRX4NQ9FXHU
 //KAS_SECRET_ACCESS_KEY_NUKLABS=KMD0T_gZEQTOCr5k95AvyNedy6HZMO3hNYzcDrbo
