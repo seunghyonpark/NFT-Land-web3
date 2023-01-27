@@ -213,12 +213,12 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		if (address) {
 
-			console.log("useGameNFT address", address);
+			//console.log("useGameNFT address", address);
 
 			//const wallet = window.klaytn.selectedAddress;
 			const chainId = window.klaytn.chainId;
 
-			console.log('Connected to chain:' + chainId);
+			//console.log('Connected to chain:' + chainId);
 			
 		}
 		else return;
@@ -599,7 +599,7 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		e.preventDefault();
 
-		console.log("useGameFNT fetchNFTs address",address);
+		//console.log("useGameFNT fetchNFTs address",address);
 
 		if (address === "") {
 			//alert("Please provide Wallet Address!");
@@ -638,8 +638,8 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 
 
-			console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
-			console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
+			//console.log("fetchData.miningAmountTotal=", fetchData.miningAmountTotal);
+			//console.log("fetchData.data.ownedNfts.length=", fetchData.data.ownedNfts.length);
 
 			if (fetchData.data.ownedNfts.length === 0) {
 				//setIsInHome(true);

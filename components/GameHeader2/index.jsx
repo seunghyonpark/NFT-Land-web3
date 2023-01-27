@@ -209,7 +209,7 @@ export default function GameHeader2({
 	
 	useEffect(() => {
 
-		console.log("GameHeader2 useEffect address", address);
+		//console.log("GameHeader2 useEffect address", address);
 
 		//setAddress(window.klaytn.selectedAddress);
 

@@ -523,7 +523,7 @@ export default function Home({
 //  --------------------------------
 export async function getStaticProps() {
 
-	console.log("getStaticProps===============");
+	//console.log("getStaticProps===============");
 
 
 	// async/await testing!

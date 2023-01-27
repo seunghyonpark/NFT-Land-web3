@@ -80,7 +80,7 @@ export default function GameMain({
 
 	useEffect(() => {
 
-        console.log("GameMain miningAmountTotal", miningAmountTotal);
+        //console.log("GameMain miningAmountTotal", miningAmountTotal);
 
 		const numFix = 4;
 
@@ -92,7 +92,7 @@ export default function GameMain({
 
 		if (miningAmountTotal === "0") {
 
-			console.log("==========");
+			///console.log("==========");
 			
 			const amount = Number(0).toFixed(numFix);
             setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));

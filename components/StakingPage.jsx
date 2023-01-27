@@ -47,7 +47,7 @@ export default function StakingPage ({
 
 	useEffect(() => {
 
-		console.log("StakingPage useEffect address", address);
+		//console.log("StakingPage useEffect address", address);
 
 		if (address === "") {
 
