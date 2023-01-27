@@ -8,6 +8,11 @@ import { consoleLog } from "mocha/lib/reporters/base";
 //import { calculateOverrideValues } from "next/dist/server/font-utils";
 import walletAddress from "../../constants/walletAddress.json";
 
+
+//import { setOptions, getSession } from "next-auth/client";
+
+//setOptions({ site: process.env.SITE });
+
 // ----------------------------
 /*
 const alchemy = new Alchemy({
@@ -20,8 +25,16 @@ const alchemy = new Alchemy({
 //const chainId = "1001"; // baobab
 
 
-const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
-const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
+//const accessKeyId = process.env.KAS_ACCESS_KEY_ID;
+//const secretAccessKey = process.env.KAS_SECRET_ACCESS_KEY;
+
+const accessKeyId = "KASK2RTKVLLILHRX4NQ9FXHU";
+const secretAccessKey = "KMD0T_gZEQTOCr5k95AvyNedy6HZMO3hNYzcDrbo";
+
+//KAS_ACCESS_KEY_ID_NUKLABS=KASK2RTKVLLILHRX4NQ9FXHU
+//KAS_SECRET_ACCESS_KEY_NUKLABS=KMD0T_gZEQTOCr5k95AvyNedy6HZMO3hNYzcDrbo
+
+
 // Set an authorization through 'caver.initKASAPI' function
 //const caver = new CaverExtKAS(chainId, accessKeyId, secretAccessKey);
 
@@ -55,6 +68,11 @@ export default async function handler(req, res) {
 
 	//console.log("game-fetch-nfts req",req);
 
+
+	//const session = await getSession({ req });
+	//console.log('gaem-fetch-nfts session', session);
+
+
 	try {
 
 		if (req.method !== "GET") {
@@ -67,10 +85,10 @@ export default async function handler(req, res) {
 
 		
 		
-		console.log("game-fetch-nfts chainid", chainid);
-		console.log("game-fetch-nfts contract", contract);
-		console.log("game-fetch-nfts wallet", wallet);
-		console.log("game-fetch-nfts stakingwallet", stakingwallet);
+		//console.log("game-fetch-nfts chainid", chainid);
+		//console.log("game-fetch-nfts contract", contract);
+		//console.log("game-fetch-nfts wallet", wallet);
+		//console.log("game-fetch-nfts stakingwallet", stakingwallet);
 
 
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
@@ -132,11 +150,7 @@ export default async function handler(req, res) {
 				//data.totalSupply
 
 				nftsGlobal.mintingCountGlobal = caver.utils.hexToNumber(data.totalSupply);
-
-				
 			}
-
-
 
 			res.json({ message: "Fetch successful!", data:  nftsGlobal});
 
@@ -172,6 +186,8 @@ export default async function handler(req, res) {
 
 			try {
 				//nft.owner = data.itmes[idx].owner;  error
+
+
 
 				nft.owner = wallet;
 

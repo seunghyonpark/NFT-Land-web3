@@ -23,7 +23,7 @@ async function main() {
 
     //const account = "0x22571950F07e5acb92160E133B3878267c86aF56";
 
-    const account = "0xEf3e790e3cECf0142CD85e1926Af89A6c75a8B63"; // ERC721Staking
+    const account = "0xef3e790e3cecf0142cd85e1926af89a6c75a8b63"; // ERC721Staking contract
     
     const url = "https://api.baobab.klaytn.net:8651";
   

@@ -104,9 +104,9 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 	useEffect(() => {
 
-		console.log("useGameNFT useEffect contractAddress==========", contractAddress);
-		console.log("useGameNFT useEffect chainId==========", chainId);
-		console.log("useGameNFT useEffect stakingWalletAddress==========", stakingWalletAddress);
+		//console.log("useGameNFT useEffect contractAddress==========", contractAddress);
+		//console.log("useGameNFT useEffect chainId==========", chainId);
+		//console.log("useGameNFT useEffect stakingWalletAddress==========", stakingWalletAddress);
 
 
 
@@ -125,20 +125,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				const fetchData = await response.json();
 
-
-				/*
-	
-				const range = 3;
-				const randomNumber = Math.random() * range;
-	
-				const stakingCountGlobal = Number(fetchData.data.stakingCountGlobal) + Math.floor(randomNumber);
-	
-				const miningAmountGlobal = Number(fetchData.data.miningAmountGlobal) + randomNumber/100000000;
-	
-				setStakingCountGlobal(stakingCountGlobal);
-	
-				setMiningAmountGlobal(miningAmountGlobal);
-				*/
 	
 				const stakingCountGlobal = fetchData.data.stakingCountGlobal;
 				setStakingCountGlobal(stakingCountGlobal);
@@ -160,8 +146,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 			}
 
 
-
-
 			try {
 				
 				const response = await fetch(`/api/game-fetch-nfts-more?chainid=${chainId}&contract=${contractAddress}&wallet=${address}&stakingwallet=${stakingWalletAddress}`);
@@ -172,15 +156,10 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				const fetchData = await response.json();
 	
-
-	
 				if (fetchData.data.ownedNfts.length === 0) {
-
 					setStakeDataGlobal(fetchData.data.ownedNfts);
 				} else {
 
-					
-	
 					// alchemy
 					setStakeDataGlobal(fetchData.data.ownedNfts);
 	
@@ -190,20 +169,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	
 				}
 	
-				/*
-				// update staking count
-				let sCount = 0;
-				for(let idx=0; idx < fetchData.data.ownedNfts.length; idx++){
-	
-					if (fetchData.data.ownedNfts[idx].staking === "true") {
-						sCount = sCount + 1;
-					}
-	
-				}
-				setStakingCount(String(sCount));
-				*/
-
-	
 			} catch (err) {
 				///setIsLoading(false);
 	
@@ -211,11 +176,6 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 				///alert("There was an error fetching NFTs!----");
 
 			}
-
-
-
-
-
 	
 		};
 
@@ -223,22 +183,12 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 
 		fetchNFTsGlobal();
 
-		/*
-		let i = 0;
-		function pollDOM() {
-			////console.log("useGameNFT useEffect i", i);
-			i++;
-
-			fetchNFTsGlobal();
-
-		}
-		*/
 
 		let intervalMiliSecond;
 		if (address) {
-			intervalMiliSecond = 30000;
+			intervalMiliSecond = 60000;
 		} else {
-			intervalMiliSecond = 50000;
+			intervalMiliSecond = 60000;
 		}
 
 		const interval = setInterval(fetchNFTsGlobal, intervalMiliSecond);

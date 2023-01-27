@@ -440,6 +440,18 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 						{/*#each people as person
 							<!-- Remove top/bottom padding when first/last child -->*/}
 
+							<li className="flex py-4 first:pt-0 last:pb-0">
+							<Image className="h-5 w-5 rounded-full" src="/enhance.png" alt=""
+								width={500}
+								height={500}
+							/>
+							<div className="ml-3 overflow-hidden text-left">
+								<p className="text-sm font-medium text-slate-900">Owner</p>
+								<p className="text-sm text-slate-900 truncate">{cardData.previousOwner}</p>
+							</div>
+							</li>
+
+
 
 							<li className="flex py-4 first:pt-0 last:pb-0">
 							<Image className="h-5 w-5 rounded-full" src="/enhance.png" alt=""

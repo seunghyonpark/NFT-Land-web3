@@ -32,10 +32,12 @@ module.exports = {
       gasPrice: 250000000000,
       accounts: [process.env.PRIVATE_KEY],
     },
+    /*
     gasReporter: {
       enabled: process.env.REPORT_GAS !== undefined,
       currency: "USD",
     },
+    */
   },
   solidity: {
     version: "0.8.17",

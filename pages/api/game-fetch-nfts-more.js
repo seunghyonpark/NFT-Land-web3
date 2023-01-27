@@ -214,7 +214,8 @@ export default async function handler(req, res) {
 
 		console.log("game-fetch-nfts-more data.items.length", data.items.length);
 
-		
+		//console.log("game-fetch-nfts-more data", data);
+
 
 		for(let idx=0; idx < data.items.length; idx++){
 	
@@ -223,7 +224,8 @@ export default async function handler(req, res) {
 			try {
 				//nft.owner = data.itmes[idx].owner;  error
 
-				nft.owner = wallet;
+				////nft.owner = wallet;
+				nft.owner = data.items[idx].previousOwner;
 
 				const contract = new Object();
 				contract.address = contractAddress;

@@ -68,12 +68,13 @@ export default async function handler(req, res) {
 
 		const { stakingwallet, chainid, contract, wallet, tokenid } = req.query;
 
+		/*
 		console.log("withdraw-nft stakingwallet",stakingwallet);
 		console.log("withdraw-nft chainid",chainid);
 		console.log("withdraw-nft contract",contract);
 		console.log("withdraw-nft wallet",wallet);
 		console.log("withdraw-nft tokenid",tokenid);
-
+		*/
 
 		const stakingWalletAddress = stakingwallet;
 
@@ -262,7 +263,7 @@ console.log("ret", ret);
 			withdrawTokenId
 		);
 		
-		console.log("withdraw-nft transferFrom result", result);
+		//console.log("withdraw-nft transferFrom result", result);
 
 
 
@@ -330,6 +331,7 @@ console.log("ret", ret);
 
 			const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?chainid=${chainid}&wallet=${wallet}&tokenid=${tokenId}`);
 
+			
 			if (response.ok) {
 
 			}

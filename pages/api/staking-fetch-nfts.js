@@ -155,7 +155,7 @@ export default async function handler(req, res) {
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
 		
 		
-		//console.log("game-fetch-nfts data", data);
+		//console.log("staking-fetch-nfts data", data);
 
 		//const response = await fetch("http://wallet.treasureverse.io/gogo");
 		//if (response.ok) {

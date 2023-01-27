@@ -80,6 +80,8 @@ export default async function handler(req, res) {
 		const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, stakingWalletAddress, nftQuery);
 		
 		
+		//console.log("fetch-stake-nfts data", data);
+
 
 		if (data.items.length === 0) {
 			const aaa = new Object();
