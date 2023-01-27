@@ -269,6 +269,12 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 					<div className={classes.number}>{Number(cardData.miningAmount).toFixed(4)}</div>
 				</div>
 			</div>
+
+			<div className=" mt-2 text-left text-xs rounded-md bg-teal-50 px-2">
+				Holder: { String(cardData.owner).substring(0,6) + "...." + String(cardData.owner).slice(-4) }
+
+				
+			</div>
 			
 			
 

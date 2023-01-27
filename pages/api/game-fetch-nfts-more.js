@@ -112,7 +112,7 @@ export default async function handler(req, res) {
 
 		// staked NFTs
 
-		/*
+		
 
 		
 
@@ -136,7 +136,7 @@ export default async function handler(req, res) {
 
 				const nft = new Object();
 
-				nft.owner = wallet;
+				nft.owner = json.items[idx].wallet;
 
 				nft.tokenId = json.items[idx].tokenId;
 
@@ -147,6 +147,8 @@ export default async function handler(req, res) {
 				nft.maturityLevel = "Level 1";
 
 				nft.miningAmount = json.items[idx].miningAmount;
+
+
 
 				//console.log("json.items[idx].tokenId", json.items[idx].tokenId );
 				//console.log("json.items[idx].miningAmount", json.items[idx].miningAmount );
@@ -174,6 +176,8 @@ export default async function handler(req, res) {
 				
 				nft.description = "";
 
+
+
 				////console.log(json.items[idx].uri);
 
 				const response = await fetch(json.items[idx].uri);
@@ -192,16 +196,15 @@ export default async function handler(req, res) {
 					//console.log("fetch tokenUri error="+data.items[idx].tokenUri);
 				}
 
-
-
 				ownedNfts.unshift(nft);
 
 			}
 
 		}
-		*/
+		
 
 
+		/*
 		// staked NFTs
 		// stakingwallet
 
@@ -308,7 +311,7 @@ export default async function handler(req, res) {
 			
 			ownedNfts.push(nft);
 		}
-
+		*/
 
 		
 		/*
