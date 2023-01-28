@@ -498,14 +498,7 @@ export default function Home({
 
 			</cards>
 
-
 			<Footer />
-
-
-
-
-
-
 
 		</div>
 

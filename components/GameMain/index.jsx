@@ -567,17 +567,27 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 
 		*/}
 
+		{/*
+	    <div class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
+      <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="max-w-xs" alt="Louvre" />
+      <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-indigo-700"></div>
+    </div>	
+	*/}
+
 
 			<div className="flex flex-row">
 				<div className="flex-1"></div>
-				<Image
-					onClick={() => setShowModal(true)}
-					className=" h-12 w-12 flex-none " 
-					src={`/notice.png`}
-					alt={`notice`}
-					width={500}
-					height={500} 
-				/>
+				<div class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
+					<Image
+						onClick={() => setShowModal(true)}
+						className=" h-12 w-12 flex-none " 
+						src={`/notice.png`}
+						alt={`notice`}
+						width={500}
+						height={500} 
+					/>
+					<div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-50 transition duration-300 ease-in-out bg-indigo-700"></div>
+				</div>
 			</div>
 
 			{showModal ? (

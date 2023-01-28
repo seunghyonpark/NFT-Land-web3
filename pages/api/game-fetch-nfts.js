@@ -307,9 +307,13 @@ export default async function handler(req, res) {
 
 				nft.tokenId = json.items[idx].tokenId;
 
-				nft.timeLeft = "4 years 11 month 30 days";
-
 				nft.timeStart = json.items[idx].regDatetime;
+
+				//nft.timeLeft = "4 years 11 month 30 days";
+
+				const miningDay = json.items[idx].miningDay;
+				nft.timeLeft = "4 years 11 month " + (30-miningDay) + " days";
+
 
 				nft.maturityLevel = "Level 1";
 

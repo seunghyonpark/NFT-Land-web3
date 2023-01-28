@@ -111,9 +111,6 @@ export default async function handler(req, res) {
 		let miningAmountTotal = 0;
 
 		// staked NFTs
-
-		
-
 		
 
 		const response = await fetch(`http://wallet.treasureverse.io/gogostakingmore?chainid=${chainid}&contract=${contractAddress}`);
@@ -140,9 +137,13 @@ export default async function handler(req, res) {
 
 				nft.tokenId = json.items[idx].tokenId;
 
-				nft.timeLeft = "4 years 11 month 354 days";
-
+				
 				nft.timeStart = json.items[idx].regDatetime;
+
+
+				const miningDay = json.items[idx].miningDay;
+				nft.timeLeft = "4 years 11 month " + (30-miningDay) + " days";
+
 
 				nft.maturityLevel = "Level 1";
 
