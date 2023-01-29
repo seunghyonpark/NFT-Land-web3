@@ -78,7 +78,6 @@ export default function Video() {
   }, [id]);
 
 
-
   return (
 
     <Background className="flex  h-screen w-full flex-row">
