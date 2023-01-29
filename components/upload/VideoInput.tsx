@@ -1,6 +1,14 @@
 import React, { useRef, useState } from "react";
 
-export default function UploadInput(props) {
+
+/*
+interface VideoProps {
+  isAudio: boolean;
+  setVideo: File;
+}
+*/
+
+export default function UploadInput(props: any) {
   
   const [video, setVideo] = useState("");
 
