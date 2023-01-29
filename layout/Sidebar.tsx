@@ -12,7 +12,14 @@ import { IoGameControllerOutline } from "react-icons/io5";
 
 import { Colors } from "../constants/colors";
 
-export default function Sidebar({ updateCategory }) {
+
+/*
+function getEmployee({ id, name }: { id: number; name: string }) {
+  return { id, name };
+}
+*/
+
+export default function Sidebar({ updateCategory }: {updateCategory: any} ) {
 
   const [active, setActive] = useState("All");
 
