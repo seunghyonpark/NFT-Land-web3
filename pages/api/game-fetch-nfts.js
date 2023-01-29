@@ -13,7 +13,8 @@ import { setOptions, getSession } from "next-auth/react";
 
 // This is an example of to protect an API route
 import { unstable_getServerSession } from "next-auth/next";
-import { authOptions } from "./auth/[...nextauth]";
+
+//import { authOptions } from "./auth/[...nextauth]";
 
 
 /*
@@ -105,21 +106,24 @@ export default async function handler(req, res) {
 	}
 	*/
 
-	const session = await unstable_getServerSession(req, res, authOptions);
+	//const session = await unstable_getServerSession(req, res, authOptions);
 
+	//const session = await unstable_getServerSession(req, res);
+
+	//console.log("game-fetch-nfts session", session);
+
+	/*
 	if (session) {
 
 	} else {
 
-		console.log("game-fetch-nfts session", session);
-
-		/*
+	
 		return res.status(400).json({
 			message: "You must be signed in to view the protected content on this page.",
 		});
-		*/
+		
 	}
-
+	*/
 
 	try {
 
