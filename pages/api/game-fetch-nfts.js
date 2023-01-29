@@ -9,7 +9,17 @@ import { consoleLog } from "mocha/lib/reporters/base";
 import walletAddress from "../../constants/walletAddress.json";
 
 
-//import { setOptions, getSession } from "next-auth/client";
+import { setOptions, getSession } from "next-auth/react";
+
+// This is an example of to protect an API route
+import { unstable_getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
+
+
+/*
+import { unstable_getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
+*/
 
 //setOptions({ site: process.env.SITE });
 
@@ -75,6 +85,40 @@ export default async function handler(req, res) {
 
 	//const session = await getSession({ req });
 	//console.log('gaem-fetch-nfts session', session);
+
+
+	//const session = await getSession({ req });
+	//console.log('game-fetch-nfts session', session);
+
+	/*
+	const session = await unstable_getServerSession(req, res, authOptions)
+	if (session) {
+	  // Signed in
+	  console.log("Session", JSON.stringify(session, null, 2));
+	} else {
+	  // Not Signed in
+	  res.status(401)
+
+		return res.status(401).json({
+			message: "Not Signed in",
+		});
+	}
+	*/
+
+	const session = await unstable_getServerSession(req, res, authOptions);
+
+	if (session) {
+
+	} else {
+
+		console.log("game-fetch-nfts session", session);
+
+		/*
+		return res.status(400).json({
+			message: "You must be signed in to view the protected content on this page.",
+		});
+		*/
+	}
 
 
 	try {
@@ -344,7 +388,7 @@ export default async function handler(req, res) {
 				
 				nft.description = "";
 
-				console.log(json.items[idx].uri);
+				//console.log(json.items[idx].uri);
 
 				
 				

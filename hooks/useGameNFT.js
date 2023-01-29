@@ -4,6 +4,8 @@ import contractABI from "../constants/contractABI.json";
 import stakingABI from "../constants/stakingABI.json";
 import { min } from "rxjs";
 
+import { useSession } from "next-auth/react";
+
 
 export default function useGameNFT(address, chainId, contractOwnerAddress, contractAddress, stakingWalletAddress, nftSymbol) {
 
@@ -28,6 +30,35 @@ export default function useGameNFT(address, chainId, contractOwnerAddress, contr
 	const [miningAmountGlobal, setMiningAmountGlobal] = useState("0");
 
 	const [stakingNFT, setStakingNFT] = useState(nftSymbol);
+
+
+	const { data: session } = useSession();
+
+
+
+	//console.log("useGameNFT");
+	
+
+	// Fetch content from protected route
+	useEffect(() => {
+
+		console.log("useGameNFT useEffect session", session);
+
+		const fetchData = async () => {
+
+			/*
+			const res = await fetch("/api/examples/protected")
+			const json = await res.json()
+			if (json.content) {
+				setContent(json.content)
+
+			}
+			*/
+		}
+		fetchData();
+	}, [session]);
+
+
 
 
 	////console.log("useGameNFT stakingWalletAddress", stakingWalletAddress);
@@ -1176,3 +1207,6 @@ export function useInterval(callback, delay) {
 		}
 	}, [callback, delay]);
 }
+
+
+

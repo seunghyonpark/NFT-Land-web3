@@ -15,7 +15,8 @@ import React, { useState, useEffect } from "react";
 //import { Inter } from '@next/font/google';
 
 //import { AppProps } from 'next/app';
-//import { SessionProvider } from 'next-auth/react';
+
+import { SessionProvider } from 'next-auth/react';
 
 
 
@@ -67,8 +68,8 @@ const wagmiClient = createClient({
 // 
 function MyApp({
   Component,
-  /////pageProps: { session, ...pageProps }
-  pageProps: { ...pageProps }
+  pageProps: { session, ...pageProps }
+  ////pageProps: { ...pageProps }
 }) {
 
   //console.log("MyApp"); 
@@ -99,14 +100,18 @@ function MyApp({
     //  <Component {...pageProps} />
     //</SessionProvider>
 
+    <SessionProvider session={session}>
 
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <ThemeProvider>
           <ApolloProvider client={ApolloClient}>
             <LivepeerConfig client={LivePeerClient}>
+
               <Component {...pageProps} />
+
               <Toaster />
+
             </LivepeerConfig>
           </ApolloProvider>
         </ThemeProvider>
@@ -114,8 +119,13 @@ function MyApp({
     </WagmiConfig>
 
 
+    </SessionProvider>
   )
 
+
+
+
 }
+
 
 export default MyApp

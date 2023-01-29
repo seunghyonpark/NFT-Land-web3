@@ -16,6 +16,8 @@ import stakingAddress from "../constants/stakingAddress.json";
 import contractAddressNFT from "../constants/contractAddressNFT.json";
 
 
+
+
 //import useFetchNFTs from "../hooks/use-fetch-NFTs.js";
 
 //import walletAddress from "../constants/walletAddress.json";
@@ -37,7 +39,8 @@ import RouteGuard from "../components/RouteGuard.jsx";
 
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-import { GetServerSideProps } from 'next';
+///import { GetServerSideProps } from 'next';
+
 
 const options = {
     //options
@@ -710,3 +713,5 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 	};
   };
   */
+
+

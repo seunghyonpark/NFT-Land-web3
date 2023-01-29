@@ -1,11 +1,11 @@
-import React from "react"
-import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
-import classes from "./index.module.css"
-import { consoleLog } from "mocha/lib/reporters/base"
+import React from "react";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import classes from "./index.module.css";
+import { consoleLog } from "mocha/lib/reporters/base";
 
-import { useRouter } from 'next/router'
-import { min } from "mocha/lib/reporters"
+import { useRouter } from 'next/router';
+import { min } from "mocha/lib/reporters";
 
 
 export default function GameHeader ({
@@ -33,6 +33,8 @@ export default function GameHeader ({
 	stakingCountGlobal,
 	miningAmountGlobal,
 }) {
+
+	//console.log("GameHeader csrfToken", csrfToken);
 
 	if (address) {
 		//console.log("MintHeaderHeader address",address);
@@ -112,7 +114,7 @@ export default function GameHeader ({
 	}, [miningAmountGlobal]);
 
 
-	
+	/*
 	useEffect(() => {
 
 		//console.log("GameHeader useEffect mintingCountGlobal", mintingCountGlobal);
@@ -154,7 +156,7 @@ export default function GameHeader ({
 		}		
 
 	}, [mintingCountGlobal]);
-
+	*/
 	
 
 
@@ -247,7 +249,7 @@ export default function GameHeader ({
 
 
 	}, [address, refNFT, ]);
-
+	
 
 
 
@@ -478,6 +480,7 @@ export default function GameHeader ({
 				<button ref={refNFT} onClick={(e) => {e.preventDefault(); fetchNFTs(e);}}>
 
 				</button>
+
 
 				<button
 					ref={refConnect}
@@ -869,3 +872,6 @@ export default function GameHeader ({
 	)
 
 }
+
+
+

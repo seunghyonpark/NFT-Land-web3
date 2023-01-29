@@ -538,7 +538,7 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 				<Image
 					onClick={() => setShowModal(true)}
 					className=" ml-6 h-12 w-12 flex-none" 
-					src={`/notice.gif`}
+					src={`/notice.png`}
 					alt={`notice`}
 					width={500}
 					height={500} 

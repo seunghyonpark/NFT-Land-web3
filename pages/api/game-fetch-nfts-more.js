@@ -112,6 +112,10 @@ export default async function handler(req, res) {
 
 		// staked NFTs
 		
+		console.log("game-fetch-nfts-more chainid", chainid);
+		console.log("game-fetch-nfts-more contractAddress", contractAddress);
+
+		//0xf57255329ad3f60b19cb452b68546e11f1fe20df
 
 		const response = await fetch(`http://wallet.treasureverse.io/gogostakingmore?chainid=${chainid}&contract=${contractAddress}`);
 
