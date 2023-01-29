@@ -66,6 +66,12 @@ export default async function handler(req, res) {
 			});
 		}
 
+		// 버그수정전에 임시로 차단
+		return res.status(400).json({
+			message: "Invalid method",
+		});
+
+
 		const { stakingwallet, chainid, contract, wallet, tokenid } = req.query;
 
 		/*

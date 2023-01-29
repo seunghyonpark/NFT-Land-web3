@@ -46,7 +46,7 @@ export default function Chain({ chain, buttonOnly }) {
     return () => {
       stores.emitter.removeListener(ACCOUNT_CONFIGURED, accountConfigure);
     };
-  }, []);
+  }, [setAccount]);
 
   const icon = useMemo(() => {
     return chain.chainSlug
@@ -160,4 +160,5 @@ export default function Chain({ chain, buttonOnly }) {
       {showAddlInfo && <RPCList chain={chain} />}
     </>
   );
+  
 }
