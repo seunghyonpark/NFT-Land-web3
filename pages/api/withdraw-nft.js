@@ -67,10 +67,11 @@ export default async function handler(req, res) {
 		}
 
 		// 버그수정전에 임시로 차단
+		/*
 		return res.status(400).json({
 			message: "Invalid method",
 		});
-
+		*/
 
 		const { stakingwallet, chainid, contract, wallet, tokenid } = req.query;
 
@@ -95,166 +96,46 @@ export default async function handler(req, res) {
 		const caver = new CaverExtKAS(chainid, accessKeyId, secretAccessKey);
 
 
-		//-------- mint -------------------
-
-		//const data = await caver.kas.tokenHistory.getNFTListByOwner(contractAddress, wallet, nftQuery);
-
-		/*
-		개인키(private key)를 사용하여 키링(keyring)을 만들고 그 키링을 caver.wallet에 추가합니다. 이렇게 추가한 키링은 나중에 계약을 발행할 때 사용됩니다.
-		
-		// Add a keyring to caver.wallet
-		const privateKey = fs.readFileSync(".secret").toString().trim();
-		const deployer = caver.wallet.keyring.createFromPrivateKey(privateKey);
-		caver.wallet.add(deployer);
-		const abi = Artifact.compilerOutput.abi;
-		const data = Artifact.compilerOutput.evm.bytecode.object;
-		const contract = caver.contract.create(abi);
-		const deployed = await contract.deploy({from: deployer.address, gas}, data)
-
-		const deployed = caver.contract.create(abi, contractAddress)
-		const receipt = await deployed.send({from: deployer.address, gas},
-      'mintWithTokenURI', toAddress, 1, `${baseURI}/1`)
-		*/
 
 
-		/*
-		const keyringContainer = new caver.keyringContainer()
-const keyring = keyringContainer.add(keyringContainer.keyring.createFromPrivateKey(senderPrivateKey))
-
-const contractAddress ='0x...'
-const abi = [ {...}, {...}, ... ]
-
-const contract = caver.contract.create(abi, contractAddress)
-contract.setWallet(keyringContainer)
-contract.events.callevent(
-    {
-        fromBlock: 61517244,
-        toBlock: 'latest',
-    },
-    (error, data) => {
-        console.log(`callevent: ${data}`)
-    }
-)
-
-const options = {
-    from: keyring.address,
-    gas: 30000,
-}
-await contract.methods.say().send(options)
-*/
 
 
 		
-/*
-const keyring = caver.wallet.keyring.createFromPrivateKey("privagekey");
-const address = keyring.address;
-const key = keyring.key.privateKey;
 
-const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
-console.log("ret", ret);
-*/
-
-		/*
-		const stakingWalletPrivateKey = process.env.STAKING_WALLET_PRIVATE_KEY_WAYNE;
-
-		const keyring = caver.wallet.keyring.createFromPrivateKey(stakingWalletPrivateKey);
-		const address = keyring.address;
-		const key = keyring.key.privateKey;
-
-		const ret = await caver.kas.wallet.migrateAccounts([{ address, key }]);
-
-		console.log("address", address);
-		console.log(ret);
-
-		RegistrationStatusResponse { status: 'ok' }
-		*/
+		const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?contract=${contractAddress}&chainid=${chainid}&wallet=${wallet}&tokenid=${tokenId}`);
 
 
-		/*
-		const account = await caver.kas.wallet.createAccount();
-		console.log("account", account);
-		*/
+		//console.log("withdraw-nft response", response);
 
-		
+			
+		if (response.ok) {
 
-		/*
-		const gas = 1000000;
+			const json = await response.json();
 
-		const deployed = caver.contract.create(contractABI, contractAddress);
-		*/
+			if (json.result === "fail") {
+				//console.log("withdraw-nft error");
 
-		/*
-		const result = await caver.kas.kip17.mint (
-			contractAddress,
-			wallet,
-			caver.utils.toHex(tokenId),
-			tokenUri
-		);
-		*/
+				res.status(500).json({ message: "Internal Server Error!" });
+				return;
+			}
 
-		//console.log("deployed", deployed);
+		} else {
+			//console.log("withdraw-nft error");
 
+			res.status(500).json({ message: "Internal Server Error!" });
+			return;
+		}
 
-
-
-
-		/*
-		deployed.events
-		.allEvents()
-		.on('data', event => {
-			console.log("event", event);
-		})
-		.on('error', console.error)
-		*/
 
 
 		const withdrawTokenId = parseInt(caver.utils.toBN(tokenId));
 
-		
-		/*
-		console.log("withdraw-nft contractAddress", contractAddress);
-		console.log("withdraw-nft stakingWalletAddress", stakingWalletAddress);
-
-		console.log("withdraw-nft wallet", wallet);
-
-		console.log("withdraw-nft withdrawTokenId", withdrawTokenId);
-		*/
-
-
-		/*
-		const result = await caver.kas.kip17.mint (
-			contractAddress,
-			wallet,
-			caver.utils.toHex(tokenId),
-			tokenUri
-		);
-		*/
-
-		/*
-		const result = await caver.kas.kip17.transfer (
-			contractAddress,
-			stakingWalletAddress,
-			stakingWalletAddress,
-			wallet,
-			caver.utils.toHex(withdrawTokenId)
-		);
-
-		console.log("caver.kas.kip17.transfer result", result);
-		*/
-
-		/*
-		ErrorResponse {
-  _code: 1104404,
-  _message: 'Contract not found',
-  _requestId: 'a9d9c017-c38c-4a24-88af-e0a301a8233e'
-}
-
-		*/
 
 
 		//console.log("withdraw-nft contractABI", contractABI)
 
 		const fromAddress = stakingWalletAddress;
+
 
 
 		const gas = 1000000;
@@ -331,19 +212,6 @@ console.log("ret", ret);
 			}
 
 			res.json({ message: "Withdraw successful!", data: nft});
-
-
-
-
-			const response = await fetch(`http://wallet.treasureverse.io/gogowithdraw?chainid=${chainid}&wallet=${wallet}&tokenid=${tokenId}`);
-
-			
-			if (response.ok) {
-
-			}
-
-
-
 
 
 
