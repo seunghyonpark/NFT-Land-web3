@@ -86,7 +86,9 @@ export default function GameMain({
 
         if (address === "") {
             const amount = Number(0).toFixed(numFix);
+
             setThisMiningAmountTotal(amount + " / " + (stakingCount*2000));
+
             return;
         }
 
@@ -101,6 +103,7 @@ export default function GameMain({
         
         
 
+		/*
 		let number = Number(miningAmountTotal) * 10000;
 
 
@@ -120,10 +123,13 @@ export default function GameMain({
             start += 1;
 
 		}, incrementTime);
+		*/
+
+		setThisMiningAmountTotal("updating..." + " / " + (stakingCount*2000));
 
 		return () => {
 			
-			clearInterval(timer);
+			//clearInterval(timer);
 	
 		}		
 
@@ -337,6 +343,8 @@ drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)]
 						</p>
 
 						<div className={classes.number}>{thisMiningAmountTotal}</div>
+
+
 					</div>
 
 					{/*

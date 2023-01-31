@@ -31,7 +31,7 @@ export default function GameHeader2({
 	miningAmountGlobal,
 }) {
 	
-	console.log("GameHeader2");
+	//console.log("GameHeader2");
 
 	if (address) {
 		//console.log("MintHeaderHeader address",address);
