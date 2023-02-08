@@ -282,6 +282,13 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 				<div className="flex-auto">
 					<div className={classes.number}>{cardData.miningDay}</div>
 				</div>
+			</div>	
+
+			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">
+				<div className="text-left">Maturity</div>
+				<div className="flex-auto">
+					<div className={classes.number}>Level 1 (유아기)</div>
+				</div>
 			</div>			
 
 			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">
