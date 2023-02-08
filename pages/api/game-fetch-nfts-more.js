@@ -146,6 +146,7 @@ export default async function handler(req, res) {
 
 
 				const miningDay = json.items[idx].miningDay;
+				nft.miningDay = miningDay;
 				nft.timeLeft = "4 years 11 month " + (30-miningDay) + " days";
 
 

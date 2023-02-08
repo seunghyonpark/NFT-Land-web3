@@ -278,6 +278,13 @@ Error: Too many re-renders. React limits the number of renders to prevent an inf
 			</div>
 
 			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">
+				<div className="text-left">Staking Day</div>
+				<div className="flex-auto">
+					<div className={classes.number}>{cardData.miningDay}</div>
+				</div>
+			</div>			
+
+			<div className="flex mt-2  text-xs rounded-md bg-teal-50 px-2">
 				<div className="text-left">$SML</div>
 				<div className="flex-auto">
 					<div className={classes.number}>{Number(cardData.miningAmount).toFixed(4)}</div>

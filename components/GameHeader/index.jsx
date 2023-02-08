@@ -7,6 +7,8 @@ import { consoleLog } from "mocha/lib/reporters/base";
 import { useRouter } from 'next/router';
 import { min } from "mocha/lib/reporters";
 
+import Script from "next/script";
+
 
 export default function GameHeader ({
 	contractAddress,
@@ -475,7 +477,8 @@ export default function GameHeader ({
 					height={100} 
 					
 				/>
-			
+
+
 
 				<button ref={refNFT} onClick={(e) => {e.preventDefault(); fetchNFTs(e);}}>
 
@@ -502,6 +505,7 @@ export default function GameHeader ({
 				*/}
 
 			</form>
+
 
 
 {/*
@@ -592,7 +596,7 @@ export default function GameHeader ({
 						setContractAddress("0xd8940245a37a301576eae6ea0348392ade2b8d5d");
 					}}
 				>
-					BIRDEI
+					BIRDIE
 				</button>
 
 				<button
@@ -696,7 +700,7 @@ export default function GameHeader ({
 						setContractAddress("0x2fc2defa84bc438178d8af42edcc3b861221d081");
 					}}
 				>
-					BIRDEI
+					BIRDIE
 				</button>
 
 				<button
