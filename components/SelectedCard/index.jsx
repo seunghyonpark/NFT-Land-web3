@@ -495,10 +495,13 @@ bg-cover bg-center bg-[url('/img_tomo.png')]
 				</div>
 				<div className=" overflow-hidden text-left">
 					<p className="text-sm  font-medium " >Mining Amount ($SML)</p>
-					{/*
+					
 					<p className="text-xs truncate">{selectedCard.miningAmount}</p>
-					*/}
+					
+					{/*
 					<p className="text-xs truncate">updating...</p>
+					*/}
+					
 				</div>
 			</li>
 
