@@ -324,7 +324,7 @@ export default function Home({
 				<meta property="og:image:width" content="1400"></meta>
 				<meta property="og:image:height" content="1400"></meta>
 				
-				<meta proterty="og:url" content="https://ggdstaking.xyz/"></meta>
+				<meta property="og:url" content="https://ggdstaking.xyz/"></meta>
 
 				<meta name="description"
 					content="
@@ -332,7 +332,7 @@ export default function Home({
 					"
 				></meta>
 
-				<meta name="twitter:card" content="summary_large_image"></meta> {/*telegram large image */}
+				<meta name="twitter:card"content="summary_large_image"></meta> {/*telegram large image */}
 				<meta name="twitter:image"
 					content="/gdx.jpeg"
 				></meta>
